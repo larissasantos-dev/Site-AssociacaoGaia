@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <title>Associação Gaia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
+
+    <header class="geral-header"> <!-- classe global -->
+        <!-- MOBILE -->
+        <nav class="mobile-header">
+            <div class="mobile-header-container-flexbox-pai">
+                <img src="assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+                <img src="assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens"
+                    id="mobile-heder-btn-menu">
+            </div>
+        </nav>
+
+        <!-- DESKTOP -->
+        <nav class="desktop-header">
+            <img src="assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+            <ul class="desktop-header-container-flexbox-pai">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pages/eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="pages/projetos.html">Projetos</a></li>
+                <li><a href="pages/sobre-nos.html">Sobre nós</a></li>
+            </ul>
+            <div>
+                <img src="assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            </div>
+        </nav>
+
+        <aside id="mobile-header-sidebar">
+
+            <div class="mobile-sidebar-cima">
+                <button id="mobile-btnFechar-sidebar">X</button>
+            </div>
+
+            <div class="mobile-usuario-sidebar">
+                <img src="assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+                <span>Minha conta</span>
+            </div>
+
+            <nav>
+                <ul class="mobile-sidebar">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="pages/eventos.html">Eventos</a></li>
+                    <li><a href="artesaos.html">Artesãos</a></li>
+                    <li><a href="pages/projetos.html">Projetos</a></li>
+                    <li><a href="pages/sobre-nos.html">Sobre nós</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
+    </header>
+
+    <main>
+        <section class="la-secao-destaque-mes" id="la-destaque-mes">
+            <div class="la-destaque-mes-div">
+                <span class="la-destaque-mes-badge">✦ Destaque do mês</span>
+                <h1>Grande Feira de Artesanato Tradicional</h1>
+
+                <div class="la-destaque-mes-info">
+                    <img src="assets/icone-calendario-destaque-mes.png" alt="icone-calendario"
+                        class="la-icones-destaque-mes">
+                    <p>10 de Maio de 2026</p>
+                </div>
+
+                <div class="la-destaque-mes-info">
+                    <img src="assets/icone-relogio-destaque-mes.svg" alt="icone-relogio" class="la-icones-destaque-mes">
+                    <p>09:00 às 19:00</p>
+                </div>
+
+                <div class="la-destaque-mes-info">
+                    <img src="assets/icone-local-destaque-mes.svg" alt="icone-local" class="la-icones-destaque-mes">
+                    <p>Praça Duque de Caxias</p>
+                </div>
+            </div>
+
+            <div class="la-destaque-mes-imagem">
+                <img src="assets/destaque-mes-img.png" alt="imagem-feira-artesanato"
+                    class="la-imagem-principal-destaque">
+                <p><strong>Feira dos Artesãos: </strong>Venha celebrar o talento local e descobrir peças únicas feitas
+                    com alma e dedicação!</p>
+
+                <div class="la-destaque-mes-botoes">
+                    <a href="#" class="la-btn-destaque-mes">Ver detalhes →</a>
+                    <a href="#" class="la-btn-destaque-mes"><img src="assets/icone-local-branco-destaque-mes.svg"
+                            alt="icone local" class="la-icones-destaque-mes">Como chegar</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="la-proximas-feiras">
+            <header class="la-proximas-feiras-header">
+                <h2>Próximas Feiras</h2>
+                <p>O melhor da nossa comunidade: uma seleção exclusiva dos eventos mais aguardados desse mês.</p>
+            </header>
+
+            <div class="la-carrossel-wrapper">
+                <button class="la-carrossel-btn la-carrossel-btn-prev" aria-label="Anterior">&#8592;</button>
+
+                <ul class="la-carrossel" id="la-carrossel" role="list">
+
+                    <li class="la-card">
+                        <article class="la-card-inner">
+                            <img src="assets/img-evento-1-home.jpg" alt="Descrição do evento 1" class="la-card-img">
+                            <span class="la-card-badge">Evento</span>
+                            <a href="#" class="la-card-btn">Ver detalhes →</a>
+                        </article>
+                    </li>
+
+                    <li class="la-card">
+                        <article class="la-card-inner">
+                            <img src="assets/img-evento-2-home.jpg" alt="Descrição do evento 2" class="la-card-img">
+                            <span class="la-card-badge">Feira</span>
+                            <a href="#" class="la-card-btn">Ver detalhes →</a>
+                        </article>
+                    </li>
+
+                    <li class="la-card">
+                        <article class="la-card-inner">
+                            <img src="assets/img-evento-3-home.jpg" alt="Descrição do evento 3" class="la-card-img">
+                            <span class="la-card-badge">Evento</span>
+                            <a href="#" class="la-card-btn">Ver detalhes →</a>
+                        </article>
+                    </li>
+
+                    <li class="la-card">
+                        <article class="la-card-inner">
+                            <img src="assets/img-evento-4-home.jpg" alt="Descrição do evento 4" class="la-card-img">
+                            <span class="la-card-badge">Feira</span>
+                            <a href="#" class="la-card-btn">Ver detalhes →</a>
+                        </article>
+                    </li>
+
+                    <li class="la-card">
+                        <article class="la-card-inner">
+                            <img src="assets/img-evento-5-home.jpg" alt="Descrição do evento 5" class="la-card-img">
+                            <span class="la-card-badge">Evento</span>
+                            <a href="#" class="la-card-btn">Ver detalhes →</a>
+                        </article>
+                    </li>
+
+                    <li class="la-card">
+                        <article class="la-card-inner">
+                            <img src="assets/img-evento-6-home.jpg" alt="Descrição do evento 6" class="la-card-img">
+                            <span class="la-card-badge">Feira</span>
+                            <a href="#" class="la-card-btn">Ver detalhes →</a>
+                        </article>
+                    </li>
+
+                </ul>
+
+                <button class="la-carrossel-btn la-carrossel-btn-next" aria-label="Próximo">&#8594;</button>
+            </div>
+
+            <div class="la-carrossel-dots" id="la-carrossel-dots"></div>
+
+            <a href="pages/eventos.html" class="la-btn-ver-mais">
+                <img src="assets/icone-calendario-branco-destaque-mes.png" alt="">
+                Ver Próximas Feiras
+            </a>
+        </section>
+
+        <section class="la-artesaos-destaque">
+            <header class="la-artesaos-header">
+                <h2>Artesãos em Destaque</h2>
+                <p>Conheça alguns dos talentosos artesãos que fazem parte da nossa comunidade</p>
+            </header>
+
+            <div class="la-artesaos-carrossel-wrapper">
+                <button class="la-artesaos-btn la-artesaos-btn-prev" aria-label="Anterior">&#8592;</button>
+
+                <ul class="la-artesaos-carrossel" id="la-artesaos-carrossel" role="list">
+
+                    <li class="la-artesao-card">
+                        <article class="la-artesao-inner">
+                            <div class="la-artesao-foto">
+                                <img src="assets/img-artesao-1-home.png" alt="Foto da artesã 1">
+                            </div>
+                            <div class="la-artesao-info">
+                                <h3>Nome da artesã</h3>
+                                <p>Cidade - UF</p>
+                                <div class="la-artesao-badges">
+                                    <span class="la-badge">🪴 Cerâmica</span>
+                                    <span class="la-badge">🏺 Porcelana</span>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="la-artesao-card">
+                        <article class="la-artesao-inner">
+                            <div class="la-artesao-foto">
+                                <img src="assets/img-artesao-2-home.png" alt="Foto da artesã 2">
+                            </div>
+                            <div class="la-artesao-info">
+                                <h3>Nome da artesã</h3>
+                                <p>Cidade - UF</p>
+                                <div class="la-artesao-badges">
+                                    <span class="la-badge">🧶 Tecelagem</span>
+                                    <span class="la-badge">🏺 Porcelana</span>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="la-artesao-card">
+                        <article class="la-artesao-inner">
+                            <div class="la-artesao-foto">
+                                <img src="assets/img-artesao-3-home.png" alt="Foto da artesã 3">
+                            </div>
+                            <div class="la-artesao-info">
+                                <h3>Nome da artesã</h3>
+                                <p>Cidade - UF</p>
+                                <div class="la-artesao-badges">
+                                    <span class="la-badge">🪴 Cerâmica</span>
+                                    <span class="la-badge">🪡 Bordado</span>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="la-artesao-card">
+                        <article class="la-artesao-inner">
+                            <div class="la-artesao-foto">
+                                <img src="assets/img-artesao-4-home.png" alt="Foto da artesã 4">
+                            </div>
+                            <div class="la-artesao-info">
+                                <h3>Nome da artesã</h3>
+                                <p>Cidade - UF</p>
+                                <div class="la-artesao-badges">
+                                    <span class="la-badge">🧶 Tecelagem</span>
+                                    <span class="la-badge">🏺 Porcelana</span>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="la-artesao-card">
+                        <article class="la-artesao-inner">
+                            <div class="la-artesao-foto">
+                                <img src="assets/img-artesao-5-home.png" alt="Foto da artesã 5">
+                            </div>
+                            <div class="la-artesao-info">
+                                <h3>Nome da artesã</h3>
+                                <p>Cidade - UF</p>
+                                <div class="la-artesao-badges">
+                                    <span class="la-badge">🪴 Cerâmica</span>
+                                    <span class="la-badge">🪡 Bordado</span>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="la-artesao-card">
+                        <article class="la-artesao-inner">
+                            <div class="la-artesao-foto">
+                                <img src="assets/img-artesao-6-home.png" alt="Foto da artesã 6">
+                            </div>
+                            <div class="la-artesao-info">
+                                <h3>Nome da artesã</h3>
+                                <p>Cidade - UF</p>
+                                <div class="la-artesao-badges">
+                                    <span class="la-badge">🧶 Tecelagem</span>
+                                    <span class="la-badge">🏺 Porcelana</span>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+
+                <button class="la-artesaos-btn la-artesaos-btn-next" aria-label="Próximo">&#8594;</button>
+            </div>
+
+            <a href="pages/artesaos.html" class="la-btn-artesaos-ver-mais">
+                Ver Todos os Artesãos →
+            </a>
+        </section>
+
+    </main>
+
+    <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+    <footer class="footer-container-grid-pai">
+        <div class="footer-grid-bloco1">
+            <h3>Associação Gaia</h3>
+            <p>Criatividade que conecta, artesanato que transforma</p>
+        </div>
+
+        <div class="footer-grid-bloco2">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pages/eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="pages/projetos.html">Projetos</a></li>
+                <li><a href="pages/sobre-nos.html">Sobre nós</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-grid-bloco3">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="#">Cerâmica</a></li>
+                <li><a href="#">Tecelagem</a></li>
+                <li><a href="#">Porcelana</a></li>
+                <li><a href="#">Marcenaria</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-grid-bloco4">
+            <h4>Contato</h4>
+            <p>(11) 9999-9999</p>
+            <p>Diretoriagaia1@gmail.com</p>
+
+            <h4>Redes Socias</h4>
+            <div>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

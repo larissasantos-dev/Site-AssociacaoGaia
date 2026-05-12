@@ -1,0 +1,876 @@
+/* RESETA MARGEM E PADDING PARA TODOS OS NAVEGADORES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body{
+    font-family: "Ubuntu", sans-serif;
+}
+
+/* GLOBAL - APLICADO PARA MOBILE E DESKTOP*/
+.geral-header{
+    background-color:  #44753f;
+    color: white;
+}
+
+/* GLOBAL - CSS DO HEADER PARA MOBILE */
+.mobile-header-container-flexbox-pai{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    list-style: none;
+    font-size: 0.875rem;
+    width: 100%; 
+}
+
+.header-tamanho-imagens {
+    width: 22px;     
+    height: auto;    
+    display: block;  
+}
+
+.header-logo-img{
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.desktop-header{
+   display: none;
+}
+
+#mobile-header-sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #44753f;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: 0.5s;
+    padding: 20px;
+}
+
+#mobile-header-sidebar.active{
+    transform: translateX(0); 
+}
+
+.mobile-sidebar-menu-opcoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.mobile-sidebar{
+    list-style: none;
+}
+
+.mobile-sidebar a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.mobile-sidebar li{
+    margin-bottom: 25px;
+    list-style: none;
+}
+
+.mobile-sidebar li:last-child {
+    margin-bottom: 0;
+}
+
+.mobile-header-overlay-class{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    display: none;
+}
+
+.mobile-header-overlay-class.active{
+    display: block;
+}
+
+.mobile-sidebar-cima{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#mobile-btnFechar-sidebar{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    line-height: 1;
+}
+
+.mobile-usuario-sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid  rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.mobile-icone-usuario{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* GLOBAL - CSS DO HEADER PARA DESKTOP */
+@media(min-width: 768px){
+    .mobile-header{
+        display: none;
+    }
+
+    .desktop-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+    }
+
+    .desktop-header-container-flexbox-pai{
+        display: flex;
+        gap: 20px;
+        list-style: none;
+    }
+
+    .desktop-header-container-flexbox-pai a{
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .header-logo-img{
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+    .icone-usuario{
+        width: 40px;
+        height: auto;
+        display: block;
+    }
+
+     .desktop-header-container-flexbox-pai a:hover {
+        color: #f4f4f4;
+        text-decoration: underline; 
+        transition: 0.3s;
+    }
+}
+
+/* GLOBAL - CSS FOOTER PARA MOBILE */
+.footer-container-grid-pai {
+    display: grid;
+    grid-template-columns: 1fr; /* Footer em uma única colona */
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #44753f;
+    color: white;
+}
+
+.footer-container-grid-pai h3, 
+.footer-container-grid-pai h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    
+}
+
+.footer-container-grid-pai ul {
+    list-style: none;
+}
+
+.footer-container-grid-pai li {
+    margin-bottom: 10px;
+}
+
+.footer-container-grid-pai a {
+    text-decoration: none; 
+    color: white;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-container-grid-pai a:hover {
+    opacity: 0.7; 
+}
+
+.footer-grid-bloco4 div {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.footer-grid-bloco4 img {
+    cursor: pointer;
+}
+
+
+.footer-grid-bloco4 img {
+    width: 28px;
+    transition: transform 0.2s;
+}
+
+.footer-grid-bloco4 img:hover {
+    transform: scale(1.2); 
+}
+
+.footer-grid-bloco4 p{
+    line-height: 1.6; 
+      margin-bottom: 0.2rem;
+}
+
+.footer-grid-bloco4 h4{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-grid-bloco4 h4:first-child {
+    margin-top: 0;
+}
+
+img[src*="facebook"]{
+    transform: scale(1.2);
+}
+
+/* GLOBAL - CSS FOOTER PARA DESKTOP */
+@media (min-width: 768px) {
+    .footer-container-grid-pai {
+        grid-template-columns: repeat(4, 1fr); /* Footer separado em 4 colonas */
+        align-items: start;
+        padding: 60px 5%;
+    }
+}
+
+/* ---------- LARISSA - INDEX ---------- */
+
+/*DESTAQUE DO MÊS - CSS PARA MOBILE*/
+.la-secao-destaque-mes{
+   display: flex;
+   flex-direction:column;
+   align-items: center;
+   padding: 40px 20px;
+   background-color:#FDFBF6;
+   text-align: center;
+   gap: 20px;
+
+    position: relative;
+    background-color: transparent;
+    background-image: url('../assets/destaque-mes-mg-fundo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.la-destaque-mes-badge{
+    background-color: #6b4f2a;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.la-destaque-mes-div h1{
+    font-size: 1.8rem;
+    color: #1c1c1c;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.la-destaque-mes-info p{
+    font-size: 1.2rem;
+    color: #1c1c1c;
+    margin-bottom: 8px;
+}
+
+.la-destaque-mes-botoes{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.la-btn-destaque-mes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #c45e2a;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.la-btn-destaque-mes img{
+    width: 18px;
+    height: auto;
+}
+
+.la-btn-destaque-mes:hover{
+    background-color: #a34d22;
+     transition: background-color 0.2s;
+}
+
+.la-imagem-principal-destaque{
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.la-destaque-mes-imagem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+} 
+
+.la-destaque-mes-imagem p{
+    font-size: 1rem;
+    color: #1c1c1c;
+    margin-top: 5px;
+    font-style: italic;
+    max-width: 400px;
+    width: 100%;
+}
+
+.la-destaque-mes-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.la-icones-destaque-mes{
+    width: 22px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.la-destaque-mes-info p{
+    margin: 0;
+    line-height: 1;
+}
+
+.la-secao-destaque-mes::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(253, 251, 246, 0.75);
+        z-index: 0;
+    }
+
+.la-destaque-mes-div, .la-destaque-mes-imagem{
+        position: relative;
+        z-index: 1;
+    }
+
+/* DESTAQUE DO MÊS - CSS PARA TABLETS */
+@media(min-width: 768px){
+    .la-secao-destaque-mes{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        padding: 80px 5%;
+        gap: 40px;
+        margin: 0 auto;    
+    }
+
+    .la-destaque-mes-div{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 480px;       
+    }
+
+    .la-destaque-mes-imagem{
+        display: flex;
+        flex: 0 0 auto;       
+        flex-direction: column;
+        align-items: center;
+        width: 380px;            
+    }
+
+    .la-destaque-mes-botoes{
+        flex-direction: row;
+        max-width: none;
+        width: auto;
+    }
+
+    .la-imagem-principal-destaque{
+        width: 100%;
+        max-width: 380px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 15px;
+        display: block;
+    }
+
+    .la-destaque-mes-info{
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .la-destaque-mes-wrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* DESTAQUE DO MÊS - CSS PARA DESKTOP */
+@media(min-width: 1200px){
+    .la-secao-destaque-mes{
+        display: grid;
+        grid-template-columns: 500px 480px;
+        column-gap: 120px;
+        justify-content: center;
+    }
+
+    .la-destaque-mes-div{
+        max-width: 560px;
+    }
+
+    .la-destaque-mes-div h1{
+        font-size: 2.4rem;
+        margin-bottom: 30px;
+    }
+
+    .la-destaque-mes-imagem{
+        width: 480px;
+    }
+
+    .la-imagem-principal-destaque{
+        max-width: 480px;
+        height: 280px;
+    }
+}
+
+/* EVENTOS EM DESTAQUE - CSS PARA MOBILE */
+.la-proximas-feiras{
+    padding: 40px 20px 20px;
+    background-color: #FDFBF6;
+    text-align: center;
+}
+
+.la-proximas-feiras-header h2 {
+    font-size: 1.8rem;
+    color: #1c1c1c;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+}
+
+.la-proximas-feiras-header p{
+    font-size: 1rem;
+    color: #1c1c1c;
+    max-width: 480px;
+    margin: 0 auto 30px;
+    line-height: 1.5;
+}
+
+.la-carrossel-wrapper{
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.la-carrossel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    list-style: none;
+    padding: 8px 2px;
+}
+
+.la-carrossel::-webkit-scrollbar{
+    display: none;
+}
+
+.la-card{
+    scroll-snap-align: start;
+}
+
+.la-card-inner{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    background-color: #1c1c1c;
+}
+
+.la-card-img {
+    grid-row: 1 / -1;            
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.la-card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: #6b4f2a;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.la-card-btn {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #c45e2a;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+.la-card-btn:hover {
+    background-color: #a34d22;
+}
+
+.la-carrossel-btn {
+    background-color: #c45e2a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.la-carrossel-btn:hover {
+    background-color: #a34d22;
+}
+
+.la-carrossel-dots {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.la-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.la-dot.active {
+    background-color: #c45e2a;
+}
+
+.la-btn-ver-mais {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+    background-color: #6b4f2a;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.la-btn-ver-mais img {
+    width: 18px;
+    height: auto;
+}
+
+.la-btn-ver-mais:hover {
+    background-color: #a34d22;
+}
+
+.la-card-inner {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.la-card-inner:hover {
+    transform: scale(1.04);
+}
+
+.la-card-inner:active {
+    transform: scale(0.97); 
+    transition: transform 0.1s ease;
+}
+
+/*  EVENTOS EM DESTAQUE - CSS PARA TABLETS  */
+@media (min-width: 600px) {
+    .la-carrossel {
+        grid-auto-columns: 49%;
+    }
+}
+
+/*  EVENTOS EM DESTAQUE - CSS PARA DESKTOP  */
+@media (min-width: 1024px) {
+    .la-proximas-feiras {
+        padding: 60px 5%;
+    }
+
+    .la-carrossel {
+        grid-auto-columns: 32.5%;
+    }
+
+    .la-proximas-feiras-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* ARTESAOS EM DESTAQUE - MOBILE */
+.la-artesaos-destaque {
+    padding: 20px 20px 40px;
+    background-color: #f5f1ec;
+    text-align: center;
+}
+
+.la-artesaos-header h2 {
+    font-size: 1.8rem;
+    color: #1c1c1c;
+    letter-spacing: 0.08em;
+    margin-bottom: 15px;
+}
+
+.la-artesaos-header p {
+    font-size: 1rem;
+    color: #555;
+    max-width: 500px;
+    margin: 0 auto 15px;
+    line-height: 1.5;
+}
+
+.la-artesaos-carrossel-wrapper {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    align-items: center;
+    gap: 10px;
+}
+
+.la-artesaos-carrossel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    list-style: none;
+    padding: 8px 2px;
+    min-width: 0;
+}
+
+.la-artesaos-carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.la-artesao-card {
+    scroll-snap-align: start;
+    min-width: 0;
+}
+
+.la-artesao-inner {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.la-artesao-inner:hover {
+    transform: scale(1.03);
+}
+
+.la-artesao-inner:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+.la-artesao-foto {
+    background-color: #1c1c1c;
+    aspect-ratio: 3/2;
+     width: 100%;
+    overflow: hidden;
+}
+
+.la-artesao-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.la-artesao-info {
+    background-color: #a34d22;
+    padding: 16px;
+    text-align: left;
+}
+
+.la-artesao-info h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.la-artesao-info p {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.la-artesao-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.la-badge {
+    background-color: rgba(0,0,0,0.25);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+.la-artesaos-btn {
+    background-color: #c45e2a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.la-artesaos-btn:hover {
+    background-color: #a34d22;
+}
+
+.la-btn-artesaos-ver-mais {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+    background-color: #6b4f2a;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.la-btn-artesaos-ver-mais:hover {
+    background-color: #4e3a1e;
+}
+
+/* ARTESÕES EM DESTAQUE - TABLET */
+@media (min-width: 600px) {
+    .la-artesaos-carrossel {
+        grid-auto-columns: calc(50% - 8px);
+    }
+}
+
+/* ARTESÕES EM DESTAQUE - DESKTOP */
+@media (min-width: 1024px) {
+    .la-artesaos-destaque {
+        padding: 30px 5% 60px;
+    }
+
+    .la-artesaos-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .la-proximas-feiras {
+        padding: 60px 5% 30px;
+    }
+
+    .la-artesaos-carrossel-wrapper {
+        display: grid;
+        grid-template-columns: 36px 1fr 36px;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .la-artesaos-btn {
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .la-artesaos-carrossel {
+        grid-auto-columns: calc(33.333% - 11px);
+    }
+}
+/*------------------------------*/
