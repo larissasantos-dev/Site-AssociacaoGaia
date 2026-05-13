@@ -27,15 +27,17 @@ body{
 }
 
 .header-tamanho-imagens {
-    width: 22px;     
+    width: 26px;     
     height: auto;    
-    display: block;  
+    display: block; 
+    margin-right: 30px; 
 }
 
 .header-logo-img{
     width: 150px;
     height: auto;
     display: block;
+    margin-left: -15px;
 }
 
 .desktop-header{
@@ -585,15 +587,20 @@ img[src*="facebook"]{
 }
 
 .la-carrossel-btn {
+    display: flex;
     background-color: #c45e2a;
     color: white;
     border: none;
     border-radius: 50%;
     width: 36px;
     height: 36px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: background-color 0.2s;
+    padding: 0;
+    line-height: 1;
 }
 
 .la-carrossel-btn:hover {
@@ -806,7 +813,10 @@ img[src*="facebook"]{
     width: 36px;
     height: 36px;
     min-width: 36px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
     cursor: pointer;
     transition: background-color 0.2s;
 }

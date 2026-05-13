@@ -1,24 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-const mobileBtnMenu = document.getElementById('mobile-heder-btn-menu');
-const sidebar = document.getElementById('mobile-header-sidebar');
-const mobileBtnFecharX = document.getElementById('mobile-btnFechar-sidebar');
-const overlay = document.getElementById('mobile-header-overlay');
+    const mobileBtnMenu = document.getElementById('mobile-heder-btn-menu');
+    const sidebar = document.getElementById('mobile-header-sidebar');
+    const mobileBtnFecharX = document.getElementById('mobile-btnFechar-sidebar');
+    const overlay = document.getElementById('mobile-header-overlay');
 
-mobileBtnMenu.addEventListener('click', () => {
-    sidebar.classList.add('active');
-    overlay.classList.add('active');
-});
+    mobileBtnMenu.addEventListener('click', () => {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+    });
 
-const fecharMenu = () => {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-};
+    const fecharMenu = () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    };
 
-mobileBtnFecharX.addEventListener('click', fecharMenu);
-overlay.addEventListener('click', fecharMenu);
+    mobileBtnFecharX.addEventListener('click', fecharMenu);
+    overlay.addEventListener('click', fecharMenu);
 
-/* ---------- LARISSA - INDEX ---------- */
+    /* ---------- LARISSA - INDEX ---------- */
 
     // CARROSSEL DE EVENTOS
     const carrossel = document.getElementById('la-carrossel');
@@ -64,14 +64,14 @@ overlay.addEventListener('click', fecharMenu);
     iniciarAutoplay();
 
     btnNext.addEventListener('click', () => {
-        irParaCard(cardAtivo + 1);
         clearInterval(intervalo);
+        irParaCard(cardAtivo + 1);
         iniciarAutoplay();
     });
 
     btnPrev.addEventListener('click', () => {
-        irParaCard(cardAtivo - 1);
         clearInterval(intervalo);
+        irParaCard(cardAtivo - 1);
         iniciarAutoplay();
     });
 
@@ -101,14 +101,14 @@ overlay.addEventListener('click', fecharMenu);
     iniciarAutoplayArtesaos();
 
     btnNextArtesaos.addEventListener('click', () => {
-        irParaArtesao(cardAtivoArtesaos + 1);
         clearInterval(intervaloArtesaos);
+        irParaArtesao(cardAtivoArtesaos + 1);
         iniciarAutoplayArtesaos();
     });
 
     btnPrevArtesaos.addEventListener('click', () => {
-        irParaArtesao(cardAtivoArtesaos - 1);
         clearInterval(intervaloArtesaos);
+        irParaArtesao(cardAtivoArtesaos - 1);
         iniciarAutoplayArtesaos();
     });
 
