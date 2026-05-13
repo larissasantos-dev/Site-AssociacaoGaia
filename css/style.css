@@ -291,10 +291,16 @@ img[src*="facebook"]{
 }
 
 .la-destaque-mes-div h1{
-    font-size: 1.8rem;
+    font-size: 3rem;
     color: #1c1c1c;
+    font-weight: 800;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.3;
+}
+
+.la-destaque-titulo-destaque {
+    color: #b44f29;
+    display: block;
 }
 
 .la-destaque-mes-info p{
@@ -5943,3 +5949,418 @@ img[src*="facebook"]{
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+/* ----- GABRIEL ----- */
+
+/* ----- EVENTOS ----- */
+
+.ga-titulo-eventos{
+    text-align: center;
+    background-color: #3a6b35;
+    color: white;
+    padding: 30px;
+}
+
+.ga-titulo-eventos h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.ga-container-eventos h2{
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+}
+
+.ga-container-eventos{
+    width: 90%;
+    margin: 0 auto 40px auto;
+}
+
+.ga-barra-pesquisa-eventos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    flex-wrap: wrap;
+}
+
+.ga-barra-pesquisa-eventos input{
+    flex: 1;
+    min-width: 220px;
+    max-width: 500px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.ga-barra-pesquisa-eventos button{
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: #ab4228;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ga-barra-pesquisa-eventos button:hover{
+    opacity: 0.9;
+}
+
+.ga-itens-eventos{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f7efe5;
+    border-radius: 10px;
+}
+
+.ga-card-eventos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 5px;
+    
+    overflow: hidden;
+}
+
+.ga-card-eventos > img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.ga-interno-eventos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #d4a373;
+    color: black;
+    padding: 12px;
+    flex: 1;
+}
+
+.ga-interno-eventos h3{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.ga-descricao-card-eventos{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.ga-descricao-card-eventos img{
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+}
+
+.ga-descricao-card-eventos p{
+    align-self: center;
+    margin-left: 10px;
+}
+
+.ga-data-eventos{
+    background-color: #c45e2a;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.ga-info-eventos{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ga-info-eventos img{
+    width: 38px;
+    height: 38px;
+    padding: 2px;
+    border-radius: 5px;
+}
+.ga-interno-eventos button{
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    background-color: #c45e2a;
+}
+
+.ga-btn-eventos{
+    background-color: #c45e2a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ga-btn-eventos:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.ga-btn-eventos a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* EVENTOS DESKTOP */
+
+@media(min-width: 768px){
+
+    .ga-titulo-eventos{
+        background-image: url(placeholder);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .ga-itens-eventos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 25px;
+    }
+
+    .ga-card-eventos{
+    width: 100%;
+    max-width: 270px;
+    }
+
+    .ga-card-eventos > img{
+        height: 120px;
+    }
+
+    .ga-interno-eventos h3{
+        font-size: 18px;
+    }
+
+    .ga-descricao-card-eventos img{
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    }
+
+    .ga-descricao-card-eventos,
+    .ga-info-eventos p{
+        font-size: 14px;
+    }
+    .ga-info-eventos img{
+    width: 38px;
+    height: 38px;
+    }
+}
+
+/* ----- FIM DOS EVENTOS ----- */
+
+/* ----- AGENDA ----- */
+
+.ga-titulo-agenda{
+    text-align: center;
+    background-color: #3a6b35;
+    color: white;
+    padding: 30px;
+}
+
+.ga-titulo-agenda h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.ga-container-agenda{
+    width: 90%;
+    margin: 40px auto 40px auto;
+}
+
+.ga-itens-agenda{
+    gap: 15px;
+    padding: 20px;
+    background-color: #f7efe5;
+    border-radius: 20px;
+}
+.ga-card-principal-agenda{
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ga-card-principal-agenda img{
+    border-radius: 10px;
+}
+
+.ga-aviso-agenda{
+    max-width: fit-content;
+    max-height: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 30px;
+    align-self: center;
+    font-weight: bold;
+    margin: 15px;
+}
+.ga-interno-principal-agenda{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #d4a373;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    flex: 1;
+}
+
+.ga-descricao-principal-agenda{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.ga-descricao-principal-agenda img{
+    max-width: 50px;
+    margin-left: 10px;
+}
+
+.ga-descricao-principal-agenda p{
+    font-size: 30px;
+    align-self: center;
+    margin-left: 11px ;
+}
+
+.ga-info-principal-agenda{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.ga-info-principal-agenda img{
+    max-width: 50px;
+    margin-left: 10px;
+}
+
+.ga-info-principal-agenda p{
+    font-size: 30px;
+    align-self: center;
+    background-color: #c45e2a;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.ga-itens-agenda h2{
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.ga-itens-agenda h1{
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ga-card-agenda{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #d4a373;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto 20px auto;
+}
+
+.ga-card-agenda > img{
+    width: 40%;
+    min-width: 140px;
+    max-width: 220px;
+    height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 20px;
+}
+
+.ga-interno-agenda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.ga-interno-agenda h2{
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.ga-descricao-agenda,
+.ga-info-agenda{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.ga-descricao-agenda p,
+.ga-info-agenda p{
+    font-size: 20px;
+}
+
+.ga-descricao-agenda img,
+.ga-info-agenda img{
+    width: 28px;
+    height: 28px;
+}
+
+/* DESKTOP */
+
+@media(min-width: 768px){
+
+    .ga-card-agenda{
+        flex-direction: column;
+    }
+
+    .ga-card-agenda > img{
+    width: 100%;
+    max-width: none;
+    height: 200px;
+    }
+
+    .ga-descricao-agenda p,
+    .ga-info-agenda p{
+        font-size: 22px;
+    }
+
+    .ga-interno-agenda h2{
+        font-size: 30px;
+    }
+
+}
+
+/* --- FIM DA AGENDA --- */
+
+/* ------------------------- */

@@ -439,3 +439,61 @@ document.querySelectorAll('.ln-painel-toggle').forEach(btn => {
 
     counters.forEach(c => io.observe(c));
 })();
+
+// --------- GABRIEL EVENTOS --------- //
+
+const gaInputPesquisaEventos =
+    document.getElementById('ga-input-pesquisa-eventos');
+
+const gaBtnPesquisaEventos =
+    document.getElementById('ga-btn-pesquisa-eventos');
+
+const gaCardsEventos =
+    document.querySelectorAll('.ga-card-eventos');
+
+function gaPesquisarEventos(){
+
+    const valorPesquisa =
+        gaInputPesquisaEventos.value.toLowerCase();
+
+    gaCardsEventos.forEach((cardEvento) => {
+
+        const tituloEvento =
+            cardEvento
+            .querySelector('h3')
+            .textContent
+            .toLowerCase();
+
+        if(tituloEvento.includes(valorPesquisa)){
+
+            cardEvento.style.display = 'flex';
+
+        } else {
+
+            cardEvento.style.display = 'none';
+
+        }
+
+    });
+
+}
+
+/* Clique no botão */
+
+gaBtnPesquisaEventos.addEventListener('click', () => {
+
+    gaPesquisarEventos();
+
+});
+
+/* Apertar ENTER */
+
+gaInputPesquisaEventos.addEventListener('keydown', (evento) => {
+
+    if(evento.key === 'Enter'){
+
+        gaPesquisarEventos();
+
+    }
+
+});
