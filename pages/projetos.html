@@ -1,29 +1,27 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <title>Associação Gaia</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
+    <title>Projetos | Associação Gaia</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js" defer></script>
 </head>
 <body>
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
-     
-    <header class="geral-header"> <!-- classe global -->
-    <!-- MOBILE -->
+    <header class="geral-header">
       <nav class="mobile-header">
         <div class="mobile-header-container-flexbox-pai">
             <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
             <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-heder-btn-menu">
         </div>
       </nav>
-      
-      <!-- DESKTOP -->
-      <nav class="desktop-header">  
+
+      <nav class="desktop-header">
         <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
         <ul class="desktop-header-container-flexbox-pai">
             <li><a href="../index.html">Início</a></li>
@@ -38,16 +36,13 @@
       </nav>
 
       <aside id="mobile-header-sidebar">
-
         <div class="mobile-sidebar-cima">
              <button id="mobile-btnFechar-sidebar">X</button>
         </div>
-       
         <div class="mobile-usuario-sidebar">
             <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
             <span>Minha conta</span>
         </div>
-
         <nav>
            <ul class="mobile-sidebar">
             <li><a href="../index.html">Início</a></li>
@@ -61,18 +56,499 @@
 
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
-     <!-- 
-    =================================================================================
-    DESCOMENTE E COMEÇE SEU CÓDIGO AQUI
-    =================================================================================
-    -->
+
+    <!-- ----- SARA ----- -->
+    <!-- PROJETOS -->
+
+    <main class="sa-page">
+
+        <!-- HERO -->
+        <section class="sa-hero">
+            <div class="sa-wrap">
+                <div class="sa-hero-inner">
+                    <div class="sa-hero-copy">
+                        <p class="sa-label">Projetos</p>
+                        <h1>Nosso Trabalho.<br><span class="sa-highlight">Sua Visão Realizada.</span></h1>
+                        <p>Na Associação Gaia, cada projeto nasce do compromisso com a comunidade, a cultura local e a geração de renda. Conheça nossas iniciativas e veja como o artesanato transforma vidas.</p>
+                        <a href="#sa-catalogo" class="sa-btn">Nossos Projetos</a>
+                    </div>
+
+                    <div class="sa-hero-mosaic" aria-hidden="true">
+                        <div class="sa-mosaic-main sa-mosaic-img sa-mosaic-img--a">
+                            <span>Projetos</span>
+                        </div>
+                        <div class="sa-mosaic-bl sa-mosaic-img sa-mosaic-img--mutual">
+                            <span>Cursos</span>
+                        </div>
+                        <div class="sa-mosaic-br sa-mosaic-img sa-mosaic-img--c">
+                            <span>Palestras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE PROJETOS -->
+        <section class="sa-catalogo sa-section" id="sa-catalogo">
+            <div class="sa-wrap">
+
+                <div class="sa-catalogo-head">
+                    <div class="sa-catalogo-head-left">
+                        <p class="sa-label">Ver todos os Projetos</p>
+                        <h2>Conheça Nossos<br>Projetos Realizados</h2>
+                    </div>
+                    <p class="sa-catalogo-desc">Cada projeto que desenvolvemos reflete nosso compromisso com qualidade, impacto social e valorização da identidade cultural de Itapetininga e região.</p>
+                </div>
+
+                <!-- FILTROS -->
+                <div class="sa-filters" role="tablist" aria-label="Filtrar projetos por categoria">
+                    <button class="sa-filter-btn sa-filter-btn--active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="sa-filter-btn" data-filter="capacitacao" role="tab" aria-selected="false">Capacitação</button>
+                    <button class="sa-filter-btn" data-filter="oficinas" role="tab" aria-selected="false">Oficinas</button>
+                    <button class="sa-filter-btn" data-filter="feiras" role="tab" aria-selected="false">Feiras</button>
+                    <button class="sa-filter-btn" data-filter="cultural" role="tab" aria-selected="false">Cultural</button>
+                    <button class="sa-filter-btn" data-filter="sustentabilidade" role="tab" aria-selected="false">Sustentabilidade</button>
+                </div>
+
+                <!-- GRID DE CARDS -->
+                <div class="sa-grid" id="sa-projetos-grid">
+
+                    <article class="sa-card" data-category="capacitacao">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/7710203/pexels-photo-7710203.jpeg?cs=srgb&dl=pexels-a-darmel-7710203.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Capacitação</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Laboratório de Inovação Artesanal</h3>
+                            <p class="sa-card-desc">Ciclo de capacitação baseado na metodologia Artesol para qualificação de artesãos em identidade cultural, design, gestão e comunicação.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="feiras">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/33593379/pexels-photo-33593379.jpeg?cs=srgb&dl=pexels-tuan-vy-903011268-33593379.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Feiras</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Feira Regional de Artesanato</h3>
+                            <p class="sa-card-desc">Mostra de peças autorais de artesãos parceiros, aproximando criadores do público e ampliando oportunidades de comercialização local.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="oficinas">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/13240729/pexels-photo-13240729.jpeg?cs=srgb&dl=pexels-visualsbyvivek-13240729.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Oficinas</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Oficina de Cerâmica Tradicional</h3>
+                            <p class="sa-card-desc">Encontros práticos de cerâmica manual que valorizam técnicas tradicionais e estimulam a criação de peças com identidade cultural regional.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="oficinas">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35533116/pexels-photo-35533116.jpeg?cs=srgb&dl=pexels-canan-i-ldeniz-2158600658-35533116.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Oficinas</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Oficina de Tecelagem e Fibras</h3>
+                            <p class="sa-card-desc">Imersão em técnicas de tecelagem artesanal com fibras naturais, preservando saberes tradicionais e gerando novos produtos autorais.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="cultural">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/30693432/pexels-photo-30693432.jpeg?cs=srgb&dl=pexels-tuan-vy-903011268-30693432.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Cultural</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Circuito Cultural Gaia</h3>
+                            <p class="sa-card-desc">Série de eventos culturais que integram artesanato, gastronomia regional e manifestações culturais de Itapetininga em um único espaço.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="sustentabilidade">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/32408717/pexels-photo-32408717.jpeg?cs=srgb&dl=pexels-alex-sanchez-2150797975-32408717.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Sustentabilidade</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Rede Sustentável de Artesãos</h3>
+                            <p class="sa-card-desc">Programa que estimula o uso de matérias-primas sustentáveis e processos produtivos conscientes, gerando renda e preservando o meio ambiente.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="capacitacao">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/29399503/pexels-photo-29399503.jpeg?cs=srgb&dl=pexels-phong-vo-669197289-29399503.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Capacitação</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Fotografia e Catálogo Digital</h3>
+                            <p class="sa-card-desc">Formação em registro fotográfico e criação de catálogos virtuais para fortalecer a presença digital dos artesãos e ampliar suas vendas.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="feiras">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35251793/pexels-photo-35251793.jpeg?cs=srgb&dl=pexels-drmkhawarnazir-35251793.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Feiras</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Mostra Artesol — Rede Nacional</h3>
+                            <p class="sa-card-desc">Participação na rede nacional de feiras e mostras da Artesol, conectando artesãos locais a compradores e curadores de todo o Brasil.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> São Paulo, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2024 / 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="cultural">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/37090338/pexels-photo-37090338.jpeg?cs=srgb&dl=pexels-julian-fernandez-462539203-37090338.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Cultural</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Tropeirismo Vivo</h3>
+                            <p class="sa-card-desc">Resgate das referências culturais do tropeirismo de Itapetininga por meio de peças artesanais que contam a história da cidade e fortalecem o turismo cultural.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2023 / 2024</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- MENSAGEM VAZIO (filtro sem resultado) -->
+                <p class="sa-empty" id="sa-empty" hidden>Nenhum projeto encontrado nesta categoria.</p>
+
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE CURSOS -->
+        <section class="sa-catalogo sa-section" id="sa-cursos">
+            <div class="sa-wrap">
+
+                <div class="sa-catalogo-head">
+                    <div class="sa-catalogo-head-left">
+                        <p class="sa-label">Capacitação</p>
+                        <h2>Cursos e<br>Formações</h2>
+                    </div>
+                    <p class="sa-catalogo-desc">Formações práticas para artesãos que querem aperfeiçoar técnicas, melhorar a gestão do negócio e fortalecer sua identidade criativa.</p>
+                </div>
+
+                <!-- FILTROS -->
+                <div class="sa-filters" role="tablist" aria-label="Filtrar cursos por área">
+                    <button class="sa-filter-btn sa-filter-btn--active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="sa-filter-btn" data-filter="ceramica" role="tab" aria-selected="false">Cerâmica</button>
+                    <button class="sa-filter-btn" data-filter="tecelagem" role="tab" aria-selected="false">Tecelagem</button>
+                    <button class="sa-filter-btn" data-filter="bordado" role="tab" aria-selected="false">Bordado</button>
+                    <button class="sa-filter-btn" data-filter="design" role="tab" aria-selected="false">Design</button>
+                    <button class="sa-filter-btn" data-filter="gestao" role="tab" aria-selected="false">Gestão</button>
+                </div>
+
+                <!-- GRID DE CARDS -->
+                <div class="sa-grid">
+
+                    <article class="sa-card" data-category="ceramica">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/30283531/pexels-photo-30283531.jpeg?cs=srgb&dl=pexels-seda-nur-koc-2148806558-30283531.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Cerâmica</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Cerâmica Básica ao Avançado</h3>
+                            <p class="sa-card-desc">Do modelado manual à queima em forno, o curso abrange todas as etapas de produção de peças utilitárias e decorativas em argila.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-clock-fill"></i> 40h</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="tecelagem">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35533116/pexels-photo-35533116.jpeg?cs=srgb&dl=pexels-canan-i-ldeniz-2158600658-35533116.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Tecelagem</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Tecelagem em Tear Manual</h3>
+                            <p class="sa-card-desc">Aprenda a operar o tear de mesa e criar tecidos autorais com fibras naturais, explorando padrões, texturas e cores da tradição regional.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-clock-fill"></i> 32h</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="bordado">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35623927/pexels-photo-35623927.jpeg?cs=srgb&dl=pexels-drmkhawarnazir-35623927.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Bordado</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Bordado Livre e Tradicional</h3>
+                            <p class="sa-card-desc">Técnicas de bordado à mão, ponto cruz e bordado livre para criação de peças decorativas e utilitárias com identidade cultural.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-clock-fill"></i> 24h</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="design">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/7710203/pexels-photo-7710203.jpeg?cs=srgb&dl=pexels-a-darmel-7710203.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Design</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Design Aplicado ao Artesanato</h3>
+                            <p class="sa-card-desc">Como pensar forma, função e identidade visual para criar produtos artesanais com mais valor percebido e apelo de mercado.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-clock-fill"></i> 20h</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="gestao">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/15635241/pexels-photo-15635241.jpeg?cs=srgb&dl=pexels-walls-io-440716388-15635241.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Gestão</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Gestão para Artesãos</h3>
+                            <p class="sa-card-desc">Precificação, fluxo de caixa e planejamento de vendas para artesãos que querem profissionalizar seu ateliê e aumentar a rentabilidade.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-clock-fill"></i> 16h</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="gestao">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/8886104/pexels-photo-8886104.jpeg?cs=srgb&dl=pexels-brianzosky-8886104.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Gestão</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Marketing Digital para Artesãos</h3>
+                            <p class="sa-card-desc">Estratégias práticas de Instagram, WhatsApp Business e catálogos digitais para ampliar o alcance e as vendas do seu trabalho artesanal.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-clock-fill"></i> 12h</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="sa-empty" hidden>Nenhum curso encontrado nesta área.</p>
+
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE PALESTRAS -->
+        <section class="sa-catalogo sa-section" id="sa-palestras">
+            <div class="sa-wrap">
+
+                <div class="sa-catalogo-head">
+                    <div class="sa-catalogo-head-left">
+                        <p class="sa-label">Conhecimento</p>
+                        <h2>Palestras e<br>Encontros</h2>
+                    </div>
+                    <p class="sa-catalogo-desc">Conversas, debates e encontros que aproximam artesãos, pesquisadores e o público em torno de temas que movem a cultura e o empreendedorismo criativo.</p>
+                </div>
+
+                <!-- FILTROS -->
+                <div class="sa-filters" role="tablist" aria-label="Filtrar palestras por tema">
+                    <button class="sa-filter-btn sa-filter-btn--active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="sa-filter-btn" data-filter="cultura" role="tab" aria-selected="false">Cultura</button>
+                    <button class="sa-filter-btn" data-filter="sustentabilidade" role="tab" aria-selected="false">Sustentabilidade</button>
+                    <button class="sa-filter-btn" data-filter="empreendedorismo" role="tab" aria-selected="false">Empreendedorismo</button>
+                    <button class="sa-filter-btn" data-filter="inovacao" role="tab" aria-selected="false">Inovação</button>
+                </div>
+
+                <!-- GRID DE CARDS -->
+                <div class="sa-grid">
+
+                    <article class="sa-card" data-category="cultura">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/37090338/pexels-photo-37090338.jpeg?cs=srgb&dl=pexels-julian-fernandez-462539203-37090338.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Cultura</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Tropeirismo e Identidade Regional</h3>
+                            <p class="sa-card-desc">Palestra sobre as raízes culturais do tropeirismo em Itapetininga e como essa herança se expressa no artesanato local e no turismo cultural.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="sustentabilidade">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/6990304/pexels-photo-6990304.jpeg?cs=srgb&dl=pexels-artempodrez-6990304.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Sustentabilidade</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Artesanato e Economia Circular</h3>
+                            <p class="sa-card-desc">Como práticas sustentáveis e o uso de materiais naturais ou reciclados podem fortalecer o artesanato e abrir novos mercados conscientes.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="empreendedorismo">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/33593379/pexels-photo-33593379.jpeg?cs=srgb&dl=pexels-tuan-vy-903011268-33593379.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Empreendedorismo</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Do Ateliê ao Mercado</h3>
+                            <p class="sa-card-desc">Estratégias para artesãos que querem transformar seu trabalho em negócio sustentável: precificação, canais de venda e construção de marca.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="inovacao">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/15406294/pexels-photo-15406294.jpeg?cs=srgb&dl=pexels-shutter-speed-15406294.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Inovação</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Tecnologia e Artesanato Tradicional</h3>
+                            <p class="sa-card-desc">Como ferramentas digitais, fotografia e redes sociais podem ampliar o alcance do artesanato sem perder a autenticidade do fazer manual.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="cultura">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/6340631/pexels-photo-6340631.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6340631.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Cultura</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Lei Rouanet: Como Captar Recursos</h3>
+                            <p class="sa-card-desc">Tudo que você precisa saber para apresentar projetos culturais e captar recursos via Lei Rouanet — mecenato, incentivos e boas práticas.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="sa-card" data-category="empreendedorismo">
+                        <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/6340691/pexels-photo-6340691.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6340691.jpg&fm=jpg')center/cover no-repeat">
+                            <span class="sa-card-tag">Empreendedorismo</span>
+                        </div>
+                        <div class="sa-card-body">
+                            <h3 class="sa-card-title">Cooperativismo e Redes de Artesãos</h3>
+                            <p class="sa-card-desc">A força do coletivo: como associações e cooperativas de artesãos ampliam poder de negociação, acesso a mercados e visibilidade cultural.</p>
+                            <div class="sa-card-meta">
+                                <span><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                            </div>
+                            <a href="sobre-nos.html" class="sa-card-link">Saiba Mais <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="sa-empty" hidden>Nenhuma palestra encontrada neste tema.</p>
+
+            </div>
+        </section>
+
+        <!-- CTA APOIE -->
+        <section class="sa-cta">
+            <div class="sa-wrap sa-cta-inner">
+                <div class="sa-cta-copy">
+                    <p class="sa-label sa-label--light">Seja um Apoiador</p>
+                    <h2>Apoie um Projeto e<br>Transforme uma Vida</h2>
+                    <p>Pela Lei Rouanet, pessoas físicas destinam até <strong>6%</strong> e empresas até <strong>4%</strong> do imposto de renda — sem custo extra. Fale com a gente e descubra como participar.</p>
+                    <a href="sobre-nos.html" class="sa-btn sa-btn--outline">Fale Conosco</a>
+                </div>
+                <div class="sa-cta-cards">
+                    <div class="sa-cta-chip">
+                        <i class="bi bi-person-check-fill"></i>
+                        <div>
+                            <strong>Pessoa Física</strong>
+                            <span>Até 6% do IR</span>
+                        </div>
+                    </div>
+                    <div class="sa-cta-chip">
+                        <i class="bi bi-building-check"></i>
+                        <div>
+                            <strong>Pessoa Jurídica</strong>
+                            <span>Até 4% do IR</span>
+                        </div>
+                    </div>
+                    <div class="sa-cta-chip">
+                        <i class="bi bi-award-fill"></i>
+                        <div>
+                            <strong>Visibilidade</strong>
+                            <span>Divulgação de marca</span>
+                        </div>
+                    </div>
+                    <div class="sa-cta-chip">
+                        <i class="bi bi-heart-fill"></i>
+                        <div>
+                            <strong>Impacto Real</strong>
+                            <span>Transformação social</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
     <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
     <footer class="footer-container-grid-pai">
-        <div class="footer-grid-bloco1">    
+        <div class="footer-grid-bloco1">
           <h3>Associação Gaia</h3>
           <p>Criatividade que conecta, artesanato que transforma</p>
         </div>
-
         <div class="footer-grid-bloco2">
             <h4>Navegação</h4>
             <ul>
@@ -83,7 +559,6 @@
                 <li><a href="sobre-nos.html">Sobre nós</a></li>
             </ul>
         </div>
-           
         <div class="footer-grid-bloco3">
             <h4>Categorias</h4>
             <ul>
@@ -93,12 +568,10 @@
                 <li><a href="#">Marcenaria</a></li>
             </ul>
         </div>
-    
         <div class="footer-grid-bloco4">
             <h4>Contato</h4>
             <p>(11) 9999-9999</p>
-            <p>Diretoriagaia1@gmail.com</p>
-
+            <p>administrativo@associacaogaia.com</p>
             <h4>Redes Socias</h4>
             <div>
                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
@@ -108,7 +581,7 @@
                 <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape" class="header-tamanho-imagens">
                </a>
             </div>
-        </div>   
+        </div>
     </footer>
 </body>
 </html>

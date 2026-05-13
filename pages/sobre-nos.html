@@ -4,26 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <title>Associação Gaia</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
+    <title>Sobre Nós | Associação Gaia</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js" defer></script>
 </head>
 <body>
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
-     
-    <header class="geral-header"> <!-- classe global -->
-    <!-- MOBILE -->
+    <header class="geral-header">
       <nav class="mobile-header">
         <div class="mobile-header-container-flexbox-pai">
             <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
             <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-heder-btn-menu">
         </div>
       </nav>
-      
-      <!-- DESKTOP -->
-      <nav class="desktop-header">  
+      <nav class="desktop-header">
         <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
         <ul class="desktop-header-container-flexbox-pai">
             <li><a href="../index.html">Início</a></li>
@@ -36,18 +33,14 @@
             <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
         </div>
       </nav>
-
       <aside id="mobile-header-sidebar">
-
         <div class="mobile-sidebar-cima">
              <button id="mobile-btnFechar-sidebar">X</button>
         </div>
-       
         <div class="mobile-usuario-sidebar">
             <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
             <span>Minha conta</span>
         </div>
-
         <nav>
            <ul class="mobile-sidebar">
             <li><a href="../index.html">Início</a></li>
@@ -58,21 +51,252 @@
            </ul>
         </nav>
       </aside>
-
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
-      <!-- 
-    =================================================================================
-    DESCOMENTE E COMEÇE SEU CÓDIGO AQUI
-    =================================================================================
-    -->
+
+    <!-- ----- LANA ----- -->
+    <!-- SOBRE NÓS -->
+
+    <main class="ln-sn-page">
+
+        <!-- HERO -->
+        <section class="ln-sn-hero">
+            <div class="ln-sn-wrap">
+
+                <div class="ln-sn-hero-inner">
+                    <div class="ln-sn-hero-copy">
+                        <p class="ln-sn-label">Sobre Nós</p>
+                        <h1>Criamos Oportunidades<br><span class="ln-sn-highlight">que Valorizam o Fazer Manual.</span></h1>
+                        <p>Na Associação Gaia, cada projeto aproxima artesãos, público e mercado. Trabalhamos com oficinas, feiras e iniciativas sustentáveis para transformar conhecimento em renda e presença cultural.</p>
+                        <a href="projetos.html" class="ln-sn-btn">Conheça Nossos Projetos</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="ln-sn-stats-section">
+            <div class="ln-sn-wrap">
+                <div class="ln-sn-stats-grid" aria-label="Números da associação">
+                    <article class="ln-sn-stat">
+                        <strong>150+</strong>
+                        <span>Projetos completos</span>
+                    </article>
+                    <article class="ln-sn-stat">
+                        <strong>100+</strong>
+                        <span>Artesãos parceiros</span>
+                    </article>
+                    <article class="ln-sn-stat">
+                        <strong>200+</strong>
+                        <span>Encontros e oficinas</span>
+                    </article>
+                    <article class="ln-sn-stat">
+                        <strong>30+</strong>
+                        <span>Feiras e mostras</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEIS DE INCENTIVO -->
+        <section class="ln-sn-leis">
+            <div class="ln-sn-wrap">
+                <div class="ln-sn-section-head">
+                    <p class="ln-sn-label">Base Legal</p>
+                    <h2>Leis que Fortalecem<br>Nossos Projetos</h2>
+                    <p>A Associação Gaia acompanha mecanismos públicos de fomento à cultura que ajudam a viabilizar oficinas, feiras e ações comunitárias.</p>
+                </div>
+
+                <div class="ln-sn-leis-grid">
+                    <article class="ln-sn-lei-card">
+                        <div class="ln-sn-lei-icon">
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                        </div>
+                        <h3>Lei Rouanet</h3>
+                        <p>Incentivo fiscal que apoia projetos culturais por meio de captação junto a empresas e pessoas físicas. Nosso projeto está aprovado com captação de R$ 200 mil.</p>
+                        <span class="ln-sn-lei-tag">Aprovada</span>
+                    </article>
+
+                    <article class="ln-sn-lei-card">
+                        <div class="ln-sn-lei-icon">
+                            <i class="bi bi-heart-pulse-fill"></i>
+                        </div>
+                        <h3>Lei Aldir Blanc</h3>
+                        <p>Política de apoio e fomento que fortalece iniciativas culturais e a manutenção de espaços e coletivos artísticos em todo o Brasil.</p>
+                        <span class="ln-sn-lei-tag">Monitorada</span>
+                    </article>
+
+                    <article class="ln-sn-lei-card">
+                        <div class="ln-sn-lei-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>Lei Paulo Gustavo</h3>
+                        <p>Recurso que impulsiona atividades culturais, circulação de obras e ações de formação artística com capilaridade nos municípios.</p>
+                        <span class="ln-sn-lei-tag">Monitorada</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- HISTÓRIA -->
+        <section class="ln-sn-history">
+            <div class="ln-sn-wrap ln-sn-history-grid">
+                <div class="ln-sn-history-visual" aria-hidden="true">
+                    <div class="ln-sn-hist-main ln-sn-hist-block">
+                        <span class="ln-sn-hist-tag">Nossa rede</span>
+                        <h3>Feiras, oficinas e sustentabilidade</h3>
+                        <p>Peças autorais, produção consciente e ações que aproximam artesãos da comunidade.</p>
+                    </div>
+                    <div class="ln-sn-hist-top ln-sn-hist-block ln-sn-hist-block--small">
+                        <i class="bi bi-award-fill"></i>
+                        <div>
+                            <strong>Curadoria</strong>
+                            <p>Seleção com identidade.</p>
+                        </div>
+                    </div>
+                    <div class="ln-sn-hist-side ln-sn-hist-block ln-sn-hist-block--small">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        <div>
+                            <strong>Agilidade</strong>
+                            <p>Processos claros do início ao fim.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ln-sn-history-copy">
+                    <p class="ln-sn-label">Nossa História</p>
+                    <h2>Construindo uma Comunidade<br>que Cresce Junto</h2>
+                    <p>De encontros entre pessoas apaixonadas pelo artesanato nasceu uma organização que conecta criação, mercado e aprendizado. Com o tempo, a Associação Gaia ampliou sua atuação para fortalecer saberes tradicionais e abrir novas oportunidades de renda.</p>
+
+                    <ul class="ln-sn-history-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Oficinas para desenvolver técnicas e autonomia produtiva.</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Feiras e ações culturais para ampliar alcance e visibilidade.</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Parcerias locais para apoiar circulação e comercialização.</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Projetos que unem tradição, inovação e impacto social.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EQUIPE -->
+        <section class="ln-sn-team">
+            <div class="ln-sn-wrap">
+                <div class="ln-sn-team-head">
+                    <div>
+                        <p class="ln-sn-label">Nossa Equipe</p>
+                        <h2>Criando Excelência<br>em Conjunto</h2>
+                        <p>Nosso time trabalha de forma integrada para transformar ideias em ações, com atenção aos detalhes e ao impacto real.</p>
+                    </div>
+                    <a href="artesaos.html" class="ln-sn-btn-ghost">Explorar Artesãos</a>
+                </div>
+
+                <div class="ln-sn-team-grid">
+                    <article class="ln-sn-team-card ln-sn-team-card--featured">
+                        <div class="ln-sn-team-avatar ln-sn-avatar--terra">
+                            <span>L</span>
+                            <div class="ln-sn-team-socials" aria-hidden="true">
+                                <i class="bi bi-instagram"></i>
+                                <i class="bi bi-facebook"></i>
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                        </div>
+                        <div class="ln-sn-team-body">
+                            <h3>Lana</h3>
+                            <p>Coordenação</p>
+                        </div>
+                    </article>
+
+                    <article class="ln-sn-team-card">
+                        <div class="ln-sn-team-avatar ln-sn-avatar--sand">
+                            <span>La</span>
+                        </div>
+                        <div class="ln-sn-team-body">
+                            <h3>Larissa</h3>
+                            <p>Comunicação</p>
+                        </div>
+                    </article>
+
+                    <article class="ln-sn-team-card">
+                        <div class="ln-sn-team-avatar ln-sn-avatar--forest">
+                            <span>G</span>
+                        </div>
+                        <div class="ln-sn-team-body">
+                            <h3>Gabriel</h3>
+                            <p>Eventos</p>
+                        </div>
+                    </article>
+
+                    <article class="ln-sn-team-card">
+                        <div class="ln-sn-team-avatar ln-sn-avatar--slate">
+                            <span>S</span>
+                        </div>
+                        <div class="ln-sn-team-body">
+                            <h3>Sara</h3>
+                            <p>Projetos</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS -->
+        <section class="ln-sn-testimonials">
+            <div class="ln-sn-wrap">
+                <div class="ln-sn-section-head ln-sn-section-head--center">
+                    <p class="ln-sn-label">O que Dizem</p>
+                    <h2>Parceiros que Confiam<br>no Nosso Trabalho</h2>
+                    <p>Quem participa dos nossos projetos percebe acolhimento, organização e resultado consistente.</p>
+                </div>
+
+                <div class="ln-sn-testimonials-grid">
+                    <article class="ln-sn-testimonial">
+                        <p class="ln-sn-quote-mark">"</p>
+                        <p class="ln-sn-testimonial-text">A Gaia trouxe mais visibilidade para as peças e ajudou a organizar a participação nas feiras com muito cuidado e atenção.</p>
+                        <div class="ln-sn-testimonial-footer">
+                            <div>
+                                <strong>Coletivo Raízes</strong>
+                                <span>Parceiro cultural</span>
+                            </div>
+                            <span class="ln-sn-stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                    </article>
+
+                    <article class="ln-sn-testimonial">
+                        <p class="ln-sn-quote-mark">"</p>
+                        <p class="ln-sn-testimonial-text">O atendimento foi claro e o processo, acolhedor. Tudo chegou com identidade e muito capricho do começo ao fim.</p>
+                        <div class="ln-sn-testimonial-footer">
+                            <div>
+                                <strong>Artesã parceira</strong>
+                                <span>Produção local</span>
+                            </div>
+                            <span class="ln-sn-stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                    </article>
+
+                    <article class="ln-sn-testimonial">
+                        <p class="ln-sn-quote-mark">"</p>
+                        <p class="ln-sn-testimonial-text">Os projetos têm presença forte, boa curadoria e entregam valor para quem cria e para quem visita os eventos.</p>
+                        <div class="ln-sn-testimonial-footer">
+                            <div>
+                                <strong>Feira da Comunidade</strong>
+                                <span>Evento parceiro</span>
+                            </div>
+                            <span class="ln-sn-stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
     <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
     <footer class="footer-container-grid-pai">
-        <div class="footer-grid-bloco1">    
+        <div class="footer-grid-bloco1">
           <h3>Associação Gaia</h3>
           <p>Criatividade que conecta, artesanato que transforma</p>
         </div>
-
         <div class="footer-grid-bloco2">
             <h4>Navegação</h4>
             <ul>
@@ -83,7 +307,6 @@
                 <li><a href="sobre-nos.html">Sobre nós</a></li>
             </ul>
         </div>
-           
         <div class="footer-grid-bloco3">
             <h4>Categorias</h4>
             <ul>
@@ -93,12 +316,10 @@
                 <li><a href="#">Marcenaria</a></li>
             </ul>
         </div>
-    
         <div class="footer-grid-bloco4">
             <h4>Contato</h4>
             <p>(11) 9999-9999</p>
-            <p>Diretoriagaia1@gmail.com</p>
-
+            <p>administrativo@associacaogaia.com</p>
             <h4>Redes Socias</h4>
             <div>
                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
@@ -108,7 +329,7 @@
                 <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape" class="header-tamanho-imagens">
                </a>
             </div>
-        </div>   
+        </div>
     </footer>
 </body>
 </html>
