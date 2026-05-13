@@ -1,4 +1,4 @@
-# Projeto Web - Associacao Gaya
+# Projeto Web - Associacao Gaia
 
 ## ❗REGRA OBRIGATÓRIA
 - **Sempre** avisar no grupo quando for mexer em algum arquivo quando for subir para o repositório. **Não** faça o "Upload" de arquivos sem confirmar se ninguém está mexendo neles no momento e **NÃO** suba os arquivos até todos estarem de acordo. 
@@ -33,7 +33,7 @@ Para utilizar o código base na sua máquina, siga este passo a passo:
 Para manter o projeto organizado, estamos seguindo esta estrutura:
 
 ```text
-Site-AssociacaoGaya/
+Site-AssociacaoGaia/
 ├── assets/          # Imagens e ícones (.svg, .png, .jpg)
 ├── css/             # Arquivos de estilo (style.css)
 ├── js/              # Arquivos de script (script.js)
