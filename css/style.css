@@ -192,7 +192,6 @@ body{
 .footer-container-grid-pai h4 {
     margin-bottom: 15px;
     font-size: 1.2rem;
-    
 }
 
 .footer-container-grid-pai ul {
@@ -216,7 +215,7 @@ body{
 
 .footer-grid-bloco4 div {
     display: flex;
-    gap: 15px;
+    gap: 0px;
     margin-top: 10px;
     align-items: center;
 }
@@ -224,7 +223,6 @@ body{
 .footer-grid-bloco4 img {
     cursor: pointer;
 }
-
 
 .footer-grid-bloco4 img {
     width: 28px;
@@ -774,7 +772,7 @@ img[src*="facebook"]{
 }
 
 .la-artesao-info {
-    background-color: #a34d22;
+    background-color:  #d4a373;
     padding: 16px;
     text-align: left;
 }
@@ -805,26 +803,6 @@ img[src*="facebook"]{
     font-size: 0.75rem;
 }
 
-.la-artesaos-btn {
-    background-color: #c45e2a;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    font-size: 1.2rem;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.la-artesaos-btn:hover {
-    background-color: #a34d22;
-}
-
 .la-btn-artesaos-ver-mais {
     display: inline-flex;
     align-items: center;
@@ -842,6 +820,32 @@ img[src*="facebook"]{
 
 .la-btn-artesaos-ver-mais:hover {
     background-color: #4e3a1e;
+}
+
+/* CLASSE PARA OS BOTÕES EM FLECHA NAS SEÇÕES EVENTOS E ARTESÃOS */
+.la-btn-flecha{
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background-color: #c45e2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    
+        visibility: visible;
+}
+
+.la-btn-flecha img{
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.la-btn-flecha:hover {
+    background-color: #a34d22;
 }
 
 /* ARTESÕES EM DESTAQUE - TABLET */
@@ -870,13 +874,6 @@ img[src*="facebook"]{
         grid-template-columns: 36px 1fr 36px;
         align-items: center;
         gap: 10px;
-    }
-
-    .la-artesaos-btn {
-        visibility: visible;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .la-artesaos-carrossel {
