@@ -9,7 +9,7 @@
   --cor-fonte-preta: #1c1c1c; 
   --cor-botao-principal: #b44f29; 
   --cor-badge: #6b4f2a;
-  --cor-flecha: #b14f1f;
+  --cor-flecha: #c45e2a;
   --cor-info-artesao: #d4a373;
   --cor-botao-hover: #a34d22;
   --cor-fonte-medio: #4a3f37;
@@ -24,7 +24,7 @@
   --cor-verde-titulo: #3a6b35;
   --cor-hero-medio:   #f0e5d4;
   --cor-fonte-escuro: #4f3021;
-  --cor-fonte-marrom-medio: #5c2612;
+  --cor-fonte-marrom-medio: #6d2f17;
 }
 
 /* ==========================
@@ -371,7 +371,7 @@ body{
     align-items: center;
     justify-content: center;
     gap: 5px;
-    background-color: var(--cor-botao-principal);
+    background-color: var(--cor-flecha);
     color: var(--cor-fonte);
     padding: 12px 25px;
     border-radius: 8px;
@@ -1071,7 +1071,7 @@ HEADER - CSS PARA TABLETS
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background-color: var(--cor-botao-principal);
+    background-color: var(--cor-flecha);
     color: var(--cor-fonte);
     padding: 8px 16px;
     border-radius: 8px;
@@ -1282,13 +1282,13 @@ HEADER - CSS PARA TABLETS
 }
 
 .la-artesao-info h3 {
-    color: var(--cor-fonte-escuro);
+    color: var(--cor-fonte);
     font-size: 1.1rem;
     margin-bottom: 4px;
 }
 
 .la-artesao-info p {
-    color: var(--cor-fonte-marrom-medio);
+    color: rgba(255,255,255,0.85);
     font-size: 0.85rem;
     margin-bottom: 10px;
 }
@@ -3613,7 +3613,7 @@ HEADER - CSS PARA TABLETS
 }
 
 /* BOTÃO */
-.ga-btn-eventos{
+.ga-btn-detalhes{
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -3626,7 +3626,7 @@ HEADER - CSS PARA TABLETS
     transition: 0.2s ease;
 }
 
-.ga-btn-eventos:hover{
+.ga-btn-detalhes:hover{
     background: var(--cor-botao-hover);
 }
 
@@ -3697,6 +3697,89 @@ HEADER - CSS PARA TABLETS
 }
 
 /* ----- FIM DOS EVENTOS ----- */
+
+/* ----- COMEÇO DA PAGINA DE EVENTO ----- */
+
+.ga-pagina-evento{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.ga-voltar{
+    display: inline-block;
+    margin-bottom: 24px;
+    text-decoration: none;
+    color: var(--cor-botao-principal);
+    font-weight: bold;
+}
+
+.ga-card-evento-detalhes{
+    background: var(--cor-info-artesao);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.ga-imagem-evento img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.ga-info-evento{
+    padding: 24px;
+}
+
+.ga-info-evento h1{
+    margin-bottom: 16px;
+}
+
+.ga-info-evento p{
+    margin-bottom: 10px;
+}
+
+.ga-descricao-evento{
+    margin-top: 32px;
+    background: var(--cor-info-artesao);
+    padding: 24px;
+    border-radius: 20px;
+}
+
+.ga-descricao-evento h2{
+    margin-bottom: 16px;
+}
+
+@media(min-width: 768px){
+
+    .ga-card-evento-detalhes{
+        display: flex;
+    }
+
+    .ga-imagem-evento{
+        width: 55%;
+    }
+
+    .ga-imagem-evento img{
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+    }
+
+    .ga-info-evento{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+    }
+}
+
+/* ----- FIM DAS PAGINAS DE EVENTO ----- */
 
 /* ----- AGENDA ----- */
 
@@ -3820,12 +3903,13 @@ HEADER - CSS PARA TABLETS
 
 .ga-btn-agenda{
     display: inline-block;
-    margin-top: 15px;
-    background: var(--cor-flecha);
+    margin-top: 110px;
+    background: var(--cor-botao-principal);
     color: white;
     padding: 12px 20px;
     border-radius: 12px;
     text-decoration: none;
+    font-weight: 600;
 }
 
 .ga-btn-agenda:hover{
@@ -3838,6 +3922,7 @@ HEADER - CSS PARA TABLETS
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border-radius: 20px;
 }
 
 .ga-card-agenda{
@@ -3864,6 +3949,7 @@ HEADER - CSS PARA TABLETS
     height: 120px;
     object-fit: cover;
     border-radius: 16px;
+    transition: .3s ease;
 }
 
 .ga-card-info{
@@ -3880,12 +3966,30 @@ HEADER - CSS PARA TABLETS
     margin-bottom: 8px;
 }
 
+.ga-btn-card-agenda{
+    width: 140px;
+    text-align: center;
+    display: inline-block;
+    background: var(--cor-botao-principal);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.ga-btn-card-agenda:hover{
+    background: var(--cor-botao-hover);
+}
+
 @media(min-width: 768px){
 
     .ga-layout-agenda{
         display: grid;
         grid-template-columns: 1.4fr 1fr;
         gap: 24px;
+        align-items: start;
     }
 
     .ga-bck-agenda{
@@ -3920,6 +4024,7 @@ HEADER - CSS PARA TABLETS
 
     .ga-proximo-evento{
         display: block;
+        height: 470px;
     }
 
     .ga-img-proximo{
@@ -3940,19 +4045,40 @@ HEADER - CSS PARA TABLETS
     /* LISTA LATERAL */
 
     .ga-lista-agenda{
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #d8c3ad;
+    padding: 15px;
+    max-height: 470px;
+    overflow-y: auto;
+    padding-right: 8px;
     }
 
+    .ga-lista-agenda::-webkit-scrollbar{
+    width: 8px;
+    }
+
+    .ga-lista-agenda::-webkit-scrollbar-track{
+        background: #f5f1ec;
+    }
+
+    .ga-lista-agenda::-webkit-scrollbar-thumb{
+        background: #c45e2a;
+        border-radius: 999px;
+    }
+
+    .ga-lista-agenda::-webkit-scrollbar-thumb:hover{
+        background: #943f20;
+    }
     .ga-card-agenda{
         padding: 12px;
         gap: 12px;
     }
 
     .ga-card-agenda img{
-        width: 90px;
-        height: 90px;
+        width: 120px;
+        height: 120px;
     }
 
     .ga-card-info h3{
@@ -3967,6 +4093,7 @@ HEADER - CSS PARA TABLETS
 
 /* --- FIM DA AGENDA --- */
 
+/* ------------------------- */
 
     /* ==========================
    KIT DE ACESSIBILIDADE

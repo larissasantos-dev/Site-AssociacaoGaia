@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <title>Agenda | Associação Gaia</title>
+    <title>Evento | Associação Gaia</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js" defer></script>
 </head>
@@ -62,66 +62,47 @@
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
 
-    <main class="ga-page-agenda">
-        <section class="ga-bck-agenda">
-            <img src="../assets/imagem-ia-eventos-fundo.png" alt="Agenda de Eventos">
-            <div class="ga-titulo-agenda">
-                <h1>Salvos na Agenda</h1>
-                <p class="ga-texto-titulo-agenda">Lembraremos você de nossos próximos eventos!</p>
-            </div>
-        </section>
-        <section class="ga-agenda">
+    <main class="ga-pagina-evento">
 
-            <!-- PRÓXIMO EVENTO -->
-            <section class="ga-layout-agenda">
-                <section class="ga-proximo-evento">
-                    <div class="ga-img-proximo">
-                        <span class="ga-badge-proximo">Próximo Evento</span>
-                        <img src="../assets/imagem-ia-dia-das-maes.png" alt="Evento">
-                    </div>
-                    <div class="ga-info-proximo">
-                        <h2>Feira do Dia das Mães</h2>
-                        <p class="ga-local">Praça Central</p>
-                        <p class="ga-data">10 de Maio 2026 • 18h</p>
-                        <a href="evento.html?id=1" class="ga-btn-agenda">Ver detalhes</a>
-                    </div>
-                </section>
+    <a href="eventos.html" class="ga-voltar">
+        ← Voltar para Eventos
+    </a>
 
-                <!-- OUTROS EVENTOS -->
-                <section class="ga-lista-agenda">
-                    <article class="ga-card-agenda" data-categoria="oficina">
-                        <img src="../assets/imagem-ia-eventos-fundo.png" alt="">
-                        <div class="ga-card-info">
-                            <h3>Exposição Regional</h3>
-                            <p>Museu Municipal</p>
-                            <span>21 de Maio 2026</span>
-                            <a href="evento.html?id=2" class="ga-btn-card-agenda">Ver detalhes</a>
-                        </div>
-                    </article>
-                    <article class="ga-card-agenda" data-categoria="exposicao">
-                        <img src="../assets/oficina_de_bordado_ia.png" alt="">
-                        <div class="ga-card-info">
-                            <h3>Oficina de Bordado</h3>
-                            <p>Praça Peixoto Gomide</p>
-                            <span>15 de Maio 2026</span>
-                            <a href="evento.html?id=3" class="ga-btn-card-agenda">Ver detalhes</a>
-                        </div>
-                    </article>
-                    <article class="ga-card-agenda" data-categoria="feira">
-                        <img src="../assets/feira_da_lua_ia.png" alt="">
-                        <div class="ga-card-info">
-                            <h3>Feira da Lua</h3>
-                            <p>Praça Mal.Deodoro da Fonseca</p>
-                            <span>8 de Agosto 2026</span>
-                            <a href="evento.html?id=4" class="ga-btn-card-agenda">Ver detalhes</a>
-                        </div>
-                    </article>
-                </section>
-            </section>
-        </section>
-    </main>
+    <section class="ga-card-evento-detalhes">
 
-    <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+        <div class="ga-imagem-evento">
+            <img id="ga-img-evento" src="" alt="">
+        </div>
+
+        <div class="ga-info-evento">
+
+            <h1 id="ga-titulo-evento"></h1>
+
+            <p id="ga-local-evento"></p>
+
+            <p id="ga-data-evento"></p>
+
+            <a href="agenda.html" class="ga-btn-agenda">
+                Agendar Participação
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="ga-descricao-evento">
+
+        <h2>Sobre o Evento</h2>
+
+        <p id="ga-descricao-evento"></p>
+
+    </section>
+
+</main>
+
+<script src="../js/evento.js"></script>
+
+        <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
     <footer class="footer-container-grid-pai">
         <div class="footer-grid-bloco1">    
           <h3>Associação Gaia</h3>
