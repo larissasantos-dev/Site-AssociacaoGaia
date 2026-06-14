@@ -17,7 +17,7 @@
       <nav class="mobile-header">
         <div class="mobile-header-container-flexbox-pai">
             <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
-            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-heder-btn-menu">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
         </div>
       </nav>
 
@@ -60,21 +60,21 @@
     <!-- ----- LANA ----- -->
     <!-- ARTESÕES — CATÁLOGO -->
 
-    <main class="ln-art-page">
+    <main class="ln-art-page pagina-base__gradiante">
 
         <!-- HERO -->
-        <section class="ln-art-hero">
-            <div class="ln-art-wrap">
+        <section class="ln-art-hero hero-base__gradiente">
+            <div class="ln-art-wrap wrap-base__central">
                 <div class="ln-art-hero-inner">
                     <div class="ln-art-hero-photo" aria-hidden="true">
                         <img src="https://images.pexels.com/photos/13240729/pexels-photo-13240729.jpeg?cs=srgb&dl=pexels-visualsbyvivek-13240729.jpg&fm=jpg" alt="Artesã trabalhando">
                     </div>
 
-                    <div class="ln-art-hero-copy">
-                        <p class="ln-art-label">Artesãos</p>
-                        <h1>Conheça os Artesãos.<br><span class="ln-art-highlight">Cada Peça Conta uma História.</span></h1>
+                    <div class="ln-det-hero-copy">
+                        <p class="ln-art-label label-base__secao">Artesãos</p>
+                        <h1 class="hero-base__titulo">Conheça os Artesãos.<br><span class="ln-art-highlight">Cada Peça Conta uma História.</span></h1>
                         <p>Na Associação Gaia, cada artesão preserva técnicas, leva a identidade de Itapetininga para feiras e transforma matéria-prima em peças únicas e autorais.</p>
-                        <a href="#ln-art-catalogo" class="ln-art-btn">Ver Catálogo</a>
+                        <a href="#ln-art-catalogo" class="ln-art-btn btn-base__principal">Ver Catálogo</a>
                     </div>
                 </div>
             </div>
@@ -82,11 +82,11 @@
 
         <!-- CATÁLOGO -->
         <section class="ln-art-catalogo" id="ln-art-catalogo" aria-label="Catálogo de artesãos">
-            <div class="ln-art-wrap">
+            <div class="ln-art-wrap wrap-base__central">
 
                 <div class="ln-art-catalogo-head">
                     <div class="ln-art-catalogo-head-left">
-                        <p class="ln-art-label">Ver todos os Artesãos</p>
+                        <p class="ln-art-label label-base__secao">Ver todos os Artesãos</p>
                         <h2>Nossos Artesãos<br>em Destaque</h2>
                     </div>
                     <p class="ln-art-catalogo-desc">Cada artesão parceiro da Associação Gaia traz uma técnica, uma história e uma identidade cultural que merece ser conhecida e valorizada.</p>
@@ -99,19 +99,19 @@
                 </label>
 
                 <!-- FILTROS POR TÉCNICA -->
-                <div class="ln-art-filters" role="tablist" aria-label="Filtrar por técnica">
-                    <button class="ln-art-tab ln-art-tab--active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
-                    <button class="ln-art-tab" data-filter="ceramica" role="tab" aria-selected="false">Cerâmica</button>
-                    <button class="ln-art-tab" data-filter="bordado" role="tab" aria-selected="false">Bordado</button>
-                    <button class="ln-art-tab" data-filter="tecelagem" role="tab" aria-selected="false">Tecelagem</button>
-                    <button class="ln-art-tab" data-filter="madeira" role="tab" aria-selected="false">Madeira</button>
-                    <button class="ln-art-tab" data-filter="porcelana" role="tab" aria-selected="false">Porcelana</button>
+                <div class="ln-art-filters filtros-base__wrap" role="tablist" aria-label="Filtrar por técnica">
+                    <button class="ln-art-tab ln-art-tab--active filtro-base__btn" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="ceramica" role="tab" aria-selected="false">Cerâmica</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="bordado" role="tab" aria-selected="false">Bordado</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="tecelagem" role="tab" aria-selected="false">Tecelagem</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="madeira" role="tab" aria-selected="false">Madeira</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="porcelana" role="tab" aria-selected="false">Porcelana</button>
                 </div>
 
                 <!-- GRID DE CARDS -->
-                <div class="ln-art-grid" id="ln-art-grid" aria-label="Lista de artesãos">
+                <div class="ln-art-grid catalogo-base__grid" id="ln-art-grid" aria-label="Lista de artesãos">
 
-                    <article class="ln-art-card" data-category="ceramica" data-name="ana souza" data-city="campinas">
+                    <article class="ln-art-card card-base" data-category="ceramica" data-name="ana souza" data-city="campinas">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Ana Souza">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/30004320/pexels-photo-30004320.jpeg?cs=srgb&dl=pexels-prolificpeople-30004320.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -132,7 +132,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="ceramica" data-name="maria oliveira" data-city="rio claro">
+                    <article class="ln-art-card card-base" data-category="ceramica" data-name="maria oliveira" data-city="rio claro">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Maria Oliveira">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/30372298/pexels-photo-30372298.jpeg?cs=srgb&dl=pexels-busranur-aydin-3800407-30372298.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -153,7 +153,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="bordado" data-name="beatriz lima" data-city="sorocaba">
+                    <article class="ln-art-card card-base" data-category="bordado" data-name="beatriz lima" data-city="sorocaba">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Beatriz Lima">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/19877827/pexels-photo-19877827.jpeg?cs=srgb&dl=pexels-tkdhamu-19877827.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -174,7 +174,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="tecelagem" data-name="carla mendes" data-city="ribeirão preto">
+                    <article class="ln-art-card card-base" data-category="tecelagem" data-name="carla mendes" data-city="ribeirão preto">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Carla Mendes">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/30712845/pexels-photo-30712845.jpeg?cs=srgb&dl=pexels-uiliamnornberg-30712845.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -195,7 +195,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="madeira" data-name="daniela rocha" data-city="limeira">
+                    <article class="ln-art-card card-base" data-category="madeira" data-name="daniela rocha" data-city="limeira">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Daniela Rocha">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/6948132/pexels-photo-6948132.jpeg?cs=srgb&dl=pexels-kampus-6948132.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -216,7 +216,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="bordado" data-name="elisa prado" data-city="jundiaí">
+                    <article class="ln-art-card card-base" data-category="bordado" data-name="elisa prado" data-city="jundiaí">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Elisa Prado">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/26733191/pexels-photo-26733191.jpeg?cs=srgb&dl=pexels-enesbeydilli-26733191.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -237,7 +237,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="ceramica" data-name="fernanda costa" data-city="taubaté">
+                    <article class="ln-art-card card-base" data-category="ceramica" data-name="fernanda costa" data-city="taubaté">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Fernanda Costa">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/18466015/pexels-photo-18466015.jpeg?cs=srgb&dl=pexels-oluseyi-18466015.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -258,7 +258,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="tecelagem" data-name="giovanna alves" data-city="mogi das cruzes">
+                    <article class="ln-art-card card-base" data-category="tecelagem" data-name="giovanna alves" data-city="mogi das cruzes">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Giovanna Alves">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/33189774/pexels-photo-33189774.jpeg?cs=srgb&dl=pexels-anchau-1663967297-33189774.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -279,7 +279,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="ceramica" data-name="helena martins" data-city="itu">
+                    <article class="ln-art-card card-base" data-category="ceramica" data-name="helena martins" data-city="itu">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Helena Martins">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/10157816/pexels-photo-10157816.jpeg?cs=srgb&dl=pexels-roman-odintsov-10157816.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -300,7 +300,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="porcelana" data-name="Lucas Eduardo" data-city="itapetininga">
+                    <article class="ln-art-card card-base" data-category="porcelana" data-name="Lucas Eduardo" data-city="itapetininga">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Lucas Eduardo">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/30124371/pexels-photo-30124371.jpeg?cs=srgb&dl=pexels-ipaye-gbolahan-2147547099-30124371.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -321,7 +321,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="madeira" data-name="jonas pereira" data-city="botucatu">
+                    <article class="ln-art-card card-base" data-category="madeira" data-name="jonas pereira" data-city="botucatu">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Jonas Pereira">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/32508763/pexels-photo-32508763.jpeg?cs=srgb&dl=pexels-davegarcia-32508763.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -342,7 +342,7 @@
                         </a>
                     </article>
 
-                    <article class="ln-art-card" data-category="porcelana" data-name="lucia santos" data-city="itapetininga">
+                    <article class="ln-art-card card-base" data-category="porcelana" data-name="lucia santos" data-city="itapetininga">
                         <a href="artesao.html" class="ln-art-card-link" aria-label="Ver perfil de Lucia Santos">
                             <div class="ln-art-avatar" style="background:url('https://images.pexels.com/photos/33220961/pexels-photo-33220961.jpeg?cs=srgb&dl=pexels-quachtungduong-33220961.jpg&fm=jpg')center/cover no-repeat">
                                 <div class="ln-art-socials" aria-hidden="true">
@@ -365,7 +365,7 @@
 
                 </div>
 
-                <p class="ln-art-empty" id="ln-art-empty" hidden>Nenhum artesão encontrado. Tente outro nome ou categoria.</p>
+                <p class="ln-art-empty lista-base__vazia" id="ln-art-empty" hidden>Nenhum artesão encontrado. Tente outro nome ou categoria.</p>
 
             </div>
         </section>
@@ -401,14 +401,17 @@
             <h4>Contato</h4>
             <p>(11) 9999-9999</p>
             <p>administrativo@associacaogaia.com</p>
-            <h4>Redes Socias</h4>
+
+            <h4>Redes Sociais</h4>
             <div>
-               <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
-                <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape" class="header-tamanho-imagens">
-               </a>
-               <a href="https://www.instagram.com/associacaogaia/" target="_blank">
-                <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape" class="header-tamanho-imagens">
-               </a>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
             </div>
         </div>
     </footer>

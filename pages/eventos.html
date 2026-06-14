@@ -6,7 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <title>Associação Gaia</title>
+    <title>Eventos | Associação Gaia</title>
+    <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js" defer></script>
 </head>
@@ -18,7 +19,7 @@
       <nav class="mobile-header">
         <div class="mobile-header-container-flexbox-pai">
             <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
-            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-heder-btn-menu">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
         </div>
       </nav>
       
@@ -62,132 +63,172 @@
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
 
-    <main>
-        <div class="ga-titulo-eventos">
-            <h1>EVENTOS</h1>
-        </div>
+    <main class="ga-page-eventos">
+        <section class="ga-bck-eventos">
+            <img src="../assets/imagem-ia-eventos-fundo.png" alt="Imagem de uma feira de artesanato">
+            <div class="ga-titulo-eventos">
+                <h1>Eventos</h1>
+                <p class="ga-texto-titulo-eventos">Nosso trabalho está mais perto do que você acha, venha conhece-lo!</p>
+            </div>
+        </section>
         <div class="ga-container-eventos">
             <h2>Proximos eventos</h2>
             <div class="ga-barra-pesquisa-eventos">
-                <input type="text" id="ga-input-pesquisa-eventos" placeholder="Pesquisar eventos...">
-                <button type="button" id="ga-btn-pesquisa-eventos">Buscar</button>
+                <label class="ga-search-bar-eventos" for="ga-input-pesquisa-eventos">
+                    <i class="bi bi-search"></i>
+                    <input id="ga-input-pesquisa-eventos" type="search" placeholder="Buscar por nome, cidade ou técnica...">
+                </label>
+            </div>
+            <div class="ga-filtros-eventos">
+                <button class="ga-filtro-evento" data-filtro="todos">Todos</button>
+                <button class="ga-filtro-evento" data-filtro="feira">Feiras</button>
+                <button class="ga-filtro-evento" data-filtro="oficina">Oficinas</button>
+                <button class="ga-filtro-evento" data-filtro="exposicao">Exposições</button>
+                <button class="ga-filtro-evento" data-filtro="palestras">Palestras</button>
+                <button class="ga-filtro-evento" data-filtro="cursos">Cursos</button>
             </div>
             <div class="ga-itens-eventos">
-                <div class="ga-card-eventos">
-                    <img src="../assets/imagem-ia-dia-das-maes.png" alt="imagem para o card de evento">
+                <div class="ga-card-eventos card-base" data-categoria="feira">
+                    <div class="ga-img-eventos">
+                        <img src="../assets/imagem-ia-dia-das-maes.png" alt="Evento de Dia das Mães">
+                    </div>
                     <div class="ga-interno-eventos">
-                        <h3>EVENTO DE DIA DAS MÃES</h3>
-                        <div class="ga-descricao-card-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Local</p>
-                        </div>
-                        <div class="ga-info-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>10/05</p>
-                        </div>
-                        <button type="button" class="ga-btn-eventos">
-                             <a href="../pages/agenda.html">Agendar</a>
-                        </button>
+                        <h3 class="ga-titulo-card-eventos">Evento de Dia das Mães</h3>
+                    <div class="ga-local-eventos">
+                        <img src="../assets/ponteiro-mapa.png" alt="">
+                        <p>Praça Central • Itapetininga</p>
+                    </div>
+                    <div class="ga-data-eventos">
+                        <img src="../assets/calendario-eventos.png" alt="">
+                        <p>10 de Maio</p>
+                    </div>
+                    <div class="ga-tags-eventos">
+                        <span>Tricô</span>
+                        <span>Bordado</span>
+                        <span>Cerâmica</span>
+                    </div>
+                        <a href="agenda.html" class="ga-btn-eventos">
+                            Agendar
+                        </a>
                     </div>
                 </div>
-                <div class="ga-card-eventos">
-                    <img src="../assets/imagem-ia-dia-das-maes.png" alt="imagem para o card de evento">
+                <div class="ga-card-eventos card-base" data-categoria="exposicao">
+                    <div class="ga-img-eventos">
+                        <img src="../assets/imagem-ia-eventos-fundo.png" alt="Exposição Reginonal">
+                    </div>
                     <div class="ga-interno-eventos">
-                        <h3>EVENTO DE DIA DAS MÃES</h3>
-                        <div class="ga-descricao-card-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Local</p>
-                        </div>
-                        <div class="ga-info-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>10/05</p>
-                        </div>
-                        <button type="button" class="ga-btn-eventos">
-                             <a href="../pages/agenda.html">Agendar</a>
-                        </button>
+                        <h3 class="ga-titulo-card-eventos">Exposição Regional</h3>
+                    <div class="ga-local-eventos">
+                        <img src="../assets/ponteiro-mapa.png" alt="">
+                        <p>Museu Municipal • Itapetininga</p>
+                    </div>
+                    <div class="ga-data-eventos">
+                        <img src="../assets/calendario-eventos.png" alt="">
+                        <p>21 de Maio 2026</p>
+                    </div>
+                    <div class="ga-tags-eventos">
+                        <span>Exposição</span>
+                    </div>
+                        <a href="agenda.html" class="ga-btn-eventos">
+                            Agendar
+                        </a>
                     </div>
                 </div>
-                <div class="ga-card-eventos">
-                    <img src="../assets/imagem-ia-dia-das-maes.png" alt="imagem para o card de evento">
+                <div class="ga-card-eventos card-base" data-categoria="oficina">
+                    <div class="ga-img-eventos">
+                        <img src="../assets/oficina_de_bordado_ia.png" alt="Oficina de Bordado">
+                    </div>
                     <div class="ga-interno-eventos">
-                        <h3>EVENTO DE DIA DAS MÃES</h3>
-                        <div class="ga-descricao-card-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Local</p>
-                        </div>
-                        <div class="ga-info-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>10/05</p>
-                        </div>
-                        <button type="button" class="ga-btn-eventos">
-                             <a href="../pages/agenda.html">Agendar</a>
-                        </button>
+                        <h3 class="ga-titulo-card-eventos">Oficina de Bordado</h3>
+                    <div class="ga-local-eventos">
+                        <img src="../assets/ponteiro-mapa.png" alt="">
+                        <p>Praça Peixoto Gomide</p>
+                    </div>
+                    <div class="ga-data-eventos">
+                        <img src="../assets/calendario-eventos.png" alt="">
+                        <p>15 de Maio 2026</p>
+                    </div>
+                    <div class="ga-tags-eventos">
+                        <span>Oficina</span>
+                        <span>Bordado</span>
+                    </div>
+                        <a href="agenda.html" class="ga-btn-eventos">
+                            Agendar
+                        </a>
                     </div>
                 </div>
-                <div class="ga-card-eventos">
-                    <img src="../assets/imagem-ia-dia-das-maes.png" alt="imagem para o card de evento">
+                <div class="ga-card-eventos card-base" data-categoria="feira">
+                    <div class="ga-img-eventos">
+                        <img src="../assets/feira_da_lua_ia.png" alt="Feira da Lua">
+                    </div>
                     <div class="ga-interno-eventos">
-                        <h3>EVENTO DE DIA DAS MÃES</h3>
-                        <div class="ga-descricao-card-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Local</p>
-                        </div>
-                        <div class="ga-info-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>10/05</p>
-                        </div>
-                        <button type="button" class="ga-btn-eventos">
-                            <a href="../pages/agenda.html">Agendar</a>
-                        </button>
+                        <h3 class="ga-titulo-card-eventos">Feira da Lua</h3>
+                    <div class="ga-local-eventos">
+                        <img src="../assets/ponteiro-mapa.png" alt="">
+                        <p>Praça Mal.Deodoro da Fonseca</p>
+                    </div>
+                    <div class="ga-data-eventos">
+                        <img src="../assets/calendario-eventos.png" alt="">
+                        <p>3 de Junho 2026</p>
+                    </div>
+                    <div class="ga-tags-eventos">
+                        <span>Feira</span>
+                        <span>Exposição</span>
+                    </div>
+                        <a href="agenda.html" class="ga-btn-eventos">
+                            Agendar
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
-    <footer class="footer-container-grid-pai">
-        <div class="footer-grid-bloco1">    
-          <h3>Associação Gaia</h3>
-          <p>Criatividade que conecta, artesanato que transforma</p>
-        </div>
-
-        <div class="footer-grid-bloco2">
-            <h4>Navegação</h4>
-            <ul>
-                <li><a href="../index.html">Início</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="artesaos.html">Artesãos</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="sobre-nos.html">Sobre nós</a></li>
-            </ul>
-        </div>
-           
-        <div class="footer-grid-bloco3">
-            <h4>Categorias</h4>
-            <ul>
-                <li><a href="#">Cerâmica</a></li>
-                <li><a href="#">Tecelagem</a></li>
-                <li><a href="#">Porcelana</a></li>
-                <li><a href="#">Marcenaria</a></li>
-            </ul>
-        </div>
-    
-        <div class="footer-grid-bloco4">
-            <h4>Contato</h4>
-            <p>(11) 9999-9999</p>
-            <p>Diretoriagaia1@gmail.com</p>
-
-            <h4>Redes Socias</h4>
-            <div>
-               <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
-                <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape" class="header-tamanho-imagens">
-               </a>
-               <a href="https://www.instagram.com/associacaogaia/" target="_blank">
-                <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape" class="header-tamanho-imagens">
-               </a>
+        <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+        <footer class="footer-container-grid-pai">
+            <div class="footer-grid-bloco1">
+                <h3>Associação Gaia</h3>
+                <p>Criatividade que conecta, artesanato que transforma</p>
             </div>
-        </div>   
-    </footer>
+            
+            <div class="footer-grid-bloco2">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="artesaos.html">Artesãos</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="sobre-nos.html">Sobre nós</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-grid-bloco3">
+                <h4>Categorias</h4>
+                <ul>
+                    <li><a href="#">Cerâmica</a></li>
+                    <li><a href="#">Tecelagem</a></li>
+                    <li><a href="#">Porcelana</a></li>
+                    <li><a href="#">Marcenaria</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-grid-bloco4">
+                <h4>Contato</h4>
+                <p>(11) 9999-9999</p>
+                <p>Diretoriagaia1@gmail.com</p>
+                
+            <h4>Redes Sociais</h4>
+                <div>
+                    <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                        <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                            class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                    </a>
+                    <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                        <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                            class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                    </a>
+                </div>
+            </div>   
+        </footer>
 </body>
 </html>

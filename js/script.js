@@ -1,9 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const mobileBtnMenu = document.getElementById('mobile-heder-btn-menu');
+    const mobileBtnMenu = document.getElementById('mobile-header-btn-menu');
     const sidebar = document.getElementById('mobile-header-sidebar');
     const mobileBtnFecharX = document.getElementById('mobile-btnFechar-sidebar');
     const overlay = document.getElementById('mobile-header-overlay');
+
+    if (
+    mobileBtnMenu &&
+    sidebar &&
+    mobileBtnFecharX &&
+    overlay
+) {
 
     mobileBtnMenu.addEventListener('click', () => {
         sidebar.classList.add('active');
@@ -17,129 +24,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileBtnFecharX.addEventListener('click', fecharMenu);
     overlay.addEventListener('click', fecharMenu);
+}
 
-    /* ---------- LARISSA - INDEX ---------- */
+function criarCarrossel({ idCarrossel, seletorCards, seletorBtnPrev, seletorBtnNext, idDots, intervaloMs }) {
+    const carrossel = document.getElementById(idCarrossel);
+    if (!carrossel) return;
 
-    // CARROSSEL DE EVENTOS
-    const carrossel = document.getElementById('la-carrossel');
-    const dotsContainer = document.getElementById('la-carrossel-dots');
-    const btnPrev = document.querySelector('.la-carrossel-btn-prev');
-    const btnNext = document.querySelector('.la-carrossel-btn-next');
-    const cards = carrossel.querySelectorAll('.la-card');
+    const cards = carrossel.querySelectorAll(seletorCards);
+    const btnPrev = document.querySelector(seletorBtnPrev);
+    const btnNext = document.querySelector(seletorBtnNext);
+    const dotsContainer = idDots ? document.getElementById(idDots) : null;
 
     let cardAtivo = 0;
     let intervalo;
 
-    dotsContainer.innerHTML = '';
-    cards.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.classList.add('la-dot');
-        dot.setAttribute('aria-label', `Ir para card ${i + 1}`);
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-            irParaCard(i);
-            clearInterval(intervalo);
-            iniciarAutoplay();
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('la-dot');
+            dot.setAttribute('aria-label', `Ir para card ${i + 1}`);
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => { irPara(i); reiniciar(); });
+            dotsContainer.appendChild(dot);
         });
-        dotsContainer.appendChild(dot);
-    });
+    }
 
-    function irParaCard(index) {
+    function irPara(index) {
         if (index >= cards.length) index = 0;
         if (index < 0) index = cards.length - 1;
         cardAtivo = index;
-        carrossel.scrollTo({
-            left: cards[index].offsetLeft - carrossel.offsetLeft,
-            behavior: 'smooth'
-        });
-        dotsContainer.querySelectorAll('.la-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
+        carrossel.scrollTo({ left: cards[index].offsetLeft - carrossel.offsetLeft, behavior: 'smooth' });
+        if (dotsContainer) {
+            dotsContainer.querySelectorAll('.la-dot').forEach((dot, i) => dot.classList.toggle('active', i === index));
+        }
     }
 
-    function iniciarAutoplay() {
-        intervalo = setInterval(() => irParaCard(cardAtivo + 1), 2500);
-    }
+    function iniciar() { intervalo = setInterval(() => irPara(cardAtivo + 1), intervaloMs || 2500); }
+    function reiniciar() { clearInterval(intervalo); iniciar(); }
 
-    iniciarAutoplay();
+    iniciar();
+    btnNext?.addEventListener('click', () => { clearInterval(intervalo); irPara(cardAtivo + 1); iniciar(); });
+    btnPrev?.addEventListener('click', () => { clearInterval(intervalo); irPara(cardAtivo - 1); iniciar(); });
+}
 
-    btnNext.addEventListener('click', () => {
-        clearInterval(intervalo);
-        irParaCard(cardAtivo + 1);
-        iniciarAutoplay();
-    });
-
-    btnPrev.addEventListener('click', () => {
-        clearInterval(intervalo);
-        irParaCard(cardAtivo - 1);
-        iniciarAutoplay();
-    });
-
-    // CARROSSEL DE ARTESAOS
-    const carrosselArtesaos = document.getElementById('la-artesaos-carrossel');
-    const btnPrevArtesaos = document.querySelector('.la-artesaos-btn-prev');
-    const btnNextArtesaos = document.querySelector('.la-artesaos-btn-next');
-    const cardsArtesaos = carrosselArtesaos.querySelectorAll('.la-artesao-card');
-
-    let cardAtivoArtesaos = 0;
-    let intervaloArtesaos;
-
-    function irParaArtesao(index) {
-        if (index >= cardsArtesaos.length) index = 0;
-        if (index < 0) index = cardsArtesaos.length - 1;
-        cardAtivoArtesaos = index;
-        carrosselArtesaos.scrollTo({
-            left: cardsArtesaos[index].offsetLeft - carrosselArtesaos.offsetLeft,
-            behavior: 'smooth'
-        });
-    }
-
-    function iniciarAutoplayArtesaos() {
-        intervaloArtesaos = setInterval(() => irParaArtesao(cardAtivoArtesaos + 1), 3000);
-    }
-
-    iniciarAutoplayArtesaos();
-
-    btnNextArtesaos.addEventListener('click', () => {
-        clearInterval(intervaloArtesaos);
-        irParaArtesao(cardAtivoArtesaos + 1);
-        iniciarAutoplayArtesaos();
-    });
-
-    btnPrevArtesaos.addEventListener('click', () => {
-        clearInterval(intervaloArtesaos);
-        irParaArtesao(cardAtivoArtesaos - 1);
-        iniciarAutoplayArtesaos();
-    });
-
-    
+// Uso — substitui os dois blocos de carrossel
+criarCarrossel({
+    idCarrossel: 'la-carrossel',
+    seletorCards: '.la-card',
+    seletorBtnPrev: '.la-carrossel-btn-prev',
+    seletorBtnNext: '.la-carrossel-btn-next',
+    idDots: 'la-carrossel-dots',
+    intervaloMs: 2500
 });
-const mobileBtnMenu = document.getElementById('mobile-heder-btn-menu');
-const sidebar = document.getElementById('mobile-header-sidebar');
-const mobileBtnFecharX = document.getElementById('mobile-btnFechar-sidebar');
-const overlay = document.getElementById('mobile-header-overlay');
+
+criarCarrossel({
+    idCarrossel: 'la-artesaos-carrossel',
+    seletorCards: '.la-artesao-card',
+    seletorBtnPrev: '.la-artesaos-btn-prev',
+    seletorBtnNext: '.la-artesaos-btn-next',
+    intervaloMs: 3000
+});
+
 const artesoesFilterBtn = document.getElementById('ln-artesoes-filter-btn');
 const artesoesFilterMenu = document.getElementById('ln-artesoes-filter-menu');
 const artesoesFilterValue = document.getElementById('ln-artesoes-filter-value');
 const artesoesFilterWrap = document.querySelector('.ln-artesoes-filter-wrap');
-
-// Função para abrir a sidebar
-if (mobileBtnMenu && sidebar && overlay) {
-    mobileBtnMenu.addEventListener('click', ()=> {
-        sidebar.classList.add('active');
-        overlay.classList.add('active');
-    });
-
-    // Função para fechar tudo
-    const fecharMenu = () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-    };
-
-    // chama a função fechar menu quando clicar no X
-    if (mobileBtnFecharX) mobileBtnFecharX.addEventListener('click', fecharMenu);
-    overlay.addEventListener('click', fecharMenu);
-}
 
 // Formulário de contato: intercepta submit e mostra feedback local
 const contactForm = document.getElementById('ln-contact-form');
@@ -440,33 +390,29 @@ document.querySelectorAll('.ln-painel-toggle').forEach(btn => {
     counters.forEach(c => io.observe(c));
 })();
 
-// --------- GABRIEL EVENTOS --------- //
+// --------- GABRIEL EVENTOS E AGENDA --------- //
 
 const gaInputPesquisaEventos =
     document.getElementById('ga-input-pesquisa-eventos');
-
-const gaBtnPesquisaEventos =
-    document.getElementById('ga-btn-pesquisa-eventos');
 
 const gaCardsEventos =
     document.querySelectorAll('.ga-card-eventos');
 
 function gaPesquisarEventos(){
 
+    if (!gaInputPesquisaEventos) return;
+
     const valorPesquisa =
         gaInputPesquisaEventos.value.toLowerCase();
 
     gaCardsEventos.forEach((cardEvento) => {
 
-        const tituloEvento =
-            cardEvento
-            .querySelector('h3')
-            .textContent
-            .toLowerCase();
+    const h3 = cardEvento.querySelector('h3');
+    const tituloEvento = h3 ? h3.textContent.toLowerCase() : '';
 
         if(tituloEvento.includes(valorPesquisa)){
 
-            cardEvento.style.display = 'flex';
+            cardEvento.style.display = '';
 
         } else {
 
@@ -475,25 +421,62 @@ function gaPesquisarEventos(){
         }
 
     });
-
 }
 
-/* Clique no botão */
+/* PESQUISA ENQUANTO DIGITA */
+if (gaInputPesquisaEventos) {
+    gaInputPesquisaEventos.addEventListener(
+        'input',
+        gaPesquisarEventos
+    );
+}
 
-gaBtnPesquisaEventos.addEventListener('click', () => {
+// ------- FILTROS -------- //
 
-    gaPesquisarEventos();
+const gaFiltros =
+    document.querySelectorAll('.ga-filtro-evento');
 
-});
+/* procura cards da Agenda OU Eventos */
+const gaCards =
+    document.querySelectorAll(
+        '.ga-card-eventos'
+    );
 
-/* Apertar ENTER */
+if(gaFiltros.length > 0){
 
-gaInputPesquisaEventos.addEventListener('keydown', (evento) => {
+    gaFiltros.forEach((filtro) => {
 
-    if(evento.key === 'Enter'){
+        filtro.addEventListener('click', () => {
 
-        gaPesquisarEventos();
+            gaFiltros.forEach((btn) => {
+                btn.classList.remove('ga-filtro-evento--ativo');
+            });
 
-    }
+            filtro.classList.add('ga-filtro-evento--ativo');
 
+            const categoria =
+                filtro.dataset.filtro;
+
+            gaCards.forEach((card) => {
+
+                if(
+                    categoria === 'todos' ||
+                    card.dataset.categoria === categoria
+                ){
+
+                    card.style.display = '';
+
+                } else {
+
+                    card.style.display = 'none';
+
+                }
+
+            });
+
+        });
+
+    });
+
+   }
 });

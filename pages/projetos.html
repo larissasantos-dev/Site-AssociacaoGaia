@@ -17,7 +17,7 @@
       <nav class="mobile-header">
         <div class="mobile-header-container-flexbox-pai">
             <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
-            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-heder-btn-menu">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
         </div>
       </nav>
 
@@ -60,17 +60,17 @@
     <!-- ----- SARA ----- -->
     <!-- PROJETOS -->
 
-    <main class="sa-page">
+    <main class="sa-page pagina-base__gradiante">
 
         <!-- HERO -->
-        <section class="sa-hero">
-            <div class="sa-wrap">
+        <section class="sa-hero hero-base__gradiente">
+            <div class="sa-wrap wrap-base__central">
                 <div class="sa-hero-inner">
                     <div class="sa-hero-copy">
-                        <p class="sa-label">Projetos</p>
-                        <h1>Nosso Trabalho.<br><span class="sa-highlight">Sua Visão Realizada.</span></h1>
+                        <p class="sa-label label-base__secao">Projetos</p>
+                        <h1 class="hero-base__titulo">Nosso Trabalho.<br><span class="sa-highlight">Sua Visão Realizada.</span></h1>
                         <p>Na Associação Gaia, cada projeto nasce do compromisso com a comunidade, a cultura local e a geração de renda. Conheça nossas iniciativas e veja como o artesanato transforma vidas.</p>
-                        <a href="#sa-catalogo" class="sa-btn">Nossos Projetos</a>
+                        <a href="#sa-catalogo" class="sa-btn btn-base__principal">Nossos Projetos</a>
                     </div>
 
                     <div class="sa-hero-mosaic" aria-hidden="true">
@@ -90,30 +90,30 @@
 
         <!-- CATÁLOGO DE PROJETOS -->
         <section class="sa-catalogo sa-section" id="sa-catalogo">
-            <div class="sa-wrap">
+            <div class="sa-wrap wrap-base__central">
 
                 <div class="sa-catalogo-head">
                     <div class="sa-catalogo-head-left">
-                        <p class="sa-label">Ver todos os Projetos</p>
+                        <p class="sa-label label-base__secao">Ver todos os Projetos</p>
                         <h2>Conheça Nossos<br>Projetos Realizados</h2>
                     </div>
                     <p class="sa-catalogo-desc">Cada projeto que desenvolvemos reflete nosso compromisso com qualidade, impacto social e valorização da identidade cultural de Itapetininga e região.</p>
                 </div>
 
                 <!-- FILTROS -->
-                <div class="sa-filters" role="tablist" aria-label="Filtrar projetos por categoria">
-                    <button class="sa-filter-btn sa-filter-btn--active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
-                    <button class="sa-filter-btn" data-filter="capacitacao" role="tab" aria-selected="false">Capacitação</button>
-                    <button class="sa-filter-btn" data-filter="oficinas" role="tab" aria-selected="false">Oficinas</button>
-                    <button class="sa-filter-btn" data-filter="feiras" role="tab" aria-selected="false">Feiras</button>
-                    <button class="sa-filter-btn" data-filter="cultural" role="tab" aria-selected="false">Cultural</button>
-                    <button class="sa-filter-btn" data-filter="sustentabilidade" role="tab" aria-selected="false">Sustentabilidade</button>
+                <div class="sa-filters filtros-base__wrap" role="tablist" aria-label="Filtrar projetos por categoria">
+                    <button class="sa-filter-btn sa-filter-btn--active filtro-base__btn" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="capacitacao" role="tab" aria-selected="false">Capacitação</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="oficinas" role="tab" aria-selected="false">Oficinas</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="feiras" role="tab" aria-selected="false">Feiras</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="cultural" role="tab" aria-selected="false">Cultural</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="sustentabilidade" role="tab" aria-selected="false">Sustentabilidade</button>
                 </div>
 
                 <!-- GRID DE CARDS -->
-                <div class="sa-grid" id="sa-projetos-grid">
+                <div class="sa-grid catalogo-base__grid" id="sa-projetos-grid">
 
-                    <article class="sa-card" data-category="capacitacao">
+                    <article class="sa-card card-base data-category="capacitacao">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/7710203/pexels-photo-7710203.jpeg?cs=srgb&dl=pexels-a-darmel-7710203.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Capacitação</span>
                         </div>
@@ -128,7 +128,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="feiras">
+                    <article class="sa-card card-base data-category="feiras">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/33593379/pexels-photo-33593379.jpeg?cs=srgb&dl=pexels-tuan-vy-903011268-33593379.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Feiras</span>
                         </div>
@@ -143,7 +143,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="oficinas">
+                    <article class="sa-card card-base data-category="oficinas">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/13240729/pexels-photo-13240729.jpeg?cs=srgb&dl=pexels-visualsbyvivek-13240729.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Oficinas</span>
                         </div>
@@ -158,7 +158,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="oficinas">
+                    <article class="sa-card card-base data-category="oficinas">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35533116/pexels-photo-35533116.jpeg?cs=srgb&dl=pexels-canan-i-ldeniz-2158600658-35533116.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Oficinas</span>
                         </div>
@@ -173,7 +173,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="cultural">
+                    <article class="sa-card card-base data-category="cultural">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/30693432/pexels-photo-30693432.jpeg?cs=srgb&dl=pexels-tuan-vy-903011268-30693432.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Cultural</span>
                         </div>
@@ -188,7 +188,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="sustentabilidade">
+                    <article class="sa-card card-base data-category="sustentabilidade">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/32408717/pexels-photo-32408717.jpeg?cs=srgb&dl=pexels-alex-sanchez-2150797975-32408717.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Sustentabilidade</span>
                         </div>
@@ -203,7 +203,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="capacitacao">
+                    <article class="sa-card card-base data-category="capacitacao">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/29399503/pexels-photo-29399503.jpeg?cs=srgb&dl=pexels-phong-vo-669197289-29399503.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Capacitação</span>
                         </div>
@@ -218,7 +218,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="feiras">
+                    <article class="sa-card card-base data-category="feiras">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35251793/pexels-photo-35251793.jpeg?cs=srgb&dl=pexels-drmkhawarnazir-35251793.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Feiras</span>
                         </div>
@@ -233,7 +233,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="cultural">
+                    <article class="sa-card card-base data-category="cultural">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/37090338/pexels-photo-37090338.jpeg?cs=srgb&dl=pexels-julian-fernandez-462539203-37090338.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Cultural</span>
                         </div>
@@ -251,37 +251,37 @@
                 </div>
 
                 <!-- MENSAGEM VAZIO (filtro sem resultado) -->
-                <p class="sa-empty" id="sa-empty" hidden>Nenhum projeto encontrado nesta categoria.</p>
+                <p class="sa-empty lista-base__vazia" id="sa-empty" hidden>Nenhum projeto encontrado nesta categoria.</p>
 
             </div>
         </section>
 
         <!-- CATÁLOGO DE CURSOS -->
         <section class="sa-catalogo sa-section" id="sa-cursos">
-            <div class="sa-wrap">
+            <div class="sa-wrap wrap-base__central">
 
                 <div class="sa-catalogo-head">
                     <div class="sa-catalogo-head-left">
-                        <p class="sa-label">Capacitação</p>
+                        <p class="sa-label label-base__secao">Capacitação</p>
                         <h2>Cursos e<br>Formações</h2>
                     </div>
                     <p class="sa-catalogo-desc">Formações práticas para artesãos que querem aperfeiçoar técnicas, melhorar a gestão do negócio e fortalecer sua identidade criativa.</p>
                 </div>
 
                 <!-- FILTROS -->
-                <div class="sa-filters" role="tablist" aria-label="Filtrar cursos por área">
-                    <button class="sa-filter-btn sa-filter-btn--active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
-                    <button class="sa-filter-btn" data-filter="ceramica" role="tab" aria-selected="false">Cerâmica</button>
-                    <button class="sa-filter-btn" data-filter="tecelagem" role="tab" aria-selected="false">Tecelagem</button>
-                    <button class="sa-filter-btn" data-filter="bordado" role="tab" aria-selected="false">Bordado</button>
-                    <button class="sa-filter-btn" data-filter="design" role="tab" aria-selected="false">Design</button>
-                    <button class="sa-filter-btn" data-filter="gestao" role="tab" aria-selected="false">Gestão</button>
+                <div class="sa-filters filtros-base__wrap" role="tablist" aria-label="Filtrar cursos por área">
+                    <button class="sa-filter-btn sa-filter-btn--active filtro-base__btn" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="ceramica" role="tab" aria-selected="false">Cerâmica</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="tecelagem" role="tab" aria-selected="false">Tecelagem</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="bordado" role="tab" aria-selected="false">Bordado</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="design" role="tab" aria-selected="false">Design</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="gestao" role="tab" aria-selected="false">Gestão</button>
                 </div>
 
                 <!-- GRID DE CARDS -->
-                <div class="sa-grid">
+                <div class="sa-grid catalogo-base__grid" id="sa-projetos-grid">
 
-                    <article class="sa-card" data-category="ceramica">
+                    <article class="sa-card card-base data-category="ceramica">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/30283531/pexels-photo-30283531.jpeg?cs=srgb&dl=pexels-seda-nur-koc-2148806558-30283531.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Cerâmica</span>
                         </div>
@@ -296,7 +296,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="tecelagem">
+                    <article class="sa-card card-base data-category="tecelagem">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35533116/pexels-photo-35533116.jpeg?cs=srgb&dl=pexels-canan-i-ldeniz-2158600658-35533116.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Tecelagem</span>
                         </div>
@@ -311,7 +311,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="bordado">
+                    <article class="sa-card card-base data-category="bordado">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/35623927/pexels-photo-35623927.jpeg?cs=srgb&dl=pexels-drmkhawarnazir-35623927.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Bordado</span>
                         </div>
@@ -326,7 +326,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="design">
+                    <article class="sa-card card-base data-category="design">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/7710203/pexels-photo-7710203.jpeg?cs=srgb&dl=pexels-a-darmel-7710203.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Design</span>
                         </div>
@@ -341,7 +341,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="gestao">
+                    <article class="sa-card card-base data-category="gestao">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/15635241/pexels-photo-15635241.jpeg?cs=srgb&dl=pexels-walls-io-440716388-15635241.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Gestão</span>
                         </div>
@@ -356,7 +356,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="gestao">
+                    <article class="sa-card card-base data-category="gestao">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/8886104/pexels-photo-8886104.jpeg?cs=srgb&dl=pexels-brianzosky-8886104.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Gestão</span>
                         </div>
@@ -373,36 +373,36 @@
 
                 </div>
 
-                <p class="sa-empty" hidden>Nenhum curso encontrado nesta área.</p>
+                <p class="sa-empty lista-base__vazia" hidden>Nenhum curso encontrado nesta área.</p>
 
             </div>
         </section>
 
         <!-- CATÁLOGO DE PALESTRAS -->
         <section class="sa-catalogo sa-section" id="sa-palestras">
-            <div class="sa-wrap">
+            <div class="sa-wrap wrap-base__central">
 
                 <div class="sa-catalogo-head">
                     <div class="sa-catalogo-head-left">
-                        <p class="sa-label">Conhecimento</p>
+                        <p class="sa-label label-base__secao">Conhecimento</p>
                         <h2>Palestras e<br>Encontros</h2>
                     </div>
                     <p class="sa-catalogo-desc">Conversas, debates e encontros que aproximam artesãos, pesquisadores e o público em torno de temas que movem a cultura e o empreendedorismo criativo.</p>
                 </div>
 
                 <!-- FILTROS -->
-                <div class="sa-filters" role="tablist" aria-label="Filtrar palestras por tema">
-                    <button class="sa-filter-btn sa-filter-btn--active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
-                    <button class="sa-filter-btn" data-filter="cultura" role="tab" aria-selected="false">Cultura</button>
-                    <button class="sa-filter-btn" data-filter="sustentabilidade" role="tab" aria-selected="false">Sustentabilidade</button>
-                    <button class="sa-filter-btn" data-filter="empreendedorismo" role="tab" aria-selected="false">Empreendedorismo</button>
-                    <button class="sa-filter-btn" data-filter="inovacao" role="tab" aria-selected="false">Inovação</button>
+                <div class="sa-filters filtros-base__wrap" role="tablist" aria-label="Filtrar palestras por tema">
+                    <button class="sa-filter-btn sa-filter-btn--active filtro-base__btn" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="cultura" role="tab" aria-selected="false">Cultura</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="sustentabilidade" role="tab" aria-selected="false">Sustentabilidade</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="empreendedorismo" role="tab" aria-selected="false">Empreendedorismo</button>
+                    <button class="sa-filter-btn filtro-base__btn" data-filter="inovacao" role="tab" aria-selected="false">Inovação</button>
                 </div>
 
                 <!-- GRID DE CARDS -->
-                <div class="sa-grid">
+                <div class="sa-grid catalogo-base__grid" id="sa-projetos-grid">
 
-                    <article class="sa-card" data-category="cultura">
+                    <article class="sa-card card-base data-category="cultura">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/37090338/pexels-photo-37090338.jpeg?cs=srgb&dl=pexels-julian-fernandez-462539203-37090338.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Cultura</span>
                         </div>
@@ -417,7 +417,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="sustentabilidade">
+                    <article class="sa-card card-base data-category="sustentabilidade">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/6990304/pexels-photo-6990304.jpeg?cs=srgb&dl=pexels-artempodrez-6990304.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Sustentabilidade</span>
                         </div>
@@ -432,7 +432,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="empreendedorismo">
+                    <article class="sa-card card-base data-category="empreendedorismo">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/33593379/pexels-photo-33593379.jpeg?cs=srgb&dl=pexels-tuan-vy-903011268-33593379.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Empreendedorismo</span>
                         </div>
@@ -447,7 +447,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="inovacao">
+                    <article class="sa-card card-base data-category="inovacao">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/15406294/pexels-photo-15406294.jpeg?cs=srgb&dl=pexels-shutter-speed-15406294.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Inovação</span>
                         </div>
@@ -462,7 +462,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="cultura">
+                    <article class="sa-card card-base data-category="cultura">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/6340631/pexels-photo-6340631.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6340631.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Cultura</span>
                         </div>
@@ -477,7 +477,7 @@
                         </div>
                     </article>
 
-                    <article class="sa-card" data-category="empreendedorismo">
+                    <article class="sa-card card-base data-category="empreendedorismo">
                         <div class="sa-card-img" style="background:url('https://images.pexels.com/photos/6340691/pexels-photo-6340691.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6340691.jpg&fm=jpg')center/cover no-repeat">
                             <span class="sa-card-tag">Empreendedorismo</span>
                         </div>
@@ -494,19 +494,19 @@
 
                 </div>
 
-                <p class="sa-empty" hidden>Nenhuma palestra encontrada neste tema.</p>
+                <p class="sa-empty lista-base__vazia" hidden>Nenhuma palestra encontrada neste tema.</p>
 
             </div>
         </section>
 
         <!-- CTA APOIE -->
         <section class="sa-cta">
-            <div class="sa-wrap sa-cta-inner">
+            <div class="sa-wrap wrap-base__central sa-cta-inner">
                 <div class="sa-cta-copy">
-                    <p class="sa-label sa-label--light">Seja um Apoiador</p>
+                    <p class="sa-label  label-base__secao sa-label--light">Seja um Apoiador</p>
                     <h2>Apoie um Projeto e<br>Transforme uma Vida</h2>
                     <p>Pela Lei Rouanet, pessoas físicas destinam até <strong>6%</strong> e empresas até <strong>4%</strong> do imposto de renda — sem custo extra. Fale com a gente e descubra como participar.</p>
-                    <a href="sobre-nos.html" class="sa-btn sa-btn--outline">Fale Conosco</a>
+                    <a href="sobre-nos.html" class="sa-btn sa-btn--outline btn-base__principal">Fale Conosco</a>
                 </div>
                 <div class="sa-cta-cards">
                     <div class="sa-cta-chip">
@@ -572,14 +572,17 @@
             <h4>Contato</h4>
             <p>(11) 9999-9999</p>
             <p>administrativo@associacaogaia.com</p>
-            <h4>Redes Socias</h4>
+
+            <h4>Redes Sociais</h4>
             <div>
-               <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
-                <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape" class="header-tamanho-imagens">
-               </a>
-               <a href="https://www.instagram.com/associacaogaia/" target="_blank">
-                <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape" class="header-tamanho-imagens">
-               </a>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
             </div>
         </div>
     </footer>

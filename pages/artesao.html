@@ -12,12 +12,13 @@
     <script src="../js/script.js" defer></script>
 </head>
 <body>
+
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
     <header class="geral-header">
       <nav class="mobile-header">
         <div class="mobile-header-container-flexbox-pai">
             <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
-            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-heder-btn-menu">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
         </div>
       </nav>
       <nav class="desktop-header">
@@ -57,15 +58,15 @@
     <!-- ----- LANA ----- -->
     <!-- ARTESÃ EM DETALHE -->
 
-    <main class="ln-det-page">
+    <main class="ln-det-page pagina-base__gradiante">
 
         <!-- HERO -->
         <section class="ln-det-hero">
-            <div class="ln-det-wrap">
+            <div class="ln-det-wrap wrap-base__central">
 
                 <div class="ln-det-hero-inner">
-                    <div class="ln-det-hero-copy">
-                        <p class="ln-det-label">Artesã em Destaque</p>
+                    <div class="hero-base__titulo">
+                        <p class="ln-det-label label-base__secao">Artesã em Destaque</p>
                         <h1>Ana Souza</h1>
                         <p class="ln-det-lead">Ceramista de Campinas-SP que transforma argila em peças utilitárias e decorativas com acabamento manual e presença autoral, há mais de 20 anos preservando saberes tradicionais.</p>
 
@@ -77,7 +78,7 @@
                         </div>
 
                         <div class="ln-det-hero-actions">
-                            <a href="#ln-det-portfolio" class="ln-det-btn">Ver Portfólio</a>
+                            <a href="#ln-det-portfolio" class="ln-det-btn btn-base__principal">Ver Portfólio</a>
                             <a href="artesaos.html" class="ln-det-btn-ghost">← Todos os Artesãos</a>
                         </div>
                     </div>
@@ -107,7 +108,7 @@
 
         <!-- PERFIL + PORTFÓLIO -->
         <section class="ln-det-content" id="ln-det-portfolio">
-            <div class="ln-det-wrap ln-det-content-grid">
+            <div class="ln-det-wrap ln-det-content-grid wrap-base__central">
 
                 <!-- COLUNA ESQUERDA — perfil e contato -->
                 <aside class="ln-det-sidebar">
@@ -165,7 +166,7 @@
                 <!-- COLUNA DIREITA — portfólio -->
                 <div class="ln-det-main">
                     <div class="ln-det-section-head">
-                        <p class="ln-det-label">Portfólio</p>
+                        <p class="ln-det-label label-base__secao">Portfólio</p>
                         <h2>Peças, Texturas e Acabamento</h2>
                         <p>Uma mostra das coleções que traduzem o processo de Ana com função e delicadeza.</p>
                     </div>
@@ -186,7 +187,7 @@
                     </div>
 
                     <div class="ln-det-section-head" style="margin-top: 2rem;">
-                        <p class="ln-det-label">Trajetória</p>
+                        <p class="ln-det-label label-base__secao">Trajetória</p>
                         <h2>Onde Encontrar</h2>
                     </div>
 
@@ -249,14 +250,17 @@
             <h4>Contato</h4>
             <p>(11) 9999-9999</p>
             <p>administrativo@associacaogaia.com</p>
-            <h4>Redes Socias</h4>
+
+            <h4>Redes Sociais</h4>
             <div>
-               <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
-                <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape" class="header-tamanho-imagens">
-               </a>
-               <a href="https://www.instagram.com/associacaogaia/" target="_blank">
-                <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape" class="header-tamanho-imagens">
-               </a>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
             </div>
         </div>
     </footer>
