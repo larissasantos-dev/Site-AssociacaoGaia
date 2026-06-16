@@ -1071,7 +1071,7 @@ HEADER - CSS PARA TABLETS
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background-color: var(--cor-flecha);
+    background-color: var(--cor-botao-principal);
     color: var(--cor-fonte);
     padding: 8px 16px;
     border-radius: 8px;
