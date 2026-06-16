@@ -11,6 +11,8 @@
     <script src="../js/script.js" defer></script>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
 
     <header class="geral-header"> <!-- classe global -->
@@ -62,7 +64,7 @@
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
 
-    <main class="ga-page-agenda">
+    <main class="ga-page-agenda" id="conteudo-principal" tabindex="-1">
         <section class="ga-bck-agenda">
             <img src="../assets/imagem-ia-eventos-fundo.png" alt="Agenda de Eventos">
             <div class="ga-titulo-agenda">
@@ -164,5 +166,13 @@
             </div>
         </div>   
     </footer>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
 </body>
 </html>

@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
 
     <header class="geral-header"> <!-- classe global -->
@@ -67,7 +68,7 @@
         <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
 
-    <main>
+    <main id="conteudo-principal" tabindex="-1">
         <section class="la-secao-destaque-mes" id="la-destaque-mes">
             <div class="la-destaque-mes-div">
                 <span class="la-destaque-mes-badge">✦ Destaque do mês</span>
@@ -350,6 +351,13 @@
             </div>
         </div>
     </footer>
-</body>
 
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+</body>
 </html>

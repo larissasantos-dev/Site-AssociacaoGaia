@@ -3967,4 +3967,106 @@ HEADER - CSS PARA TABLETS
 
 /* --- FIM DA AGENDA --- */
 
+
+    /* ==========================
+   KIT DE ACESSIBILIDADE
+========================== */
+
+/* SKIP LINK */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: var(--cor-badge);
+    color: var(--cor-fonte);
+    padding: 12px 24px;
+    z-index: 9999;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0 0 8px 8px;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* FOCO VISÍVEL */
+:focus {
+    outline: 3px solid var(--cor-flecha);
+    outline-offset: 3px;
+}
+
+/* ALTO CONTRASTE */
+body.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+body.high-contrast .geral-header,
+body.high-contrast .footer-container-grid-pai,
+body.high-contrast .btn-acc {
+    background: #000 !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+}
+
+body.high-contrast p,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast a,
+body.high-contrast span {
+    color: #fff !important;
+}
+
+/* FILTROS DALTONISMO */
+.protanopia  { filter: grayscale(1) sepia(0.5) hue-rotate(-50deg); }
+.deuteranopia { filter: grayscale(1) sepia(0.5) hue-rotate(-10deg); }
+.tritanopia  { filter: grayscale(0.5) sepia(0.5) hue-rotate(180deg); }
+
+/* BARRA DE ACESSIBILIDADE */
+.accessibility-toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 6px 5%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-acc {
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cor-fonte);
+    transition: background 0.2s, transform 0.2s;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.btn-acc:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+}
+
+.select-acc {
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: transparent;
+    color: var(--cor-fonte);
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.select-acc option {
+    color: var(--cor-fonte-preta);
+    background: white;
+}
 /* ------------------------- */

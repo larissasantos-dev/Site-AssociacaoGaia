@@ -479,4 +479,37 @@ if(gaFiltros.length > 0){
     });
 
    }
+    // ==========================
+    // KIT DE ACESSIBILIDADE
+    // ==========================
+
+    // USERWAY (suíte completa via IA)
+    (function(d){
+        var s = d.createElement("script");
+        s.setAttribute("data-account", "JQrCkIFmyB");
+        s.setAttribute("src", "https://cdn.userway.org/widget.js");
+        (d.body || d.head).appendChild(s);
+    })(document);
+
+    // SÍNTESE DE VOZ
+    function lerDescricao(botao) {
+        window.speechSynthesis.cancel();
+        const imagem = botao.parentElement.querySelector('img');
+        const texto = imagem.alt;
+        if (texto) {
+            const utterance = new SpeechSynthesisUtterance(texto);
+            utterance.lang = 'pt-BR';
+            window.speechSynthesis.speak(utterance);
+        }
+    }
+    
+    // VLIBRAS
+    (function() {
+        var s = document.createElement('script');
+        s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+        s.onload = function() {
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        };
+        document.head.appendChild(s);
+    })();
 });
