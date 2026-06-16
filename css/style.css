@@ -500,7 +500,7 @@ body{
 
 /* HERO */
 .ln-det-hero {
-    background: linear-gradient(160deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-hero-medio) 100%);
+    background: transparent;
     padding: 2.5rem 0 3rem;
 }
 
@@ -1642,8 +1642,18 @@ HEADER - CSS PARA TABLETS
     cursor: grab;
 }
 
+/* Carrossel de projetos com o mesmo estilo da home (setas redondas nas laterais) */
 .sa-carousel-shell {
-    position: relative;
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: center;
+    gap: 10px;
+}
+
+.sa-carousel-shell > .sa-grid {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
 }
 
 .sa-page .sa-catalogo .sa-grid::-webkit-scrollbar {
@@ -1656,29 +1666,24 @@ HEADER - CSS PARA TABLETS
 }
 
 .sa-carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    width: 2.75rem;
-    height: 2.75rem;
+    grid-row: 1;
+    width: 36px;
+    height: 36px;
     border: 0;
-    border-radius: 999px;
-    background: var(--cor-botao-principal);
-    color: var(--cor-fonte);
-    box-shadow: 0 10px 22px rgba(60,33,20,0.18);
+    border-radius: 50%;
+    background: var(--cor-flecha);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s, opacity 0.2s;
+    padding: 0;
+    transition: background 0.2s, opacity 0.2s;
 }
 
 .sa-carousel-arrow:hover,
 .sa-carousel-arrow:focus-visible {
     background: var(--cor-botao-hover);
     outline: none;
-    transform: translateY(-50%) scale(1.04);
 }
 
 .sa-carousel-arrow:disabled {
@@ -1687,36 +1692,28 @@ HEADER - CSS PARA TABLETS
 }
 
 .sa-carousel-arrow--prev {
-    left: 0.25rem;
+    grid-column: 1;
 }
 
 .sa-carousel-arrow--next {
-    right: 0.25rem;
+    grid-column: 3;
 }
 
-
-.sa-carousel-arrow i {
-    font-size: 1.15rem;
-    line-height: 1;
+.sa-carousel-arrow img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
 }
 
 .sa-page .sa-catalogo .sa-grid .sa-card {
-    flex: 0 0 clamp(17rem, 28vw, 20.5rem);
+    flex: 0 0 100%;
     scroll-snap-align: start;
 }
 
 /* ====== RESPONSIVO ====== */
 @media (min-width: 768px){
-   .sa-carousel-arrow--prev {
-      left: -0.5rem;
-    }
-
-   .sa-carousel-arrow--next {
-      right: -0.5rem;
-    }
-
-    .sa-grid {
-        grid-template-columns: 1fr 1fr;
+    .sa-page .sa-catalogo .sa-grid .sa-card {
+        flex-basis: 49%;
     }
 }
 
@@ -1741,8 +1738,8 @@ HEADER - CSS PARA TABLETS
         align-items: center;
     }
 
-    .sa-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .sa-page .sa-catalogo .sa-grid .sa-card {
+        flex-basis: 32.5%;
     }
 }
 
@@ -1768,7 +1765,7 @@ HEADER - CSS PARA TABLETS
 
 /* CATÁLOGO */
 .ln-art-catalogo {
-    padding: 3rem 0 4rem;
+    padding: 2rem 0 4rem;
 }
 
 .ln-art-catalogo-head {
@@ -1870,7 +1867,7 @@ HEADER - CSS PARA TABLETS
 /* AVATAR */
 .ln-art-avatar {
     position: relative;
-    height: 9rem;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1934,6 +1931,8 @@ HEADER - CSS PARA TABLETS
 .ln-art-card-tags {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
     gap: 0.35rem;
     margin-bottom: 0.85rem;
     flex: 1;
@@ -1942,6 +1941,7 @@ HEADER - CSS PARA TABLETS
 .ln-art-card-tags span {
     font-size: 0.74rem;
     font-weight: 600;
+    line-height: 1.2;
     color: var(--cor-fundo-bege-claro);
     background: var(--cor-marrom-claro);
     border-radius: 999px;
@@ -2558,6 +2558,23 @@ HEADER - CSS PARA TABLETS
         font-size: 2.8rem;
     }
 }
+/* ARTESÃ DETALHE — ajustes de hero e avatar (apenas ln-det-page) */
+.ln-det-hero h1 {
+    font-size: clamp(1.6rem, 7vw, 4rem);
+    line-height: 1.5;
+}
+
+.ln-det-avatar-wrap {
+    width: 18rem;
+}
+
+.ln-det-avatar {
+    width: 18rem;
+    height: 18rem;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+}
 
 /* ----- LANA - SOBRE NÓS ----- */
 
@@ -2941,16 +2958,18 @@ HEADER - CSS PARA TABLETS
 
 @media (min-width: 1024px) {
     .ln-det-hero-inner {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 21rem 1fr;
         align-items: center;
     }
 
     .ln-det-hero-visual {
-        justify-content: flex-end;
+        order: -1;
+        justify-content: flex-start;
     }
 
     .ln-det-avatar-wrap {
-        margin-right: 3rem;
+        margin-left: 3rem;
+        margin-right: 0;
     }
 }
 
@@ -3402,6 +3421,141 @@ HEADER - CSS PARA TABLETS
     .ln-sn-team-grid {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+/* Seções com um único card — centraliza com largura de um card */
+.ln-sn-leis-grid--single,
+.ln-sn-team-grid--single {
+    grid-template-columns: minmax(0, 22rem);
+    justify-content: center;
+}
+
+/* Captação Lei Rouanet — card ao lado do texto */
+.ln-sn-leis-split {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.ln-sn-leis-split .ln-sn-section-head {
+    margin-bottom: 0;
+}
+
+.ln-sn-leis-split .ln-sn-lei-card {
+    width: 100%;
+    max-width: 24rem;
+    margin-inline: auto;
+}
+
+@media (min-width: 64rem) {
+    .ln-sn-leis-split {
+        grid-template-columns: 1fr minmax(0, 24rem);
+        gap: 3rem;
+    }
+}
+
+/* ====== SOBRE NÓS — CONTEÚDO DA PROPOSTA (projeto, impacto, parcerias) ====== */
+.ln-sn-block {
+    padding: 3rem 0;
+}
+
+.ln-sn-block--tint {
+    background: rgba(244, 232, 215, 0.5);
+}
+
+.ln-sn-text {
+    font-size: 0.95rem;
+    color: var(--cor-fonte-medio);
+    line-height: 1.65;
+    max-width: 46rem;
+}
+
+.ln-sn-feature-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+    .ln-sn-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 64rem) {
+    .ln-sn-feature-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .ln-sn-feature-grid--4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Valor em destaque dentro do card (montante / percentual) */
+.ln-sn-lei-card .ln-sn-amount {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--cor-botao-principal);
+    line-height: 1.1;
+    flex: none;
+}
+
+/* Frase de fechamento de seção */
+.ln-sn-highlight-note {
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--cor-principal);
+    line-height: 1.5;
+}
+
+/* CONVITE / CTA FINAL */
+.ln-sn-cta {
+    padding: 3rem 0 4rem;
+}
+
+.ln-sn-cta-inner {
+    background: linear-gradient(135deg, var(--cor-botao-principal) 0%, var(--cor-marrom-claro) 100%);
+    color: var(--cor-fonte);
+    border-radius: 1.5rem;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+}
+
+.ln-sn-cta-inner h2 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--cor-fonte);
+}
+
+.ln-sn-cta-inner p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 46rem;
+    margin: 0 auto 1rem;
+}
+
+.ln-sn-cta-tagline {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--cor-fonte) !important;
+    margin-top: 0.5rem !important;
+}
+
+.ln-sn-btn--light {
+    margin-top: 1.5rem;
+    background: var(--cor-fonte);
+    color: var(--cor-botao-principal);
+}
+
+.ln-sn-btn--light:hover,
+.ln-sn-btn--light:focus-visible {
+    background: var(--cor-hover-link);
+    color: var(--cor-botao-hover);
 }
 
 /* ----- GABRIEL ----- */
