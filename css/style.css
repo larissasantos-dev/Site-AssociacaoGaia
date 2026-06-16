@@ -371,7 +371,7 @@ body{
     align-items: center;
     justify-content: center;
     gap: 5px;
-    background-color: var(--cor-flecha);
+    background-color: var(--cor-botao-principal);
     color: var(--cor-fonte);
     padding: 12px 25px;
     border-radius: 8px;
@@ -1282,13 +1282,13 @@ HEADER - CSS PARA TABLETS
 }
 
 .la-artesao-info h3 {
-    color: var(--cor-fonte);
+    color: var(--cor-fonte-escuro);
     font-size: 1.1rem;
     margin-bottom: 4px;
 }
 
 .la-artesao-info p {
-    color: rgba(255,255,255,0.85);
+    color: var(--cor-fonte-marrom-medio);
     font-size: 0.85rem;
     margin-bottom: 10px;
 }
