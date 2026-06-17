@@ -1,55 +1,55 @@
 const eventos = {
 
     1: {
-        titulo: "Evento de Dia das Mães",
+        titulo: "Artesanal Fashion Day",
 
         local: "Praça Central",
 
         data: "10 de Maio de 2026",
 
-        imagem: "../assets/imagem-ia-dia-das-maes.png",
+        imagem: "../assets/fashion-day.jpg",
 
         descricao:
-            "Um evento para escolher um presentinho para aquela pessoa que te ama muito! Sejá algo bonitinho com bordado, algo simbólico com cerâmica ou algo para fofo de tricô!"
+            "Moda, arte e inovação unidas para celebrar o talento manual. Conheça o evento que marcou o início de uma nova era para a moda artesanal e sustentável."
     },
 
     2: {
-        titulo: "Exposição Regional",
+        titulo: "Mega Artesanato",
 
         local: "Museu Municipal",
 
         data: "15 de Maio de 2026",
 
-        imagem: "../assets/imagem-ia-eventos-fundo.png",
+        imagem: "../assets/maos-e-mentes.jpg",
 
         descricao:
-            "Exposição reunindo trabalhos de artesãos da região de Itapetininga."
+            "Uma celebração da criatividade e do talento manual. Vivenciamos momentos de troca e conexão que provam que o artesanato é pura memória, cultura e emoção."
     },
     
     3: {
-        titulo: "Oficina de Bordado",
+        titulo: "Mãos Criativas",
         
         local: "Praça Peixoto Gomide",
         
         data: "21 de Maio de 2026",
         
-        imagem: "../assets/oficina_de_bordado_ia.png",
+        imagem: "../assets/maos-criativas.jpg",
         
         descricao:
-        "Uma oficina de Bordado para ensinar, mostrar e criar objetos de bordado."
+        "Uma parceria entre Associação Gaia e Melissa Barth para valorizar o bordado de Itapetininga."
     },
 
     4: {
-        titulo: "Feira da Lua",
+        titulo: "Edição Natal - 2ª Vitrine Mãos Criativas",
         
         local: "Praça Mal.Deodoro da Fonseca",
         
         data: "8 de Agosto de 2026",
         
-        imagem: "../assets/feira_da_lua_ia.png",
+        imagem: "../assets/Natal-maos-criativas.jpg",
         
         descricao:
-        "A Feira da Lua em Itapetininga é um evento tradicional que celebra a economia criativa local e ocorre em agosto. Iniciada em 2018, a feira se expandiu para o Largo dos Amores, onde oferece barracas de artesanato, alimentos orgânicos, brinquedos infláveis e música ao vivo."
+        "A temporada natalina chegou com o lançamento de uma vitrine inédita de bordado livre. Valorize o artesanato de Itapetininga e garanta peças exclusivas feitas por nossas artesãs locais."
     }
 
 };
@@ -68,11 +68,11 @@ if(evento){
     document.getElementById('ga-titulo-evento').textContent =
         evento.titulo;
 
-    document.getElementById('ga-local-evento').textContent =
-        evento.local;
+    document.getElementById('ga-local-evento').innerHTML =
+    `<img src="../assets/ponteiro-mapa.png" alt="" style="width:18px;height:18px;display:inline;vertical-align:middle;"> ${evento.local}`;
 
-    document.getElementById('ga-data-evento').textContent =
-        evento.data;
+    document.getElementById('ga-data-evento').innerHTML =
+    `<img src="../assets/calendario-eventos.png" alt="" style="width:18px;height:18px;display:inline;vertical-align:middle;"> ${evento.data}`;
 
     document.getElementById('ga-img-evento').src =
         evento.imagem;

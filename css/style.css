@@ -9,7 +9,7 @@
   --cor-fonte-preta: #1c1c1c; 
   --cor-botao-principal: #b44f29; 
   --cor-badge: #6b4f2a;
-  --cor-flecha: #c45e2a;
+  --cor-flecha: #b14f1f;
   --cor-info-artesao: #d4a373;
   --cor-botao-hover: #a34d22;
   --cor-fonte-medio: #4a3f37;
@@ -24,7 +24,7 @@
   --cor-verde-titulo: #3a6b35;
   --cor-hero-medio:   #f0e5d4;
   --cor-fonte-escuro: #4f3021;
-  --cor-fonte-marrom-medio: #6d2f17;
+  --cor-fonte-marrom-medio: #5c2612;
 }
 
 /* ==========================
@@ -371,7 +371,7 @@ body{
     align-items: center;
     justify-content: center;
     gap: 5px;
-    background-color: var(--cor-flecha);
+    background-color: var(--cor-botao-principal);
     color: var(--cor-fonte);
     padding: 12px 25px;
     border-radius: 8px;
@@ -456,6 +456,7 @@ body{
 .la-carrossel-wrapper,
 .la-artesaos-carrossel-wrapper {
     max-width: 100%;
+    align-items: stretch; 
 }
 
 /* ----- LANA - ARTESÃOS ----- */
@@ -1239,14 +1240,16 @@ HEADER - CSS PARA TABLETS
 }
 
 .la-artesao-card {
+    display: flex;
     scroll-snap-align: start;
     min-width: 0;
 }
 
 .la-artesao-inner {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr;
     height: 100%;
+    width: 100%;
 }
 
 .la-artesao-inner:hover {
@@ -1260,8 +1263,9 @@ HEADER - CSS PARA TABLETS
 
 .la-artesao-foto {
     background-color: var(--cor-fonte-preta);
-    aspect-ratio: 3/2;
-     width: 100%;
+    aspect-ratio: unset;
+    width: 100%;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -1282,13 +1286,13 @@ HEADER - CSS PARA TABLETS
 }
 
 .la-artesao-info h3 {
-    color: var(--cor-fonte);
+    color: var(--cor-fonte-marrom-medio);
     font-size: 1.1rem;
     margin-bottom: 4px;
 }
 
 .la-artesao-info p {
-    color: rgba(255,255,255,0.85);
+    color: var(--cor-fonte-marrom-medio);
     font-size: 0.85rem;
     margin-bottom: 10px;
 }
@@ -3236,6 +3240,18 @@ HEADER - CSS PARA TABLETS
     font-weight: 500;
 }
 
+.ga-oculto{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* BOTÃO */
 .ga-btn-detalhes{
     display: inline-flex;
@@ -3378,6 +3394,11 @@ HEADER - CSS PARA TABLETS
 }
 
 @media(min-width: 768px){
+
+    .ga-info-evento {
+        justify-content: center;
+        gap: 16px;
+    }
 
     .ga-card-evento-detalhes{
         display: flex;
@@ -3522,12 +3543,23 @@ HEADER - CSS PARA TABLETS
 
 .ga-local,
 .ga-data{
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 10px;
+}
+
+.ga-local img,
+.ga-data img {
+    width: 18px;
+    height: 18px;
+    flex: none;
 }
 
 .ga-btn-agenda{
     display: inline-block;
-    margin-top: 110px;
+    margin-top: 20px;
+    width: fit-content;
     background: var(--cor-botao-principal);
     color: white;
     padding: 12px 20px;
@@ -3567,13 +3599,19 @@ HEADER - CSS PARA TABLETS
     transform: scale(1.05);
 }
 
-.ga-card-agenda img {
+.ga-card-agenda > img {
     transition: transform 0.3s ease;
     width: 120px;
     height: 120px;
     object-fit: cover;
     border-radius: 16px;
-    transition: .3s ease;
+}
+
+.ga-card-info .ga-local img,
+.ga-card-info .ga-data img {
+    width: 18px;
+    height: 18px;
+    flex: none;
 }
 
 .ga-card-info{
@@ -3605,6 +3643,13 @@ HEADER - CSS PARA TABLETS
 
 .ga-btn-card-agenda:hover{
     background: var(--cor-botao-hover);
+}
+
+#ga-local-evento,
+#ga-data-evento {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 @media(min-width: 768px){
@@ -3698,11 +3743,6 @@ HEADER - CSS PARA TABLETS
     .ga-card-agenda{
         padding: 12px;
         gap: 12px;
-    }
-
-    .ga-card-agenda img{
-        width: 120px;
-        height: 120px;
     }
 
     .ga-card-info h3{
