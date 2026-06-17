@@ -9,7 +9,7 @@
   --cor-fonte-preta: #1c1c1c; 
   --cor-botao-principal: #b44f29; 
   --cor-badge: #6b4f2a;
-  --cor-flecha: #c45e2a;
+  --cor-flecha: #b14f1f;
   --cor-info-artesao: #d4a373;
   --cor-botao-hover: #a34d22;
   --cor-fonte-medio: #4a3f37;
@@ -24,7 +24,7 @@
   --cor-verde-titulo: #3a6b35;
   --cor-hero-medio:   #f0e5d4;
   --cor-fonte-escuro: #4f3021;
-  --cor-fonte-marrom-medio: #6d2f17;
+  --cor-fonte-marrom-medio: #5c2612;
 }
 
 /* ==========================
@@ -371,7 +371,7 @@ body{
     align-items: center;
     justify-content: center;
     gap: 5px;
-    background-color: var(--cor-flecha);
+    background-color: var(--cor-botao-principal);
     color: var(--cor-fonte);
     padding: 12px 25px;
     border-radius: 8px;
@@ -1282,13 +1282,13 @@ HEADER - CSS PARA TABLETS
 }
 
 .la-artesao-info h3 {
-    color: var(--cor-fonte);
+    color: var(--cor-fonte-marrom-medio);
     font-size: 1.1rem;
     margin-bottom: 4px;
 }
 
 .la-artesao-info p {
-    color: rgba(255,255,255,0.85);
+    color: var(--cor-fonte-marrom-medio);
     font-size: 0.85rem;
     margin-bottom: 10px;
 }
