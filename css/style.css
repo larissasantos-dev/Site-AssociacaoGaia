@@ -456,6 +456,7 @@ body{
 .la-carrossel-wrapper,
 .la-artesaos-carrossel-wrapper {
     max-width: 100%;
+    align-items: stretch; 
 }
 
 /* ----- LANA - ARTESÃOS ----- */
@@ -1239,14 +1240,16 @@ HEADER - CSS PARA TABLETS
 }
 
 .la-artesao-card {
+    display: flex;
     scroll-snap-align: start;
     min-width: 0;
 }
 
 .la-artesao-inner {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr;
     height: 100%;
+    width: 100%;
 }
 
 .la-artesao-inner:hover {
@@ -1260,8 +1263,9 @@ HEADER - CSS PARA TABLETS
 
 .la-artesao-foto {
     background-color: var(--cor-fonte-preta);
-    aspect-ratio: 3/2;
-     width: 100%;
+    aspect-ratio: unset;
+    width: 100%;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -4136,6 +4140,7 @@ HEADER - CSS PARA TABLETS
 .ga-btn-card-agenda:hover{
     background: var(--cor-botao-hover);
 }
+
 
 @media(min-width: 768px){
 
