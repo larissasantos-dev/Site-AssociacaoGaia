@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
+    <title>Detalhes | Associação Gaia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
+    <header class="geral-header">
+      <nav class="mobile-header">
+        <div class="mobile-header-container-flexbox-pai">
+            <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
+        </div>
+      </nav>
+      <nav class="desktop-header">
+        <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+        <ul class="desktop-header-container-flexbox-pai">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+        </ul>
+        <div>
+            <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+        </div>
+      </nav>
+      <aside id="mobile-header-sidebar">
+        <div class="mobile-sidebar-cima">
+             <button id="mobile-btnFechar-sidebar">X</button>
+        </div>
+        <div class="mobile-usuario-sidebar">
+            <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+            <span>Minha conta</span>
+        </div>
+        <nav>
+           <ul class="mobile-sidebar">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+           </ul>
+        </nav>
+      </aside>
+      <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
+    </header>
+
+    <!-- ----- SARA ----- -->
+    <!-- DETALHE DE PROJETO / CURSO / PALESTRA -->
+
+    <main class="sa-det-page pagina-base__gradiante" id="conteudo-principal" tabindex="-1">
+
+        <!-- HERO -->
+        <section class="sa-det-hero hero-base__gradiente">
+            <div class="sa-det-wrap wrap-base__central">
+                <div class="sa-det-hero-inner">
+                    <div class="sa-det-hero-copy">
+                        <p class="sa-det-label label-base__secao"></p>
+                        <h1 class="hero-base__titulo"></h1>
+                        <p class="sa-det-lead"></p>
+                        <div class="sa-det-tags"></div>
+                        <div class="sa-det-hero-actions">
+                            <div class="sa-det-propostas">
+                                <button type="button" class="sa-det-btn-principal sa-det-propostas-toggle" aria-expanded="false" aria-haspopup="true">
+                                    <i class="bi bi-file-earmark-pdf-fill"></i> Propostas <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="sa-det-propostas-menu" hidden>
+                                    <a href="../assets/Proposta - Associação Gaia.pdf" target="_blank" rel="noopener">
+                                        <i class="bi bi-file-earmark-pdf"></i> Proposta Associação Gaia
+                                    </a>
+                                    <a href="../assets/Proposta Artesol Itapetininga.pdf" target="_blank" rel="noopener">
+                                        <i class="bi bi-file-earmark-pdf"></i> Proposta Artesol Itapetininga
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="projetos.html" class="sa-det-btn-ghost">← Voltar</a>
+                        </div>
+                    </div>
+                    <div class="sa-det-hero-cover" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTEÚDO -->
+        <section class="sa-det-content">
+            <div class="sa-det-wrap wrap-base__central">
+
+                <div class="sa-det-info-grid"></div>
+
+                <div class="sa-det-section-head">
+                    <p class="sa-det-label label-base__secao">Sobre</p>
+                    <h2>Descrição Completa</h2>
+                </div>
+                <p class="sa-det-bio"></p>
+
+                <div class="sa-det-section-head" style="margin-top: 2rem;">
+                    <p class="sa-det-label label-base__secao">Galeria</p>
+                    <h2>Imagens</h2>
+                </div>
+                <div class="sa-det-gallery-grid"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+    <footer class="footer-container-grid-pai">
+        <div class="footer-grid-bloco1">
+          <h3>Associação Gaia</h3>
+          <p>Criatividade que conecta, artesanato que transforma</p>
+        </div>
+        <div class="footer-grid-bloco2">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="sobre-nos.html">Sobre nós</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco3">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="#">Cerâmica</a></li>
+                <li><a href="#">Tecelagem</a></li>
+                <li><a href="#">Porcelana</a></li>
+                <li><a href="#">Marcenaria</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco4">
+            <h4>Contato</h4>
+            <p>(11) 9999-9999</p>
+            <p>Diretoriagaia1@gmail.com</p>
+
+            <h4>Redes Sociais</h4>
+            <div>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+    <script>
+        (function () {
+            var toggle = document.querySelector('.sa-det-propostas-toggle');
+            var menu = document.querySelector('.sa-det-propostas-menu');
+            if (!toggle || !menu) return;
+
+            function closeMenu() {
+                menu.hidden = true;
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
+            toggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                var isOpen = !menu.hidden;
+                menu.hidden = isOpen;
+                toggle.setAttribute('aria-expanded', String(!isOpen));
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!menu.hidden && !menu.contains(event.target) && event.target !== toggle) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && !menu.hidden) {
+                    closeMenu();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

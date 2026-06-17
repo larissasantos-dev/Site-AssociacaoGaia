@@ -86,82 +86,6 @@ criarCarrossel({
     intervaloMs: 3000
 });
 
-const artesoesFilterBtn = document.getElementById('ln-artesoes-filter-btn');
-const artesoesFilterMenu = document.getElementById('ln-artesoes-filter-menu');
-const artesoesFilterValue = document.getElementById('ln-artesoes-filter-value');
-const artesoesFilterWrap = document.querySelector('.ln-artesoes-filter-wrap');
-
-// Formulário de contato: intercepta submit e mostra feedback local
-const contactForm = document.getElementById('ln-contact-form');
-if (contactForm) {
-    const feedback = document.getElementById('ln-contact-feedback');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        // Simular envio — aqui você pode integrar API/serviço real
-        if (feedback) {
-            feedback.hidden = false;
-            feedback.textContent = 'Mensagem enviada — obrigado!';
-        }
-        contactForm.reset();
-        setTimeout(() => {
-            if (feedback) feedback.hidden = true;
-        }, 4500);
-    });
-}
-
-if (artesoesFilterBtn && artesoesFilterMenu && artesoesFilterValue) {
-    const closeFilterMenu = () => {
-        artesoesFilterBtn.classList.remove('is-open');
-        artesoesFilterBtn.setAttribute('aria-expanded', 'false');
-        artesoesFilterMenu.hidden = true;
-    };
-
-    const openFilterMenu = () => {
-        artesoesFilterBtn.classList.add('is-open');
-        artesoesFilterBtn.setAttribute('aria-expanded', 'true');
-        artesoesFilterMenu.hidden = false;
-    };
-
-    artesoesFilterBtn.addEventListener('click', (event) => {
-        event.stopPropagation();
-        const isOpen = artesoesFilterBtn.classList.contains('is-open');
-        if (isOpen) {
-            closeFilterMenu();
-            return;
-        }
-        openFilterMenu();
-    });
-
-    artesoesFilterMenu.addEventListener('click', (event) => {
-        event.stopPropagation();
-    });
-
-    artesoesFilterMenu.querySelectorAll('.ln-artesoes-filter-option').forEach((option) => {
-        option.addEventListener('click', () => {
-            const value = option.dataset.filter || option.textContent.trim();
-            artesoesFilterValue.textContent = value;
-            artesoesFilterMenu.querySelectorAll('.ln-artesoes-filter-option').forEach((item) => {
-                item.classList.remove('is-active');
-            });
-            option.classList.add('is-active');
-            closeFilterMenu();
-        });
-    });
-
-    document.addEventListener('pointerdown', (event) => {
-        if (artesoesFilterWrap && !artesoesFilterWrap.contains(event.target)) {
-            closeFilterMenu();
-        }
-    }, true);
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            closeFilterMenu();
-        }
-    });
-}
-
 // ----- LANA — ARTESÕES CATÁLOGO -----
 (() => {
     const tabs    = document.querySelectorAll('.ln-art-tab');
@@ -180,7 +104,7 @@ if (artesoesFilterBtn && artesoesFilterMenu && artesoesFilterValue) {
             const name  = card.dataset.name  || '';
             const city  = card.dataset.city  || '';
             const matchFilter = activeFilter === 'todos' || cat === activeFilter;
-            const matchSearch = !term || name.includes(term) || city.includes(term) || cat.includes(term);
+            const matchSearch = !term || name.toLowerCase().includes(term) || city.toLowerCase().includes(term) || cat.toLowerCase().includes(term);
             const show = matchFilter && matchSearch;
             card.classList.toggle('ln-art-card--hidden', !show);
             if (show) visible++;
@@ -254,7 +178,7 @@ if (artesoesFilterBtn && artesoesFilterMenu && artesoesFilterValue) {
     },
     // adicione mais artesãos aqui seguindo a mesma estrutura
     {
-      id: 'Cris Camargo',
+      id: 'cris-camargo',
       nome: 'Cris Camargo',
       titulo: 'peças em crochê, com os laços como carro-chefe',
       monograma: 'CC',
@@ -598,6 +522,366 @@ if (artesoesFilterBtn && artesoesFilterMenu && artesoesFilterValue) {
     </div>`).join('');
 })();
 
+// ----- SARA — DETALHE (PROJETO / CURSO / PALESTRA) — renderização dinâmica -----
+(() => {
+  const paginaDetalhe = document.querySelector('.sa-det-page');
+  if (!paginaDetalhe) return;
+
+  // ── Banco de dados local (mesmo padrão do detalhe de artesão)
+  const itens = [
+    // PROJETOS
+    {
+      tipo: 'projeto',
+      id: 'laboratorio-inovacao',
+      titulo: 'Laboratório de Inovação Artesanal',
+      label: 'Projeto',
+      lead: 'Ciclo de capacitação baseado na metodologia Artesol para qualificação de artesãos em identidade cultural, design, gestão e comunicação.',
+      descricao: 'O Laboratório de Inovação Artesanal reúne artesãos da região de Itapetininga em um ciclo de formação baseado na metodologia Artesol. Ao longo dos encontros, os participantes desenvolvem identidade cultural, design de produto, gestão do ateliê e estratégias de comunicação, fortalecendo o trabalho artesanal como atividade geradora de renda.',
+      tags: ['Capacitação', 'Design', 'Gestão', 'Itapetininga, SP'],
+      capa: '../assets/Projetos-Realizados/projeto.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Período', valor: '2024 / 2025' },
+        { icone: 'bi-tag-fill', label: 'Categoria', valor: 'Capacitação' },
+      ],
+      galeria: [
+        '../assets/Projetos-Realizados/projeto.jpg',
+        '../assets/Projetos-Realizados/projeto4.jpg',
+        '../assets/Projetos-Realizados/projeto5.jpg',
+      ],
+    },
+    {
+      tipo: 'projeto',
+      id: 'feira-regional',
+      titulo: 'Feira Regional de Artesanato',
+      label: 'Projeto',
+      lead: 'Mostra de peças autorais de artesãos parceiros, aproximando criadores do público e ampliando oportunidades de comercialização local.',
+      descricao: 'A Feira Regional de Artesanato reúne artesãos parceiros da Associação Gaia para expor e comercializar peças autorais diretamente ao público. O evento fortalece a renda local, amplia a visibilidade dos criadores da região e aproxima a comunidade do processo criativo por trás de cada peça.',
+      tags: ['Feiras', 'Comercialização', 'Itapetininga, SP'],
+      capa: '../assets/Projetos-Realizados/projeto2.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Período', valor: '2024 / 2025' },
+        { icone: 'bi-tag-fill', label: 'Categoria', valor: 'Feiras' },
+      ],
+      galeria: [
+        '../assets/Projetos-Realizados/projeto2.jpg',
+        '../assets/Projetos-Realizados/projeto3.jpg',
+        '../assets/Projetos-Realizados/projeto.jpg',
+      ],
+    },
+    {
+      tipo: 'projeto',
+      id: 'oficina-ceramica',
+      titulo: 'Oficina de Cerâmica Tradicional',
+      label: 'Projeto',
+      lead: 'Encontros práticos de cerâmica manual que valorizam técnicas tradicionais e estimulam a criação de peças com identidade cultural regional.',
+      descricao: 'Nesta oficina, artesãos e iniciantes praticam técnicas tradicionais de modelagem em argila, do preparo do barro à queima das peças. O projeto valoriza saberes passados entre gerações e estimula a criação de peças utilitárias e decorativas com forte identidade regional.',
+      tags: ['Oficinas', 'Cerâmica', 'Itapetininga, SP'],
+      capa: '../assets/Projetos-Realizados/projeto3.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Período', valor: '2024 / 2025' },
+        { icone: 'bi-tag-fill', label: 'Categoria', valor: 'Oficinas' },
+      ],
+      galeria: [
+        '../assets/Projetos-Realizados/projeto3.jpg',
+        '../assets/Cursos/curso.jpg',
+        '../assets/Projetos-Realizados/projeto.jpg',
+      ],
+    },
+    {
+      tipo: 'projeto',
+      id: 'oficina-tecelagem',
+      titulo: 'Oficina de Tecelagem e Fibras',
+      label: 'Projeto',
+      lead: 'Imersão em técnicas de tecelagem artesanal com fibras naturais, preservando saberes tradicionais e gerando novos produtos autorais.',
+      descricao: 'A Oficina de Tecelagem e Fibras é uma imersão prática nas técnicas de tear manual com fibras naturais da região. Os participantes aprendem desde a preparação da fibra até o acabamento final, criando peças autorais que preservam técnicas tradicionais e abrem novas possibilidades de produção.',
+      tags: ['Oficinas', 'Tecelagem', 'Itapetininga, SP'],
+      capa: '../assets/Projetos-Realizados/projeto4.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Período', valor: '2024 / 2025' },
+        { icone: 'bi-tag-fill', label: 'Categoria', valor: 'Oficinas' },
+      ],
+      galeria: [
+        '../assets/Projetos-Realizados/projeto4.jpg',
+        '../assets/Cursos/divulgaçao4.jpg',
+        '../assets/Projetos-Realizados/projeto5.jpg',
+      ],
+    },
+    {
+      tipo: 'projeto',
+      id: 'circuito-cultural',
+      titulo: 'Circuito Cultural Gaia',
+      label: 'Projeto',
+      lead: 'Série de eventos culturais que integram artesanato, gastronomia regional e manifestações culturais de Itapetininga em um único espaço.',
+      descricao: 'O Circuito Cultural Gaia reúne, em um único espaço, artesanato, gastronomia regional e manifestações culturais de Itapetininga. A proposta é criar um ponto de encontro entre tradição e comunidade, valorizando a identidade cultural da região por meio de experiências sensoriais e criativas.',
+      tags: ['Cultural', 'Itapetininga, SP'],
+      capa: '../assets/Projetos-Realizados/projeto5.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Período', valor: '2024 / 2025' },
+        { icone: 'bi-tag-fill', label: 'Categoria', valor: 'Cultural' },
+      ],
+      galeria: [
+        '../assets/Projetos-Realizados/projeto5.jpg',
+        '../assets/Projetos-Realizados/projeto2.jpg',
+        '../assets/Projetos-Realizados/projeto4.jpg',
+      ],
+    },
+
+    // CURSOS
+    {
+      tipo: 'curso',
+      id: 'ceramica',
+      titulo: 'Cerâmica Básica ao Avançado',
+      label: 'Curso',
+      lead: 'Do modelado manual à queima em forno, o curso abrange todas as etapas de produção de peças utilitárias e decorativas em argila.',
+      descricao: 'Este curso conduz o aluno por todas as etapas da produção em cerâmica: preparo do barro, modelagem manual, secagem, esmaltação e queima em forno. Ao final, o participante é capaz de produzir peças utilitárias e decorativas com acabamento profissional.',
+      tags: ['Cerâmica', '40h', 'Itapetininga, SP'],
+      capa: '../assets/Cursos/curso.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-clock-fill', label: 'Carga horária', valor: '40h' },
+        { icone: 'bi-tag-fill', label: 'Área', valor: 'Cerâmica' },
+      ],
+      galeria: [
+        '../assets/Cursos/curso.jpg',
+        '../assets/Cursos/divulgçao2.jpg',
+        '../assets/Cursos/divulgaçao4.jpg',
+      ],
+    },
+    {
+      tipo: 'curso',
+      id: 'tecelagem',
+      titulo: 'Tecelagem em Tear Manual',
+      label: 'Curso',
+      lead: 'Aprenda a operar o tear de mesa e criar tecidos autorais com fibras naturais, explorando padrões, texturas e cores da tradição regional.',
+      descricao: 'No curso de Tecelagem em Tear Manual, o aluno aprende a operar o tear de mesa desde o enfiamento até o acabamento da peça. O conteúdo explora padrões, texturas e combinações de cores inspiradas na tradição regional, formando a base para a criação de tecidos autorais.',
+      tags: ['Tecelagem', '32h', 'Itapetininga, SP'],
+      capa: '../assets/Cursos/divulgaçao4.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-clock-fill', label: 'Carga horária', valor: '32h' },
+        { icone: 'bi-tag-fill', label: 'Área', valor: 'Tecelagem' },
+      ],
+      galeria: [
+        '../assets/Cursos/divulgaçao4.jpg',
+        '../assets/Cursos/divulgçao5.jpg',
+        '../assets/Cursos/curso.jpg',
+      ],
+    },
+    {
+      tipo: 'curso',
+      id: 'bordado',
+      titulo: 'Bordado Livre e Tradicional',
+      label: 'Curso',
+      lead: 'Técnicas de bordado à mão, ponto cruz e bordado livre para criação de peças decorativas e utilitárias com identidade cultural.',
+      descricao: 'O curso de Bordado Livre e Tradicional ensina técnicas de bordado à mão, incluindo ponto cruz e bordado livre. Os alunos desenvolvem peças decorativas e utilitárias autorais, aplicando pontos tradicionais com liberdade criativa e identidade cultural própria.',
+      tags: ['Bordado', '24h', 'Itapetininga, SP'],
+      capa: '../assets/Cursos/divulgçao2.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-clock-fill', label: 'Carga horária', valor: '24h' },
+        { icone: 'bi-tag-fill', label: 'Área', valor: 'Bordado' },
+      ],
+      galeria: [
+        '../assets/Cursos/divulgçao2.jpg',
+        '../assets/Cursos/curso.jpg',
+        '../assets/Cursos/divulgçao5.jpg',
+      ],
+    },
+    {
+      tipo: 'curso',
+      id: 'design',
+      titulo: 'Design Aplicado ao Artesanato',
+      label: 'Curso',
+      lead: 'Como pensar forma, função e identidade visual para criar produtos artesanais com mais valor percebido e apelo de mercado.',
+      descricao: 'Design Aplicado ao Artesanato ensina os fundamentos de forma, função e identidade visual aplicados à criação de produtos artesanais. O curso ajuda o artesão a posicionar melhor seu trabalho no mercado, aumentando o valor percebido das peças sem perder a essência artesanal.',
+      tags: ['Design', '20h', 'Itapetininga, SP'],
+      capa: '../assets/Cursos/divulgçao5.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-clock-fill', label: 'Carga horária', valor: '20h' },
+        { icone: 'bi-tag-fill', label: 'Área', valor: 'Design' },
+      ],
+      galeria: [
+        '../assets/Cursos/divulgçao5.jpg',
+        '../assets/Cursos/divulgaçao4.jpg',
+        '../assets/Cursos/divulgçao2.jpg',
+      ],
+    },
+    {
+      tipo: 'curso',
+      id: 'gestao',
+      titulo: 'Gestão para Artesãos',
+      label: 'Curso',
+      lead: 'Precificação, fluxo de caixa e planejamento de vendas para artesãos que querem profissionalizar seu ateliê e aumentar a rentabilidade.',
+      descricao: 'O curso de Gestão para Artesãos aborda precificação justa, controle de fluxo de caixa e planejamento de vendas. O conteúdo é voltado para artesãos que desejam profissionalizar a gestão do próprio ateliê e aumentar a rentabilidade do negócio sem perder o caráter artesanal do trabalho.',
+      tags: ['Gestão', '16h', 'Itapetininga, SP'],
+      capa: '../assets/Cursos/divulgçao5.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-clock-fill', label: 'Carga horária', valor: '16h' },
+        { icone: 'bi-tag-fill', label: 'Área', valor: 'Gestão' },
+      ],
+      galeria: [
+        '../assets/Cursos/divulgçao5.jpg',
+        '../assets/Cursos/curso.jpg',
+        '../assets/Cursos/divulgaçao4.jpg',
+      ],
+    },
+
+    // PALESTRAS
+    {
+      tipo: 'palestra',
+      id: 'tropeirismo',
+      titulo: 'Tropeirismo e Identidade Regional',
+      label: 'Palestra',
+      lead: 'Palestra sobre as raízes culturais do tropeirismo em Itapetininga e como essa herança se expressa no artesanato local e no turismo cultural.',
+      descricao: 'Esta palestra explora as raízes culturais do tropeirismo em Itapetininga e sua influência na identidade regional. A conversa mostra como essa herança histórica se expressa hoje no artesanato local, conectando tradição, memória e turismo cultural.',
+      tags: ['Cultura', '2025', 'Itapetininga, SP'],
+      capa: '../assets/Palestras/artesãos.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Ano', valor: '2025' },
+        { icone: 'bi-tag-fill', label: 'Tema', valor: 'Cultura' },
+      ],
+      galeria: [
+        '../assets/Palestras/artesãos.jpg',
+        '../assets/Palestras/artesãos2.jpg',
+        '../assets/Palestras/entrevista.jpg',
+      ],
+    },
+    {
+      tipo: 'palestra',
+      id: 'economia-circular',
+      titulo: 'Artesanato e Economia Circular',
+      label: 'Palestra',
+      lead: 'Como práticas sustentáveis e o uso de materiais naturais ou reciclados podem fortalecer o artesanato e abrir novos mercados conscientes.',
+      descricao: 'Esta palestra apresenta práticas sustentáveis e o uso de materiais naturais ou reciclados como caminho para fortalecer o artesanato. A discussão aponta como a economia circular pode abrir novos mercados conscientes para artesãos da região.',
+      tags: ['Sustentabilidade', '2025', 'Itapetininga, SP'],
+      capa: '../assets/Palestras/artesãos2.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Ano', valor: '2025' },
+        { icone: 'bi-tag-fill', label: 'Tema', valor: 'Sustentabilidade' },
+      ],
+      galeria: [
+        '../assets/Palestras/artesãos2.jpg',
+        '../assets/Palestras/artesãos3.jpg',
+        '../assets/Palestras/artesãos.jpg',
+      ],
+    },
+    {
+      tipo: 'palestra',
+      id: 'atelie-mercado',
+      titulo: 'Do Ateliê ao Mercado',
+      label: 'Palestra',
+      lead: 'Estratégias para artesãos que querem transformar seu trabalho em negócio sustentável: precificação, canais de venda e construção de marca.',
+      descricao: 'Do Ateliê ao Mercado reúne estratégias práticas para artesãos que querem transformar seu trabalho em um negócio sustentável. A palestra aborda precificação, escolha de canais de venda e construção de marca pessoal a partir da identidade do ateliê.',
+      tags: ['Empreendedorismo', '2025', 'Itapetininga, SP'],
+      capa: '../assets/Palestras/artesãos3.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Ano', valor: '2025' },
+        { icone: 'bi-tag-fill', label: 'Tema', valor: 'Empreendedorismo' },
+      ],
+      galeria: [
+        '../assets/Palestras/artesãos3.jpg',
+        '../assets/Palestras/artesãos.jpg',
+        '../assets/Palestras/artesãos2.jpg',
+      ],
+    },
+    {
+      tipo: 'palestra',
+      id: 'tecnologia-artesanato',
+      titulo: 'Tecnologia e Artesanato Tradicional',
+      label: 'Palestra',
+      lead: 'Como ferramentas digitais, fotografia e redes sociais podem ampliar o alcance do artesanato sem perder a autenticidade do fazer manual.',
+      descricao: 'Esta palestra discute como ferramentas digitais, fotografia e redes sociais podem ampliar o alcance do trabalho artesanal. A proposta é mostrar caminhos práticos para a presença digital do artesão sem que isso comprometa a autenticidade do fazer manual.',
+      tags: ['Inovação', '2025', 'Itapetininga, SP'],
+      capa: '../assets/Palestras/entrevista.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Ano', valor: '2025' },
+        { icone: 'bi-tag-fill', label: 'Tema', valor: 'Inovação' },
+      ],
+      galeria: [
+        '../assets/Palestras/entrevista.jpg',
+        '../assets/Palestras/artesãos.jpg',
+        '../assets/Palestras/artesãos3.jpg',
+      ],
+    },
+    {
+      tipo: 'palestra',
+      id: 'lei-rouanet',
+      titulo: 'Lei Rouanet: Como Captar Recursos',
+      label: 'Palestra',
+      lead: 'Tudo que você precisa saber para apresentar projetos culturais e captar recursos via Lei Rouanet — mecenato, incentivos e boas práticas.',
+      descricao: 'Esta palestra explica o passo a passo para apresentar projetos culturais e captar recursos via Lei Rouanet. O conteúdo cobre mecenato, incentivos fiscais e boas práticas para associações e coletivos culturais que desejam viabilizar seus projetos.',
+      tags: ['Cultura', '2025', 'Itapetininga, SP'],
+      capa: '../assets/Palestras/artesãos.jpg',
+      info: [
+        { icone: 'bi-geo-alt-fill', label: 'Local', valor: 'Itapetininga, SP' },
+        { icone: 'bi-calendar3', label: 'Ano', valor: '2025' },
+        { icone: 'bi-tag-fill', label: 'Tema', valor: 'Cultura' },
+      ],
+      galeria: [
+        '../assets/Palestras/artesãos.jpg',
+        '../assets/Palestras/entrevista.jpg',
+        '../assets/Palestras/artesãos2.jpg',
+      ],
+    },
+  ];
+
+  // ── Pega ?tipo= e ?id= da URL
+  const params = new URLSearchParams(window.location.search);
+  const tipoParam = params.get('tipo');
+  const idParam = params.get('id');
+  const item = itens.find(i => i.tipo === tipoParam && i.id === idParam) ?? itens[0];
+
+  // ── Helpers
+  const qs  = (sel, ctx = document) => ctx.querySelector(sel);
+
+  // ── Título da aba
+  document.title = `${item.titulo} | Associação Gaia`;
+
+  // ── Hero
+  const label = qs('.sa-det-label');
+  if (label) label.textContent = item.label;
+
+  const titulo = qs('.sa-det-hero h1');
+  if (titulo) titulo.textContent = item.titulo;
+
+  const lead = qs('.sa-det-lead');
+  if (lead) lead.textContent = item.lead;
+
+  const tagsHero = qs('.sa-det-tags');
+  if (tagsHero) tagsHero.innerHTML = item.tags.map(t => `<span>${t}</span>`).join('');
+
+  const cover = qs('.sa-det-hero-cover');
+  if (cover) cover.style.background = `url('${item.capa}') center/cover no-repeat`;
+
+  // ── Cards de informação
+  const infoGrid = qs('.sa-det-info-grid');
+  if (infoGrid) infoGrid.innerHTML = item.info.map(i => `
+    <div class="sa-det-info-card">
+      <i class="bi ${i.icone}"></i>
+      <div><strong>${i.label}</strong><span>${i.valor}</span></div>
+    </div>`).join('');
+
+  // ── Descrição completa
+  const bio = qs('.sa-det-bio');
+  if (bio) bio.textContent = item.descricao;
+
+  // ── Galeria
+  const galleryGrid = qs('.sa-det-gallery-grid');
+  if (galleryGrid) galleryGrid.innerHTML = item.galeria.map(img => `
+    <div class="sa-det-gallery-piece" style="background:url('${img}') center/cover no-repeat"></div>`).join('');
+})();
+
 // ----- SARA -----
 // FILTRO DE PROJETOS / CURSOS / PALESTRAS (escopo por .sa-section)
 document.querySelectorAll('.sa-section').forEach(section => {
@@ -730,21 +1014,20 @@ document.querySelectorAll('.sa-page .sa-catalogo .sa-grid').forEach((carousel) =
         pointerId = event.pointerId;
         startX = event.clientX;
         startScrollLeft = carousel.scrollLeft;
-        carousel.classList.add('sa-grid--dragging');
-
-        try {
-            carousel.setPointerCapture(pointerId);
-        } catch (error) {
-            // Ignorado, alguns browsers não suportam captura em todos os contextos.
-        }
     });
 
     carousel.addEventListener('pointermove', (event) => {
         if (!isPointerDown || pointerId !== event.pointerId) return;
 
         const delta = event.clientX - startX;
-        if (Math.abs(delta) > 5) {
+        if (!isDragging && Math.abs(delta) > 5) {
             isDragging = true;
+            carousel.classList.add('sa-grid--dragging');
+            try {
+                carousel.setPointerCapture(pointerId);
+            } catch (error) {
+                // Ignorado, alguns browsers não suportam captura em todos os contextos.
+            }
         }
 
         if (!isDragging) return;
@@ -767,52 +1050,6 @@ document.querySelectorAll('.sa-page .sa-catalogo .sa-grid').forEach((carousel) =
         event.stopPropagation();
     }, true);
 });
-
-// Toggle para painéis institucionais (abre/fecha detalhe)
-document.querySelectorAll('.ln-painel-toggle').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        const detail = btn.parentElement.querySelector('.ln-painel-detail');
-        btn.setAttribute('aria-expanded', String(!isExpanded));
-        if (detail) {
-            detail.hidden = isExpanded;
-        }
-    });
-});
-
-// Contadores animados (estatísticas)
-(() => {
-    const counters = document.querySelectorAll('.ln-stat-number');
-    if (!counters.length) return;
-
-    const runCounter = (el) => {
-        const target = parseInt(el.dataset.target, 10) || 0;
-        const isPercent = String(el.textContent || '').includes('%');
-        let start = 0;
-        const duration = 1400;
-        const stepTime = Math.max(Math.floor(duration / Math.max(target,1)), 10);
-        const timer = setInterval(() => {
-            start += 1;
-            if (start >= target) {
-                clearInterval(timer);
-                el.textContent = isPercent ? `${target}%` : (target >= 100 ? `${target}+` : `${target}`);
-            } else {
-                el.textContent = isPercent ? `${start}%` : (target >= 100 ? `${start}+` : `${start}`);
-            }
-        }, stepTime);
-    };
-
-    const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                runCounter(entry.target);
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(c => io.observe(c));
-})();
 
 // --------- GABRIEL EVENTOS E AGENDA --------- //
 
@@ -915,18 +1152,6 @@ if(gaFiltros.length > 0){
         (d.body || d.head).appendChild(s);
     })(document);
 
-    // SÍNTESE DE VOZ
-    function lerDescricao(botao) {
-        window.speechSynthesis.cancel();
-        const imagem = botao.parentElement.querySelector('img');
-        const texto = imagem.alt;
-        if (texto) {
-            const utterance = new SpeechSynthesisUtterance(texto);
-            utterance.lang = 'pt-BR';
-            window.speechSynthesis.speak(utterance);
-        }
-    }
-    
     // VLIBRAS
     (function() {
         var s = document.createElement('script');
