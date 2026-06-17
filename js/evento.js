@@ -68,11 +68,11 @@ if(evento){
     document.getElementById('ga-titulo-evento').textContent =
         evento.titulo;
 
-    document.getElementById('ga-local-evento').textContent =
-        evento.local;
+    document.getElementById('ga-local-evento').innerHTML =
+    `<img src="../assets/ponteiro-mapa.png" alt="" style="width:18px;height:18px;display:inline;vertical-align:middle;"> ${evento.local}`;
 
-    document.getElementById('ga-data-evento').textContent =
-        evento.data;
+    document.getElementById('ga-data-evento').innerHTML =
+    `<img src="../assets/calendario-eventos.png" alt="" style="width:18px;height:18px;display:inline;vertical-align:middle;"> ${evento.data}`;
 
     document.getElementById('ga-img-evento').src =
         evento.imagem;

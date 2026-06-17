@@ -3913,6 +3913,11 @@ HEADER - CSS PARA TABLETS
 
 @media(min-width: 768px){
 
+    .ga-info-evento {
+        justify-content: center;
+        gap: 16px;
+    }
+
     .ga-card-evento-detalhes{
         display: flex;
     }
@@ -4056,12 +4061,23 @@ HEADER - CSS PARA TABLETS
 
 .ga-local,
 .ga-data{
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 10px;
+}
+
+.ga-local img,
+.ga-data img {
+    width: 18px;
+    height: 18px;
+    flex: none;
 }
 
 .ga-btn-agenda{
     display: inline-block;
-    margin-top: 110px;
+    margin-top: 20px;
+    width: fit-content;
     background: var(--cor-botao-principal);
     color: white;
     padding: 12px 20px;
@@ -4101,13 +4117,19 @@ HEADER - CSS PARA TABLETS
     transform: scale(1.05);
 }
 
-.ga-card-agenda img {
+.ga-card-agenda > img {
     transition: transform 0.3s ease;
     width: 120px;
     height: 120px;
     object-fit: cover;
     border-radius: 16px;
-    transition: .3s ease;
+}
+
+.ga-card-info .ga-local img,
+.ga-card-info .ga-data img {
+    width: 18px;
+    height: 18px;
+    flex: none;
 }
 
 .ga-card-info{
@@ -4141,6 +4163,12 @@ HEADER - CSS PARA TABLETS
     background: var(--cor-botao-hover);
 }
 
+#ga-local-evento,
+#ga-data-evento {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
 @media(min-width: 768px){
 
@@ -4233,11 +4261,6 @@ HEADER - CSS PARA TABLETS
     .ga-card-agenda{
         padding: 12px;
         gap: 12px;
-    }
-
-    .ga-card-agenda img{
-        width: 120px;
-        height: 120px;
     }
 
     .ga-card-info h3{
