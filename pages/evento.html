@@ -12,7 +12,6 @@
 </head>
 <body>
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
-
     <header class="geral-header"> <!-- classe global -->
     <!-- MOBILE -->
       <nav class="mobile-header">
@@ -21,7 +20,6 @@
             <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
         </div>
       </nav>
-
       <!-- DESKTOP -->
       <nav class="desktop-header"> 
         <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
@@ -36,18 +34,14 @@
             <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
         </div>
       </nav>
-
       <aside id="mobile-header-sidebar">
-
         <div class="mobile-sidebar-cima">
              <button id="mobile-btnFechar-sidebar">X</button>
         </div>
-
         <div class="mobile-usuario-sidebar">
             <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
             <span>Minha conta</span>
         </div>
-
         <nav>
            <ul class="mobile-sidebar">
             <li><a href="../index.html">Início</a></li>
@@ -62,44 +56,37 @@
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
 
-    <main class="ga-pagina-evento">
-
-    <a href="eventos.html" class="ga-voltar">
-        ← Voltar para Eventos
-    </a>
-
-    <section class="ga-card-evento-detalhes">
-
-        <div class="ga-imagem-evento">
-            <img id="ga-img-evento" src="" alt="">
-        </div>
-
-        <div class="ga-info-evento">
-
-            <h1 id="ga-titulo-evento"></h1>
-
-            <p id="ga-local-evento"></p>
-
-            <p id="ga-data-evento"></p>
-
-            <a href="agenda.html" class="ga-btn-agenda">
-                Agendar Participação
-            </a>
-
-        </div>
-
-    </section>
-
-    <section class="ga-descricao-evento">
-
-        <h2>Sobre o Evento</h2>
-
-        <p id="ga-descricao-evento"></p>
-
-    </section>
-
-</main>
-
+    <main class="ga-pagina-evento pagina-base__gradiante">
+        <section class="ga-evento-hero hero-base__gradiante">
+            <div class="wrap-base__central ga-evento-hero__inner">
+                <div class="ga-evento-hero__visual">
+                    <img id="ga-img-evento" src="" alt="">
+                </div>
+                <div class="ga-evento-hero__card">
+                    <a href="eventos.html" class="ga-evento-hero__voltar">← Voltar para Eventos</a>
+                    <h1 id="ga-titulo-evento" class="hero-base__titulo"></h1>
+                    <div class="ga-evento-hero__informacoes">
+                        <p id="ga-local-evento"></p>
+                        <p id="ga-data-evento"></p>
+                    </div>
+                    <a href="agenda.html" class="btn-base__principal">Agendar</a>
+                </div>
+            </div>
+        </section>
+        <section class="ga-evento-descricao">
+            <div class="wrap-base__central">
+                <div class="ga-evento-descricao__cabecalho">
+                    <span class="ga-evento-descricao__label">
+                        SOBRE O EVENTO
+                    </span>
+                    <h2>Conheça este evento</h2>
+                </div>
+                <div class="ga-evento-descricao__card">
+                    <p id="ga-descricao-evento" class="ga-evento-descricao__texto"></p>
+                </div>
+            </div>
+        </section>
+    </main>
 <script src="../js/evento.js"></script>
 
         <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->

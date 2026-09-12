@@ -1,34 +1,33 @@
 /* ==========================
-    VARIÁVEIS
+   01. VARIÁVEIS / ROOT 
 ========================== */
 
-/* :ROOT */
-:root{
-  --cor-principal:#44753f; 
-  --cor-fonte: white; 
-  --cor-fonte-preta: #1c1c1c; 
-  --cor-botao-principal: #b44f29; 
-  --cor-badge: #6b4f2a;
-  --cor-flecha: #b14f1f;
-  --cor-info-artesao: #d4a373;
-  --cor-botao-hover: #a34d22;
-  --cor-fonte-medio: #4a3f37;
-  --cor-fonte-claro:  #6c5848;
-  --cor-fundo-bege-claro: #fff8f3;
-  --cor-marrom-claro: #7a3118;
-  --cor-hover-btn-artesao: #4e3a1e;
-  --cor-destaque-sn: #f0a060;
-  --cor-bege-claro-gradiante: #faf4ea;
-  --cor-bege2-claro-gradiante: #f6ecdd;
-  --cor-hover-link:   #f4f4f4;
-  --cor-verde-titulo: #3a6b35;
-  --cor-hero-medio:   #f0e5d4;
-  --cor-fonte-escuro: #4f3021;
-  --cor-fonte-marrom-medio: #5c2612;
+:root {
+    --cor-principal: #44753f;
+    --cor-fonte: white;
+    --cor-fonte-preta: #1c1c1c;
+    --cor-botao-principal: #b44f29;
+    --cor-badge: #6b4f2a;
+    --cor-flecha: #b14f1f;
+    --cor-info-artesao: #d4a373;
+    --cor-botao-hover: #a34d22;
+    --cor-fonte-medio: #4a3f37;
+    --cor-fonte-claro: #6c5848;
+    --cor-fundo-bege-claro: #fff8f3;
+    --cor-marrom-claro: #7a3118;
+    --cor-hover-btn-artesao: #4e3a1e;
+    --cor-destaque-sn: #f0a060;
+    --cor-bege-claro-gradiante: #faf4ea;
+    --cor-bege2-claro-gradiante: #f6ecdd;
+    --cor-hover-link: #f4f4f4;
+    --cor-verde-titulo: #3a6b35;
+    --cor-hero-medio: #f0e5d4;
+    --cor-fonte-escuro: #4f3021;
+    --cor-fonte-marrom-medio: #5c2612;
 }
 
 /* ==========================
-    RESET
+    02. RESET
 ========================== */
 * {
     margin: 0;
@@ -40,11 +39,64 @@ img {
     max-width: 100%;  
     display: block;
 }
+
 /* ==========================
-   CLASSES BASE
+   03. TIPOGRAFIA
 ========================== */
 
-.card-base{
+body {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--cor-fonte-preta);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* ==========================
+   04. LAYOUT GLOBAL
+========================== */
+
+.wrap-base__central {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.pagina-base__gradiante{
+    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
+    color: var(--cor-fonte-preta);
+}
+
+/* ==========================
+   05. COMPONENTES GLOBAIS
+========================== */
+
+/* =============== CARDS =============== */
+.card-base {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -53,38 +105,32 @@ img {
     transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-.card-base:hover{
+.card-base:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 32px rgba(60, 33, 20, 0.14);
 }
 
-.card-base__img{
+.card-base__img {
     width: 100%;
     object-fit: cover;
     display: block;
     flex-shrink: 0;
 }
 
-.card-base__corpo{
+.card-base__corpo {
     display: flex;
     flex-direction: column;
     padding: 12px;
     flex: 1;
 }
 
-.pagina-base__gradiante{
-    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
-    color: var(--cor-fonte-preta);
-}
-
-.wrap-base__central{
-    max-width: 76rem;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-}
-
+/* =========== HERO ============= */
 .hero-base__gradiente {
-    background: linear-gradient(160deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
+    background: linear-gradient(
+        160deg,
+        var(--cor-bege-claro-gradiante) 0%,
+        var(--cor-bege2-claro-gradiante) 100%
+    );
 }
 
 .hero-base__titulo {
@@ -96,15 +142,17 @@ img {
     margin-bottom: 1rem;
 }
 
-.hero-base__paragrafo{
-   font-size: 1rem;
-   line-height: 1.65;
-   color: var(--cor-fonte-medio);
-   max-width: 32rem;
-   margin-bottom: 1.75rem; 
+.hero-base__paragrafo {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--cor-fonte-medio);
+    max-width: 32rem;
+    margin-bottom: 1.75rem;
 }
 
-.btn-base__principal{
+/* ============ BOTÃO =========== */
+
+.btn-base__principal {
     display: inline-block;
     background: var(--cor-botao-principal);
     color: var(--cor-fonte);
@@ -123,83 +171,15 @@ img {
     outline: none;
 }
 
-.label-base__secao{
-    display: inline-block;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--cor-botao-principal);
-    margin-bottom: 0.5rem;
-}
+/* ============= HEADERS ============= */
 
-.catalogo-base__grid{
-    display: grid;
-    gap: 1.25rem;
-}
+/* ============== HEADER MOBILE ============= */
 
-.catalogo-base__head{
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-}
-
-.filtros-base__wrap{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.filtro-base__btn{
-    border: 2px solid rgba(47, 39, 34, 0.18);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--cor-fonte-medio);
-    font-size: 0.88rem;
-    font-weight: 600;
-    padding: 0.45rem 1.1rem;
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s, border-color 0.18s;
-}
-
-.filtro-base__btn:hover,
-.filtro-base__btn:focus-visible{
-    border-color: var(--cor-botao-principal);
-    color: var(--cor-botao-principal);
-    outline: none;
-}
-
-.filtro-base-btn__ativo,
-.sa-filter-btn--active,
-.ln-art-tab--active{
-    background: var(--cor-botao-principal);
-    border-color: var(--cor-botao-principal);
-    color: var(--cor-fonte);
-}
-
-.lista-base__vazia{
-    text-align: center;
-    color: var(--cor-fonte-medio);
-    font-size: 1rem;
-    padding: 3rem 0;
-}
-
-body{
-    font-family: "Ubuntu", sans-serif;
-}
-
-/* ==========================
-   HEADER
-========================== */
-
-/* GLOBAL - APLICADO PARA MOBILE E DESKTOP*/
 .geral-header{
     background-color: var(--cor-principal);
     color: var(--cor-fonte);
 }
 
-/* GLOBAL - CSS DO HEADER PARA MOBILE */
 .mobile-header-container-flexbox-pai{
     display: flex; 
     justify-content: space-between;
@@ -305,9 +285,288 @@ body{
     margin-bottom: 10px;
 }
 
-/* ---------- LARISSA - INDEX ---------- */
+/* ============= HEADER GLOBAL TABLET + DESKTOP ============= */
 
-/* DESTAQUE DO MÊS - CSS PARA MOBILE */
+@media(min-width: 768px){
+    .mobile-header{
+        display: none;
+    }
+
+    .desktop-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+    }
+
+    .desktop-header-container-flexbox-pai{
+        display: flex;
+        gap: 20px;
+        list-style: none;
+    }
+
+    .desktop-header-container-flexbox-pai a{
+        color: var(--cor-fonte);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .icone-usuario{
+        width: 40px;
+        height: auto;
+        display: block;
+    }
+
+     .desktop-header-container-flexbox-pai a:hover {
+        color: var(--cor-hover-link);
+        text-decoration: underline; 
+        transition: 0.3s;
+    }
+}
+
+/* ============ CLASSES BASE ============= */
+
+.label-base__secao{
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-botao-principal);
+    margin-bottom: 0.5rem;
+}
+
+.catalogo-base__grid{
+    display: grid;
+    gap: 1.25rem;
+}
+
+.catalogo-base__head{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.filtros-base__wrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.filtro-base__btn{
+    border: 2px solid rgba(47, 39, 34, 0.18);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--cor-fonte-medio);
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.filtro-base__btn:hover,
+.filtro-base__btn:focus-visible{
+    border-color: var(--cor-botao-principal);
+    color: var(--cor-botao-principal);
+    outline: none;
+}
+
+.filtro-base-btn__ativo,
+.sa-filter-btn--active,
+.ln-art-tab--active{
+    background: var(--cor-botao-principal);
+    border-color: var(--cor-botao-principal);
+    color: var(--cor-fonte);
+}
+
+.lista-base__vazia{
+    text-align: center;
+    color: var(--cor-fonte-medio);
+    font-size: 1rem;
+    padding: 3rem 0;
+}
+
+/* ============ FOOTER PARA MOBILE ============== */
+
+.footer-container-grid-pai {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 40px 16px;
+    background-color: var(--cor-principal);
+    color: var(--cor-fonte);
+}
+
+.footer-container-grid-pai h3, 
+.footer-container-grid-pai h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.footer-container-grid-pai ul {
+    list-style: none;
+}
+
+.footer-container-grid-pai li {
+    margin-bottom: 10px;
+}
+
+.footer-container-grid-pai a {
+    text-decoration: none; 
+    color: var(--cor-fonte);
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.footer-container-grid-pai a:hover {
+    opacity: 0.7; 
+}
+
+.footer-grid-bloco4 div {
+    display: flex;
+    gap: 0px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.footer-grid-bloco4 img {
+    cursor: pointer;
+    width: 28px;
+    transition: transform 0.2s;
+}
+
+.footer-grid-bloco4 img:hover {
+    transform: scale(1.2); 
+}
+
+.footer-grid-bloco4 p{
+    line-height: 1.6; 
+      margin-bottom: 0.2rem;
+}
+
+.footer-grid-bloco4 h4{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-grid-bloco4 h4:first-child {
+    margin-top: 0;
+}
+
+.footer-rede-social{
+    transform: scale(1.2);
+}
+
+/* ============= FOOTER PARA DESKTOP ============= */
+
+@media (min-width: 768px) {
+    .footer-container-grid-pai {
+        grid-template-columns: repeat(4, 1fr); /* Footer separado em 4 colonas */
+        align-items: start;
+        padding: 60px 5%;
+    }
+}
+
+/* ============ KIT DE ACESSIBILIDADE ============ */
+
+/* SKIP LINK */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: var(--cor-badge);
+    color: var(--cor-fonte);
+    padding: 12px 24px;
+    z-index: 9999;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0 0 8px 8px;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* FOCO VISÍVEL */
+:focus {
+    outline: 3px solid var(--cor-flecha);
+    outline-offset: 3px;
+}
+
+/* ALTO CONTRASTE */
+body.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+body.high-contrast .geral-header,
+body.high-contrast .footer-container-grid-pai,
+body.high-contrast .btn-acc {
+    background: #000 !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+}
+
+body.high-contrast p,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast a,
+body.high-contrast span {
+    color: #fff !important;
+}
+
+/* FILTROS DALTONISMO */
+.protanopia  { filter: grayscale(1) sepia(0.5) hue-rotate(-50deg); }
+.deuteranopia { filter: grayscale(1) sepia(0.5) hue-rotate(-10deg); }
+.tritanopia  { filter: grayscale(0.5) sepia(0.5) hue-rotate(180deg); }
+
+/* BARRA DE ACESSIBILIDADE */
+.accessibility-toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 6px 5%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-acc {
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cor-fonte);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn-acc:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+}
+
+.select-acc {
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: transparent;
+    color: var(--cor-fonte);
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* ===================== 
+    06. INDEX / HOME 
+======================== */
+
+/* ================ DESTAQUE DO MÊS ================ */
 
 .la-secao-destaque-mes{
    display: flex;
@@ -459,337 +718,8 @@ body{
     align-items: stretch; 
 }
 
-/* ----- LANA - ARTESÃOS ----- */
+/* ============ INDEX MOBILE ============== */
 
-/* ----- HEADER ARTESÃOS - CSS PARA MOBILE -----*/
-
-/* HERO */
-.ln-art-hero {
-    padding: 1.25rem 0 1.5rem;
-}
-
-.ln-art-hero-inner {
-    display: grid;
-    gap: 0.75rem;
-}
-
-.ln-art-highlight{ 
-    color: var(--cor-botao-principal); 
-}
-
-.ln-art-hero-copy {
-    position: relative;
-    z-index: 1;
-    max-width: 56rem;
-}
-
-.ln-art-hero-copy p {
-    font-size: 1rem;
-    line-height: 1.65;
-    color:  var(--cor-fonte-medio);
-    max-width: 32rem;
-    margin-bottom: 1.75rem;
-}
-
-/* ----- LANA — ARTESÃ SOLO ----- */
-
-/* ----- HEADER ARTESÃ SOLO - CSS PARA MOBILE ----- */
-.ln-det-page {
-    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
-    color:  var(--cor-fonte-preta);
-}
-
-/* HERO */
-.ln-det-hero {
-    background: transparent;
-    padding: 2.5rem 0 3rem;
-}
-
-.ln-det-hero-inner {
-    display: grid;
-    gap: 2rem;
-}
-
-.ln-det-lead {
-    font-size: 1rem;
-    line-height: 1.65;
-    color:  var(--cor-fonte-medio);
-    max-width: 34rem;
-    margin-bottom: 1.2rem;
-}
-
-.ln-det-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-bottom: 1.5rem;
-}
-
-.ln-det-tags span {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color:  var(--cor-fonte-medio);
-    background: rgba(180, 79, 41, 0.1);
-    border-radius: 999px;
-    padding: 0.3rem 0.8rem;
-}
-
-.ln-det-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
-}
-
-.ln-det-btn-ghost {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color:  var(--cor-fonte-medio);
-    text-decoration: none;
-    transition: color 0.18s;
-}
-
-.ln-det-btn-ghost:hover { 
-    color: var(--cor-botao-principal); 
-}
-
-/* ----- SARA - PROJETOS ----- */
-
-/* HEADER PROJETOS — CSS PARA MOBILE */
-
-/* RÓTULOS */
-.sa-label--light { color: rgb(255, 255, 255); }
-
-/* HERO */
-.sa-hero {
-    padding: 2.5rem 0 3rem;
-}
-
-.sa-hero-inner {
-    display: grid;
-    gap: 2rem;
-}
-
-.sa-highlight { 
-    color: var(--cor-botao-principal); 
-}
-
-.sa-hero-copy .hero-base__titulo {
-    font-size: clamp(2.1rem, 5.5vw, 3.8rem);
-    color: var(--cor-fonte-preta);
-    margin-bottom: 1rem;
-}
-
-.sa-hero-copy p {
-    font-size: 1rem;
-    line-height: 1.65;
-    color:  var(--cor-fonte-medio);
-    max-width: 32rem;
-    margin-bottom: 1.75rem;
-}
-
-.sa-btn--outline {
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.8);
-    color: var(--cor-fonte);
-}
-
-.sa-btn--outline:hover,
-.sa-btn--outline:focus-visible {
-    background: rgba(255,255,255,0.15);
-}
-
-/* ----- LANA — SOBRE NÓS -----*/
-
-/* ----- HEADER SOBRE NÓS - CSS PARA MOBILE -----*/
-.ln-sn-page {
-    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
-    color: var(--cor-fonte-preta);
-}
-
-.ln-sn-wrap {
-    max-width: 76rem;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-}
-
-.ln-sn-btn {
-    display: inline-block;
-    background: var(--cor-botao-principal);
-    color: var(--cor-fonte);
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 0.8rem 1.75rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.ln-sn-btn:hover,
-.ln-sn-btn:focus-visible {
-    background: var(--cor-botao-hover);
-    transform: translateY(-2px);
-    outline: none;
-}
-
-.ln-sn-testimonial-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    border-top: 1px solid rgba(47, 39, 34, 0.08);
-    padding-top: 0.85rem;
-    margin-top: auto;
-}
-
-.ln-sn-testimonial-footer strong {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--cor-fonte-preta);
-    margin-bottom: 0.1rem;
-}
-
-.ln-sn-testimonial-footer span {
-    font-size: 0.78rem;
-    color: var(--cor-fonte-claro);
-}
-
-.ln-sn-hist-top,
-.ln-sn-hist-side {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-}
-
-/* HERO */
-.ln-sn-hero {
-    position: relative;
-    padding: 5rem 0 5.5rem;
-    min-height: 30rem;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-
-.ln-sn-hero::before {
-    content: "";
-    position: absolute;
-    inset: -10px;
-    background: url('../assets/fundo-sobrenos.jpg') center/cover no-repeat;
-    filter: blur(5px);
-    z-index: 0;
-}
-
-.ln-sn-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(15,8,4,0.48) 0%, rgba(15,8,4,0.68) 100%);
-    z-index: 1;
-}
-
-.ln-sn-hero .ln-sn-wrap {
-    position: relative;
-    z-index: 2;
-}
-
-.ln-sn-hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.ln-sn-hero-copy {
-    max-width: 54rem;
-}
-
-.ln-sn-hero .ln-sn-label {
-    color: var(--cor-destaque-sn);
-}
-
-.ln-sn-hero-copy h1 {
-    font-size: clamp(2.4rem, 6vw, 4.4rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: var(--cor-fonte);
-    margin-bottom: 1rem;
-}
-
-.ln-sn-highlight { 
-    color: var(--cor-destaque-sn); 
-}
-
-.ln-sn-hero-copy p {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.78);
-    max-width: 38rem;
-    margin: 0 auto 1.75rem;
-}
-
-.ln-sn-btn-ghost {
-    display: inline-block;
-    border: 2px solid rgba(47, 39, 34, 0.2);
-    color:  var(--cor-fonte-medio);
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.7rem 1.4rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    transition: border-color 0.18s, color 0.18s;
-    white-space: nowrap;
-}
-
-.ln-sn-btn-ghost:hover {
-    border-color: var(--cor-botao-principal);
-    color: var(--cor-botao-principal);
-}
-
-/* GLOBAL - CSS DO HEADER PARA TABLET E DESKTOP */
-@media(min-width: 768px){
-    .mobile-header{
-        display: none;
-    }
-
-    .desktop-header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 5%;
-    }
-
-    .desktop-header-container-flexbox-pai{
-        display: flex;
-        gap: 20px;
-        list-style: none;
-    }
-
-    .desktop-header-container-flexbox-pai a{
-        color: var(--cor-fonte);
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .icone-usuario{
-        width: 40px;
-        height: auto;
-        display: block;
-    }
-
-     .desktop-header-container-flexbox-pai a:hover {
-        color: var(--cor-hover-link);
-        text-decoration: underline; 
-        transition: 0.3s;
-    }
-}
-
-/*==========================
-HEADER - CSS PARA TABLETS 
-==========================*/
-
-/* ---------- LARISSA - INDEX ---------- */
 @media(min-width: 768px){
 
      .la-carrossel {
@@ -859,7 +789,7 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* DESTAQUE DO MÊS - CSS PARA DESKTOP */
+/* =========== DESTAQUE DO MÊS - DESKTOP =========== */
 
 @media(min-width: 1200px){
       .la-secao-destaque-mes {
@@ -896,88 +826,8 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* GLOBAL - CSS FOOTER PARA MOBILE */
-.footer-container-grid-pai {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 40px 16px;
-    background-color: var(--cor-principal);
-    color: var(--cor-fonte);
-}
+/* ============ EVENTOS EM DESTAQUE - MOBILE ============ */
 
-.footer-container-grid-pai h3, 
-.footer-container-grid-pai h4 {
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
-.footer-container-grid-pai ul {
-    list-style: none;
-}
-
-.footer-container-grid-pai li {
-    margin-bottom: 10px;
-}
-
-.footer-container-grid-pai a {
-    text-decoration: none; 
-    color: var(--cor-fonte);
-    font-size: 0.8rem;
-    transition: 0.3s;
-}
-
-.footer-container-grid-pai a:hover {
-    opacity: 0.7; 
-}
-
-.footer-grid-bloco4 div {
-    display: flex;
-    gap: 0px;
-    margin-top: 10px;
-    align-items: center;
-}
-
-.footer-grid-bloco4 img {
-    cursor: pointer;
-    width: 28px;
-    transition: transform 0.2s;
-}
-
-.footer-grid-bloco4 img:hover {
-    transform: scale(1.2); 
-}
-
-.footer-grid-bloco4 p{
-    line-height: 1.6; 
-      margin-bottom: 0.2rem;
-}
-
-.footer-grid-bloco4 h4{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.footer-grid-bloco4 h4:first-child {
-    margin-top: 0;
-}
-
-.footer-rede-social{
-    transform: scale(1.2);
-}
-
-/* GLOBAL - CSS FOOTER PARA DESKTOP */
-@media (min-width: 768px) {
-    .footer-container-grid-pai {
-        grid-template-columns: repeat(4, 1fr); /* Footer separado em 4 colonas */
-        align-items: start;
-        padding: 60px 5%;
-    }
-}
-
-/* ---------- LARISSA - INDEX ---------- */
-
-/* EVENTOS EM DESTAQUE - CSS PARA MOBILE */
 .la-proximas-feiras{
     padding: 40px 20px 20px;
     background-color: var(--cor-fundo-bege-claro);
@@ -1150,7 +1000,8 @@ HEADER - CSS PARA TABLETS
     transition: transform 0.1s ease;
 }
 
-/*  EVENTOS EM DESTAQUE - CSS PARA TABLETS  */
+/* ============= EVENTOS EM DESTAQUE - TABLETS ================ */
+
 @media (min-width: 768px) {
     .la-carrossel {
         grid-auto-columns: 49%;
@@ -1175,7 +1026,8 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/*  EVENTOS EM DESTAQUE - CSS PARA DESKTOP  */
+/* ============ EVENTOS EM DESTAQUE - DESKTOP =========== */
+
 @media (min-width: 1024px) {
     .la-proximas-feiras {
         padding: 60px 5% 30px;
@@ -1190,7 +1042,8 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* ARTESAOS EM DESTAQUE - MOBILE */
+/* ============ ARTESAOS EM DESTAQUE - MOBILE ============ */
+
 .la-artesaos-destaque {
     padding: 20px 20px 40px;
     background-color: var(--cor-hero-medio);
@@ -1334,7 +1187,8 @@ HEADER - CSS PARA TABLETS
     background-color: var(--cor-botao-hover);
 }
 
-/* ARTESÕES EM DESTAQUE - DESKTOP */
+/* ============ ARTESÕES EM DESTAQUE - DESKTOP ============= */
+
 @media (min-width: 1024px) {
     .la-artesaos-destaque {
         padding: 30px 5% 60px;
@@ -1344,422 +1198,45 @@ HEADER - CSS PARA TABLETS
         font-size: 2.2rem;
     }
 
-    .la-proximas-feiras {
-        padding: 60px 5% 30px;
-    }
-
     .la-artesaos-carrossel {
         grid-auto-columns: calc(33.333% - 11px);
     }
 }
-/*------------------------------*/
 
-/* ----- SARA ----- */
+/* ======================
+    07. ARTESÃOS
+========================= */
 
-/* MOSAICO HERO */
-.sa-hero-mosaic {
+/* =========== HERO ============ */
+
+.ln-art-hero {
+    padding: 1.25rem 0 1.5rem;
+}
+
+.ln-art-hero-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 11rem 9rem;
     gap: 0.75rem;
 }
 
-.sa-mosaic-main{ 
-    grid-column: 1 / -1; 
+.ln-art-highlight{ 
+    color: var(--cor-botao-principal); 
 }
 
-.sa-mosaic-img {
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 1rem 1.1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.sa-mosaic-img i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -65%);
-    font-size: 3rem;
-    color: rgba(255,255,255,0.25);
-}
-
-.sa-mosaic-img span {
+.ln-art-hero-copy {
     position: relative;
     z-index: 1;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.92);
-    line-height: 1.3;
+    max-width: 56rem;
 }
 
-.sa-mosaic-img::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(30,10,0,0.55) 0%, transparent 60%);
-}
-
-.sa-mosaic-img--a {
-    background: url('../assets/fundo-mosaico-artesao-a.jpg') center/cover no-repeat;
-}
-
-.sa-mosaic-img--c {
-    background: url('../assets/fundo-mosaico-c.jpg') center/cover no-repeat;
-}
-
-.sa-mosaic-img--mutual {
-    background: url('../assets/fundo-mosaico-mural.jpg') center/cover no-repeat;
-}
-
-/* CATÁLOGO */
-.sa-catalogo {
-    padding: 3rem 0 4rem;
-}
-
-.sa-catalogo-head {
-    display: grid;
-    gap: 1rem;
+.ln-art-hero-copy p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color:  var(--cor-fonte-medio);
+    max-width: 32rem;
     margin-bottom: 1.75rem;
 }
 
-.sa-catalogo-head h2 {
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color:  var(--cor-fonte-preta);
-    line-height: 1.1;
-}
-
-.sa-catalogo-desc {
-    font-size: 0.95rem;
-    color:  var(--cor-fonte-medio);
-    line-height: 1.65;
-    max-width: 38rem;
-    align-self: end;
-}
-
-/* SEPARADOR ENTRE SEÇÕES DE CATÁLOGO */
-.sa-section + .sa-section {
-    border-top: 2px solid rgba(47,39,34,0.1);
-    padding-top: 3rem;
-}
-
-/* FILTROS */
-.sa-filter-btn {
-    transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.18s;
-}
-
-.sa-filter-btn:hover,
-.sa-filter-btn:focus-visible {
-    border-color: var(--cor-botao-principal);
-    color: var(--cor-botao-principal);
-    outline: none;
-}
-
-/* GRID DE CARDS */
-
-.sa-card {
-    background: var(--cor-info-artesao);
-}
-
-.sa-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 32px rgba(60,33,20,0.14);
-}
-
-.sa-card-img {
-    height: 11rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 0.85rem 1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.sa-card-img::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(20,6,0,0.52) 0%, transparent 55%);
-}
-
-.sa-card-tag {
-    position: relative;
-    z-index: 1;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--cor-fundo-bege-claro);
-    background: rgba(109, 47, 23, 0.92);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 999px;
-    padding: 0.2rem 0.65rem;
-}
-
-.sa-card-body {
-    padding: 1.1rem 1.25rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.sa-card-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--cor-fonte-preta);
-    margin-bottom: 0.4rem;
-    line-height: 1.3;
-}
-
-.sa-card-desc {
-    font-size: 0.87rem;
-    color: var(--cor-fonte-preta);
-    line-height: 1.6;
-    flex: 1;
-    margin-bottom: 0.85rem;
-}
-
-.sa-card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 0.85rem;
-}
-
-.sa-card-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-size: 0.78rem;
-    color: var(--cor-fonte-escuro);
-    font-weight: 600;
-}
-
-.sa-card-meta i {
-    color: var(--cor-fonte-marrom-medio);
-    font-size: 0.85rem;
-}
-
-.sa-card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--cor-fonte-marrom-medio);
-    text-decoration: none;
-    border-top: 1px solid rgba(77, 43, 28, 0.2);
-    padding-top: 0.75rem;
-    transition: gap 0.18s;
-}
-
-.sa-card-link:hover { gap: 0.65rem; }
-
-.sa-card-link-wrap {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-}
-
-/* CTA */
-.sa-cta {
-    background: var(--cor-botao-principal);
-    padding: 3rem 0;
-    color: var(--cor-fonte);
-}
-
-.sa-cta-inner {
-    display: grid;
-    gap: 2rem;
-}
-
-.sa-cta-copy h2 {
-    font-size: clamp(1.5rem, 4vw, 2.4rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 0.85rem;
-}
-
-.sa-cta-copy p {
-    font-size: 0.95rem;
-    line-height: 1.65;
-    color: rgb(255, 255, 255);
-    margin-bottom: 0.5rem;
-    max-width: 36rem;
-}
-
-.sa-cta-copy strong { color: var(--cor-fonte); }
-
-.sa-cta-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-}
-
-.sa-cta-chip {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.22);
-    border-radius: 0.85rem;
-    padding: 0.9rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-}
-
-.sa-cta-chip i {
-    font-size: 1.4rem;
-    color: rgba(255,255,255,0.85);
-    flex: none;
-}
-
-.sa-cta-chip strong {
-    display: block;
-    font-size: 0.88rem;
-    color: var(--cor-fonte);
-    line-height: 1.2;
-}
-
-.sa-cta-chip span {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.75);
-}
-
-/* CARD OCULTO PELO FILTRO */
-.sa-card--hidden {
-    display: none;
-}
-
-.sa-page .sa-catalogo .sa-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1.25rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 0.75rem;
-    touch-action: pan-y;
-    cursor: grab;
-}
-
-/* Carrossel de projetos com o mesmo estilo da home (setas redondas nas laterais) */
-.sa-carousel-shell {
-    display: grid;
-    grid-template-columns: 36px 1fr 36px;
-    align-items: center;
-    gap: 10px;
-}
-
-.sa-carousel-shell > .sa-grid {
-    grid-column: 2;
-    grid-row: 1;
-    min-width: 0;
-}
-
-.sa-page .sa-catalogo .sa-grid::-webkit-scrollbar {
-    display: none;
-}
-
-.sa-page .sa-catalogo .sa-grid.sa-grid--dragging {
-    cursor: grabbing;
-    user-select: none;
-}
-
-.sa-carousel-arrow {
-    grid-row: 1;
-    width: 36px;
-    height: 36px;
-    border: 0;
-    border-radius: 50%;
-    background: var(--cor-flecha);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.2s, opacity 0.2s;
-}
-
-.sa-carousel-arrow:hover,
-.sa-carousel-arrow:focus-visible {
-    background: var(--cor-botao-hover);
-    outline: none;
-}
-
-.sa-carousel-arrow:disabled {
-    opacity: 0.35;
-    cursor: default;
-}
-
-.sa-carousel-arrow--prev {
-    grid-column: 1;
-}
-
-.sa-carousel-arrow--next {
-    grid-column: 3;
-}
-
-.sa-carousel-arrow img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-}
-
-.sa-page .sa-catalogo .sa-grid .sa-card {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-}
-
-/* ====== RESPONSIVO ====== */
-@media (min-width: 768px){
-    .sa-page .sa-catalogo .sa-grid .sa-card {
-        flex-basis: 49%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .sa-hero-inner {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-    }
-
-    .sa-hero-mosaic {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 13rem 10rem;
-    }
-
-    .sa-catalogo-head {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-    }
-
-    .sa-cta-inner {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-    }
-
-    .sa-page .sa-catalogo .sa-grid .sa-card {
-        flex-basis: 32.5%;
-    }
-}
-
-/* ----- LANA ----- */
-
-/* ARTESÕES */
-
-/* FOTO HERO */
+/* FOTO DO HERO */
 .ln-art-hero-photo {
     border-radius: 1.25rem;
     overflow: hidden;
@@ -2039,19 +1516,76 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* ARTESÃ DETALHE — ajustes de hero (apenas ln-det-page) */
+/* =========================
+    08. ARTESÃO - DETALHES
+============================ */
+
+/* ----- PÁGINA ----- */
+.ln-det-page {
+    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
+    color:  var(--cor-fonte-preta);
+}
+
+/* ----- HERO ----- */
+.ln-det-hero {
+    background: transparent;
+    padding: 2.5rem 0 3rem;
+}
+
+.ln-det-hero-inner {
+    display: grid;
+    gap: 2rem;
+}
+
 .ln-det-hero h1 {
     font-size: clamp(1.6rem, 7vw, 4rem);
     line-height: 1.5;
 }
 
-/* ----- LANA - SOBRE NÓS ----- */
+.ln-det-lead {
+    font-size: 1rem;
+    line-height: 1.65;
+    color:  var(--cor-fonte-medio);
+    max-width: 34rem;
+    margin-bottom: 1.2rem;
+}
 
-/* ============================================================
-   LANA — ARTESÃ EM DETALHE
-   ============================================================ */
+.ln-det-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+}
 
-/* AVATAR HERO */
+.ln-det-tags span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color:  var(--cor-fonte-medio);
+    background: rgba(180, 79, 41, 0.1);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+}
+
+.ln-det-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.ln-det-btn-ghost {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color:  var(--cor-fonte-medio);
+    text-decoration: none;
+    transition: color 0.18s;
+}
+
+.ln-det-btn-ghost:hover { 
+    color: var(--cor-botao-principal); 
+}
+
+/* ----- VISUAL DO HERO ----- */
 
 .ln-det-wrap {
     max-width: 76rem;
@@ -2103,6 +1637,8 @@ HEADER - CSS PARA TABLETS
     letter-spacing: 0.06em;
 }
 
+/* ----- BADGE DO ARTESÃO ----- */
+
 .ln-det-avatar-badge {
     display: flex;
     align-items: center;
@@ -2143,7 +1679,7 @@ HEADER - CSS PARA TABLETS
     margin: 0;
 }
 
-/* CONTEÚDO PRINCIPAL */
+/* ----- CONTEÚDO ----- */
 .ln-det-content {
     padding: 3rem 0 4rem;
 }
@@ -2153,7 +1689,7 @@ HEADER - CSS PARA TABLETS
     gap: 2rem;
 }
 
-/* SIDEBAR */
+/* ----- SIDEBAR ----- */
 .ln-det-sidebar {
     display: flex;
     flex-direction: column;
@@ -2312,7 +1848,7 @@ HEADER - CSS PARA TABLETS
     flex: none;
 }
 
-/* MAIN — portfólio + trajetória */
+/* ---- CONTEÚDO PRINCIPAL ----- */
 .ln-det-section-head {
     margin-bottom: 1.25rem;
 }
@@ -2331,6 +1867,7 @@ HEADER - CSS PARA TABLETS
     line-height: 1.6;
 }
 
+/* ----- PORTFÓLIO ----- */
 .ln-det-portfolio-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2374,12 +1911,11 @@ HEADER - CSS PARA TABLETS
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* SEÇÃO PERFIL + PORTFÓLIO + TRAJETÓRIA */
+/* ----- TRAJETÓRIA ----- */
 .ln-det-contentM {
     padding-bottom: 4rem;
 }
 
-/* TRAJETÓRIA */
 .ln-det-traj-grid {
     display: grid;
     gap: 0.85rem;
@@ -2417,7 +1953,7 @@ HEADER - CSS PARA TABLETS
     margin: 0;
 }
 
-/* RESPONSIVO — detalhe */
+/* ----- RESPONSIVO ----- */
 @media (min-width: 48rem) {
     .ln-det-portfolio-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -2454,11 +1990,816 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* ============================================================
-   LANA — SOBRE NÓS (REDESIGN CATÁLOGO)
-   ============================================================ */
+/* ==========================
+   09. PROJETOS
+========================== */
 
-/* STATS */
+/* ----- RÓTULOS ----- */
+.sa-label--light { color: rgb(255, 255, 255); }
+
+/* ----- HERO ----- */
+.sa-hero {
+    padding: 2.5rem 0 3rem;
+}
+
+.sa-hero-inner {
+    display: grid;
+    gap: 2rem;
+}
+
+.sa-highlight { 
+    color: var(--cor-botao-principal); 
+}
+
+.sa-hero-copy .hero-base__titulo {
+    font-size: clamp(2.1rem, 5.5vw, 3.8rem);
+    color: var(--cor-fonte-preta);
+    margin-bottom: 1rem;
+}
+
+.sa-hero-copy p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color:  var(--cor-fonte-medio);
+    max-width: 32rem;
+    margin-bottom: 1.75rem;
+}
+
+.sa-btn--outline {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.8);
+    color: var(--cor-fonte);
+}
+
+.sa-btn--outline:hover,
+.sa-btn--outline:focus-visible {
+    background: rgba(255,255,255,0.15);
+}
+
+/* ----- MOSAICO DO HERO ----- */
+.sa-hero-mosaic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 11rem 9rem;
+    gap: 0.75rem;
+}
+
+.sa-mosaic-main{ 
+    grid-column: 1 / -1; 
+}
+
+.sa-mosaic-img {
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1rem 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sa-mosaic-img i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    font-size: 3rem;
+    color: rgba(255,255,255,0.25);
+}
+
+.sa-mosaic-img span {
+    position: relative;
+    z-index: 1;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.3;
+}
+
+.sa-mosaic-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30,10,0,0.55) 0%, transparent 60%);
+}
+
+.sa-mosaic-img--a {
+    background: url('../assets/fundo-mosaico-artesao-a.jpg') center/cover no-repeat;
+}
+
+.sa-mosaic-img--c {
+    background: url('../assets/fundo-mosaico-c.jpg') center/cover no-repeat;
+}
+
+.sa-mosaic-img--mutual {
+    background: url('../assets/fundo-mosaico-mural.jpg') center/cover no-repeat;
+}
+
+/* ----- CATÁLOGO ----- */
+.sa-catalogo {
+    padding: 3rem 0 4rem;
+}
+
+.sa-catalogo-head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.sa-catalogo-head h2 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color:  var(--cor-fonte-preta);
+    line-height: 1.1;
+}
+
+.sa-catalogo-desc {
+    font-size: 0.95rem;
+    color:  var(--cor-fonte-medio);
+    line-height: 1.65;
+    max-width: 38rem;
+    align-self: end;
+}
+
+/* ----- SEÇÕES DO CATÁLOGO ----- */
+.sa-section + .sa-section {
+    border-top: 2px solid rgba(47,39,34,0.1);
+    padding-top: 3rem;
+}
+
+/* ----- FILTROS ----- */
+.sa-filter-btn {
+    transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.18s;
+}
+
+.sa-filter-btn:hover,
+.sa-filter-btn:focus-visible {
+    border-color: var(--cor-botao-principal);
+    color: var(--cor-botao-principal);
+    outline: none;
+}
+
+/* ----- GRID DE CARDS ----- */
+.sa-card {
+    background: var(--cor-info-artesao);
+}
+
+.sa-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(60,33,20,0.14);
+}
+
+.sa-card-img {
+    height: 11rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0.85rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sa-card-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,6,0,0.52) 0%, transparent 55%);
+}
+
+.sa-card-tag {
+    position: relative;
+    z-index: 1;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--cor-fundo-bege-claro);
+    background: rgba(109, 47, 23, 0.92);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+}
+
+.sa-card-body {
+    padding: 1.1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sa-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cor-fonte-preta);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.sa-card-desc {
+    font-size: 0.87rem;
+    color: var(--cor-fonte-preta);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 0.85rem;
+}
+
+.sa-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 0.85rem;
+}
+
+.sa-card-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    color: var(--cor-fonte-escuro);
+    font-weight: 600;
+}
+
+.sa-card-meta i {
+    color: var(--cor-fonte-marrom-medio);
+    font-size: 0.85rem;
+}
+
+.sa-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cor-fonte-marrom-medio);
+    text-decoration: none;
+    border-top: 1px solid rgba(77, 43, 28, 0.2);
+    padding-top: 0.75rem;
+    transition: gap 0.18s;
+}
+
+.sa-card-link:hover { gap: 0.65rem; }
+
+.sa-card-link-wrap {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+/* ----- CTA ----- */
+.sa-cta {
+    background: var(--cor-botao-principal);
+    padding: 3rem 0;
+    color: var(--cor-fonte);
+}
+
+.sa-cta-inner {
+    display: grid;
+    gap: 2rem;
+}
+
+.sa-cta-copy h2 {
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.85rem;
+}
+
+.sa-cta-copy p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.5rem;
+    max-width: 36rem;
+}
+
+.sa-cta-copy strong { color: var(--cor-fonte); }
+
+.sa-cta-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.sa-cta-chip {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 0.85rem;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.sa-cta-chip i {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.85);
+    flex: none;
+}
+
+.sa-cta-chip strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--cor-fonte);
+    line-height: 1.2;
+}
+
+.sa-cta-chip span {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.75);
+}
+
+.sa-card--hidden {
+    display: none;
+}
+
+.sa-page .sa-catalogo .sa-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.75rem;
+    touch-action: pan-y;
+    cursor: grab;
+}
+
+/* Carrossel de projetos com o mesmo estilo da home (setas redondas nas laterais) */
+.sa-carousel-shell {
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: center;
+    gap: 10px;
+}
+
+.sa-carousel-shell > .sa-grid {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+}
+
+.sa-page .sa-catalogo .sa-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.sa-page .sa-catalogo .sa-grid.sa-grid--dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+.sa-carousel-arrow {
+    grid-row: 1;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--cor-flecha);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, opacity 0.2s;
+}
+
+.sa-carousel-arrow:hover,
+.sa-carousel-arrow:focus-visible {
+    background: var(--cor-botao-hover);
+    outline: none;
+}
+
+.sa-carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.sa-carousel-arrow--prev {
+    grid-column: 1;
+}
+
+.sa-carousel-arrow--next {
+    grid-column: 3;
+}
+
+.sa-carousel-arrow img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.sa-page .sa-catalogo .sa-grid .sa-card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+/* ----- RESPONSIVO ----- */
+@media (min-width: 768px){
+    .sa-page .sa-catalogo .sa-grid .sa-card {
+        flex-basis: 49%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sa-hero-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .sa-hero-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 13rem 10rem;
+    }
+
+    .sa-catalogo-head {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+
+    .sa-cta-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .sa-page .sa-catalogo .sa-grid .sa-card {
+        flex-basis: 32.5%;
+    }
+}
+
+/* ==========================
+   10. PROJETO — DETALHE
+========================== */
+
+/* ----- HERO ----- */
+.sa-det-hero {
+    padding: 2.5rem 0 3rem;
+}
+
+.sa-det-hero-inner {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+}
+
+.sa-det-lead {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--cor-fonte-medio);
+    max-width: 34rem;
+    margin-bottom: 1.2rem;
+}
+
+.sa-det-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+}
+
+.sa-det-tags span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cor-fonte-medio);
+    background: rgba(180, 79, 41, 0.1);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+}
+
+/* ----- AÇÕES DO HERO ----- */
+.sa-det-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.sa-det-btn-ghost {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cor-fonte-medio);
+    text-decoration: none;
+    transition: color 0.18s;
+}
+
+.sa-det-btn-ghost:hover {
+    color: var(--cor-botao-principal);
+}
+
+.sa-det-propostas {
+    position: relative;
+}
+
+.sa-det-btn-principal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--cor-botao-principal);
+    color: var(--cor-fonte);
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.75rem 1.25rem;
+    border: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.sa-det-btn-principal:hover {
+    background: var(--cor-botao-hover);
+    transform: translateY(-2px);
+}
+
+/* ----- MENU DE PROPOSTAS ----- */
+.sa-det-propostas-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 20;
+    min-width: 16rem;
+    background: var(--cor-fonte);
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 32px rgba(60, 33, 20, 0.18);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sa-det-propostas-menu[hidden] {
+    display: none;
+}
+
+.sa-det-propostas-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--cor-fonte-preta);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: background 0.15s;
+}
+
+.sa-det-propostas-menu a:hover {
+    background: rgba(180, 79, 41, 0.1);
+}
+
+.sa-det-propostas-menu i {
+    color: var(--cor-botao-principal);
+    font-size: 1rem;
+    flex: none;
+}
+
+/* ----- CAPA DO PROJETO ----- */
+.sa-det-hero-cover {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    border-radius: 1.25rem;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    box-shadow: 0 16px 40px rgba(60, 33, 20, 0.18);
+}
+
+/* ----- INFORMAÇÕES ----- */
+.sa-det-content {
+    padding: 1rem 0 4rem;
+}
+
+.sa-det-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.sa-det-info-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--cor-fonte);
+    border-radius: 1rem;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 4px 18px rgba(60, 33, 20, 0.07);
+}
+
+.sa-det-info-card i {
+    font-size: 1.3rem;
+    color: var(--cor-botao-principal);
+    flex: none;
+}
+
+.sa-det-info-card strong {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--cor-fonte-medio);
+}
+
+.sa-det-info-card span {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--cor-fonte-preta);
+}
+
+/* ----- CONTEÚDO ----- */
+.sa-det-section-head {
+    margin-bottom: 1.1rem;
+}
+
+.sa-det-section-head h2 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--cor-fonte-preta);
+    margin-bottom: 0.35rem;
+}
+
+.sa-det-bio {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--cor-fonte-medio);
+    max-width: 60rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ----- GALERIA ----- */
+.sa-det-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+
+.sa-det-gallery-piece {
+    border-radius: 0.85rem;
+    height: 11rem;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ----- RESPONSIVO ----- */
+@media (min-width: 64rem) {
+    .sa-det-hero-inner {
+        grid-template-columns: 1.1fr 1fr;
+    }
+
+    .sa-det-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.select-acc option {
+    color: var(--cor-fonte-preta);
+    background: white;
+}
+
+/* ==========================
+   11. SOBRE NÓS
+========================== */
+
+/* ----- PÁGINA -----*/
+.ln-sn-page {
+    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
+    color: var(--cor-fonte-preta);
+}
+
+.ln-sn-wrap {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+/* ----- BOTÕES -----*/
+.ln-sn-btn {
+    display: inline-block;
+    background: var(--cor-botao-principal);
+    color: var(--cor-fonte);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.75rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.ln-sn-btn:hover,
+.ln-sn-btn:focus-visible {
+    background: var(--cor-botao-hover);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.ln-sn-btn-ghost {
+    display: inline-block;
+    border: 2px solid rgba(47, 39, 34, 0.2);
+    color:  var(--cor-fonte-medio);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: border-color 0.18s, color 0.18s;
+    white-space: nowrap;
+}
+
+.ln-sn-btn-ghost:hover {
+    border-color: var(--cor-botao-principal);
+    color: var(--cor-botao-principal);
+}
+
+.ln-sn-btn--light {
+    margin-top: 1.5rem;
+    background: var(--cor-fonte);
+    color: var(--cor-botao-principal);
+}
+
+.ln-sn-btn--light:hover,
+.ln-sn-btn--light:focus-visible {
+    background: var(--cor-hover-link);
+    color: var(--cor-botao-hover);
+}
+
+/* ----- HERO ----- */
+.ln-sn-hero {
+    position: relative;
+    padding: 5rem 0 5.5rem;
+    min-height: 30rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ln-sn-hero::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    background: url('../assets/fundo-sobrenos.jpg') center/cover no-repeat;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+.ln-sn-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(15,8,4,0.48) 0%, rgba(15,8,4,0.68) 100%);
+    z-index: 1;
+}
+
+.ln-sn-hero .ln-sn-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.ln-sn-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ln-sn-hero-copy {
+    max-width: 54rem;
+}
+
+.ln-sn-hero .ln-sn-label {
+    color: var(--cor-destaque-sn);
+}
+
+.ln-sn-hero-copy h1 {
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--cor-fonte);
+    margin-bottom: 1rem;
+}
+
+.ln-sn-highlight { 
+    color: var(--cor-destaque-sn); 
+}
+
+.ln-sn-hero-copy p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+    max-width: 38rem;
+    margin: 0 auto 1.75rem;
+}
+
+/* ----- ESTATÍSTICAS ----- */
 .ln-sn-stats-section {
     padding: 2rem 0;
 }
@@ -2493,7 +2834,7 @@ HEADER - CSS PARA TABLETS
     line-height: 1.3;
 }
 
-/* SECTION HEAD */
+/* ----- CABEÇALHOS DE SEÇÃO ----- */
 .ln-sn-section-head {
     margin-bottom: 1.75rem;
     max-width: 42rem;
@@ -2521,7 +2862,7 @@ HEADER - CSS PARA TABLETS
     line-height: 1.65;
 }
 
-/* LEIS */
+/* ----- LEIS / PROPOSTA ----- */
 .ln-sn-leis {
     padding: 2.5rem 0;
     background: rgba(244, 232, 215, 0.5);
@@ -2591,7 +2932,37 @@ HEADER - CSS PARA TABLETS
     align-self: flex-start;
 }
 
-/* HISTÓRIA */
+.ln-sn-leis-grid--single,
+.ln-sn-team-grid--single {
+    grid-template-columns: minmax(0, 22rem);
+    justify-content: center;
+}
+
+.ln-sn-leis-split {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.ln-sn-leis-split .ln-sn-section-head {
+    margin-bottom: 0;
+}
+
+.ln-sn-leis-split .ln-sn-lei-card {
+    width: 100%;
+    max-width: 24rem;
+    margin-inline: auto;
+}
+
+.ln-sn-lei-card .ln-sn-amount {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--cor-botao-principal);
+    line-height: 1.1;
+    flex: none;
+}
+
+/* ----- HISTÓRIA ----- */
 .ln-sn-history {
     padding: 3rem 0;
 }
@@ -2712,7 +3083,14 @@ HEADER - CSS PARA TABLETS
     margin-top: 0.1rem;
 }
 
-/* EQUIPE */
+.ln-sn-hist-top,
+.ln-sn-hist-side {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+/* ----- EQUIPE ----- */
 .ln-sn-team {
     padding: 3rem 0;
     background: rgba(244, 232, 215, 0.5);
@@ -2815,7 +3193,7 @@ HEADER - CSS PARA TABLETS
     margin: 0;
 }
 
-/* DEPOIMENTOS */
+/* ----- DEPOIMENTOS ----- */
 .ln-sn-testimonials {
     padding: 3rem 0 4rem;
 }
@@ -2850,7 +3228,6 @@ HEADER - CSS PARA TABLETS
     margin-bottom: 1.25rem;
 }
 
-
 .ln-sn-stars {
     color: var(--cor-botao-principal);
     font-size: 0.9rem;
@@ -2858,7 +3235,111 @@ HEADER - CSS PARA TABLETS
     flex: none;
 }
 
-/* RESPONSIVO — sobre nós */
+.ln-sn-testimonial-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid rgba(47, 39, 34, 0.08);
+    padding-top: 0.85rem;
+    margin-top: auto;
+}
+
+.ln-sn-testimonial-footer strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--cor-fonte-preta);
+    margin-bottom: 0.1rem;
+}
+
+.ln-sn-testimonial-footer span {
+    font-size: 0.78rem;
+    color: var(--cor-fonte-claro);
+}
+
+/* ----- CONTEÚDO DA PROPOSTA ----- */
+.ln-sn-block {
+    padding: 3rem 0;
+}
+
+.ln-sn-block--tint {
+    background: rgba(244, 232, 215, 0.5);
+}
+
+.ln-sn-text {
+    font-size: 0.95rem;
+    color: var(--cor-fonte-medio);
+    line-height: 1.65;
+    max-width: 46rem;
+}
+
+.ln-sn-feature-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+.ln-sn-highlight-note {
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--cor-principal);
+    line-height: 1.5;
+}
+
+@media (min-width: 40rem) {
+    .ln-sn-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 64rem) {
+    .ln-sn-feature-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .ln-sn-feature-grid--4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ----- CTA FINAL ----- */
+.ln-sn-cta {
+    padding: 3rem 0 4rem;
+}
+
+.ln-sn-cta-inner {
+    background: linear-gradient(135deg, var(--cor-botao-principal) 0%, var(--cor-marrom-claro) 100%);
+    color: var(--cor-fonte);
+    border-radius: 1.5rem;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+}
+
+.ln-sn-cta-inner h2 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--cor-fonte);
+}
+
+.ln-sn-cta-inner p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 46rem;
+    margin: 0 auto 1rem;
+}
+
+.ln-sn-cta-tagline {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--cor-fonte) !important;
+    margin-top: 0.5rem !important;
+}
+
+/* ----- RESPONSIVO ----- */
 @media (min-width: 40rem) {
     .ln-sn-stats-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -2897,30 +3378,6 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* Seções com um único card — centraliza com largura de um card */
-.ln-sn-leis-grid--single,
-.ln-sn-team-grid--single {
-    grid-template-columns: minmax(0, 22rem);
-    justify-content: center;
-}
-
-/* Captação Lei Rouanet — card ao lado do texto */
-.ln-sn-leis-split {
-    display: grid;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.ln-sn-leis-split .ln-sn-section-head {
-    margin-bottom: 0;
-}
-
-.ln-sn-leis-split .ln-sn-lei-card {
-    width: 100%;
-    max-width: 24rem;
-    margin-inline: auto;
-}
-
 @media (min-width: 64rem) {
     .ln-sn-leis-split {
         grid-template-columns: 1fr minmax(0, 24rem);
@@ -2928,118 +3385,51 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* ====== SOBRE NÓS — CONTEÚDO DA PROPOSTA (projeto, impacto, parcerias) ====== */
-.ln-sn-block {
-    padding: 3rem 0;
-}
-
-.ln-sn-block--tint {
-    background: rgba(244, 232, 215, 0.5);
-}
-
-.ln-sn-text {
-    font-size: 0.95rem;
-    color: var(--cor-fonte-medio);
-    line-height: 1.65;
-    max-width: 46rem;
-}
-
-.ln-sn-feature-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-}
-
-@media (min-width: 40rem) {
-    .ln-sn-feature-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* ====== RESPONSIVO ====== */
+@media (min-width: 768px){
+    .sa-page .sa-catalogo .sa-grid .sa-card {
+        flex-basis: 49%;
     }
 }
 
-@media (min-width: 64rem) {
-    .ln-sn-feature-grid--3 {
-        grid-template-columns: repeat(3, 1fr);
+@media (min-width: 1024px) {
+    .sa-hero-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
     }
-    .ln-sn-feature-grid--4 {
-        grid-template-columns: repeat(4, 1fr);
+
+    .sa-hero-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 13rem 10rem;
+    }
+
+    .sa-catalogo-head {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+
+    .sa-cta-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .sa-page .sa-catalogo .sa-grid .sa-card {
+        flex-basis: 32.5%;
     }
 }
 
-/* Valor em destaque dentro do card (montante / percentual) */
-.ln-sn-lei-card .ln-sn-amount {
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    font-weight: 700;
-    color: var(--cor-botao-principal);
-    line-height: 1.1;
-    flex: none;
-}
+/* ----- LANA - SOBRE NÓS ----- */
 
-/* Frase de fechamento de seção */
-.ln-sn-highlight-note {
-    margin-top: 1.5rem;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--cor-principal);
-    line-height: 1.5;
-}
+/* ============================
+   12. EVENTOS
+=============================== */
 
-/* CONVITE / CTA FINAL */
-.ln-sn-cta {
-    padding: 3rem 0 4rem;
-}
-
-.ln-sn-cta-inner {
-    background: linear-gradient(135deg, var(--cor-botao-principal) 0%, var(--cor-marrom-claro) 100%);
-    color: var(--cor-fonte);
-    border-radius: 1.5rem;
-    padding: clamp(2rem, 5vw, 3.5rem);
-    text-align: center;
-}
-
-.ln-sn-cta-inner h2 {
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-    color: var(--cor-fonte);
-}
-
-.ln-sn-cta-inner p {
-    font-size: 0.98rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 46rem;
-    margin: 0 auto 1rem;
-}
-
-.ln-sn-cta-tagline {
-    font-style: italic;
-    font-weight: 600;
-    color: var(--cor-fonte) !important;
-    margin-top: 0.5rem !important;
-}
-
-.ln-sn-btn--light {
-    margin-top: 1.5rem;
-    background: var(--cor-fonte);
-    color: var(--cor-botao-principal);
-}
-
-.ln-sn-btn--light:hover,
-.ln-sn-btn--light:focus-visible {
-    background: var(--cor-hover-link);
-    color: var(--cor-botao-hover);
-}
-
-/* ----- GABRIEL ----- */
-
-/* ----- EVENTOS ----- */
-
+/* ----- PÁGINA ----- */
 .ga-page-eventos{
     background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
 }
 
+/* ----- HERO ----- */
 .ga-bck-eventos{
     background: linear-gradient(160deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-hero-medio) 100%);
     padding: 20px;
@@ -3054,6 +3444,7 @@ HEADER - CSS PARA TABLETS
     margin-bottom: 22px;
 }
 
+/* ----- TÍTULO ----- */
 .ga-titulo-eventos h1{
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: #111;
@@ -3078,8 +3469,8 @@ HEADER - CSS PARA TABLETS
     text-align: center;
     font-size: 1.9rem;
 }
-/* BARRA DE PESQUISA */
 
+/* ----- BUSCA ----- */
 .ga-barra-pesquisa-eventos{
     margin: 30px 0;
 }
@@ -3113,7 +3504,7 @@ HEADER - CSS PARA TABLETS
     color: #999;
 }
 
-/* FILTROS */
+/* ----- FILTROS ----- */
 .ga-filtros-eventos{
     display: flex;
     gap: 12px;
@@ -3147,6 +3538,7 @@ HEADER - CSS PARA TABLETS
     color: #fff;
 }
 
+/* ----- GRID DE EVENTOS ----- */
 .ga-itens-eventos{
     display: grid;
     grid-template-columns: 1fr;
@@ -3155,7 +3547,7 @@ HEADER - CSS PARA TABLETS
     border-radius: 10px;
 }
 
-/* ===== CARD EVENTOS ===== */
+/* ----- CARD DE EVENTO ----- */
 
 .ga-card-eventos{
     background: var(--cor-info-artesao);
@@ -3163,16 +3555,21 @@ HEADER - CSS PARA TABLETS
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .ga-card-eventos:hover{
     transform: translateY(-6px);
 }
 
+/* LINK */
 .ga-card-link-eventos{
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 /* IMAGEM */
@@ -3195,6 +3592,9 @@ HEADER - CSS PARA TABLETS
 /* CONTEÚDO */
 .ga-interno-eventos{
     padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 /* TÍTULO */
@@ -3240,6 +3640,7 @@ HEADER - CSS PARA TABLETS
     font-weight: 500;
 }
 
+/* ACESSIBILIDADE */
 .ga-oculto{
     position: absolute;
     width: 1px;
@@ -3253,10 +3654,14 @@ HEADER - CSS PARA TABLETS
 }
 
 /* BOTÃO */
+.ga-btn-eventos{
+    margin-top: auto;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
 .ga-btn-detalhes{
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     background: var(--cor-botao-principal);
     color: white;
     text-decoration: none;
@@ -3270,8 +3675,7 @@ HEADER - CSS PARA TABLETS
     background: var(--cor-botao-hover);
 }
 
-/* EVENTOS DESKTOP */
-
+/* ----- RESPONSIVO ----- */
 @media(min-width: 768px){
     .ga-bck-eventos{
         display: flex;
@@ -3304,7 +3708,8 @@ HEADER - CSS PARA TABLETS
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
     }
 
     .ga-card-eventos{
@@ -3336,98 +3741,180 @@ HEADER - CSS PARA TABLETS
     }
 }
 
-/* ----- FIM DOS EVENTOS ----- */
+/* ============================
+   13. EVENTO - DETALHE
+   ============================ */
 
-/* ----- COMEÇO DA PAGINA DE EVENTO ----- */
-
-.ga-pagina-evento{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+/* ----- PÁGINA ----- */
+.ga-pagina-evento {
+    min-height: 100vh;
 }
 
-.ga-voltar{
-    display: inline-block;
-    margin-bottom: 24px;
-    text-decoration: none;
-    color: var(--cor-botao-principal);
-    font-weight: bold;
+/* ----- HERO ----- */
+.ga-evento-hero {
+    padding: 2rem 0 3rem;
 }
 
-.ga-card-evento-detalhes{
-    background: var(--cor-info-artesao);
-
-    border-radius: 24px;
-
-    overflow: hidden;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+.ga-evento-hero__inner {
+    display: grid;
+    gap: 0;
 }
 
-.ga-imagem-evento img{
+/* ----- IMAGEM ----- */
+.ga-evento-hero__visual {
     width: 100%;
-    height: 280px;
+}
+
+.ga-evento-hero__visual img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
+    display: block;
+    border-radius: 1.25rem 1.25rem 0 0;
 }
 
-.ga-info-evento{
-    padding: 24px;
-}
-
-.ga-info-evento h1{
-    margin-bottom: 16px;
-}
-
-.ga-info-evento p{
-    margin-bottom: 10px;
-}
-
-.ga-descricao-evento{
-    margin-top: 32px;
+/* ----- QUADRO DE INFORMAÇÕES ----- */
+.ga-evento-hero__card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
     background: var(--cor-info-artesao);
-    padding: 24px;
-    border-radius: 20px;
+    border-radius: 0 0 1.25rem 1.25rem;
+    box-shadow: 0 12px 30px rgba(60, 33, 20, 0.12);
 }
 
-.ga-descricao-evento h2{
-    margin-bottom: 16px;
+/* ----- VOLTAR ----- */
+.ga-evento-hero__voltar {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    color: var(--cor-botao-principal);
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    padding: 10px 10px 10px 10px
 }
 
-@media(min-width: 768px){
+.ga-evento-hero__voltar:hover {
+    color: var(--cor-botao-hover);
+}
 
-    .ga-info-evento {
-        justify-content: center;
-        gap: 16px;
+/* ----- LABEL ----- */
+.ga-evento-hero__label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--cor-botao-principal);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ----- TÍTULO ----- */
+.ga-evento-hero__card .hero-base__titulo {
+    margin-bottom: 1.25rem;
+}
+
+/* ----- INFORMAÇÕES ----- */
+.ga-evento-hero__informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.ga-evento-hero__informacoes p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: var(--cor-fonte-medio);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ----- BOTÃO ----- */
+.ga-evento-hero__card .btn-base__principal {
+    align-self: flex-start;
+}
+
+/* ----- DESCRIÇÃO ----- */
+.ga-evento-descricao {
+    padding: 0 0 4rem;
+}
+
+/* ----- CABEÇALHO DA DESCRIÇÃO ----- */
+.ga-evento-descricao__cabecalho {
+    margin-bottom: 1.25rem;
+}
+
+.ga-evento-descricao__label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--cor-botao-principal);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* ----- TÍTULO DA DESCRIÇÃO ----- */
+.ga-evento-descricao__cabecalho h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--cor-fonte-preta);
+}
+
+/* ----- TEXTO ----- */
+.ga-evento-descricao__card{
+    padding: 1.5rem;
+    background: var(--cor-info-artesao);
+    border-radius: 1.25rem 1.25rem;
+    box-shadow: 0 12px 30px rgba(60, 33, 20, 0.12);
+}
+.ga-evento-descricao__texto {
+    max-width: 60rem;
+    color: var(--cor-fonte-medio);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ----- RESPONSIVO ----- */
+@media (min-width: 1024px) {
+    .ga-evento-hero {
+        padding: 3rem 0 4rem;
     }
 
-    .ga-card-evento-detalhes{
-        display: flex;
+    .ga-evento-hero__inner {
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: stretch;
     }
 
-    .ga-imagem-evento{
-        width: 55%;
+    /* IMAGEM */
+    .ga-evento-hero__visual {
+        height: 100%;
     }
 
-    .ga-imagem-evento img{
+    .ga-evento-hero__visual img {
         width: 100%;
         height: 100%;
-        min-height: 400px;
-        object-fit: cover;
+        min-height: 30rem;
+        aspect-ratio: auto;
+        border-radius: 1.25rem 0 0 1.25rem;
     }
 
-    .ga-info-evento{
-        width: 45%;
-        display: flex;
-        flex-direction: column;
+    /* CARD */
+    .ga-evento-hero__card {
         justify-content: center;
-        padding: 40px;
+        padding: 3rem;
+        border-radius: 0 1.25rem 1.25rem 0;
+        box-shadow: 0 16px 40px rgba(60, 33, 20, 0.14);
     }
+
 }
 
-/* ----- FIM DAS PAGINAS DE EVENTO ----- */
+/* ============================
+   14. AGENDA
+   ============================ */
 
-/* ----- AGENDA ----- */
-
+/* ----- PÁGINA ----- */
 .ga-page-agenda{
     background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
 }
@@ -3438,7 +3925,6 @@ HEADER - CSS PARA TABLETS
 }
 
 /* HERO */
-
 .ga-bck-agenda{
     background: linear-gradient(160deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-hero-medio) 100%);
     padding: 20px;
@@ -3490,7 +3976,6 @@ HEADER - CSS PARA TABLETS
 }
 
 /* PRÓXIMO EVENTO */
-
 .ga-proximo-evento{
     background: var(--cor-info-artesao);
     border-radius: 24px;
@@ -3526,6 +4011,7 @@ HEADER - CSS PARA TABLETS
     z-index: 2;
 }
 
+/* IMAGEM DO PRÓXIMO EVENTO */
 .ga-proximo-evento img {
     width: 100%;
     height: 220px;
@@ -3533,6 +4019,7 @@ HEADER - CSS PARA TABLETS
     transition: transform 0.3s ease;
 }
 
+/* INFORMAÇÕES */
 .ga-info-proximo{
     padding: 20px;
 }
@@ -3541,6 +4028,7 @@ HEADER - CSS PARA TABLETS
     margin-bottom: 12px;
 }
 
+/* LOCAL E DATA */
 .ga-local,
 .ga-data{
     display: flex;
@@ -3556,6 +4044,7 @@ HEADER - CSS PARA TABLETS
     flex: none;
 }
 
+/* BOTÃO DO PRÓXIMO EVENTO */
 .ga-btn-agenda{
     display: inline-block;
     margin-top: 20px;
@@ -3573,7 +4062,6 @@ HEADER - CSS PARA TABLETS
 }
 
 /* LISTA */
-
 .ga-lista-agenda{
     display: flex;
     flex-direction: column;
@@ -3599,14 +4087,16 @@ HEADER - CSS PARA TABLETS
     transform: scale(1.05);
 }
 
+/* IMAGEM DO CARD */
 .ga-card-agenda > img {
     transition: transform 0.3s ease;
-    width: 120px;
-    height: 120px;
+    max-height: 11rem;
+    max-width: 9.5rem;
     object-fit: cover;
     border-radius: 16px;
 }
 
+/* INFORMAÇÕES DO CARD */
 .ga-card-info .ga-local img,
 .ga-card-info .ga-data img {
     width: 18px;
@@ -3622,12 +4112,15 @@ HEADER - CSS PARA TABLETS
 
 .ga-card-info h3{
     margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
 .ga-card-info p{
     margin-bottom: 8px;
+    font-size: 1rem;
 }
 
+/* BOTÃO DO CARD */
 .ga-btn-card-agenda{
     width: 140px;
     text-align: center;
@@ -3645,6 +4138,7 @@ HEADER - CSS PARA TABLETS
     background: var(--cor-botao-hover);
 }
 
+/* ELEMENTOS ESPECÍFICOS */
 #ga-local-evento,
 #ga-data-evento {
     display: flex;
@@ -3652,11 +4146,11 @@ HEADER - CSS PARA TABLETS
     gap: 8px;
 }
 
-@media(min-width: 768px){
-
+/* RESPONSIVO */
+@media(min-width: 900px){
     .ga-layout-agenda{
         display: grid;
-        grid-template-columns: 1.4fr 1fr;
+        grid-template-columns: 1.2fr 1.2fr;
         gap: 24px;
         align-items: start;
     }
@@ -3694,6 +4188,7 @@ HEADER - CSS PARA TABLETS
     .ga-proximo-evento{
         display: block;
         height: 470px;
+
     }
 
     .ga-img-proximo{
@@ -3746,337 +4241,11 @@ HEADER - CSS PARA TABLETS
     }
 
     .ga-card-info h3{
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .ga-card-info p,
     .ga-card-info span{
-        font-size: .85rem;
+        font-size: 1rem;
     }
 }
-
-/* --- FIM DA AGENDA --- */
-
-/* ------------------------- */
-
-    /* ==========================
-   KIT DE ACESSIBILIDADE
-========================== */
-
-/* SKIP LINK */
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: 20px;
-    background: var(--cor-badge);
-    color: var(--cor-fonte);
-    padding: 12px 24px;
-    z-index: 9999;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 0 0 8px 8px;
-    transition: top 0.3s;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-/* FOCO VISÍVEL */
-:focus {
-    outline: 3px solid var(--cor-flecha);
-    outline-offset: 3px;
-}
-
-/* ALTO CONTRASTE */
-body.high-contrast {
-    background-color: #000 !important;
-    color: #fff !important;
-}
-
-body.high-contrast .geral-header,
-body.high-contrast .footer-container-grid-pai,
-body.high-contrast .btn-acc {
-    background: #000 !important;
-    border: 2px solid #fff !important;
-    color: #fff !important;
-}
-
-body.high-contrast p,
-body.high-contrast h1,
-body.high-contrast h2,
-body.high-contrast h3,
-body.high-contrast a,
-body.high-contrast span {
-    color: #fff !important;
-}
-
-/* FILTROS DALTONISMO */
-.protanopia  { filter: grayscale(1) sepia(0.5) hue-rotate(-50deg); }
-.deuteranopia { filter: grayscale(1) sepia(0.5) hue-rotate(-10deg); }
-.tritanopia  { filter: grayscale(0.5) sepia(0.5) hue-rotate(180deg); }
-
-/* BARRA DE ACESSIBILIDADE */
-.accessibility-toolbar {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.15);
-    padding: 6px 5%;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-}
-
-.btn-acc {
-    padding: 6px 12px;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 8px;
-    background: transparent;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--cor-fonte);
-    transition: background 0.2s, transform 0.2s;
-    font-family: "Ubuntu", sans-serif;
-}
-
-.btn-acc:hover {
-    background: rgba(255,255,255,0.2);
-    transform: translateY(-1px);
-}
-
-.select-acc {
-    padding: 6px 8px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.4);
-    background: transparent;
-    color: var(--cor-fonte);
-    font-size: 0.85rem;
-    cursor: pointer;
-    font-family: "Ubuntu", sans-serif;
-}
-
-/* ============================================================
-   SARA — DETALHE (PROJETO / CURSO / PALESTRA)
-   ============================================================ */
-
-.sa-det-hero {
-    padding: 2.5rem 0 3rem;
-}
-
-.sa-det-hero-inner {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-}
-
-.sa-det-lead {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: var(--cor-fonte-medio);
-    max-width: 34rem;
-    margin-bottom: 1.2rem;
-}
-
-.sa-det-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-bottom: 1.5rem;
-}
-
-.sa-det-tags span {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--cor-fonte-medio);
-    background: rgba(180, 79, 41, 0.1);
-    border-radius: 999px;
-    padding: 0.3rem 0.8rem;
-}
-
-.sa-det-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
-}
-
-.sa-det-btn-ghost {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--cor-fonte-medio);
-    text-decoration: none;
-    transition: color 0.18s;
-}
-
-.sa-det-btn-ghost:hover {
-    color: var(--cor-botao-principal);
-}
-
-.sa-det-propostas {
-    position: relative;
-}
-
-.sa-det-btn-principal {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--cor-botao-principal);
-    color: var(--cor-fonte);
-    font-weight: 700;
-    font-size: 0.92rem;
-    padding: 0.75rem 1.25rem;
-    border: 0;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.sa-det-btn-principal:hover {
-    background: var(--cor-botao-hover);
-    transform: translateY(-2px);
-}
-
-.sa-det-propostas-menu {
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    left: 0;
-    z-index: 20;
-    min-width: 16rem;
-    background: var(--cor-fonte);
-    border-radius: 0.75rem;
-    box-shadow: 0 12px 32px rgba(60, 33, 20, 0.18);
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.sa-det-propostas-menu[hidden] {
-    display: none;
-}
-
-.sa-det-propostas-menu a {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.65rem 0.75rem;
-    border-radius: 0.5rem;
-    color: var(--cor-fonte-preta);
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
-    transition: background 0.15s;
-}
-
-.sa-det-propostas-menu a:hover {
-    background: rgba(180, 79, 41, 0.1);
-}
-
-.sa-det-propostas-menu i {
-    color: var(--cor-botao-principal);
-    font-size: 1rem;
-    flex: none;
-}
-
-.sa-det-hero-cover {
-    width: 100%;
-    aspect-ratio: 16 / 11;
-    border-radius: 1.25rem;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    box-shadow: 0 16px 40px rgba(60, 33, 20, 0.18);
-}
-
-.sa-det-content {
-    padding: 1rem 0 4rem;
-}
-
-.sa-det-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-}
-
-.sa-det-info-card {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--cor-fonte);
-    border-radius: 1rem;
-    padding: 1rem 1.1rem;
-    box-shadow: 0 4px 18px rgba(60, 33, 20, 0.07);
-}
-
-.sa-det-info-card i {
-    font-size: 1.3rem;
-    color: var(--cor-botao-principal);
-    flex: none;
-}
-
-.sa-det-info-card strong {
-    display: block;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--cor-fonte-medio);
-}
-
-.sa-det-info-card span {
-    display: block;
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--cor-fonte-preta);
-}
-
-.sa-det-section-head {
-    margin-bottom: 1.1rem;
-}
-
-.sa-det-section-head h2 {
-    font-size: clamp(1.3rem, 3vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--cor-fonte-preta);
-    margin-bottom: 0.35rem;
-}
-
-.sa-det-bio {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--cor-fonte-medio);
-    max-width: 60rem;
-    margin-bottom: 0.5rem;
-}
-
-.sa-det-gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
-}
-
-.sa-det-gallery-piece {
-    border-radius: 0.85rem;
-    height: 11rem;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-
-@media (min-width: 64rem) {
-    .sa-det-hero-inner {
-        grid-template-columns: 1.1fr 1fr;
-    }
-
-    .sa-det-gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.select-acc option {
-    color: var(--cor-fonte-preta);
-    background: white;
-}
-/* ------------------------- */
