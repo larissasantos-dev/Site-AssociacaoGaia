@@ -37,6 +37,13 @@
                 <li><a href="pages/artesaos.html">Artesãos</a></li>
                 <li><a href="pages/projetos.html">Projetos</a></li>
                 <li><a href="pages/sobre-nos.html">Sobre nós</a></li>
+                <!--
+                    Este item só deve ficar visível para quem está
+                    logado como ADMINISTRADOR. Ele nasce visível
+                    aqui no HTML e o js/script.js o remove do DOM
+                    (não apenas esconde) para todos os outros casos.
+                -->
+                <li id="link-painel-admin"><a href="pages/painel-administrativo.html">Painel Administrativo</a></li>
             </ul>
             <div>
                 <a href="pages/login.html" aria-label="Entrar na minha conta">
@@ -65,6 +72,8 @@
                     <li><a href="pages/artesaos.html">Artesãos</a></li>
                     <li><a href="pages/projetos.html">Projetos</a></li>
                     <li><a href="pages/sobre-nos.html">Sobre nós</a></li>
+                    <!-- Mesma regra do item desktop: removido via JS se não for admin. -->
+                    <li id="link-painel-admin-mobile"><a href="pages/painel-administrativo.html">Painel Administrativo</a></li>
                 </ul>
             </nav>
         </aside>
@@ -331,6 +340,8 @@
                 <li><a href="pages/artesaos.html">Artesãos</a></li>
                 <li><a href="pages/projetos.html">Projetos</a></li>
                 <li><a href="pages/sobre-nos.html">Sobre nós</a></li>
+                <!-- Mesma regra dos itens do header: removido via JS se não for admin. -->
+                <li id="footer-painel-admin"><a href="pages/painel-administrativo.html">Painel Administrativo</a></li>
             </ul>
         </div>
 

@@ -19,26 +19,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const erroPainel = document.getElementById("adm-erro-painel");
     const contadorUsuarios = document.getElementById("adm-contador-usuarios");
 
-    const token = localStorage.getItem("tokenAdmin");
+    // Mesma sessão usada em todo o site (salva pelo login.html em
+    // "gaia_token" / "gaia_usuario" — ver POST /api/usuarios/login).
+    const token = localStorage.getItem("gaia_token");
+
+    let usuarioLogado = null;
+    try {
+        usuarioLogado = JSON.parse(localStorage.getItem("gaia_usuario") || "null");
+    } catch (erro) {
+        usuarioLogado = null;
+    }
 
     /*
      * =====================================================
-     * VERIFICAÇÃO DO TOKEN
+     * VERIFICAÇÃO DA SESSÃO
      * =====================================================
      *
      * Ter qualquer token no localStorage NÃO significa
      * que o usuário é administrador.
      *
-     * O JWT possui o claim "tipoUsuario", criado pelo backend.
+     * O tipoUsuario já vem pronto em "gaia_usuario"
+     * (UsuarioResponseDTO), então não é preciso decodificar
+     * o JWT manualmente para checar isso.
      */
-    if (!token) {
+    if (!token || !usuarioLogado) {
         redirecionarParaFora();
         return;
     }
 
-    const dadosToken = decodificarToken(token);
-
-    if (!dadosToken || dadosToken.tipoUsuario !== "ADMINISTRADOR") {
+    if (usuarioLogado.tipoUsuario !== "ADMINISTRADOR") {
         redirecionarParaFora();
         return;
     }
@@ -133,7 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
              */
             if (resposta.status === 401) {
 
-                localStorage.removeItem("tokenAdmin");
+                localStorage.removeItem("gaia_token");
+                localStorage.removeItem("gaia_usuario");
 
                 redirecionarParaFora();
 
@@ -408,7 +418,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (resposta.status === 401) {
 
-                localStorage.removeItem("tokenAdmin");
+                localStorage.removeItem("gaia_token");
+                localStorage.removeItem("gaia_usuario");
 
                 redirecionarParaFora();
 
@@ -500,64 +511,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 year: "numeric"
             }
         );
-    }
-
-    /*
-     * =====================================================
-     * DECODIFICAR JWT
-     * =====================================================
-     *
-     * Isso serve somente para decidir se a interface
-     * administrativa deve ser exibida.
-     *
-     * NÃO substitui a segurança do backend.
-     */
-
-    function decodificarToken(token) {
-
-        try {
-
-            const partes = token.split(".");
-
-            if (partes.length !== 3) {
-                return null;
-            }
-
-            const payloadBase64 = partes[1];
-
-            const payloadBase64Corrigido =
-                payloadBase64
-                    .replace(/-/g, "+")
-                    .replace(/_/g, "/");
-
-            const payloadJson =
-                decodeURIComponent(
-                    atob(payloadBase64Corrigido)
-                        .split("")
-                        .map(
-                            (caractere) =>
-                                "%" +
-                                (
-                                    "00" +
-                                    caractere
-                                        .charCodeAt(0)
-                                        .toString(16)
-                                ).slice(-2)
-                        )
-                        .join("")
-                );
-
-            return JSON.parse(payloadJson);
-
-        } catch (erro) {
-
-            console.error(
-                "Não foi possível interpretar o token:",
-                erro
-            );
-
-            return null;
-        }
     }
 
     /*
