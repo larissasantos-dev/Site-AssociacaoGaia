@@ -879,5 +879,7 @@ img[src*="facebook"]{
     .la-artesaos-carrossel {
         grid-auto-columns: calc(33.333% - 11px);
     }
+    
+    
 }
 /*------------------------------*/
