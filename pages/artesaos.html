@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <title>Associação Gaia</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
+    <title>Artesãos | Associação Gaia</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js" defer></script>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
-     
-    <header class="geral-header"> <!-- classe global -->
-    <!-- MOBILE -->
+    <header class="geral-header">
       <nav class="mobile-header">
         <div class="mobile-header-container-flexbox-pai">
             <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
-            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-heder-btn-menu">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
         </div>
       </nav>
-      
-      <!-- DESKTOP -->
-      <nav class="desktop-header">  
+      <nav class="desktop-header">
         <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
         <ul class="desktop-header-container-flexbox-pai">
             <li><a href="../index.html">Início</a></li>
@@ -33,21 +32,21 @@
             <li><a href="sobre-nos.html">Sobre nós</a></li>
         </ul>
         <div>
-            <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            <a href="login.html" aria-label="Entrar na minha conta">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            </a>
         </div>
       </nav>
-
       <aside id="mobile-header-sidebar">
-
         <div class="mobile-sidebar-cima">
              <button id="mobile-btnFechar-sidebar">X</button>
         </div>
-       
         <div class="mobile-usuario-sidebar">
-            <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
-            <span>Minha conta</span>
+            <a href="login.html" aria-label="Entrar na minha conta" class="mobile-usuario-sidebar-link">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+                <span>Minha conta</span>
+            </a>
         </div>
-
         <nav>
            <ul class="mobile-sidebar">
             <li><a href="../index.html">Início</a></li>
@@ -58,21 +57,217 @@
            </ul>
         </nav>
       </aside>
-
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
-    <!-- 
-    =================================================================================
-    DESCOMENTE E COMEÇE SEU CÓDIGO AQUI
-    =================================================================================
-    -->
-    <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+
+    <!-- ----- LANA ----- -->
+    <!-- ARTESÕES — CATÁLOGO -->
+
+    <main class="ln-art-page pagina-base__gradiante" id="conteudo-principal" tabindex="-1">
+
+        <section class="ln-art-hero hero-base__gradiente">
+            <div class="ln-art-wrap wrap-base__central">
+                <div class="ln-art-hero-inner">
+                    <div class="ln-art-hero-photo" aria-hidden="true">
+                        <img src="../assets/gaia.jpg" alt="Artesã trabalhando">
+                    </div>
+                    <div class="ln-art-hero-copy">
+                        <p class="ln-art-label label-base__secao">Artesãos</p>
+                        <h1 class="hero-base__titulo">Conheça os Artesãos.<br><span class="ln-art-highlight">Cada Peça Conta uma História.</span></h1>
+                        <p class="hero-base__paragrafo">Na Associação Gaia, cada artesão preserva técnicas, leva a identidade de Itapetininga para feiras e transforma matéria-prima em peças únicas e autorais.</p>
+                        <a href="#ln-art-catalogo" class="ln-art-btn btn-base__principal">Ver Catálogo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ln-art-catalogo" id="ln-art-catalogo" aria-label="Catálogo de artesãos">
+            <div class="ln-art-wrap wrap-base__central">
+
+                <div class="ln-art-catalogo-head">
+                    <div class="ln-art-catalogo-head-left">
+                        <p class="ln-art-label label-base__secao">Ver todos os Artesãos</p>
+                        <h2>Nossos Artesãos<br>em Destaque</h2>
+                    </div>
+                    <p class="ln-art-catalogo-desc">Cada artesão parceiro da Associação Gaia traz uma técnica, uma história e uma identidade cultural que merece ser conhecida e valorizada.</p>
+                </div>
+
+                <label class="ln-art-search-bar" for="ln-art-busca" aria-label="Buscar artesão">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <input id="ln-art-busca" type="search" placeholder="Buscar por nome, cidade ou técnica...">
+                </label>
+
+                <div class="ln-art-filters filtros-base__wrap" role="tablist" aria-label="Filtrar por técnica">
+                    <button class="ln-art-tab ln-art-tab--active filtro-base__btn" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="Bordado" role="tab" aria-selected="false">Bordado</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="Patchwork" role="tab" aria-selected="false">Patchwork</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="Patch Aplique" role="tab" aria-selected="false">Patch Aplique</button>
+                    <button class="ln-art-tab filtro-base__btn" data-filter="Artesanato Exclusivo" role="tab" aria-selected="false">Artesanato Exclusivo</button>
+                </div>
+
+                <div class="ln-art-grid catalogo-base__grid" id="ln-art-grid" aria-label="Lista de artesãos">
+
+                    <article class="ln-art-card card-base" data-category="Patch Aplique" data-name="cristiane maria" data-city="itapetininga">
+                         <a href="artesao.html?id=christiane-maria" class="ln-art-card-link" aria-label="Ver perfil de Christiane Maria">
+                             <div class="ln-art-avatar" style="background:url('../assets/Christiane/Cristiane.jpeg')center/cover no-repeat">
+                                <div class="ln-art-socials" aria-hidden="true">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                 </div>
+                             </div>
+                             <div class="ln-art-card-body">
+                                 <h3 class="ln-art-card-name">Cristiane Maria</h3>
+                                 <p class="ln-art-card-city"><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</p>
+                                <div class="ln-art-card-tags">
+                                    <span>Patch Aplique</span>
+                                    <span>Artesanato Exclusivo</span>
+                                </div>
+                                <span class="ln-art-card-cta">Ver Perfil <i class="bi bi-arrow-right"></i></span>
+                             </div>
+                        </a>
+                        </article>
+
+                    <article class="ln-art-card card-base" data-category="Bordado" data-name="cris camargo" data-city="itapetininga">
+                        <a href="artesao.html?id=cris-camargo" class="ln-art-card-link" aria-label="Ver perfil de Cris Camargo">
+                            <div class="ln-art-avatar" style="background:url('../assets/Cris/cris.jpeg')center/cover no-repeat">
+                                <div class="ln-art-socials" aria-hidden="true">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                            </div>
+                            <div class="ln-art-card-body">
+                                <h3 class="ln-art-card-name">Cris Camargo</h3>
+                                <p class="ln-art-card-city"><i class="bi bi-geo-alt-fill"></i> itapetininga, SP</p>
+                                <div class="ln-art-card-tags">
+                                    <span>Bordado</span>
+                                    <span>Crochê</span>
+                                </div>
+                                <span class="ln-art-card-cta">Ver Perfil <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="ln-art-card card-base" data-category="Patchwork" data-name="cybele" data-city="itapetininga">
+                        <a href="artesao.html?id=Cybele" class="ln-art-card-link" aria-label="Ver perfil de Cybele">
+                            <div class="ln-art-avatar" style="background:url('../assets/Cybele/Cybele.jpeg')center/cover no-repeat">
+                                <div class="ln-art-socials" aria-hidden="true">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                            </div>
+                            <div class="ln-art-card-body">
+                                <h3 class="ln-art-card-name">Cybele</h3>
+                                <p class="ln-art-card-city"><i class="bi bi-geo-alt-fill"></i> itapetininga, SP</p>
+                                <div class="ln-art-card-tags">
+                                    <span>patchwork</span>
+                                    <span>quilting</span>
+                                </div>
+                                <span class="ln-art-card-cta">Ver Perfil <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="ln-art-card card-base" data-category="Bordado" data-name="juju minerva" data-city="itapetininga">
+                        <a href="artesao.html?id=juju-minerva" class="ln-art-card-link" aria-label="Ver perfil de Juju Minerva">
+                            <div class="ln-art-avatar" style="background:url('../assets/juju-minerva/juju.jpeg')center/cover no-repeat">
+                                <div class="ln-art-socials" aria-hidden="true">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                            </div>
+                            <div class="ln-art-card-body">
+                                <h3 class="ln-art-card-name">Juju Minerva</h3>
+                                <p class="ln-art-card-city"><i class="bi bi-geo-alt-fill"></i> itapetininga, SP</p>
+                                <div class="ln-art-card-tags">
+                                    <span>Bordado</span>
+                                    <span>Artesanato Exclusivo</span>
+                                </div>
+                                <span class="ln-art-card-cta">Ver Perfil <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="ln-art-card card-base" data-category="Patchwork" data-name="sandra" data-city="itapetininga">
+                        <a href="artesao.html?id=sandra" class="ln-art-card-link" aria-label="Ver perfil de Sandra">
+                            <div class="ln-art-avatar" style="background:url('../assets/Sandra/sandra.jpeg')center/cover no-repeat">
+                                <div class="ln-art-socials" aria-hidden="true">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                            </div>
+                            <div class="ln-art-card-body">
+                                <h3 class="ln-art-card-name">Sandra</h3>
+                                <p class="ln-art-card-city"><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</p>
+                                <div class="ln-art-card-tags">
+                                    <span>patchwork</span>
+                                    <span>Artesanato Exclusivo</span>
+                                </div>
+                                <span class="ln-art-card-cta">Ver Perfil <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="ln-art-card card-base" data-category="Artesanato Exclusivo" data-name="sintia" data-city="itapetininga">
+                        <a href="artesao.html?id=sintia" class="ln-art-card-link" aria-label="Ver perfil de Sintia">
+                            <div class="ln-art-avatar" style="background:url('../assets/Sintia/sintia.jpeg')center/cover no-repeat">
+                                <div class="ln-art-socials" aria-hidden="true">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                            </div>
+                            <div class="ln-art-card-body">
+                                <h3 class="ln-art-card-name">Sintia</h3>
+                                <p class="ln-art-card-city"><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</p>
+                                <div class="ln-art-card-tags">
+                                    <span>Artesanato Exclusivo</span>
+                                    <span>Decoração</span>
+                                </div>
+                                <span class="ln-art-card-cta">Ver Perfil <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="ln-art-card card-base" data-category="Artesanato Exclusivo" data-name="solange" data-city="itapetininga">
+                        <a href="artesao.html?id=solange" class="ln-art-card-link" aria-label="Ver perfil de Solange">
+                            <div class="ln-art-avatar" style="background:url('../assets/Solange/solange.jpeg')center/cover no-repeat">
+                                <div class="ln-art-socials" aria-hidden="true">
+                                    <i class="bi bi-instagram"></i>
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                            </div>
+                            <div class="ln-art-card-body">
+                                <h3 class="ln-art-card-name">Solange</h3>
+                                <p class="ln-art-card-city"><i class="bi bi-geo-alt-fill"></i> Itapetininga, SP</p>
+                                <div class="ln-art-card-tags">
+                                    <span>Artesanato Exclusivo</span>
+                                    <span>Decoração</span>
+                                </div>
+                                <span class="ln-art-card-cta">Ver Perfil <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+
+                <p class="ln-art-empty lista-base__vazia" id="ln-art-empty" hidden>Nenhum artesão encontrado. Tente outro nome ou categoria.</p>
+
+            </div>
+        </section>
+
+    </main>
+
     <footer class="footer-container-grid-pai">
-        <div class="footer-grid-bloco1">    
+        <div class="footer-grid-bloco1">
           <h3>Associação Gaia</h3>
           <p>Criatividade que conecta, artesanato que transforma</p>
         </div>
-
         <div class="footer-grid-bloco2">
             <h4>Navegação</h4>
             <ul>
@@ -83,32 +278,40 @@
                 <li><a href="sobre-nos.html">Sobre nós</a></li>
             </ul>
         </div>
-           
         <div class="footer-grid-bloco3">
             <h4>Categorias</h4>
             <ul>
-                <li><a href="#">Cerâmica</a></li>
-                <li><a href="#">Tecelagem</a></li>
-                <li><a href="#">Porcelana</a></li>
-                <li><a href="#">Marcenaria</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Cerâmica">Cerâmica</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Bordado">Bordado</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patchwork">Patchwork</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patch Aplique">Patch Aplique</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos de Artesanato Exclusivo">Artesanato Exclusivo</a></li>
             </ul>
         </div>
-    
         <div class="footer-grid-bloco4">
             <h4>Contato</h4>
             <p>(11) 9999-9999</p>
             <p>Diretoriagaia1@gmail.com</p>
-
-            <h4>Redes Socias</h4>
+            <h4>Redes Sociais</h4>
             <div>
-               <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
-                <img src="assets/icone-facebook-footer.svg" alt="icone-facebook-rodape" class="header-tamanho-imagens">
-               </a>
-               <a href="https://www.instagram.com/associacaogaia/" target="_blank">
-                <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape" class="header-tamanho-imagens">
-               </a>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
             </div>
-        </div>   
+        </div>
     </footer>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
 </body>
 </html>

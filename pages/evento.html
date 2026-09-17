@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>Evento | Associação Gaia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
+    <header class="geral-header"> <!-- classe global -->
+    <!-- MOBILE -->
+      <nav class="mobile-header">
+        <div class="mobile-header-container-flexbox-pai">
+            <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
+        </div>
+      </nav>
+      <!-- DESKTOP -->
+      <nav class="desktop-header"> 
+        <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+        <ul class="desktop-header-container-flexbox-pai">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+        </ul>
+        <div>
+            <a href="login.html" aria-label="Entrar na minha conta">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            </a>
+        </div>
+      </nav>
+      <aside id="mobile-header-sidebar">
+        <div class="mobile-sidebar-cima">
+             <button id="mobile-btnFechar-sidebar">X</button>
+        </div>
+        <div class="mobile-usuario-sidebar">
+            <a href="login.html" aria-label="Entrar na minha conta" class="mobile-usuario-sidebar-link">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+                <span>Minha conta</span>
+            </a>
+        </div>
+        <nav>
+           <ul class="mobile-sidebar">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+           <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+           </ul>
+        </nav>
+      </aside>
+
+      <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
+    </header>
+
+    <main class="ga-pagina-evento pagina-base__gradiante">
+        <section class="ga-evento-hero hero-base__gradiante">
+            <div class="wrap-base__central ga-evento-hero__inner">
+                <div class="ga-evento-hero__visual">
+                    <img id="ga-img-evento" src="" alt="">
+                </div>
+                <div class="ga-evento-hero__card">
+                    <a href="eventos.html" class="ga-evento-hero__voltar">← Voltar para Eventos</a>
+                    <h1 id="ga-titulo-evento" class="hero-base__titulo"></h1>
+                    <div class="ga-evento-hero__informacoes">
+                        <p id="ga-local-evento"></p>
+                        <p id="ga-data-evento"></p>
+                    </div>
+                    <a href="agenda.html" class="btn-base__principal">Agendar</a>
+                </div>
+            </div>
+        </section>
+        <section class="ga-evento-descricao">
+            <div class="wrap-base__central">
+                <div class="ga-evento-descricao__cabecalho">
+                    <span class="ga-evento-descricao__label">
+                        SOBRE O EVENTO
+                    </span>
+                    <h2>Conheça este evento</h2>
+                </div>
+                <div class="ga-evento-descricao__card">
+                    <p id="ga-descricao-evento" class="ga-evento-descricao__texto"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+<script src="../js/evento.js"></script>
+
+        <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+    <footer class="footer-container-grid-pai">
+        <div class="footer-grid-bloco1">    
+          <h3>Associação Gaia</h3>
+          <p>Criatividade que conecta, artesanato que transforma</p>
+        </div>
+
+        <div class="footer-grid-bloco2">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="sobre-nos.html">Sobre nós</a></li>
+            </ul>
+        </div>
+           
+        <div class="footer-grid-bloco3">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Cerâmica">Cerâmica</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Bordado">Bordado</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patchwork">Patchwork</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patch Aplique">Patch Aplique</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos de Artesanato Exclusivo">Artesanato Exclusivo</a></li>
+            </ul>
+        </div>
+    
+        <div class="footer-grid-bloco4">
+            <h4>Contato</h4>
+            <p>(11) 9999-9999</p>
+            <p>Diretoriagaia1@gmail.com</p>
+
+            <h4>Redes Sociais</h4>
+            <div>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+            </div>
+        </div>   
+    </footer>
+        <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+</body>
+</html>
