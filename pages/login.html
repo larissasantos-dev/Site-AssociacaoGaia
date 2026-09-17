@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acesse sua conta na Associação Gaia para gerenciar seu perfil e acompanhar eventos e projetos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>Login | Associação Gaia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body class="la-login-page">
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
+    <header class="geral-header">
+        <nav class="mobile-header">
+            <div class="mobile-header-container-flexbox-pai">
+                <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+                <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
+            </div>
+        </nav>
+        <nav class="desktop-header">
+            <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+            <ul class="desktop-header-container-flexbox-pai">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="sobre-nos.html">Sobre nós</a></li>
+            </ul>
+            <div>
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            </div>
+        </nav>
+        <aside id="mobile-header-sidebar">
+            <div class="mobile-sidebar-cima">
+                <button id="mobile-btnFechar-sidebar">X</button>
+            </div>
+            <div class="mobile-usuario-sidebar">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+                <span>Minha conta</span>
+            </div>
+            <nav>
+                <ul class="mobile-sidebar">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="artesaos.html">Artesãos</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="sobre-nos.html">Sobre nós</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
+    </header>
+
+    <!-- ----- LARISSA — LOGIN ----- -->
+    <main class="la-login-main" id="conteudo-principal" tabindex="-1">
+        <div class="la-login-card">
+            <h1 class="la-login-titulo">Entrar na conta</h1>
+            <p class="la-login-subtitulo">Bem-vinda de volta à comunidade Gaia.</p>
+
+            <!-- Formulário de login -->
+            <!-- Os campos email e senha correspondem exatamente ao
+                 contrato LoginDTO do back-end (POST /api/usuarios/login) -->
+            <form id="la-form-login" novalidate>
+
+                <!-- Campo: email (obrigatório, formato e-mail — @NotBlank @Email no back-end) -->
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="la-input-email">E-mail</label>
+                    <input
+                        class="la-login-input"
+                        type="email"
+                        id="la-input-email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="seu@email.com"
+                        required
+                    >
+                </div>
+
+                <!-- Campo: senha (obrigatório — @NotBlank no back-end) -->
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="la-input-senha">Senha</label>
+                    <input
+                        class="la-login-input"
+                        type="password"
+                        id="la-input-senha"
+                        name="senha"
+                        autocomplete="current-password"
+                        placeholder="Sua senha"
+                        required
+                    >
+                </div>
+
+                <!-- Área de erro global (credenciais inválidas — HTTP 401, ou erro de rede) -->
+                <span class="la-login-erro" id="la-erro-login" role="alert" hidden></span>
+
+                <!-- Botão de envio; desabilitado durante a requisição para evitar duplo clique -->
+                <button class="la-login-btn" type="submit" id="la-btn-entrar">
+                    Entrar
+                </button>
+            </form>
+
+            <!-- Link para quem não tem conta -->
+            <p class="la-login-link">
+                Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+    <footer class="footer-container-grid-pai">
+        <div class="footer-grid-bloco1">
+            <h3>Associação Gaia</h3>
+            <p>Criatividade que conecta, artesanato que transforma</p>
+        </div>
+        <div class="footer-grid-bloco2">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="sobre-nos.html">Sobre nós</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco3">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Cerâmica">Cerâmica</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Bordado">Bordado</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patchwork">Patchwork</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patch Aplique">Patch Aplique</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos de Artesanato Exclusivo">Artesanato Exclusivo</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco4">
+            <h4>Contato</h4>
+            <p>(11) 9999-9999</p>
+            <p>Diretoriagaia1@gmail.com</p>
+            <h4>Redes Sociais</h4>
+            <div>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+    <!-- ----- LARISSA — SCRIPT DE INTEGRAÇÃO: LOGIN ----- -->
+    <script>
+    (() => {
+        // ── Configuração: URL base da API back-end (Spring Boot, porta 8080)
+        // Ajuste esta constante se a API rodar em outro host ou porta
+        const API_BASE = 'http://localhost:8080';
+
+        // ── Referências aos elementos do formulário
+        const form      = document.getElementById('la-form-login');
+        const btnEntrar = document.getElementById('la-btn-entrar');
+
+        // Campos de entrada
+        const inputEmail = document.getElementById('la-input-email');
+        const inputSenha = document.getElementById('la-input-senha');
+
+        // Span de erro global (credenciais inválidas ou erro de rede)
+        const erroLogin = document.getElementById('la-erro-login');
+
+        // ── Exibe a mensagem de erro global
+        function mostrarErro(mensagem) {
+            erroLogin.textContent = mensagem;
+            erroLogin.hidden = false;
+        }
+
+        // ── Limpa o erro antes de cada nova tentativa
+        function limparErro() {
+            erroLogin.textContent = '';
+            erroLogin.hidden = true;
+        }
+
+        // ── Validação mínima no cliente antes de chamar a API
+        function validarCampos(email, senha) {
+            if (!email.trim() || !senha.trim()) {
+                mostrarErro('Preencha o e-mail e a senha para entrar.');
+                return false;
+            }
+            return true;
+        }
+
+        // ── Listener de envio do formulário
+        form.addEventListener('submit', async (evento) => {
+            // Impede o comportamento padrão (recarregar a página)
+            evento.preventDefault();
+
+            // Limpa erro de tentativa anterior
+            limparErro();
+
+            // Coleta os valores dos campos
+            const email = inputEmail.value;
+            const senha = inputSenha.value;
+
+            // Valida no cliente antes de chamar a API
+            if (!validarCampos(email, senha)) return;
+
+            // Desabilita o botão para evitar duplo clique durante a requisição
+            btnEntrar.disabled = true;
+            btnEntrar.textContent = 'Entrando...';
+
+            try {
+                // ── POST /api/usuarios/login — autenticação
+                // Corpo enviado: { email, senha }
+                // Corresponde exatamente ao LoginDTO do back-end
+                const resposta = await fetch(`${API_BASE}/api/usuarios/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email.trim(),
+                        senha: senha             // sem trim() em senha (espaços podem ser intencionais)
+                    })
+                });
+
+                if (resposta.ok) {
+                    // ── HTTP 200: login bem-sucedido
+                    // O back-end retorna LoginResponseDTO: { token, usuario }
+                    const dados = await resposta.json();
+
+                    // Salva o token JWT no localStorage para uso em requisições autenticadas futuras
+                    // Chave "gaia_token" — consistente para o restante da aplicação usar
+                    localStorage.setItem('gaia_token', dados.token);
+
+                    // Salva os dados básicos do usuário (sem senha) para exibição na interface
+                    // Os campos vêm de UsuarioResponseDTO: { idUsuario, nome, email, telefone, dataCadastro, tipoUsuario }
+                    localStorage.setItem('gaia_usuario', JSON.stringify(dados.usuario));
+
+                    // Redireciona para a página inicial após login bem-sucedido
+                    window.location.href = '../index.html';
+
+                } else if (resposta.status === 401) {
+                    // ── HTTP 401 Unauthorized: e-mail ou senha incorretos
+                    // O back-end retorna a mensagem como texto simples via GlobalExceptionHandler
+                    const mensagem = await resposta.text();
+                    mostrarErro(mensagem || 'E-mail ou senha incorretos. Verifique e tente novamente.');
+
+                } else if (resposta.status === 400) {
+                    // ── HTTP 400 Bad Request: falha de validação do Bean Validation
+                    mostrarErro('Verifique os dados informados e tente novamente.');
+
+                } else {
+                    // ── Outros erros inesperados do servidor
+                    mostrarErro('Ocorreu um erro inesperado. Tente novamente em instantes.');
+                }
+
+            } catch (erro) {
+                // ── Erro de rede: API offline, CORS bloqueado, sem conexão etc.
+                mostrarErro('Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.');
+                console.error('[Login] Erro de rede:', erro);
+
+            } finally {
+                // Reabilita o botão independentemente do resultado
+                btnEntrar.disabled = false;
+                btnEntrar.textContent = 'Entrar';
+            }
+        });
+    })();
+    </script>
+
+</body>
+</html>

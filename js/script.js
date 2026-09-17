@@ -26,6 +26,115 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.addEventListener('click', fecharMenu);
 }
 
+// ----- ÁREA DO USUÁRIO — sessão persistente + menu dinâmico -----
+// Roda em toda página (script.js é compartilhado). Lê o token salvo pelo
+// login.html/cadastro.html no localStorage e monta o menu do ícone de
+// usuário (desktop) e da sidebar mobile de acordo com o estado da sessão.
+(() => {
+    const iconeUsuarioImg = document.querySelector('.desktop-header .icone-usuario');
+    const iconeUsuarioWrap = iconeUsuarioImg ? iconeUsuarioImg.parentElement : null;
+    const mobileUsuarioSidebar = document.querySelector('.mobile-usuario-sidebar');
+    if (!iconeUsuarioWrap && !mobileUsuarioSidebar) return;
+
+    // Páginas dentro de pages/ usam caminho relativo direto + ../ para voltar à raiz;
+    // a home (index.html) usa pages/ para entrar nas páginas internas.
+    const estaEmSubpasta = window.location.pathname.includes('/pages/');
+    const paginasPath = estaEmSubpasta ? '' : 'pages/';
+    const raizPath = estaEmSubpasta ? '../index.html' : 'index.html';
+
+    let token = null;
+    let usuario = null;
+    try {
+        token = localStorage.getItem('gaia_token');
+        usuario = JSON.parse(localStorage.getItem('gaia_usuario') || 'null');
+    } catch (erro) {
+        usuario = null;
+    }
+
+    const logado = Boolean(token && usuario);
+
+    function sair() {
+        localStorage.removeItem('gaia_token');
+        localStorage.removeItem('gaia_usuario');
+        window.location.href = raizPath;
+    }
+
+    // ── Desktop: dropdown ancorado no ícone de usuário
+    if (iconeUsuarioWrap) {
+        iconeUsuarioWrap.classList.add('us-user-menu');
+
+        const trigger = document.createElement('button');
+        trigger.type = 'button';
+        trigger.className = 'us-user-trigger';
+        trigger.setAttribute('aria-label', logado ? 'Minha conta' : 'Entrar na minha conta');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.innerHTML = iconeUsuarioWrap.innerHTML;
+        iconeUsuarioWrap.innerHTML = '';
+        iconeUsuarioWrap.appendChild(trigger);
+
+        const dropdown = document.createElement('div');
+        dropdown.className = 'us-dropdown';
+
+        if (logado) {
+            const ehArtesao = usuario.tipoUsuario === 'ARTESAO';
+            dropdown.innerHTML = `
+                <span class="us-dropdown-nome">${usuario.nome}</span>
+                <div class="us-dropdown-divisor"></div>
+                <a class="us-dropdown-item" href="${paginasPath}editar-dados.html">Editar meus dados</a>
+                ${ehArtesao ? `<a class="us-dropdown-item" href="${paginasPath}meus-trabalhos.html">Meus trabalhos</a>` : ''}
+                <div class="us-dropdown-divisor"></div>
+                <button type="button" class="us-dropdown-item" id="us-btn-sair">Sair</button>
+            `;
+        } else {
+            dropdown.innerHTML = `
+                <a class="us-dropdown-item" href="${paginasPath}login.html">Entrar</a>
+                <a class="us-dropdown-item" href="${paginasPath}cadastro.html">Cadastre-se</a>
+            `;
+        }
+
+        iconeUsuarioWrap.appendChild(dropdown);
+
+        trigger.addEventListener('click', (evento) => {
+            evento.stopPropagation();
+            const abrir = !dropdown.classList.contains('active');
+            dropdown.classList.toggle('active', abrir);
+            trigger.setAttribute('aria-expanded', String(abrir));
+        });
+
+        document.addEventListener('click', (evento) => {
+            if (!iconeUsuarioWrap.contains(evento.target)) {
+                dropdown.classList.remove('active');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        const btnSairDesktop = dropdown.querySelector('#us-btn-sair');
+        if (btnSairDesktop) btnSairDesktop.addEventListener('click', sair);
+    }
+
+    // ── Mobile: mesma informação, dentro da sidebar já existente
+    if (mobileUsuarioSidebar) {
+        const ehArtesao = logado && usuario.tipoUsuario === 'ARTESAO';
+        mobileUsuarioSidebar.innerHTML = `
+            <img src="${estaEmSubpasta ? '../' : ''}assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario" loading="lazy" width="400" height="300">
+            <div class="us-mobile-links">
+                ${logado ? `
+                    <span class="us-mobile-nome">${usuario.nome}</span>
+                    <a href="${paginasPath}editar-dados.html">Editar meus dados</a>
+                    ${ehArtesao ? `<a href="${paginasPath}meus-trabalhos.html">Meus trabalhos</a>` : ''}
+                    <button type="button" id="us-btn-sair-mobile">Sair</button>
+                ` : `
+                    <a href="${paginasPath}login.html">Entrar</a>
+                    <a href="${paginasPath}cadastro.html">Cadastre-se</a>
+                `}
+            </div>
+        `;
+
+        const btnSairMobile = mobileUsuarioSidebar.querySelector('#us-btn-sair-mobile');
+        if (btnSairMobile) btnSairMobile.addEventListener('click', sair);
+    }
+})();
+
 function criarCarrossel({ idCarrossel, seletorCards, seletorBtnPrev, seletorBtnNext, idDots, intervaloMs }) {
     const carrossel = document.getElementById(idCarrossel);
     if (!carrossel) return;
