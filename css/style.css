@@ -1222,6 +1222,8 @@ body.high-contrast span {
     .la-artesaos-carrossel {
         grid-auto-columns: calc(33.333% - 11px);
     }
+    
+    
 }
 
 /* ======================
