@@ -285,6 +285,14 @@ strong {
     margin-bottom: 10px;
 }
 
+.mobile-usuario-sidebar-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
 /* ============= HEADER GLOBAL TABLET + DESKTOP ============= */
 
 @media(min-width: 768px){
@@ -315,6 +323,19 @@ strong {
         width: 40px;
         height: auto;
         display: block;
+        cursor: pointer;
+    }
+
+    .desktop-header a[aria-label="Entrar na minha conta"] {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        opacity: 0.85;
+        transition: opacity 0.2s;
+    }
+
+    .desktop-header a[aria-label="Entrar na minha conta"]:hover {
+        opacity: 1;
     }
 
      .desktop-header-container-flexbox-pai a:hover {
@@ -1201,6 +1222,8 @@ body.high-contrast span {
     .la-artesaos-carrossel {
         grid-auto-columns: calc(33.333% - 11px);
     }
+    
+    
 }
 
 /* ======================
@@ -4248,4 +4271,355 @@ body.high-contrast span {
     .ga-card-info span{
         font-size: 1rem;
     }
+}
+
+/* ==========================
+   LANA — CADASTRO
+========================== */
+
+/* Página base */
+.ln-cad-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
+}
+
+/* Área central que centraliza o card */
+.ln-cad-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+}
+
+/* Card branco que envolve o formulário */
+.ln-cad-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 32px rgba(60, 33, 20, 0.1);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 30rem;
+}
+
+/* Títulos do card */
+.ln-cad-titulo {
+    font-size: 1.6rem;
+    color: var(--cor-verde-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.ln-cad-subtitulo {
+    font-size: 0.95rem;
+    color: var(--cor-fonte-claro);
+    margin-bottom: 2rem;
+}
+
+/* Grupo de campo (label + input + erro) */
+.ln-cad-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.ln-cad-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--cor-fonte-escuro);
+}
+
+/* Campo de entrada */
+.ln-cad-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #d9c9b8;
+    border-radius: 0.5rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
+    color: var(--cor-fonte-preta);
+    background: var(--cor-fundo-bege-claro);
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.ln-cad-input:focus {
+    border-color: var(--cor-principal);
+}
+
+/* Botão de envio */
+.ln-cad-btn {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 0.5rem;
+    background: var(--cor-botao-principal);
+    color: var(--cor-fonte);
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 0.5rem;
+}
+
+.ln-cad-btn:hover:not(:disabled) {
+    background: var(--cor-botao-hover);
+    transform: translateY(-2px);
+}
+
+.ln-cad-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Mensagem de erro inline (campo ou global) */
+.ln-cad-erro {
+    font-size: 0.85rem;
+    color: #c0392b;
+    margin-top: 0.3rem;
+}
+
+/* Link "já tem conta? Faça login" */
+.ln-cad-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--cor-fonte-claro);
+}
+
+.ln-cad-link a {
+    color: var(--cor-verde-titulo);
+    font-weight: 600;
+}
+
+.ln-cad-link a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   LARISSA — LOGIN
+========================== */
+
+/* Página base */
+.la-login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
+}
+
+/* Área central que centraliza o card */
+.la-login-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+}
+
+/* Card branco que envolve o formulário */
+.la-login-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 32px rgba(60, 33, 20, 0.1);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 28rem;
+}
+
+/* Títulos do card */
+.la-login-titulo {
+    font-size: 1.6rem;
+    color: var(--cor-verde-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.la-login-subtitulo {
+    font-size: 0.95rem;
+    color: var(--cor-fonte-claro);
+    margin-bottom: 2rem;
+}
+
+/* Grupo de campo (label + input) */
+.la-login-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.la-login-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--cor-fonte-escuro);
+}
+
+/* Campo de entrada */
+.la-login-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #d9c9b8;
+    border-radius: 0.5rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
+    color: var(--cor-fonte-preta);
+    background: var(--cor-fundo-bege-claro);
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.la-login-input:focus {
+    border-color: var(--cor-principal);
+}
+
+/* Botão de envio */
+.la-login-btn {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 0.5rem;
+    background: var(--cor-botao-principal);
+    color: var(--cor-fonte);
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 0.5rem;
+}
+
+.la-login-btn:hover:not(:disabled) {
+    background: var(--cor-botao-hover);
+    transform: translateY(-2px);
+}
+
+.la-login-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Mensagem de erro global (credenciais inválidas) */
+.la-login-erro {
+    font-size: 0.85rem;
+    color: #c0392b;
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+/* Link "não tem conta? Cadastre-se" */
+.la-login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--cor-fonte-claro);
+}
+
+.la-login-link a {
+    color: var(--cor-verde-titulo);
+    font-weight: 600;
+}
+
+.la-login-link a:hover {
+    text-decoration: underline;
+}
+
+/* ============ ÁREA DO USUÁRIO — menu dinâmico (login persistente) ============= */
+
+.us-user-menu {
+    position: relative;
+}
+
+.us-user-trigger {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.us-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    min-width: 14rem;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(60, 33, 20, 0.18);
+    padding: 0.5rem;
+    z-index: 50;
+}
+
+.us-dropdown.active {
+    display: block;
+}
+
+.us-dropdown-nome {
+    display: block;
+    padding: 0.65rem 0.85rem 0.4rem;
+    font-weight: 700;
+    color: var(--cor-verde-titulo);
+    font-size: 0.95rem;
+}
+
+.us-dropdown-item {
+    display: block;
+    padding: 0.6rem 0.85rem;
+    border-radius: 0.5rem;
+    color: var(--cor-fonte-escuro);
+    text-decoration: none;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.us-dropdown-item:hover {
+    background: var(--cor-fundo-bege-claro);
+}
+
+.us-dropdown-divisor {
+    height: 1px;
+    background: #e9ddd0;
+    margin: 0.4rem 0;
+}
+
+/* Sidebar mobile — mesmos links, layout empilhado */
+.us-mobile-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.us-mobile-links a,
+.us-mobile-links button {
+    color: var(--cor-fonte);
+    text-decoration: none;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    opacity: 0.9;
+}
+
+.us-mobile-links a:hover,
+.us-mobile-links button:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.us-mobile-nome {
+    color: var(--cor-fonte);
+    font-weight: 700;
+    font-size: 0.95rem;
 }

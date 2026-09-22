@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../assets/lib/bootstrap-icons/bootstrap-icons.css"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <script src="../js/api-config.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/admin.js" defer></script>
+
+    <title>Painel Administrativo | Associação Gaia</title>
+</head>
+
+<body>
+
+    <!--
+        Link de acessibilidade.
+        Ele fica fora da área visual normal e só aparece
+        quando recebe foco pelo teclado.
+    -->
+    <a href="#conteudo-principal" class="skip-link">
+        Pular para o conteúdo principal
+    </a>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="geral-header">
+
+        <!-- HEADER MOBILE -->
+        <nav class="mobile-header" aria-label="Navegação principal">
+
+            <div class="mobile-header-container-flexbox-pai">
+
+                <img
+                    src="../assets/logo-associacao-gaia.svg"
+                    alt="Associação Gaia"
+                    class="header-logo-img"
+                >
+
+                <button
+                    type="button"
+                    id="mobile-header-btn-menu"
+                    class="admin-menu-button"
+                    aria-label="Abrir menu"
+                    aria-controls="mobile-header-sidebar"
+                    aria-expanded="false"
+                >
+                    <img
+                        src="../assets/icone-tres-linhas-header.svg"
+                        alt=""
+                        class="header-tamanho-imagens"
+                    >
+                </button>
+
+            </div>
+
+        </nav>
+
+
+        <!-- HEADER DESKTOP -->
+        <nav class="desktop-header" aria-label="Navegação principal">
+
+            <img
+                src="../assets/logo-associacao-gaia.svg"
+                alt="Associação Gaia"
+                class="header-logo-img"
+            >
+
+            <ul class="desktop-header-container-flexbox-pai">
+
+                <li>
+                    <a href="../index.html">Início</a>
+                </li>
+
+                <li>
+                    <a href="eventos.html">Eventos</a>
+                </li>
+
+                <li>
+                    <a href="artesaos.html">Artesãos</a>
+                </li>
+
+                <li>
+                    <a href="projetos.html">Projetos</a>
+                </li>
+
+                <li>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                </li>
+
+            </ul>
+
+            <div>
+                <img
+                    src="../assets/icone-user-header.svg"
+                    alt="Minha conta"
+                    class="icone-usuario"
+                >
+            </div>
+
+        </nav>
+
+
+        <!-- MENU MOBILE -->
+        <aside
+            id="mobile-header-sidebar"
+            aria-label="Menu mobile"
+        >
+
+            <div class="mobile-sidebar-cima">
+
+                <button
+                    type="button"
+                    id="mobile-btnFechar-sidebar"
+                    aria-label="Fechar menu"
+                >
+                    &times;
+                </button>
+
+            </div>
+
+            <div class="mobile-usuario-sidebar">
+
+                <img
+                    src="../assets/icone-user-header.svg"
+                    alt=""
+                    class="mobile-icone-usuario"
+                >
+
+                <span>Minha conta</span>
+
+            </div>
+
+            <nav>
+                <ul class="mobile-sidebar">
+
+                    <li>
+                        <a href="../index.html">Início</a>
+                    </li>
+
+                    <li>
+                        <a href="eventos.html">Eventos</a>
+                    </li>
+
+                    <li>
+                        <a href="artesaos.html">Artesãos</a>
+                    </li>
+
+                    <li>
+                        <a href="projetos.html">Projetos</a>
+                    </li>
+
+                    <li>
+                        <a href="sobre-nos.html">Sobre nós</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </aside>
+
+        <div
+            id="mobile-header-overlay"
+            class="mobile-header-overlay-class"
+        ></div>
+
+    </header>
+
+
+    <!-- =========================
+         PAINEL ADMINISTRATIVO
+    ========================== -->
+
+    <main
+        id="conteudo-principal"
+        class="adm-page"
+        tabindex="-1"
+    >
+
+        <div class="adm-container">
+
+            <!-- CABEÇALHO DO PAINEL -->
+
+            <header class="adm-header">
+
+                <div>
+                    <span class="adm-eyebrow">
+                        Área administrativa
+                    </span>
+
+                    <h1>
+                        Painel Administrativo
+                    </h1>
+
+                    <p>
+                        Gerencie os usuários e conteúdos da Associação Gaia.
+                    </p>
+                </div>
+
+                <div class="adm-header-icon" aria-hidden="true">
+                    <i class="bi bi-grid-1x2"></i>
+                </div>
+
+            </header>
+
+
+            <!--
+                ESTRUTURA PRINCIPAL
+
+                Fica escondida por padrão (hidden). O admin.js
+                só a exibe depois de confirmar que quem está
+                acessando é um administrador autenticado.
+                Caso contrário, a pessoa é redirecionada para
+                fora desta página antes mesmo de vê-la.
+            -->
+
+            <div
+                id="adm-shell"
+                class="adm-shell"
+                hidden
+            >
+
+                <!-- SIDEBAR -->
+
+                <aside class="adm-sidebar">
+
+                    <div class="adm-perfil">
+
+                        <div class="adm-perfil-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+
+                        <div>
+                            <span>Perfil</span>
+                            <strong>Administrador</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="adm-menu">
+
+                        <span class="adm-menu-titulo">
+                            Conteúdos
+                        </span>
+
+                        <nav aria-label="Menu administrativo">
+
+                            <button
+                                type="button"
+                                class="adm-nav-item"
+                                data-secao="visao-geral"
+                            >
+                                <i class="bi bi-bar-chart"></i>
+                                <span>Visão Geral</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="adm-nav-item adm-nav-item--ativo"
+                                data-secao="usuarios"
+                            >
+                                <i class="bi bi-people"></i>
+                                <span>Usuários</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="adm-nav-item"
+                                data-secao="newsletter"
+                            >
+                                <i class="bi bi-envelope"></i>
+                                <span>Newsletter</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="adm-nav-item"
+                                data-secao="alertas"
+                            >
+                                <i class="bi bi-bell"></i>
+                                <span>Alertas</span>
+                            </button>
+
+                        </nav>
+
+                    </div>
+
+                </aside>
+
+
+                <!-- CONTEÚDO -->
+
+                <div class="adm-conteudo">
+
+                    <!-- VISÃO GERAL -->
+
+                    <section
+                        id="adm-secao-visao-geral"
+                        class="adm-secao"
+                        hidden
+                    >
+
+                        <div class="adm-section-header">
+
+                            <div>
+                                <span class="adm-eyebrow">
+                                    Dashboard
+                                </span>
+
+                                <h2>Visão Geral</h2>
+                            </div>
+
+                        </div>
+
+                        <div class="adm-em-breve">
+                            <i class="bi bi-bar-chart"></i>
+
+                            <h3>
+                                Em breve
+                            </h3>
+
+                            <p>
+                                Os indicadores gerais do painel serão
+                                adicionados posteriormente.
+                            </p>
+                        </div>
+
+                    </section>
+
+
+                    <!-- USUÁRIOS -->
+
+                    <section
+                        id="adm-secao-usuarios"
+                        class="adm-secao"
+                    >
+
+                        <div class="adm-section-header">
+
+                            <div>
+                                <span class="adm-eyebrow">
+                                    Gerenciamento
+                                </span>
+
+                                <h2>Usuários cadastrados</h2>
+
+                                <p>
+                                    Consulte os usuários cadastrados
+                                    na Associação Gaia.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- FILTROS -->
+
+                        <div class="adm-filtros">
+
+                            <div class="adm-filtro">
+
+                                <label for="adm-filtro-tipo">
+                                    Tipo de usuário
+                                </label>
+
+                                <select id="adm-filtro-tipo">
+
+                                    <option value="">
+                                        Todos os usuários
+                                    </option>
+
+                                    <option value="VISITANTE">
+                                        Visitantes
+                                    </option>
+
+                                    <option value="ARTESAO">
+                                        Artesãos
+                                    </option>
+
+                                    <option value="ADMINISTRADOR">
+                                        Administradores
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <span
+                                id="adm-contador-usuarios"
+                                class="adm-contador"
+                            >
+                                0 usuários
+                            </span>
+
+                        </div>
+
+
+                        <!-- TABELA -->
+
+                        <div class="adm-tabela-card">
+
+                            <div class="adm-tabela-wrap">
+
+                                <table class="adm-tabela">
+
+                                    <thead>
+
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>E-mail</th>
+                                            <th>Tipo</th>
+                                            <th>Data de cadastro</th>
+                                            <th>Status</th>
+                                            <th>Ação</th>
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="adm-corpo-tabela">
+
+                                        <!--
+                                            Os usuários serão inseridos
+                                            pelo JavaScript.
+                                        -->
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+
+                            <!-- ESTADO VAZIO -->
+
+                            <div
+                                id="adm-tabela-vazia"
+                                class="adm-tabela-vazia"
+                                hidden
+                            >
+
+                                <i class="bi bi-people"></i>
+
+                                <h3>
+                                    Nenhum usuário encontrado
+                                </h3>
+
+                                <p>
+                                    Não existem usuários para o filtro
+                                    selecionado.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ERRO -->
+
+                        <div
+                            id="adm-erro-painel"
+                            class="adm-alert adm-alert--erro"
+                            role="alert"
+                            hidden
+                        ></div>
+
+                    </section>
+
+
+                    <!-- NEWSLETTER -->
+
+                    <section
+                        id="adm-secao-newsletter"
+                        class="adm-secao"
+                        hidden
+                    >
+
+                        <div class="adm-section-header">
+                            <span class="adm-eyebrow">
+                                Comunicação
+                            </span>
+
+                            <h2>Newsletter</h2>
+                        </div>
+
+                        <div class="adm-em-breve">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <h3>
+                                Em breve
+                            </h3>
+
+                            <p>
+                                O gerenciamento da newsletter será
+                                implementado posteriormente.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- ALERTAS -->
+
+                    <section
+                        id="adm-secao-alertas"
+                        class="adm-secao"
+                        hidden
+                    >
+
+                        <div class="adm-section-header">
+                            <span class="adm-eyebrow">
+                                Sistema
+                            </span>
+
+                            <h2>Alertas</h2>
+                        </div>
+
+                        <div class="adm-em-breve">
+
+                            <i class="bi bi-bell"></i>
+
+                            <h3>
+                                Em breve
+                            </h3>
+
+                            <p>
+                                Os alertas administrativos serão
+                                implementados posteriormente.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer-container-grid-pai">
+
+        <div class="footer-grid-bloco1">
+
+            <h3>
+                Associação Gaia
+            </h3>
+
+            <p>
+                Criatividade que conecta, artesanato que transforma
+            </p>
+
+        </div>
+
+
+        <div class="footer-grid-bloco2">
+
+            <h4>Navegação</h4>
+
+            <ul>
+
+                <li>
+                    <a href="../index.html">Início</a>
+                </li>
+
+                <li>
+                    <a href="eventos.html">Eventos</a>
+                </li>
+
+                <li>
+                    <a href="artesaos.html">Artesãos</a>
+                </li>
+
+                <li>
+                    <a href="projetos.html">Projetos</a>
+                </li>
+
+                <li>
+                    <a href="sobre-nos.html">Sobre nós</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-grid-bloco4">
+
+            <h4>Contato</h4>
+
+            <p>(11) 9999-9999</p>
+
+            <p>Diretoriagaia1@gmail.com</p>
+
+        </div>
+
+    </footer>
+
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+    </div>
+
+</body>
+
+</html>

@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <title>Agenda | Associação Gaia</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/api-config.js"></script>
     <script src="../js/script.js" defer></script>
 </head>
 <body>
@@ -33,7 +34,9 @@
             <li><a href="sobre-nos.html">Sobre nós</a></li>
         </ul>
         <div>
-            <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            <a href="login.html" aria-label="Entrar na minha conta">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            </a>
         </div>
       </nav>
 
@@ -44,8 +47,10 @@
         </div>
 
         <div class="mobile-usuario-sidebar">
-            <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
-            <span>Minha conta</span>
+            <a href="login.html" aria-label="Entrar na minha conta" class="mobile-usuario-sidebar-link">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+                <span>Minha conta</span>
+            </a>
         </div>
 
         <nav>

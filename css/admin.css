@@ -1,0 +1,717 @@
+/* =========================================================
+   PAINEL ADMINISTRATIVO
+   ========================================================= */
+ 
+[hidden] {
+    display: none !important;
+}
+ 
+ 
+/* =========================================================
+   PÁGINA
+   ========================================================= */
+ 
+.adm-page {
+    min-height: 70vh;
+    padding: 48px 20px 64px;
+    background:
+        linear-gradient(
+            180deg,
+            #f8f3eb 0%,
+            #f4eee5 100%
+        );
+    color: #29251f;
+}
+ 
+.adm-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+ 
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+ 
+.adm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 32px;
+}
+ 
+.adm-header h1 {
+    margin: 6px 0 8px;
+    color: #3f5d3a;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+}
+ 
+.adm-header p {
+    max-width: 600px;
+    color: #71695f;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+ 
+.adm-eyebrow {
+    display: block;
+    color: #9b7046;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+ 
+.adm-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background-color: #e8d8c5;
+    color: #6b4f2a;
+    font-size: 1.7rem;
+}
+ 
+ 
+/* =========================================================
+   ESTRUTURA
+   ========================================================= */
+ 
+.adm-shell {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+ 
+ 
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+ 
+.adm-sidebar {
+    padding: 20px;
+    background-color: #fffdf9;
+    border: 1px solid #e4dbd0;
+    border-radius: 18px;
+    box-shadow:
+        0 8px 25px rgba(75, 57, 39, 0.06);
+}
+ 
+.adm-perfil {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    margin-bottom: 26px;
+    background-color: #eee4d7;
+    border-radius: 12px;
+}
+ 
+.adm-perfil-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #d4a373;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+ 
+.adm-perfil span {
+    display: block;
+    margin-bottom: 2px;
+    color: #81776c;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+ 
+.adm-perfil strong {
+    display: block;
+    color: #3f5d3a;
+    font-size: 0.9rem;
+}
+ 
+.adm-menu-titulo {
+    display: block;
+    margin: 0 10px 10px;
+    color: #91877c;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+ 
+.adm-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+ 
+ 
+/* =========================================================
+   BOTÕES DO MENU
+   ========================================================= */
+ 
+.adm-nav-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    padding: 12px 13px;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    color: #5e574e;
+    font-family: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+ 
+.adm-nav-item:hover {
+    background-color: #f0e8de;
+    color: #3f5d3a;
+}
+ 
+.adm-nav-item--ativo {
+    background-color: #dfcfbc;
+    color: #3f5d3a;
+    font-weight: 700;
+}
+ 
+.adm-nav-item:focus-visible {
+    outline: 3px solid #d4a373;
+    outline-offset: 2px;
+}
+ 
+ 
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+ 
+.adm-conteudo {
+    min-width: 0;
+    padding: 30px;
+    background-color: #fffdf9;
+    border: 1px solid #e4dbd0;
+    border-radius: 18px;
+    box-shadow:
+        0 8px 25px rgba(75, 57, 39, 0.06);
+}
+ 
+ 
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+ 
+.adm-section-header {
+    margin-bottom: 26px;
+}
+ 
+.adm-section-header h2 {
+    margin: 5px 0 6px;
+    color: #3f5d3a;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+}
+ 
+.adm-section-header p {
+    color: #7c746a;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+ 
+ 
+/* =========================================================
+   FILTROS
+   ========================================================= */
+ 
+.adm-filtros {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px;
+    margin-bottom: 20px;
+    background-color: #f7f1e9;
+    border: 1px solid #e7ddd2;
+    border-radius: 12px;
+}
+ 
+.adm-filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 220px;
+}
+ 
+.adm-filtro label {
+    color: #5f574d;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+ 
+.adm-filtro select {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #ffffff;
+    border: 1px solid #d9cfc3;
+    border-radius: 8px;
+    color: #39342e;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+ 
+.adm-filtro select:focus {
+    outline: 3px solid rgba(212, 163, 115, 0.35);
+    border-color: #b88b5d;
+}
+ 
+.adm-contador {
+    color: #81776d;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+ 
+ 
+/* =========================================================
+   TABELA
+   ========================================================= */
+ 
+.adm-tabela-card {
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e4dbd0;
+    border-radius: 12px;
+}
+ 
+.adm-tabela-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+ 
+.adm-tabela {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+ 
+.adm-tabela th {
+    padding: 14px 16px;
+    background-color: #f4eee7;
+    color: #756b60;
+    border-bottom: 1px solid #ded4c8;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+ 
+.adm-tabela td {
+    padding: 16px;
+    border-bottom: 1px solid #eee8e0;
+    color: #514a42;
+    font-size: 0.88rem;
+    vertical-align: middle;
+}
+ 
+.adm-tabela tbody tr {
+    transition: background-color 0.15s ease;
+}
+ 
+.adm-tabela tbody tr:hover {
+    background-color: #faf6f0;
+}
+ 
+.adm-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+ 
+ 
+/* =========================================================
+   TIPO DE USUÁRIO
+   ========================================================= */
+ 
+.adm-tipo {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #eee5d9;
+    color: #6b4f2a;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+ 
+.adm-tipo--artesao {
+    background-color: #e1eadc;
+    color: #3f6638;
+}
+ 
+.adm-tipo--admin {
+    background-color: #e5ded4;
+    color: #594633;
+}
+ 
+ 
+/* =========================================================
+   STATUS
+   ========================================================= */
+ 
+.adm-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+ 
+.adm-status--ativo {
+    background-color: #e1eadc;
+    color: #3f6638;
+}
+ 
+.adm-status--inativo {
+    background-color: #f3e4df;
+    color: #743f31;
+}
+ 
+ 
+/* =========================================================
+   BOTÃO ATIVAR / DESATIVAR
+   ========================================================= */
+ 
+.adm-btn-status {
+    min-width: 90px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+ 
+.adm-btn-status--ativar {
+    background-color: #e1eadc;
+    border-color: #c6d8bf;
+    color: #3f6638;
+}
+ 
+.adm-btn-status--ativar:hover {
+    background-color: #d4e3cf;
+}
+ 
+.adm-btn-status--desativar {
+    background-color: #f3e4df;
+    border-color: #dfc4ba;
+    color: #743f31;
+}
+ 
+.adm-btn-status--desativar:hover {
+    background-color: #ead5ce;
+}
+ 
+.adm-btn-status:focus-visible {
+    outline: 3px solid rgba(212, 163, 115, 0.45);
+    outline-offset: 2px;
+}
+ 
+.adm-btn-status:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+ 
+ 
+/* =========================================================
+   TABELA VAZIA
+   ========================================================= */
+ 
+.adm-tabela-vazia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 55px 20px;
+    text-align: center;
+}
+ 
+.adm-tabela-vazia i {
+    margin-bottom: 14px;
+    color: #b99a78;
+    font-size: 2.2rem;
+}
+ 
+.adm-tabela-vazia h3 {
+    margin-bottom: 7px;
+    color: #4c443b;
+    font-size: 1rem;
+}
+ 
+.adm-tabela-vazia p {
+    color: #8a8178;
+    font-size: 0.85rem;
+}
+ 
+ 
+/* =========================================================
+   ALERTAS
+   ========================================================= */
+ 
+.adm-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px 18px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+}
+ 
+.adm-alert i {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+ 
+.adm-alert strong {
+    display: block;
+    margin-bottom: 3px;
+}
+ 
+.adm-alert p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+ 
+.adm-alert--erro {
+    background-color: #f3e4df;
+    border: 1px solid #dfc4ba;
+    color: #743f31;
+}
+ 
+.adm-erro {
+    color: #743f31;
+}
+ 
+ 
+/* =========================================================
+   CARDS EM BREVE
+   ========================================================= */
+ 
+.adm-em-breve,
+.adm-card-em-breve {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 25px;
+    background-color: #f7f1e9;
+    border: 1px dashed #d8c8b7;
+    border-radius: 14px;
+    text-align: center;
+    color: #81776d;
+}
+ 
+.adm-em-breve > i {
+    margin-bottom: 15px;
+    color: #b08a63;
+    font-size: 2rem;
+}
+ 
+.adm-em-breve h3 {
+    margin-bottom: 8px;
+    color: #4d463e;
+}
+ 
+.adm-em-breve p {
+    max-width: 420px;
+    color: #81776d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+ 
+ 
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+ 
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 20px;
+    z-index: 9999;
+    padding: 12px 18px;
+    background-color: #3f5d3a;
+    color: #ffffff;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: top 0.2s ease;
+}
+ 
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid #d4a373;
+    outline-offset: 2px;
+}
+ 
+ 
+/* =========================================================
+   RESPONSIVIDADE - TABLET
+   ========================================================= */
+ 
+@media (max-width: 900px) {
+ 
+    .adm-shell {
+        grid-template-columns: 200px minmax(0, 1fr);
+    }
+ 
+    .adm-sidebar {
+        padding: 15px;
+    }
+ 
+    .adm-conteudo {
+        padding: 24px;
+    }
+}
+ 
+ 
+/* =========================================================
+   RESPONSIVIDADE - MOBILE
+   ========================================================= */
+ 
+@media (max-width: 700px) {
+ 
+    .adm-page {
+        padding: 30px 15px 45px;
+    }
+ 
+    .adm-header {
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+ 
+    .adm-header-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        font-size: 1.2rem;
+    }
+ 
+    .adm-shell {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+ 
+    .adm-sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+ 
+    .adm-perfil {
+        margin-bottom: 15px;
+    }
+ 
+    .adm-menu nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+ 
+    .adm-nav-item {
+        justify-content: center;
+        padding: 10px 8px;
+        text-align: center;
+    }
+ 
+    .adm-menu-titulo {
+        display: none;
+    }
+ 
+    .adm-conteudo {
+        width: 100%;
+        padding: 20px;
+    }
+ 
+    .adm-filtros {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+ 
+    .adm-filtro {
+        min-width: 0;
+    }
+ 
+    .adm-contador {
+        align-self: flex-end;
+    }
+ 
+    .adm-tabela-wrap {
+        overflow-x: auto;
+    }
+ 
+    /*
+     * O menu administrativo não precisa controlar
+     * o hamburger do header. O header mobile continua
+     * sendo o menu principal do site.
+     */
+}
+ 
+ 
+/* =========================================================
+   MOBILE PEQUENO
+   ========================================================= */
+ 
+@media (max-width: 420px) {
+ 
+    .adm-page {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+ 
+    .adm-header {
+        gap: 15px;
+    }
+ 
+    .adm-header h1 {
+        font-size: 1.75rem;
+    }
+ 
+    .adm-header p {
+        font-size: 0.88rem;
+    }
+ 
+    .adm-header-icon {
+        display: none;
+    }
+ 
+    .adm-conteudo {
+        padding: 15px;
+    }
+ 
+    .adm-menu nav {
+        grid-template-columns: 1fr;
+    }
+}
+ 
