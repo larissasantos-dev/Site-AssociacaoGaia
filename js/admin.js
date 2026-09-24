@@ -1,4 +1,4 @@
-const ADM_API_URL = "http://localhost:8080/api/usuarios";
+const ADM_API_URL = `${API_BASE}/api/usuarios`;
 
 document.addEventListener("DOMContentLoaded", () => {
 

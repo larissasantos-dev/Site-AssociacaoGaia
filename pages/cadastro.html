@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <title>Cadastro | Associação Gaia</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/config.js"></script>
     <script src="../js/script.js" defer></script>
 </head>
 <body class="ln-cad-page">
@@ -198,10 +199,6 @@
     <!-- ----- LANA — SCRIPT DE INTEGRAÇÃO: CADASTRO ----- -->
     <script>
     (() => {
-        // ── Configuração: URL base da API back-end (Spring Boot, porta 8080)
-        // Ajuste esta constante se a API rodar em outro host ou porta
-        const API_BASE = 'https://associacao-gaia-api.onrender.com';
-
         // ── Referências aos elementos do formulário
         const form      = document.getElementById('ln-form-cadastro');
         const btnEnviar = document.getElementById('ln-btn-cadastrar');
