@@ -5,18 +5,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileBtnFecharX = document.getElementById('mobile-btnFechar-sidebar');
     const overlay = document.getElementById('mobile-header-overlay');
 
-    mobileBtnMenu.addEventListener('click', () => {
-        sidebar.classList.add('active');
-        overlay.classList.add('active');
-    });
+    if (mobileBtnMenu && sidebar && overlay) {
+        mobileBtnMenu.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+    }
 
     const fecharMenu = () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
+        if (sidebar) {
+            sidebar.classList.remove('active');
+        }
+
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
     };
 
-    mobileBtnFecharX.addEventListener('click', fecharMenu);
-    overlay.addEventListener('click', fecharMenu);
+    if (mobileBtnFecharX) {
+        mobileBtnFecharX.addEventListener('click', fecharMenu);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', fecharMenu);
+    }
 
     /* ---------- CONTROLE DE ACESSO: LINK DO PAINEL ADMINISTRATIVO ---------- */
 
@@ -35,14 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (tipoUsuarioLogado !== 'ADMINISTRADOR') {
-
-        // .remove() em vez de escondido por CSS: para quem não é
-        // administrador, o item nem deve existir no DOM renderizado.
-        document.getElementById('link-painel-admin')?.remove();
-        document.getElementById('link-painel-admin-mobile')?.remove();
-        document.getElementById('footer-painel-admin')?.remove();
-    }
+    if (tipoUsuarioLogado === 'ADMINISTRADOR') {
+    document.getElementById('link-painel-admin')?.removeAttribute('hidden');
+    document.getElementById('link-painel-admin-mobile')?.removeAttribute('hidden');
+    document.getElementById('footer-painel-admin')?.removeAttribute('hidden');
+}
 
     /* ---------- LARISSA - INDEX ---------- */
 
