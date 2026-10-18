@@ -24,6 +24,7 @@
     <script src="../js/config.js"></script>
     <script src="../js/script.js" defer></script>
     <script src="../js/admin.js" defer></script>
+    <script src="../js/eventos-admin.js" defer></script>
 
     <title>Painel Administrativo | Associação Gaia</title>
 </head>
@@ -286,6 +287,15 @@
                             <button
                                 type="button"
                                 class="adm-nav-item"
+                                data-secao="eventos"
+                            >
+                                <i class="bi bi-calendar-event"></i>
+                                <span>Eventos</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="adm-nav-item"
                                 data-secao="newsletter"
                             >
                                 <i class="bi bi-envelope"></i>
@@ -483,6 +493,120 @@
                             hidden
                         ></div>
 
+                    </section>
+
+
+                    <!-- EVENTOS -->
+
+                    <section
+                        id="adm-secao-eventos"
+                        class="adm-secao"
+                        hidden
+                    >
+                        <div class="adm-section-header">
+                            <span class="adm-eyebrow">Gerenciamento</span>
+                            <h2>Gerenciar eventos</h2>
+                            <p>
+                                Cadastre os eventos da Associação Gaia e organize as informações
+                                que serão exibidas na página pública.
+                            </p>
+                        </div>
+
+                        <div class="adm-evento-aviso" role="status">
+                            <i class="bi bi-info-circle" aria-hidden="true"></i>
+                            <p>
+                                Esta é a interface inicial. O formulário e a pré-visualização da imagem
+                                funcionam no navegador, mas o cadastro ainda não está conectado à API.
+                            </p>
+                        </div>
+
+                        <form id="adm-form-evento" class="adm-evento-form">
+                            <div class="adm-evento-form-header">
+                                <div>
+                                    <span class="adm-eyebrow">Novo conteúdo</span>
+                                    <h3>Cadastrar evento</h3>
+                                </div>
+                            </div>
+
+                            <div class="adm-evento-imagem-campo">
+                                <label for="adm-evento-imagem">Imagem do evento</label>
+                                <div class="adm-evento-upload">
+                                    <input
+                                        type="file"
+                                        id="adm-evento-imagem"
+                                        name="imagem"
+                                        accept="image/jpeg,image/png,image/webp"
+                                        aria-describedby="adm-evento-imagem-ajuda"
+                                    >
+                                    <div class="adm-evento-preview" id="adm-evento-preview">
+                                        <i class="bi bi-image" aria-hidden="true"></i>
+                                        <span>A prévia da imagem aparecerá aqui</span>
+                                    </div>
+                                </div>
+                                <small id="adm-evento-imagem-ajuda">
+                                    Selecione uma imagem JPG, PNG ou WEBP. A imagem será apenas pré-visualizada nesta etapa.
+                                </small>
+                            </div>
+
+                            <div class="adm-evento-campo">
+                                <label for="adm-evento-titulo">Título <span aria-hidden="true">*</span></label>
+                                <input type="text" id="adm-evento-titulo" name="titulo" maxlength="150"
+                                    placeholder="Ex.: Feira de Artesanato" required>
+                            </div>
+
+                            <div class="adm-evento-campo">
+                                <label for="adm-evento-descricao">Descrição</label>
+                                <textarea id="adm-evento-descricao" name="descricao" rows="4"
+                                    placeholder="Conte um pouco sobre o evento..."></textarea>
+                            </div>
+
+                            <div class="adm-evento-campo">
+                                <label for="adm-evento-local">Local <span aria-hidden="true">*</span></label>
+                                <input type="text" id="adm-evento-local" name="local" maxlength="255"
+                                    placeholder="Endereço ou local do evento" required>
+                            </div>
+
+                            <div class="adm-evento-campos-duplos">
+                                <div class="adm-evento-campo">
+                                    <label for="adm-evento-data">Data <span aria-hidden="true">*</span></label>
+                                    <input type="date" id="adm-evento-data" name="data" required>
+                                </div>
+                                <div class="adm-evento-campo">
+                                    <label for="adm-evento-hora">Horário <span aria-hidden="true">*</span></label>
+                                    <input type="time" id="adm-evento-hora" name="hora" required>
+                                </div>
+                            </div>
+
+                            <div class="adm-evento-acoes">
+                                <button type="reset" class="adm-evento-btn adm-evento-btn--secundario">
+                                    Limpar formulário
+                                </button>
+                                <button type="submit" class="adm-evento-btn adm-evento-btn--principal">
+                                    <i class="bi bi-plus-lg" aria-hidden="true"></i>
+                                    Cadastrar evento
+                                </button>
+                            </div>
+
+                            <p id="adm-evento-mensagem" class="adm-evento-mensagem" role="status" hidden></p>
+                        </form>
+
+                        <div class="adm-eventos-lista">
+                            <div class="adm-eventos-lista-header">
+                                <div>
+                                    <span class="adm-eyebrow">Conteúdo publicado</span>
+                                    <h3>Eventos cadastrados</h3>
+                                </div>
+                                <span class="adm-contador">Aguardando integração com a API</span>
+                            </div>
+                            <div class="adm-eventos-vazio" id="adm-eventos-vazio">
+                                <i class="bi bi-calendar2-week" aria-hidden="true"></i>
+                                <h4>Os eventos aparecerão aqui</h4>
+                                <p>
+                                    Quando conectarmos esta área ao back-end, você poderá visualizar,
+                                    editar e excluir os eventos cadastrados.
+                                </p>
+                            </div>
+                        </div>
                     </section>
 
 
