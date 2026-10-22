@@ -281,13 +281,6 @@
     border-color: #b88b5d;
 }
  
-.adm-contador {
-    color: #81776d;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
- 
- 
 /* =========================================================
    TABELA
    ========================================================= */
@@ -663,10 +656,6 @@
         min-width: 0;
     }
  
-    .adm-contador {
-        align-self: flex-end;
-    }
- 
     .adm-tabela-wrap {
         overflow-x: auto;
     }
@@ -788,7 +777,7 @@
 .adm-eventos-lista-header {
     display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px;
 }
-.adm-eventos-lista-header .adm-contador { text-align: right; }
+.adm-eventos-lista-header { text-align: right; }
 .adm-eventos-vazio {
     display: flex; flex-direction: column; align-items: center; padding: 32px 20px;
     border: 1px dashed #d8c8b7; border-radius: 12px; color: #81776d; text-align: center;
@@ -804,5 +793,5 @@
     .adm-evento-acoes { flex-direction: column-reverse; }
     .adm-evento-btn { width: 100%; }
     .adm-eventos-lista-header { align-items: flex-start; flex-direction: column; }
-    .adm-eventos-lista-header .adm-contador { text-align: left; }
+    .adm-eventos-lista-header { text-align: left; }
 }
