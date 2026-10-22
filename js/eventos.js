@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
     const categoria = evento => {
         const texto = `${evento.titulo || ""} ${evento.descricao || ""}`.toLowerCase();
-        if (/oficina|curso|aula|workshop/.test(texto)) return "oficina";
         if (/exposi|vitrine|mostra/.test(texto)) return "exposicao";
         if (/palestra|debate|conversa/.test(texto)) return "palestras";
         if (/curso|formação/.test(texto)) return "cursos";
+        if (/oficina|aula|workshop/.test(texto)) return "oficina";
         return "feira";
     };
     const el = (tag, className, text) => {
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         data.append(iconData, el("p", "", formatarData(evento)));
         const tags = el("div", "ga-tags-eventos"); tags.appendChild(el("span", "", categoria(evento).replace(/^./, c => c.toUpperCase())));
         const botoes = el("div", "ga-btn-eventos");
-        const agendar = el("a", "ga-btn-detalhes", "Agenda"); agendar.href = "agenda.html";
+        const agendar = el("a", "ga-btn-detalhes", "Ver agenda"); agendar.href = "agenda.html";
         const detalhes = el("a", "ga-btn-detalhes", "Ver detalhes"); detalhes.href = `evento.html?id=${encodeURIComponent(evento.idEvento)}`;
         botoes.append(agendar, detalhes);
         interno.append(local, data, tags, botoes);

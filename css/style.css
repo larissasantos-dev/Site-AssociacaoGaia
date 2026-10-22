@@ -4623,3 +4623,8 @@ body.high-contrast span {
     font-weight: 700;
     font-size: 0.95rem;
 }
+
+/* Garante que a propriedade HTML hidden prevaleça sobre estilos de layout. */
+[hidden] {
+    display: none !important;
+}

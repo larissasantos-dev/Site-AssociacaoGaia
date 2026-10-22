@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const destaque = document.getElementById("ga-agenda-proximo");
     const listaProximos = document.getElementById("ga-agenda-lista-proximos");
     const listaAnteriores = document.getElementById("ga-agenda-lista-anteriores");
+    const tituloProximos = document.getElementById("ga-agenda-titulo-proximos");
     const mensagem = document.getElementById("ga-agenda-mensagem");
     const hojeAgora = new Date(); const hoje = new Date(hojeAgora.getFullYear(), hojeAgora.getMonth(), hojeAgora.getDate());
     const dataEvento = e => { if (!e.data) return null; const [a,m,d] = String(e.data).split("-").map(Number); return a && m && d ? new Date(a,m-1,d) : null; };
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         else {destaque.replaceChildren(el("div","ga-info-proximo","Não há próximos eventos cadastrados."));}
         anteriores.forEach(e=>listaAnteriores.appendChild(card(e)));
         document.getElementById("ga-agenda-titulo-anteriores").hidden=!anteriores.length;
+        if (tituloProximos) tituloProximos.hidden = proximos.length <= 1;
         mensagem.textContent=dados.length?"": "Nenhum evento cadastrado no momento.";
     } catch(erro){console.error("Não foi possível carregar a agenda:",erro);destaque.replaceChildren(el("div","ga-info-proximo","Não foi possível carregar a agenda agora. Tente novamente mais tarde."));mensagem.textContent="";}
 });
