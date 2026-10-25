@@ -8,7 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <title>Agenda | Associação Gaia</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/config.js"></script>
     <script src="../js/script.js" defer></script>
+    <script src="../js/agenda.js" defer></script>
 </head>
 <body>
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
@@ -70,70 +72,31 @@
         <section class="ga-bck-agenda">
             <img src="../assets/capa-agenda.jpg" alt="Agenda de Eventos">
             <div class="ga-titulo-agenda">
-                <h1>Salvos na Agenda</h1>
-                <p class="ga-texto-titulo-agenda">Lembraremos você de nossos próximos eventos!</p>
+                <h1>Agenda de Eventos</h1>
+                <p class="ga-texto-titulo-agenda">Confira os próximos eventos e consulte as informações de cada atividade.</p>
             </div>
         </section>
         <section class="ga-agenda">
+            <p id="ga-agenda-mensagem" class="ga-eventos-mensagem" role="status" aria-live="polite">Carregando agenda...</p>
 
-            <!-- PRÓXIMO EVENTO -->
             <section class="ga-layout-agenda">
                 <section class="ga-proximo-evento">
-                    <div class="ga-img-proximo">
-                        <span class="ga-badge-proximo">Próximo Evento</span>
-                        <img src="../assets/fashion-day.jpg" alt="Evento Fashion Day">
-                    </div>
-                    <div class="ga-info-proximo">
-                        <h2>Artesanal Fashion Day</h2>
-                        <div class="ga-local">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Praça Central</p>
+                    <div id="ga-agenda-proximo" class="ga-agenda-destaque">
+                        <div class="ga-img-proximo">
+                            <span class="ga-badge-proximo">Próximo Evento</span>
+                            <img src="../assets/evento-principal.jpg" alt="Carregando próximo evento">
                         </div>
-                    <div class="ga-data">
-                        <img src="../assets/calendario-eventos.png" alt="">
-                        <p>10 de Maio 2026 • 18h</p>
+                        <div class="ga-info-proximo">
+                            <h2>Carregando próximo evento...</h2>
+                        </div>
+                    </div>
                 </section>
 
-                <!-- OUTROS EVENTOS -->
                 <section class="ga-lista-agenda">
-                    <article class="ga-card-agenda" data-categoria="oficina">
-                        <img src="../assets/maos-e-mentes.jpg" alt="Evento Mega Artesanato">
-                        <div class="ga-card-info">
-                            <h3>Mega Artesanato</h3>
-                            <div class="ga-local">
-                                <img src="../assets/ponteiro-mapa.png" alt="">
-                                <p>Museu Municipal</p>
-                            </div>
-                        <div class="ga-data">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>21 de Maio 2026 • 19h</p>
-                    </article>
-
-                    <article class="ga-card-agenda" data-categoria="exposicao">
-                        <img src="../assets/maos-criativas.jpg" alt="Evento Mãos Criativas">
-                        <div class="ga-card-info">
-                            <h3>Mãos Criativas</h3>
-                            <div class="ga-local">
-                                <img src="../assets/ponteiro-mapa.png" alt="">
-                                <p>Praça Central</p>
-                            </div>
-                        <div class="ga-data">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>10 de Maio 2026 • 15h</p>
-                    </article>
-
-                    <article class="ga-card-agenda" data-categoria="feira">
-                        <img src="../assets/Natal-maos-criativas.jpg" alt="Evento de natal mãos criativas">
-                        <div class="ga-card-info">
-                            <h3>Edição Natal - 2ª Vitrine Mãos Criativas</h3>
-                            <div class="ga-local">
-                                <img src="../assets/ponteiro-mapa.png" alt="">
-                                <p>Praça Mal.Deodoro da Fonseca</p>
-                            </div>
-                        <div class="ga-data">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>8 de Agosto 2026 • 20h</p>
-                    </article>
+                    <h2 id="ga-agenda-titulo-proximos">Outros próximos eventos</h2>
+                    <div id="ga-agenda-lista-proximos" class="ga-agenda-lista-proximos"></div>
+                    <h2 id="ga-agenda-titulo-anteriores">Eventos anteriores</h2>
+                    <div id="ga-agenda-lista-anteriores" class="ga-agenda-lista-anteriores"></div>
                 </section>
             </section>
         </section>

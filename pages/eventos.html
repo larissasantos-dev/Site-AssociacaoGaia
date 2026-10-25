@@ -9,7 +9,9 @@
     <title>Eventos | Associação Gaia</title>
     <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/config.js"></script>
     <script src="../js/script.js" defer></script>
+    <script src="../js/eventos.js" defer></script>
 </head>
 <body>
     <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
@@ -76,7 +78,7 @@
             </div>
         </section>
         <div class="ga-container-eventos">
-            <h2>Proximos eventos</h2>
+            <h2>Encontre um evento</h2>
             <div class="ga-barra-pesquisa-eventos">
                 <label class="ga-search-bar-eventos" for="ga-input-pesquisa-eventos">
                 <span class="ga-oculto">Buscar eventos por nome, cidade ou técnica</span>
@@ -93,107 +95,13 @@
                 <button class="ga-filtro-evento" data-filtro="cursos">Cursos</button>
             </div>
 
-            <div class="ga-itens-eventos">
-                <div class="ga-card-eventos card-base" data-categoria="feira">
-                    <div class="ga-img-eventos">
-                        <img src="../assets/fashion-day.jpg" alt="Evento Fashion Day">
-                    </div>
-                    <div class="ga-interno-eventos">
-                        <h3 class="ga-titulo-card-eventos">Artesanal Fashion Day</h3>
-                        <div class="ga-local-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Praça Central • Itapetininga</p>
-                        </div>
-                        <div class="ga-data-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>10 de Maio de 2026</p>
-                        </div>
-                        <div class="ga-tags-eventos">
-                            <span>Tricô</span>
-                            <span>Bordado</span>
-                        </div>
-                        <div class="ga-btn-eventos">
-                            <a href="../pages/agenda.html" class="ga-btn-detalhes">Agendar</a>
-                            <a href="evento.html?id=1" class="ga-btn-detalhes">Ver detalhes</a>
-                        </div>
-                    </div>
-                </div>
+            <p id="ga-eventos-mensagem" class="ga-eventos-mensagem" role="status" aria-live="polite">Carregando eventos...</p>
 
-                <div class="ga-card-eventos card-base" data-categoria="exposicao">
-                    <div class="ga-img-eventos">
-                        <img src="../assets/maos-e-mentes.jpg" alt="Evento Mega Artesanato">
-                    </div>
-                    <div class="ga-interno-eventos">
-                        <h3 class="ga-titulo-card-eventos">Mega Artesanato</h3>
-                        <div class="ga-local-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Museu Municipal • Itapetininga</p>
-                        </div>
-                        <div class="ga-data-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>15 de Maio 2026</p>
-                        </div>
-                        <div class="ga-tags-eventos">
-                            <span>Exposição</span>
-                        </div>
-                        <div class="ga-btn-eventos">
-                            <a href="../pages/agenda.html" class="ga-btn-detalhes">Agendar</a>
-                            <a href="evento.html?id=1" class="ga-btn-detalhes">Ver detalhes</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ga-card-eventos card-base" data-categoria="oficina">
-                    <div class="ga-img-eventos">
-                        <img src="../assets/maos-criativas.jpg" alt="Evento Mãos Criativas">
-                    </div>
-                    <div class="ga-interno-eventos">
-                        <h3 class="ga-titulo-card-eventos">Mãos Criativas</h3>
-                        <div class="ga-local-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="icone-local">
-                            <p>Praça Peixoto Gomide • Itapetininga</p>
-                        </div>
-                        <div class="ga-data-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="icone-calendario">
-                            <p>21 de Maio 2026</p>
-                        </div>
-                        <div class="ga-tags-eventos">
-                            <span>Oficina</span>
-                            <span>Bordado</span>
-                        </div>
-                        <div class="ga-btn-eventos">
-                            <a href="../pages/agenda.html" class="ga-btn-detalhes">Agendar</a>
-                            <a href="evento.html?id=1" class="ga-btn-detalhes">Ver detalhes</a>
-                        </div>
-                    </div>
-                </div>
+            <h2 id="ga-titulo-proximos">Próximos eventos</h2>
+            <div id="ga-lista-proximos-eventos" class="ga-itens-eventos"></div>
 
-                <div class="ga-card-eventos card-base" data-categoria="feira">
-                    <div class="ga-img-eventos">
-                        <img src="../assets/Natal-maos-criativas.jpg" alt="Evento de natal mãos criativas">
-                    </div>
-                    <div class="ga-interno-eventos">
-                        <h3 class="ga-titulo-card-eventos">Edição Natal - 2ª Vitrine Mãos Criativas</h3>
-                        <div class="ga-local-eventos">
-                            <img src="../assets/ponteiro-mapa.png" alt="">
-                            <p>Praça Mal.Deodoro da Fonseca</p>
-                        </div>
-                        <div class="ga-data-eventos">
-                            <img src="../assets/calendario-eventos.png" alt="">
-                            <p>3 de Junho 2026</p>
-                        </div>
-                        <div class="ga-tags-eventos">
-                            <span>Feira</span>
-                            <span>Exposição</span>
-                            <span>Comemorativo</span>
-                        </div>
-                        <div class="ga-btn-eventos">
-                            <a href="../pages/agenda.html" class="ga-btn-detalhes">Agendar</a>
-                            <a href="evento.html?id=4" class="ga-btn-detalhes">Ver detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 id="ga-titulo-anteriores">Eventos anteriores</h2>
+            <div id="ga-lista-eventos-anteriores" class="ga-itens-eventos"></div>
         </div>
     </main>
 

@@ -1,82 +1,53 @@
-const eventos = {
+document.addEventListener("DOMContentLoaded", async () => {
+    const parametros = new URLSearchParams(window.location.search);
+    const id = parametros.get("id");
+    const titulo = document.getElementById("ga-titulo-evento");
+    const local = document.getElementById("ga-local-evento");
+    const data = document.getElementById("ga-data-evento");
+    const imagem = document.getElementById("ga-img-evento");
+    const descricao = document.getElementById("ga-descricao-evento");
+    const container = document.querySelector(".ga-evento-hero__card");
+    const aviso = document.createElement("p"); aviso.setAttribute("role", "status"); aviso.setAttribute("aria-live", "polite");
+    if (container) container.appendChild(aviso);
 
-    1: {
-        titulo: "Artesanal Fashion Day",
-
-        local: "Praça Central",
-
-        data: "10 de Maio de 2026",
-
-        imagem: "../assets/fashion-day.jpg",
-
-        descricao:
-            "Moda, arte e inovação unidas para celebrar o talento manual. Conheça o evento que marcou o início de uma nova era para a moda artesanal e sustentável."
-    },
-
-    2: {
-        titulo: "Mega Artesanato",
-
-        local: "Museu Municipal",
-
-        data: "15 de Maio de 2026",
-
-        imagem: "../assets/maos-e-mentes.jpg",
-
-        descricao:
-            "Uma celebração da criatividade e do talento manual. Vivenciamos momentos de troca e conexão que provam que o artesanato é pura memória, cultura e emoção."
-    },
-    
-    3: {
-        titulo: "Mãos Criativas",
-        
-        local: "Praça Peixoto Gomide",
-        
-        data: "21 de Maio de 2026",
-        
-        imagem: "../assets/maos-criativas.jpg",
-        
-        descricao:
-        "Uma parceria entre Associação Gaia e Melissa Barth para valorizar o bordado de Itapetininga."
-    },
-
-    4: {
-        titulo: "Edição Natal - 2ª Vitrine Mãos Criativas",
-        
-        local: "Praça Mal.Deodoro da Fonseca",
-        
-        data: "8 de Agosto de 2026",
-        
-        imagem: "../assets/Natal-maos-criativas.jpg",
-        
-        descricao:
-        "A temporada natalina chegou com o lançamento de uma vitrine inédita de bordado livre. Valorize o artesanato de Itapetininga e garanta peças exclusivas feitas por nossas artesãs locais."
+    if (!id || !/^\d+$/.test(id)) {
+        aviso.textContent = "O endereço não identifica um evento válido.";
+        return;
     }
+    const imagemUrl = valor => {
+        if (!valor) return "../assets/evento-principal.jpg";
+        const url = String(valor).trim();
+        if (/^(https?:|data:|\/)/i.test(url) || url.startsWith("../")) return url;
+        if (url.startsWith("assets/")) return `../${url}`;
+        return `../assets/${url}`;
+    };
+    try {
+        const resposta = await fetch(`${API_BASE}/eventos/${encodeURIComponent(id)}`, { headers: { "Accept": "application/json" } });
+        if (resposta.status === 404) throw new Error("Este evento não foi encontrado.");
+        if (!resposta.ok) throw new Error(`Não foi possível consultar o evento (status ${resposta.status}).`);
 
-};
+        const evento = await resposta.json();
+        titulo.textContent = evento.titulo || "Evento sem título";
 
-const parametros =
-    new URLSearchParams(window.location.search);
+        const localImg = document.createElement("img"); localImg.src = "../assets/ponteiro-mapa.png"; localImg.alt = ""; localImg.width = 18; localImg.height = 18;
+        local.replaceChildren(localImg, document.createTextNode(` ${evento.local || "Local a confirmar"}`));
 
-const id =
-    parametros.get('id');
-
-const evento =
-    eventos[id];
-
-if(evento){
-
-    document.getElementById('ga-titulo-evento').textContent =
-        evento.titulo;
-
-    document.getElementById('ga-local-evento').innerHTML =
-    `<img src="../assets/ponteiro-mapa.png" alt="" style="width:18px;height:18px;display:inline;vertical-align:middle;"> ${evento.local}`;
-
-    document.getElementById('ga-data-evento').innerHTML =
-    `<img src="../assets/calendario-eventos.png" alt="" style="width:18px;height:18px;display:inline;vertical-align:middle;"> ${evento.data}`;
-
-    document.getElementById('ga-img-evento').src =
-        evento.imagem;
-
-    document.getElementById('ga-descricao-evento').textContent =
-        evento.descricao;
-}
+        const dataImg = document.createElement("img"); dataImg.src = "../assets/calendario-eventos.png"; dataImg.alt = ""; dataImg.width = 18; dataImg.height = 18;
+        
+        let dataTexto = "Data a confirmar";
+        if (evento.data) {
+            const [ano, mes, dia] = evento.data.split("-").map(Number);
+            dataTexto = new Date(ano, mes - 1, dia).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+        }
+        if (evento.hora) dataTexto += ` • ${String(evento.hora).slice(0, 5)}`;
+        data.replaceChildren(dataImg, document.createTextNode(` ${dataTexto}`));
+        imagem.src = imagemUrl(evento.imagemUrl); imagem.alt = `Evento ${evento.titulo || ""}`;
+        imagem.onerror = () => { imagem.onerror = null; imagem.src = "../assets/evento-principal.jpg"; };
+        descricao.textContent = evento.descricao || "Mais informações sobre este evento serão divulgadas em breve.";
+        document.title = `${evento.titulo || "Evento"} | Associação Gaia`;
+        aviso.textContent = "";
+    } catch (erro) {
+        console.error("Erro ao carregar detalhes do evento:", erro);
+        aviso.textContent = erro.message || "Não foi possível carregar este evento agora.";
+    }
+});

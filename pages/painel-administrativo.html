@@ -516,7 +516,7 @@
                             <i class="bi bi-info-circle" aria-hidden="true"></i>
                             <p>
                                 Esta é a interface inicial. O formulário e a pré-visualização da imagem
-                                funcionam no navegador, mas o cadastro ainda não está conectado à API.
+                                funcionam no navegador.
                             </p>
                         </div>
 
@@ -524,12 +524,19 @@
                             <div class="adm-evento-form-header">
                                 <div>
                                     <span class="adm-eyebrow">Novo conteúdo</span>
-                                    <h3>Cadastrar evento</h3>
+                                    <h3 id="adm-evento-form-titulo">Cadastrar evento</h3>
                                 </div>
                             </div>
 
+                            <div class="adm-evento-campo">
+                                <label for="adm-evento-imagem-url">URL da imagem <span aria-hidden="true">*</span></label>
+                                <input type="url" id="adm-evento-imagem-url" name="imagemUrl" maxlength="255"
+                                    placeholder="https://exemplo.com/imagem.jpg" required>
+                                <small>Informe uma URL pública da imagem. A seleção de arquivo abaixo serve apenas para pré-visualização; o envio de arquivos exige armazenamento no back-end.</small>
+                            </div>
+
                             <div class="adm-evento-imagem-campo">
-                                <label for="adm-evento-imagem">Imagem do evento</label>
+                                <label for="adm-evento-imagem">Pré-visualizar arquivo local (opcional)</label>
                                 <div class="adm-evento-upload">
                                     <input
                                         type="file"
@@ -544,7 +551,7 @@
                                     </div>
                                 </div>
                                 <small id="adm-evento-imagem-ajuda">
-                                    Selecione uma imagem JPG, PNG ou WEBP. A imagem será apenas pré-visualizada nesta etapa.
+                                    Selecione JPG, PNG ou WEBP para visualizar temporariamente. Para publicar, informe a URL no campo acima.
                                 </small>
                             </div>
 
@@ -583,7 +590,7 @@
                                 </button>
                                 <button type="submit" class="adm-evento-btn adm-evento-btn--principal">
                                     <i class="bi bi-plus-lg" aria-hidden="true"></i>
-                                    Cadastrar evento
+                                    <span id="adm-evento-submit-texto">Cadastrar evento</span>
                                 </button>
                             </div>
 
@@ -596,14 +603,14 @@
                                     <span class="adm-eyebrow">Conteúdo publicado</span>
                                     <h3>Eventos cadastrados</h3>
                                 </div>
-                                <span class="adm-contador">Aguardando integração com a API</span>
                             </div>
+                            <p id="adm-eventos-lista-mensagem" class="adm-evento-mensagem" role="status" aria-live="polite"></p>
+                            <div id="adm-eventos-lista" class="adm-eventos-lista-itens"></div>
                             <div class="adm-eventos-vazio" id="adm-eventos-vazio">
                                 <i class="bi bi-calendar2-week" aria-hidden="true"></i>
                                 <h4>Os eventos aparecerão aqui</h4>
                                 <p>
-                                    Quando conectarmos esta área ao back-end, você poderá visualizar,
-                                    editar e excluir os eventos cadastrados.
+                                    Aqui você pode visualizar, editar e excluir os eventos cadastrados.
                                 </p>
                             </div>
                         </div>

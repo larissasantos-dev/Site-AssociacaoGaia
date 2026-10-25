@@ -281,13 +281,6 @@
     border-color: #b88b5d;
 }
  
-.adm-contador {
-    color: #81776d;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
- 
- 
 /* =========================================================
    TABELA
    ========================================================= */
@@ -663,10 +656,6 @@
         min-width: 0;
     }
  
-    .adm-contador {
-        align-self: flex-end;
-    }
- 
     .adm-tabela-wrap {
         overflow-x: auto;
     }
@@ -788,7 +777,7 @@
 .adm-eventos-lista-header {
     display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px;
 }
-.adm-eventos-lista-header .adm-contador { text-align: right; }
+.adm-eventos-lista-header { text-align: right; }
 .adm-eventos-vazio {
     display: flex; flex-direction: column; align-items: center; padding: 32px 20px;
     border: 1px dashed #d8c8b7; border-radius: 12px; color: #81776d; text-align: center;
@@ -804,5 +793,74 @@
     .adm-evento-acoes { flex-direction: column-reverse; }
     .adm-evento-btn { width: 100%; }
     .adm-eventos-lista-header { align-items: flex-start; flex-direction: column; }
-    .adm-eventos-lista-header .adm-contador { text-align: left; }
+    .adm-eventos-lista-header { text-align: left; }
+}
+
+
+/* Lista dinâmica de eventos administrada pela API */
+.adm-eventos-lista-itens {
+    display: grid;
+    gap: 12px;
+}
+.adm-evento-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px;
+    border: 1px solid #e6ddd3;
+    border-radius: 12px;
+    background: #fff;
+}
+.adm-evento-item-conteudo {
+    min-width: 0;
+    display: grid;
+    gap: 7px;
+}
+.adm-evento-item-conteudo h4 {
+    margin: 0;
+    color: #3f5b45;
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+.adm-evento-item-conteudo p {
+    margin: 0;
+    color: #655c53;
+    font-size: .9rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+.adm-evento-item-acoes {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+.adm-evento-btn--perigo {
+    color: #8d2f28;
+    border: 1px solid #d7aaa6;
+    background: #fff7f6;
+}
+.adm-evento-btn:disabled {
+    opacity: .65;
+    cursor: wait;
+}
+.adm-eventos-vazio[hidden] {
+    display: none !important;
+}
+.adm-evento-mensagem:empty {
+    display: none;
+}
+.adm-evento-mensagem[data-tipo="erro"] {
+    color: #8d2f28;
+}
+@media (max-width: 700px) {
+    .adm-evento-item {
+        flex-direction: column;
+    }
+    .adm-evento-item-acoes {
+        width: 100%;
+    }
+    .adm-evento-item-acoes .adm-evento-btn {
+        flex: 1;
+    }
 }
