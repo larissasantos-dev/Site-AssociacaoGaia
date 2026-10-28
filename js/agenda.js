@@ -16,17 +16,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     const agora = new Date();
 
     // Converte a data e a hora do evento em um objeto Date.
+    
     function dataHoraEvento(evento) {
-        if (!evento.dataEvento) {
+        const valorData = evento.data ?? evento.dataEvento;
+
+        if (!valorData) {
             return null;
         }
 
-        const [ano, mes, dia] = String(evento.dataEvento)
+        const [ano, mes, dia] = String(valorData)
             .split("-")
             .map(Number);
 
-        const horaEvento = String(evento.horaEvento || "00:00:00");
-        const [hora, minuto, segundo = 0] = horaEvento
+        const valorHora = evento.hora ?? evento.horaEvento ?? "00:00:00";
+        const [hora, minuto, segundo = 0] = String(valorHora)
             .split(":")
             .map(Number);
 
@@ -57,8 +60,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             year: "numeric"
         });
 
-        if (evento.horaEvento) {
-            texto += ` • ${String(evento.horaEvento).slice(0, 5)}`;
+        const horaEvento = evento.hora ?? evento.horaEvento;
+
+        if (horaEvento) {
+            texto += ` • ${String(horaEvento).slice(0, 5)}`;
         }
 
         return texto;

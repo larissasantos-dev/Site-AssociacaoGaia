@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const campoImagemUrl = document.getElementById("adm-evento-imagem-url");
     const previaImagem = document.getElementById("adm-evento-preview");
     const campoTitulo = document.getElementById("adm-evento-titulo");
+    const campoCategoria = document.getElementById("adm-evento-categoria");
     const campoDescricao = document.getElementById("adm-evento-descricao");
     const campoLocal = document.getElementById("adm-evento-local");
     const campoData = document.getElementById("adm-evento-data");
@@ -167,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         idEmEdicao = evento.idEvento;
         campoImagemUrl.value = evento.imagemUrl || "";
         campoTitulo.value = evento.titulo || "";
+        campoCategoria.value = evento.categoria || "";
         campoDescricao.value = evento.descricao || "";
         campoLocal.value = evento.local || "";
         campoData.value = evento.data || "";
@@ -241,13 +243,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const payload = {
             imagemUrl: campoImagemUrl.value.trim(),
             titulo: campoTitulo.value.trim(),
+            categoria: campoCategoria.value,
             descricao: campoDescricao.value.trim(),
             local: campoLocal.value.trim(),
             data: campoData.value,
             hora: campoHora.value
         };
-        if (!payload.imagemUrl || !payload.titulo || !payload.local || !payload.data || !payload.hora) {
-            mostrarMensagem("Preencha a URL da imagem, título, local, data e horário.", "erro");
+        if (!payload.imagemUrl || !payload.titulo || !payload.categoria || !payload.local || !payload.data || !payload.hora) {
+            mostrarMensagem("Preencha a URL da imagem, título, categoria, local, data e horário.", "erro");
             return;
         }
 
