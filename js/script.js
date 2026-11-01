@@ -48,10 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (tipoUsuarioLogado === 'ADMINISTRADOR') {
-    document.getElementById('link-painel-admin')?.removeAttribute('hidden');
-    document.getElementById('link-painel-admin-mobile')?.removeAttribute('hidden');
-    document.getElementById('footer-painel-admin')?.removeAttribute('hidden');
-}
+        document.getElementById('link-painel-admin')?.removeAttribute('hidden');
+        document.getElementById('link-painel-admin-mobile')?.removeAttribute('hidden');
+        document.getElementById('footer-painel-admin')?.removeAttribute('hidden');
+    }
+
+    if (tipoUsuarioLogado === 'VISITANTE') {
+        document.getElementById('link-solicitar-artesao')?.removeAttribute('hidden');
+        document.getElementById('link-solicitar-artesao-mobile')?.removeAttribute('hidden');
+        document.getElementById('footer-solicitar-artesao')?.removeAttribute('hidden');
+    }
 
     /* ---------- LARISSA - INDEX ---------- */
 

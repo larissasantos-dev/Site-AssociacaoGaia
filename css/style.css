@@ -4475,6 +4475,12 @@ body.high-contrast span {
     border-color: var(--cor-principal);
 }
 
+/* Variação do campo para textarea (página de solicitação de artesão) */
+.la-login-input--area {
+    min-height: 7rem;
+    resize: vertical;
+}
+
 /* Botão de envio */
 .la-login-btn {
     width: 100%;
