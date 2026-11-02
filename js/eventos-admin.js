@@ -122,24 +122,71 @@ document.addEventListener("DOMContentLoaded", () => {
         eventos.forEach(evento => {
             const item = criarElemento("article", "adm-evento-item");
             const conteudo = criarElemento("div", "adm-evento-item-conteudo");
+            
+            const tituloContainer = criarElemento("div", "adm-evento-titulo-container");
+            tituloContainer.style.display = "flex";
+            tituloContainer.style.alignItems = "center";
+            tituloContainer.style.gap = "0.5rem";
+            
+            const h4 = criarElemento("h4", "", evento.titulo || "Evento sem título");
+            tituloContainer.appendChild(h4);
+
+           
+            if (evento.cancelado) {
+                const seloCancelado = criarElemento("span", "adm-status adm-status--inativo", "Cancelado");
+                tituloContainer.appendChild(seloCancelado);
+            }
+
             conteudo.append(
-                criarElemento("h4", "", evento.titulo || "Evento sem título"),
+                tituloContainer,
                 criarElemento("p", "", `${evento.local || "Local a confirmar"} • ${formatarData(evento.data, evento.hora)}`)
             );
             if (evento.descricao) conteudo.appendChild(criarElemento("p", "", evento.descricao));
+            
             const acoes = criarElemento("div", "adm-evento-item-acoes");
             const editar = criarElemento("button", "adm-evento-btn adm-evento-btn--secundario", "Editar");
             editar.type = "button";
             editar.addEventListener("click", () => prepararEdicao(evento));
+            
+            
+            const textoBotaoStatus = evento.cancelado ? "Reativar" : "Cancelar";
+            const alternarStatus = criarElemento("button", "adm-evento-btn adm-evento-btn--secundario", textoBotaoStatus);
+            alternarStatus.type = "button";
+            alternarStatus.addEventListener("click", () => alternarStatusEvento(evento));
+
             const excluir = criarElemento("button", "adm-evento-btn adm-evento-btn--perigo", "Excluir");
             excluir.type = "button";
             excluir.addEventListener("click", () => excluirEvento(evento));
-            acoes.append(editar, excluir);
+            
+            acoes.append(editar, alternarStatus, excluir);
             item.append(conteudo, acoes);
             lista.appendChild(item);
         });
     }
 
+    async function alternarStatusEvento(evento){
+        const acao = evento.cancelado ? "reativar" : "cancelar";
+        const confirmado = confirm(`Tem certeza que deseja ${acao} o evento "${evento.titulo}"?`);
+        if(!confirmado) return;
+
+        try{
+            const resposta = await fetch(`${API_BASE}/eventos/${evento.idEvento}`,{
+                method: "PATCH",
+                headers: cabecalhos(true),
+                body: JSON.stringify({ cancelado: !evento.cancelado })
+            });
+
+            if(!resposta.ok){
+                throw new Error(await lerErro(resposta));
+            }
+
+            await carregarEventos();
+        }catch(erro){
+            console.error(`Erro ao ${acao} evento:`, erro);
+            alert(erro.message || `Não foi possível ${acao} o evento.`);
+        }
+    }
+    
     async function carregarEventos() {
         mensagemLista.textContent = "Carregando eventos...";
         vazio.hidden = true;
@@ -172,7 +219,9 @@ document.addEventListener("DOMContentLoaded", () => {
         campoData.value = evento.data || "";
         campoHora.value = evento.hora ? String(evento.hora).slice(0, 5) : "";
         campoImagem.value = "";
+
         limparPrevia();
+
         if (evento.imagemUrl) {
             const img = document.createElement("img");
             img.src = evento.imagemUrl;
@@ -180,6 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
             img.onerror = () => { img.onerror = null; limparPrevia(); };
             previaImagem.replaceChildren(img, criarElemento("span", "", "Imagem atualmente cadastrada"));
         }
+
         tituloFormulario.textContent = "Editar evento";
         textoSubmit.textContent = "Salvar alterações";
         mostrarMensagem("Editando evento. Altere os campos e salve.");
