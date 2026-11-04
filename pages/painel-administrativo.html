@@ -4,41 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="../assets/lib/bootstrap-icons/bootstrap-icons.css"
-    >
-
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin.css">
-
-    <script src="../js/config.js"></script>
+    <script src="../js/config.js" defer></script>
     <script src="../js/script.js" defer></script>
     <script src="../js/admin.js" defer></script>
     <script src="../js/eventos-admin.js" defer></script>
-
     <title>Painel Administrativo | Associação Gaia</title>
 </head>
 
 <body>
-
-    <!--
-        Link de acessibilidade.
-        Ele fica fora da área visual normal e só aparece
-        quando recebe foco pelo teclado.
-    -->
-    <a href="#conteudo-principal" class="skip-link">
-        Pular para o conteúdo principal
-    </a>
+    <!-- Link de acessibilidade. Ele fica fora da área visual normal e só aparece quando recebe foco pelo teclado. -->
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
     <!-- =========================
          HEADER
@@ -50,44 +31,19 @@
         <nav class="mobile-header" aria-label="Navegação principal">
 
             <div class="mobile-header-container-flexbox-pai">
-
-                <img
-                    src="../assets/logo-associacao-gaia.svg"
-                    alt="Associação Gaia"
-                    class="header-logo-img"
-                >
-
-                <button
-                    type="button"
-                    id="mobile-header-btn-menu"
-                    class="admin-menu-button"
-                    aria-label="Abrir menu"
-                    aria-controls="mobile-header-sidebar"
-                    aria-expanded="false"
-                >
-                    <img
-                        src="../assets/icone-tres-linhas-header.svg"
-                        alt=""
-                        class="header-tamanho-imagens"
-                    >
+                <img src="../assets/logo-associacao-gaia.svg" alt="Associação Gaia" class="header-logo-img">
+                <button type="button" id="mobile-header-btn-menu" class="admin-menu-button" aria-label="Abrir menu" aria-controls="mobile-header-sidebar" aria-expanded="false">
+                    <img src="../assets/icone-tres-linhas-header.svg" alt="" class="header-tamanho-imagens">
                 </button>
-
             </div>
-
         </nav>
 
 
         <!-- HEADER DESKTOP -->
         <nav class="desktop-header" aria-label="Navegação principal">
-
-            <img
-                src="../assets/logo-associacao-gaia.svg"
-                alt="Associação Gaia"
-                class="header-logo-img"
-            >
+            <img src="../assets/logo-associacao-gaia.svg" alt="Associação Gaia" class="header-logo-img" >
 
             <ul class="desktop-header-container-flexbox-pai">
-
                 <li>
                     <a href="../index.html">Início</a>
                 </li>
@@ -95,7 +51,6 @@
                 <li>
                     <a href="eventos.html">Eventos</a>
                 </li>
-
                 <li>
                     <a href="artesaos.html">Artesãos</a>
                 </li>
@@ -107,53 +62,28 @@
                 <li>
                     <a href="sobre-nos.html">Sobre nós</a>
                 </li>
-
             </ul>
 
             <div>
-                <img
-                    src="../assets/icone-user-header.svg"
-                    alt="Minha conta"
-                    class="icone-usuario"
-                >
+                <img src="../assets/icone-user-header.svg" alt="Minha conta" class="icone-usuario">
             </div>
-
         </nav>
 
 
         <!-- MENU MOBILE -->
-        <aside
-            id="mobile-header-sidebar"
-            aria-label="Menu mobile"
-        >
+        <aside id="mobile-header-sidebar" aria-label="Menu mobile">
 
             <div class="mobile-sidebar-cima">
-
-                <button
-                    type="button"
-                    id="mobile-btnFechar-sidebar"
-                    aria-label="Fechar menu"
-                >
-                    &times;
-                </button>
-
+                <button type="button" id="mobile-btnFechar-sidebar" aria-label="Fechar menu">&times;</button>
             </div>
 
             <div class="mobile-usuario-sidebar">
-
-                <img
-                    src="../assets/icone-user-header.svg"
-                    alt=""
-                    class="mobile-icone-usuario"
-                >
-
+                <img src="../assets/icone-user-header.svg" alt="" class="mobile-icone-usuario">
                 <span>Minha conta</span>
-
             </div>
 
             <nav>
                 <ul class="mobile-sidebar">
-
                     <li>
                         <a href="../index.html">Início</a>
                     </li>
@@ -173,7 +103,6 @@
                     <li>
                         <a href="sobre-nos.html">Sobre nós</a>
                     </li>
-
                 </ul>
             </nav>
 
@@ -738,5 +667,11 @@
         </div>
     </footer>
 
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
 </body>
 </html>

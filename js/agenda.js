@@ -16,17 +16,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     const agora = new Date();
 
     // Converte a data e a hora do evento em um objeto Date.
+    
     function dataHoraEvento(evento) {
-        if (!evento.dataEvento) {
+        const valorData = evento.data ?? evento.dataEvento;
+
+        if (!valorData) {
             return null;
         }
 
-        const [ano, mes, dia] = String(evento.dataEvento)
+        const [ano, mes, dia] = String(valorData)
             .split("-")
             .map(Number);
 
-        const horaEvento = String(evento.horaEvento || "00:00:00");
-        const [hora, minuto, segundo = 0] = horaEvento
+        const valorHora = evento.hora ?? evento.horaEvento ?? "00:00:00";
+        const [hora, minuto, segundo = 0] = String(valorHora)
             .split(":")
             .map(Number);
 
@@ -57,8 +60,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             year: "numeric"
         });
 
-        if (evento.horaEvento) {
-            texto += ` • ${String(evento.horaEvento).slice(0, 5)}`;
+        const horaEvento = evento.hora ?? evento.horaEvento;
+
+        if (horaEvento) {
+            texto += ` • ${String(horaEvento).slice(0, 5)}`;
         }
 
         return texto;
@@ -156,6 +161,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             )
         );
 
+        if(evento.cancelado){
+            const avisoCancelado = elemento("p", "", "Evento cancelado");
+            avisoCancelado.style.fontWeight = "bold";
+            avisoCancelado.style.margin = "0.5rem 0";
+            info.appendChild(avisoCancelado);
+        }
+
         const link = elemento("a", "ga-btn-agenda", "Ver detalhes");
         link.href = `evento.html?id=${encodeURIComponent(evento.idEvento)}`;
 
@@ -169,7 +181,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         destaque.replaceChildren();
 
         const visual = elemento("div", "ga-img-proximo");
-        const badge = elemento("span", "ga-badge-proximo", "Próximo Evento");
+
+        const textoBadge = evento.cancelado ? "Evento Cancelado" : "Próximo Evento";
+        const classeBagde = evento.cancelado ? "ga-badge-proximo adm-status--inativo" : "ga-badge-proximo";
+        const badge = elemento("span", classeBagde, textoBadge);
+
         const img = elemento("img");
 
         configurarImagem(img, evento);
@@ -190,6 +206,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 formatarData(evento)
             )
         );
+
+        if(evento.cancelado){
+            const avisoCanceladoDestaque = elemento("p", "adm-erro", "Este evento foi cancelado pelo adminsitrador.");
+            avisoCanceladoDestaque.style.fontWeight = "bold";
+            avisoCanceladoDestaque.style.margin = "0.5rem 0";
+            info.appendChild(avisoCanceladoDestaque);
+        }
 
         const link = elemento("a", "ga-btn-agenda", "Ver detalhes");
         link.href = `evento.html?id=${encodeURIComponent(evento.idEvento)}`;
