@@ -171,6 +171,12 @@ strong {
     outline: none;
 }
 
+/* Agrupa botões lado a lado com espaçamento (ex.: hero com duas ações) */
+.btn-base__grupo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
 /* ============= HEADERS ============= */
 
 /* ============== HEADER MOBILE ============= */
@@ -4473,6 +4479,11 @@ body.high-contrast span {
 
 .la-login-input:focus {
     border-color: var(--cor-principal);
+}
+
+/* Variação do campo para textarea (página de solicitação de artesão) */
+.la-login-input--area {
+    resize: vertical;
 }
 
 /* Botão de envio */

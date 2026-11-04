@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solicite se tornar artesão da Associação Gaia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>Quero ser artesão | Associação Gaia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/config.js"></script>
+    <script src="../js/script.js" defer></script>
+</head>
+<body class="la-login-page">
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
+    <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
+    <header class="geral-header">
+      <nav class="mobile-header">
+        <div class="mobile-header-container-flexbox-pai">
+            <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
+        </div>
+      </nav>
+      <nav class="desktop-header">
+        <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+        <ul class="desktop-header-container-flexbox-pai">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+
+            <li id="link-painel-admin" hidden><a href="painel-administrativo.html">Painel Administrativo</a></li>
+        </ul>
+        <div>
+            <a href="login.html" aria-label="Entrar na minha conta">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            </a>
+        </div>
+      </nav>
+      <aside id="mobile-header-sidebar">
+        <div class="mobile-sidebar-cima">
+             <button id="mobile-btnFechar-sidebar">X</button>
+        </div>
+        <div class="mobile-usuario-sidebar">
+            <a href="login.html" aria-label="Entrar na minha conta" class="mobile-usuario-sidebar-link">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+                <span>Minha conta</span>
+            </a>
+        </div>
+        <nav>
+           <ul class="mobile-sidebar">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+
+            <li id="link-painel-admin-mobile" hidden><a href="painel-administrativo.html">Painel Administrativo</a></li>
+           </ul>
+        </nav>
+      </aside>
+      <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
+    </header>
+
+    <!-- ----- LARISSA — SOLICITAÇÃO ARTESÃO ----- -->
+    <main class="la-login-main" id="conteudo-principal" tabindex="-1">
+        <div class="la-login-card">
+            <h1 class="la-login-titulo">Quero ser artesão</h1>
+
+            <!-- Mensagem única: o JS troca o texto conforme o estado
+                (introdução, em análise, rejeitada, não logado...) -->
+            <p class="la-login-subtitulo" id="sol-mensagem" role="status">
+                Conte um pouco sobre você e o seu trabalho. A equipe da Associação Gaia vai analisar o seu pedido.
+            </p>
+
+            <p class="la-login-link" id="sol-link-wrap" hidden>
+                <a id="sol-link" href="#"></a>
+            </p>
+
+            <!-- Os nomes dos campos correspondem ao SolicitacaoArtesaoRequestDTO
+                do back-end (POST /api/solicitacoes-artesao). Começa escondido:
+                o JS só mostra se o usuário puder solicitar. -->
+            <form id="sol-form" novalidate hidden>
+
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="sol-input-justificativa">Por que você quer ser artesão da Gaia?</label>
+                    <textarea class="la-login-input la-login-input--area" id="sol-input-justificativa" name="justificativa"
+                            rows="4" maxlength="1000" required></textarea>
+                    <span class="la-login-erro" id="sol-erro-justificativa" role="alert" hidden></span>
+                </div>
+
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="sol-input-nomeExibicao">Nome de exibição</label>
+                    <input class="la-login-input" type="text" id="sol-input-nomeExibicao" name="nomeExibicao"
+                        maxlength="150" placeholder="Como você quer aparecer no site" required>
+                    <span class="la-login-erro" id="sol-erro-nomeExibicao" role="alert" hidden></span>
+                </div>
+
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="sol-input-tituloCurto">Título curto</label>
+                    <input class="la-login-input" type="text" id="sol-input-tituloCurto" name="tituloCurto"
+                        maxlength="200" placeholder="Ex.: Ceramista, Bordadeira" required>
+                    <span class="la-login-erro" id="sol-erro-tituloCurto" role="alert" hidden></span>
+                </div>
+
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="sol-input-cidade">Cidade</label>
+                    <input class="la-login-input" type="text" id="sol-input-cidade" name="cidade"
+                        maxlength="100" autocomplete="address-level2" required>
+                    <span class="la-login-erro" id="sol-erro-cidade" role="alert" hidden></span>
+                </div>
+
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="sol-input-biografia">Biografia (opcional)</label>
+                    <textarea class="la-login-input la-login-input--area" id="sol-input-biografia" name="biografia" rows="4"></textarea>
+                </div>
+
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="sol-input-instagram">Instagram (opcional)</label>
+                    <input class="la-login-input" type="text" id="sol-input-instagram" name="instagram"
+                        maxlength="100" placeholder="@seuperfil">
+                </div>
+
+                <div class="la-login-grupo">
+                    <label class="la-login-label" for="sol-input-whatsappUrl">Link do WhatsApp (opcional)</label>
+                    <input class="la-login-input" type="text" id="sol-input-whatsappUrl" name="whatsappUrl"
+                        maxlength="255" placeholder="https://wa.me/5515999999999">
+                </div>
+
+                <!-- Erro global (ex.: 409 já tem solicitação em análise) -->
+                <span class="la-login-erro" id="sol-erro-global" role="alert" hidden></span>
+
+                <button class="la-login-btn" type="submit" id="sol-btn-enviar">Enviar solicitação</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
+    <footer class="footer-container-grid-pai">
+        <div class="footer-grid-bloco1">
+          <h3>Associação Gaia</h3>
+          <p>Criatividade que conecta, artesanato que transforma</p>
+        </div>
+        <div class="footer-grid-bloco2">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="sobre-nos.html">Sobre nós</a></li>
+
+                <li id="footer-painel-admin" hidden><a href="painel-administrativo.html">Painel Administrativo</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco3">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Cerâmica">Cerâmica</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Bordado">Bordado</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patchwork">Patchwork</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patch Aplique">Patch Aplique</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos de Artesanato Exclusivo">Artesanato Exclusivo</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco4">
+            <h4>Contato</h4>
+            <p>(11) 9999-9999</p>
+            <p>Diretoriagaia1@gmail.com</p>
+            <h4>Redes Sociais</h4>
+            <div>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+    <!-- LARISSA — SCRIPT DE INTEGRAÇÃO: SOLICITAÇÃO ARTESÃO -->
+    <script src="../js/solicitar-artesao.js"></script>
+</body>
+</html>
