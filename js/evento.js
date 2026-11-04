@@ -124,9 +124,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.title = `${evento.titulo || "Evento"} | Associação Gaia`;
         aviso.textContent = "";
 
-        // Só habilita o botão depois de carregar o evento.
-        if (botaoAgendar) {
-            botaoAgendar.disabled = false;
+        if (evento.cancelado) {
+            if (avisoAgendamento) {
+                avisoAgendamento.textContent = "Este evento foi cancelado.";
+                avisoAgendamento.className = "adm-erro"; 
+                avisoAgendamento.style.fontWeight = "bold";
+            }
+            if (botaoAgendar) {
+                botaoAgendar.disabled = true;
+                botaoAgendar.textContent = "Cancelado";
+                botaoAgendar.className = "btn-base__principal adm-status--inativo";
+            }
+        } else {
+            if (botaoAgendar) {
+                botaoAgendar.disabled = false;
+            }
         }
 
     } catch (erro) {

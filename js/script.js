@@ -61,6 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('link-painel-admin-mobile')?.removeAttribute('hidden');
         document.getElementById('footer-painel-admin')?.removeAttribute('hidden');
     }
+
+    const btnSolicitarArtesao = document.getElementById('ln-art-btn-solicitar');
+    if (btnSolicitarArtesao && tipoUsuarioLogado !== 'ARTESAO' && tipoUsuarioLogado !== 'ADMINISTRADOR') {
+        btnSolicitarArtesao.hidden = false;
+    }
 // ----- ÁREA DO USUÁRIO — sessão persistente + menu dinâmico -----
 // Roda em toda página (script.js é compartilhado). Lê o token salvo pelo
 // login.html/cadastro.html no localStorage e monta o menu do ícone de
