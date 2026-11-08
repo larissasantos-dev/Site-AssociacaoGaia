@@ -588,279 +588,262 @@
 }
  
  
-/* =========================================================
-   RESPONSIVIDADE - MOBILE
-   ========================================================= */
- 
-@media (max-width: 700px) {
- 
-    .adm-page {
-        padding: 30px 15px 45px;
-    }
- 
-    .adm-header {
-        align-items: flex-start;
-        margin-bottom: 24px;
-    }
- 
-    .adm-header-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        font-size: 1.2rem;
-    }
- 
-    .adm-shell {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
- 
-    .adm-sidebar {
-        width: 100%;
-        padding: 15px;
-    }
- 
-    .adm-perfil {
-        margin-bottom: 15px;
-    }
- 
-    .adm-menu nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-    }
- 
-    .adm-nav-item {
-        justify-content: center;
-        padding: 10px 8px;
-        text-align: center;
-    }
- 
-    .adm-menu-titulo {
-        display: none;
-    }
- 
-    .adm-conteudo {
-        width: 100%;
-        padding: 20px;
-    }
- 
-    .adm-filtros {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
- 
-    .adm-filtro {
-        min-width: 0;
-    }
- 
-    .adm-tabela-wrap {
-        overflow-x: auto;
-    }
- 
-    /*
-     * O menu administrativo não precisa controlar
-     * o hamburger do header. O header mobile continua
-     * sendo o menu principal do site.
-     */
-}
- 
- 
-/* =========================================================
-   MOBILE PEQUENO
-   ========================================================= */
- 
-@media (max-width: 420px) {
- 
-    .adm-page {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
- 
-    .adm-header {
-        gap: 15px;
-    }
- 
-    .adm-header h1 {
-        font-size: 1.75rem;
-    }
- 
-    .adm-header p {
-        font-size: 0.88rem;
-    }
- 
-    .adm-header-icon {
-        display: none;
-    }
- 
-    .adm-conteudo {
-        padding: 15px;
-    }
- 
-    .adm-menu nav {
-        grid-template-columns: 1fr;
-    }
-}
- 
 
 /* =========================================================
-   GERENCIAMENTO DE EVENTOS
+   RESPONSIVIDADE — LISTA DE EVENTOS
    ========================================================= */
-.adm-evento-aviso {
-    display: flex; align-items: flex-start; gap: 12px;
-    padding: 14px 16px; margin-bottom: 22px;
-    background: #f4eee4; border: 1px solid #e2d2bd;
-    border-radius: 12px; color: #6b5945;
-}
-.adm-evento-aviso > i { margin-top: 2px; color: #8c6b43; font-size: 1.15rem; }
-.adm-evento-aviso p { margin: 0; font-size: .88rem; line-height: 1.55; }
-.adm-evento-form {
-    display: grid; gap: 20px; padding: 22px;
-    background: #fffaf4; border: 1px solid #e6dbce; border-radius: 14px;
-}
-.adm-evento-form-header h3, .adm-eventos-lista-header h3 {
-    margin-top: 5px; color: #3f5d3a; font-size: 1.25rem;
-}
-.adm-evento-imagem-campo, .adm-evento-campo {
-    display: flex; flex-direction: column; gap: 8px; min-width: 0;
-}
-.adm-evento-imagem-campo > label, .adm-evento-campo > label {
-    color: #51483e; font-size: .88rem; font-weight: 700;
-}
-.adm-evento-campo > label span { color: #a34c3b; }
-.adm-evento-campo input, .adm-evento-campo textarea, .adm-evento-upload input[type="file"] {
-    width: 100%; min-width: 0; padding: 12px 13px;
-    border: 1px solid #d9cfc3; border-radius: 9px;
-    background: #fff; color: #39342e; font: inherit; font-size: .92rem;
-}
-.adm-evento-campo textarea { resize: vertical; min-height: 110px; }
-.adm-evento-campo input:focus-visible, .adm-evento-campo textarea:focus-visible,
-.adm-evento-upload input:focus-visible {
-    outline: 3px solid rgba(212, 163, 115, .4); border-color: #b88b5d;
-}
-.adm-evento-upload {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 220px);
-    align-items: start; gap: 16px;
-}
-.adm-evento-preview {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 8px; min-height: 140px; padding: 12px; overflow: hidden;
-    background: #f3ede5; border: 1px dashed #cdbba6; border-radius: 10px;
-    color: #84776a; text-align: center; font-size: .8rem;
-}
-.adm-evento-preview > i { font-size: 2rem; }
-.adm-evento-preview img {
-    display: block; width: 100%; max-height: 180px; object-fit: cover; border-radius: 7px;
-}
-.adm-evento-imagem-campo small { color: #81776d; font-size: .78rem; line-height: 1.5; }
-.adm-evento-campos-duplos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.adm-evento-acoes { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; padding-top: 4px; }
-.adm-evento-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    min-height: 44px; padding: 11px 16px; border: 1px solid transparent;
-    border-radius: 9px; font: inherit; font-size: .88rem; font-weight: 700; cursor: pointer;
-    transition: background-color .2s ease, transform .2s ease;
-}
-.adm-evento-btn:hover { transform: translateY(-1px); }
-.adm-evento-btn:focus-visible { outline: 3px solid #d4a373; outline-offset: 3px; }
-.adm-evento-btn--principal { background: #3f5d3a; color: #fff; }
-.adm-evento-btn--principal:hover { background: #304a2c; }
-.adm-evento-btn--secundario { background: #fff; border-color: #d9cfc3; color: #5e574e; }
-.adm-evento-btn--secundario:hover { background: #f0e8de; }
-.adm-evento-mensagem {
-    margin: 0; padding: 12px 14px; background: #edf3e9; border-radius: 8px;
-    color: #365a31; font-size: .88rem; line-height: 1.5;
-}
-.adm-eventos-lista { margin-top: 28px; }
-.adm-eventos-lista-header {
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px;
-}
-.adm-eventos-lista-header { text-align: right; }
-.adm-eventos-vazio {
-    display: flex; flex-direction: column; align-items: center; padding: 32px 20px;
-    border: 1px dashed #d8c8b7; border-radius: 12px; color: #81776d; text-align: center;
-}
-.adm-eventos-vazio > i { margin-bottom: 12px; color: #b08a63; font-size: 2rem; }
-.adm-eventos-vazio h4 { margin-bottom: 7px; color: #4d463e; font-size: 1rem; }
-.adm-eventos-vazio p { max-width: 440px; font-size: .88rem; line-height: 1.55; }
-@media (max-width: 700px) {
-    .adm-evento-form { padding: 16px; }
-    .adm-evento-upload { grid-template-columns: 1fr; }
-    .adm-evento-preview { min-height: 120px; }
-    .adm-evento-campos-duplos { grid-template-columns: 1fr; }
-    .adm-evento-acoes { flex-direction: column-reverse; }
-    .adm-evento-btn { width: 100%; }
-    .adm-eventos-lista-header { align-items: flex-start; flex-direction: column; }
-    .adm-eventos-lista-header { text-align: left; }
-}
-
-
-/* Lista dinâmica de eventos administrada pela API */
-.adm-eventos-lista-itens {
-    display: grid;
-    gap: 12px;
-}
-.adm-evento-item {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 18px;
-    padding: 18px;
-    border: 1px solid #e6ddd3;
-    border-radius: 12px;
-    background: #fff;
-}
-.adm-evento-item-conteudo {
-    min-width: 0;
-    display: grid;
-    gap: 7px;
-}
-.adm-evento-item-conteudo h4 {
-    margin: 0;
-    color: #3f5b45;
-    font-size: 1rem;
-    overflow-wrap: anywhere;
-}
-.adm-evento-item-conteudo p {
-    margin: 0;
-    color: #655c53;
-    font-size: .9rem;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-}
-.adm-evento-item-acoes {
-    display: flex;
-    flex-shrink: 0;
-    gap: 8px;
-}
-.adm-evento-btn--perigo {
-    color: #8d2f28;
-    border: 1px solid #d7aaa6;
-    background: #fff7f6;
-}
-.adm-evento-btn:disabled {
-    opacity: .65;
-    cursor: wait;
-}
-.adm-eventos-vazio[hidden] {
-    display: none !important;
-}
-.adm-evento-mensagem:empty {
-    display: none;
-}
-.adm-evento-mensagem[data-tipo="erro"] {
-    color: #8d2f28;
-}
 @media (max-width: 700px) {
     .adm-evento-item {
         flex-direction: column;
     }
+
     .adm-evento-item-acoes {
         width: 100%;
     }
+
     .adm-evento-item-acoes .adm-evento-btn {
         flex: 1;
+    }
+}
+
+
+
+/* =========================================================
+   SOLICITAÇÕES — ESTILOS EXCLUSIVOS
+   ========================================================= */
+
+/* Indicador de cadastros pendentes */
+#adm-secao-alertas > .adm-filtros {
+    align-items: center;
+    background-color: #f3e8d9;
+    border-color: #e5d2bd;
+}
+
+#adm-secao-alertas > .adm-filtros h3 {
+    margin: 0;
+    color: #6b4f2a;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+#adm-secao-alertas > .adm-filtros .adm-contador {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 13px;
+    border-radius: 20px;
+    background-color: #ead5bd;
+    color: #754c2c;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+/* Botão de detalhes */
+#adm-secao-alertas .adm-solicitacao-detalhes-btn {
+    padding: 8px 12px;
+    border: 1px solid #d8b99d;
+    border-radius: 8px;
+    background-color: #f7eee5;
+    color: #8c4e32;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#adm-secao-alertas .adm-solicitacao-detalhes-btn:hover {
+    background-color: #efddcc;
+    border-color: #c99b78;
+}
+
+#adm-secao-alertas .adm-solicitacao-detalhes-btn:focus-visible {
+    outline: 3px solid rgba(180, 79, 41, 0.3);
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   MODAL DE SOLICITAÇÕES
+   ========================================================= */
+
+#adm-dialog-solicitacao {
+    box-sizing: border-box;
+    width: min(560px, calc(100% - 32px));
+    max-width: 560px;
+    max-height: 85vh;
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid #e5d2bd;
+    border-radius: 18px;
+    background-color: #fffdf9;
+    color: #29251f;
+    box-shadow: 0 20px 60px rgba(75, 57, 39, 0.2);
+}
+
+#adm-dialog-solicitacao::backdrop {
+    background-color: rgba(45, 36, 28, 0.58);
+    backdrop-filter: blur(3px);
+}
+
+.adm-modal-conteudo {
+    padding: 28px;
+}
+
+.adm-modal-cabecalho {
+    padding: 20px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8f4b32, #b66b48);
+    color: #fff;
+}
+
+.adm-modal-cabecalho .adm-eyebrow {
+    margin-bottom: 8px;
+    color: #f4dfcf;
+}
+
+.adm-modal-cabecalho h3 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 1.35rem;
+}
+
+.adm-modal-cabecalho p {
+    margin: 0;
+    color: #f9eee6;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+/* Informações da solicitação */
+.adm-modal-detalhes {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.adm-modal-detalhes > div {
+    padding: 13px 15px;
+    border: 1px solid #e8ddd0;
+    border-radius: 10px;
+    background-color: #faf5ee;
+}
+
+.adm-modal-detalhes span {
+    display: block;
+    margin-bottom: 5px;
+    color: #98734f;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.adm-modal-detalhes strong,
+.adm-modal-detalhes p {
+    display: block;
+    margin: 0;
+    color: #39342e;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+/* Campo de rejeição */
+#adm-modal-rejeicao {
+    margin-bottom: 20px;
+}
+
+#adm-modal-rejeicao .la-login-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#adm-modal-rejeicao .la-login-label {
+    color: #51483e;
+    font-weight: 700;
+}
+
+#adm-modal-rejeicao .la-login-input {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#adm-modal-rejeicao .la-login-erro {
+    color: #943f32;
+    font-size: 0.82rem;
+}
+
+/* Botões */
+.adm-modal-acoes {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 18px;
+    border-top: 1px solid #e8e1d8;
+}
+
+.adm-modal-btn {
+    min-height: 43px;
+    padding: 10px 17px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Ação principal */
+.adm-modal-btn--principal {
+    background-color: #477044;
+    color: #fff;
+}
+
+.adm-modal-btn--principal:hover {
+    background-color: #365a33;
+}
+
+/* Ação secundária */
+.adm-modal-btn--secundario {
+    border-color: #d9cfc3;
+    background-color: #f7f1e9;
+    color: #5e574e;
+}
+
+.adm-modal-btn--secundario:hover {
+    background-color: #eee3d6;
+}
+
+.adm-modal-btn:focus-visible {
+    outline: 3px solid rgba(180, 79, 41, 0.3);
+    outline-offset: 3px;
+}
+
+.adm-modal-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Responsividade dos modais */
+@media (max-width: 480px) {
+    .adm-modal-conteudo {
+        padding: 18px;
+    }
+
+    .adm-modal-cabecalho {
+        padding: 17px;
+    }
+
+    .adm-modal-acoes {
+        flex-direction: column-reverse;
+    }
+
+    .adm-modal-btn {
+        width: 100%;
     }
 }

@@ -14,6 +14,7 @@
     <script src="../js/script.js" defer></script>
     <script src="../js/admin.js" defer></script>
     <script src="../js/eventos-admin.js" defer></script>
+    <script src="../js/admin-solicitacoes.js" defer></script>
     <title>Painel Administrativo | Associação Gaia</title>
 </head>
 
@@ -237,7 +238,7 @@
                                 data-secao="alertas"
                             >
                                 <i class="bi bi-bell"></i>
-                                <span>Alertas</span>
+                                <span>Solicitações</span>
                             </button>
 
                         </nav>
@@ -580,36 +581,150 @@
                     </section>
 
 
-                    <!-- ALERTAS -->
-
-                    <section
-                        id="adm-secao-alertas"
-                        class="adm-secao"
-                        hidden
-                    >
+                   <!-- Solicitações -->
+                    <section id="adm-secao-alertas" class="adm-secao" hidden>
 
                         <div class="adm-section-header">
-                            <span class="adm-eyebrow">
-                                Sistema
-                            </span>
-
-                            <h2>Alertas</h2>
+                            <div>
+                                <span class="adm-eyebrow">Sistema</span>
+                                <h2>Solicitações</h2>
+                                <p>Acompanhe o que precisa da sua atenção na plataforma.</p>
+                            </div>
                         </div>
 
-                        <div class="adm-em-breve">
-
-                            <i class="bi bi-bell"></i>
-
-                            <h3>
-                                Em breve
-                            </h3>
-
-                            <p>
-                                Os alertas administrativos serão
-                                implementados posteriormente.
-                            </p>
-
+                        <!-- CADASTROS PARA APROVAR -->
+                        <div class="adm-filtros">
+                            <h3>Cadastros para aprovar</h3>
+                            <span id="adm-contador-solicitacoes" class="adm-contador">0 pendentes</span>
                         </div>
+
+                        <div class="adm-tabela-card">
+                            <div class="adm-tabela-wrap">
+                                <table class="adm-tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>Solicitante</th>
+                                            <th>Perfil solicitado</th>
+                                            <th>Enviada em</th>
+                                            <th>Detalhes</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="adm-corpo-solicitacoes">
+                                        <!-- As solicitações são inseridas pelo JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- ESTADO VAZIO -->
+                            <div id="adm-solicitacoes-vazia" class="adm-tabela-vazia" hidden>
+                                <i class="bi bi-inbox"></i>
+                                <h3>Nenhuma solicitação pendente</h3>
+                                <p>Quando alguém pedir para ser artesão, o pedido aparece aqui.</p>
+                            </div>
+                        </div>
+
+                        <!-- ERRO -->
+                        <div id="adm-erro-solicitacoes" class="adm-alert adm-alert--erro" role="alert" hidden></div>
+
+                        <!-- MODAL DE SOLICITAÇÕES: APROVAR, REJEITAR E DETALHES -->
+                        <dialog id="adm-dialog-solicitacao"
+                                class="adm-solicitacao-dialog"
+                                aria-labelledby="adm-modal-titulo">
+
+                            <div class="adm-modal-conteudo">
+
+                                <div class="adm-modal-cabecalho">
+                                    <span class="adm-eyebrow">Associação Gaia</span>
+                                    <h3 id="adm-modal-titulo">Solicitação</h3>
+                                    <p id="adm-modal-descricao"></p>
+                                </div>
+
+                                <!-- Conteúdo dos detalhes -->
+                                <div id="adm-modal-detalhes" class="adm-modal-detalhes" hidden>
+                                    <div>
+                                        <span>Nome de exibição</span>
+                                        <strong id="adm-detalhe-nome"></strong>
+                                    </div>
+
+                                    <div>
+                                        <span>Título</span>
+                                        <strong id="adm-detalhe-titulo"></strong>
+                                    </div>
+
+                                    <div>
+                                        <span>Cidade</span>
+                                        <strong id="adm-detalhe-cidade"></strong>
+                                    </div>
+
+                                    <div>
+                                        <span>Justificativa</span>
+                                        <p id="adm-detalhe-justificativa"></p>
+                                    </div>
+
+                                    <div>
+                                        <span>Biografia</span>
+                                        <p id="adm-detalhe-biografia"></p>
+                                    </div>
+
+                                    <div>
+                                        <span>Instagram</span>
+                                        <p id="adm-detalhe-instagram"></p>
+                                    </div>
+
+                                    <div>
+                                        <span>WhatsApp</span>
+                                        <p id="adm-detalhe-whatsapp"></p>
+                                    </div>
+                                </div>
+
+                                <!-- Campo do motivo da rejeição -->
+                                <div id="adm-modal-rejeicao" hidden>
+                                    <div class="la-login-grupo">
+                                        <label class="la-login-label" for="adm-rejeicao-motivo">
+                                            Motivo da rejeição
+                                        </label>
+
+                                        <textarea
+                                            class="la-login-input la-login-input--area"
+                                            id="adm-rejeicao-motivo"
+                                            rows="4"
+                                            maxlength="500"
+                                            required
+                                        ></textarea>
+
+                                        <span
+                                            class="la-login-erro"
+                                            id="adm-rejeicao-erro"
+                                            role="alert"
+                                            hidden
+                                        ></span>
+                                    </div>
+                                </div>
+
+                                <div class="adm-modal-acoes">
+
+                                    <button
+                                        type="button"
+                                        id="adm-modal-cancelar"
+                                        class="adm-modal-btn adm-modal-btn--secundario"
+                                    >
+                                        Fechar
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        id="adm-modal-confirmar"
+                                        class="adm-modal-btn adm-modal-btn--principal"
+                                        hidden
+                                    >
+                                        Confirmar
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </dialog>
 
                     </section>
 
