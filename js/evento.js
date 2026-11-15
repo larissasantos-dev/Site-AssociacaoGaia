@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", async () => {
     const parametros = new URLSearchParams(window.location.search);
     const id = parametros.get("id");
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         container.appendChild(aviso);
     }
 
-    // Verifica se o endereço identifica um evento válido.
     if (!id || !/^\d+$/.test(id)) {
         aviso.textContent = "O endereço não identifica um evento válido.";
         return;
@@ -43,7 +43,95 @@ document.addEventListener("DOMContentLoaded", async () => {
         return `../assets/${url}`;
     };
 
-    // Carrega os detalhes do evento.
+    // Cria ícones SVG personalizados.
+    const criarIconeInformacao = (tipo) => {
+        const svgNS = "http://www.w3.org/2000/svg";
+
+        const svg = document.createElementNS(svgNS, "svg");
+
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("fill", "none");
+        svg.setAttribute("stroke", "currentColor");
+        svg.setAttribute("stroke-width", "1.8");
+        svg.setAttribute("stroke-linecap", "round");
+        svg.setAttribute("stroke-linejoin", "round");
+        svg.setAttribute("aria-hidden", "true");
+        svg.classList.add("ga-evento-info__icone");
+
+        if (tipo === "localizacao") {
+            svg.innerHTML = `
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                <circle cx="12" cy="10" r="2.5"/>
+            `;
+        }
+
+        if (tipo === "calendario") {
+            svg.innerHTML = `
+                <rect x="3.5" y="5" width="17" height="16" rx="2"/>
+                <path d="M7.5 3v4M16.5 3v4M3.5 10h17"/>
+                <path d="M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01"/>
+            `;
+        }
+
+        return svg;
+    };
+
+    // Cria a estrutura visual de cada informação.
+    const criarInformacao = (icone, rotulo, valor, horario = null) => {
+        const conteudo = document.createElement("span");
+        conteudo.className = "ga-evento-meta__conteudo";
+
+        const tituloInfo = document.createElement("span");
+        tituloInfo.className = "ga-evento-meta__rotulo";
+        tituloInfo.textContent = rotulo;
+
+        const valorInfo = document.createElement("span");
+        valorInfo.className = "ga-evento-meta__valor";
+        valorInfo.textContent = valor;
+
+        conteudo.append(tituloInfo, valorInfo);
+
+        if (horario) {
+            const horarioInfo = document.createElement("span");
+            horarioInfo.className = "ga-evento-meta__horario";
+            horarioInfo.textContent = horario;
+
+            conteudo.appendChild(horarioInfo);
+        }
+
+        const linha = document.createElement("span");
+        linha.className = "ga-evento-info__linha";
+
+        linha.append(icone, conteudo);
+
+        return linha;
+    };
+
+    const eventoJaPassou = (dataEvento, horaEvento) => {
+    if (!dataEvento || !horaEvento) {
+        return false;
+    }
+
+    const [ano, mes, dia] = dataEvento.split("-").map(Number);
+    const [hora, minuto, segundo = 0] = horaEvento.split(":").map(Number);
+
+    const dataHoraEvento = new Date(
+        ano,
+        mes - 1,
+        dia,
+        hora,
+        minuto,
+        segundo
+    );
+
+    // Evita considerar dados inválidos como eventos encerrados.
+    if (Number.isNaN(dataHoraEvento.getTime())) {
+        return false;
+    }
+
+        return dataHoraEvento.getTime() < Date.now();
+    };
+
     try {
         const resposta = await fetch(
             `${API_BASE}/eventos/${encodeURIComponent(id)}`,
@@ -68,22 +156,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         titulo.textContent = evento.titulo || "Evento sem título";
 
-        const localImg = document.createElement("img");
-        localImg.src = "../assets/ponteiro-mapa.png";
-        localImg.alt = "";
-        localImg.width = 18;
-        localImg.height = 18;
+        // LOCALIZAÇÃO
+        const iconeLocal = criarIconeInformacao("localizacao");
 
         local.replaceChildren(
-            localImg,
-            document.createTextNode(` ${evento.local || "Local a confirmar"}`)
+            criarInformacao(
+                iconeLocal,
+                "LOCAL",
+                evento.local || "Local a confirmar"
+            )
         );
 
-        const dataImg = document.createElement("img");
-        dataImg.src = "../assets/calendario-eventos.png";
-        dataImg.alt = "";
-        dataImg.width = 18;
-        dataImg.height = 18;
+        // DATA E HORÁRIO
+        const iconeData = criarIconeInformacao("calendario");
 
         let dataTexto = "Data a confirmar";
 
@@ -100,15 +185,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
         }
 
-        if (evento.hora) {
-            dataTexto += ` • ${String(evento.hora).slice(0, 5)}`;
-        }
+        const horarioTexto = evento.hora
+            ? `${String(evento.hora).slice(0, 5)}`
+            : null;
 
         data.replaceChildren(
-            dataImg,
-            document.createTextNode(` ${dataTexto}`)
+            criarInformacao(
+                iconeData,
+                "DATA",
+                dataTexto,
+                horarioTexto
+            )
         );
 
+        // IMAGEM DO EVENTO
         imagem.src = imagemUrl(evento.imagemUrl);
         imagem.alt = `Evento ${evento.titulo || ""}`;
 
@@ -117,6 +207,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             imagem.src = "../assets/evento-principal.jpg";
         };
 
+        // DESCRIÇÃO
         descricao.textContent =
             evento.descricao ||
             "Mais informações sobre este evento serão divulgadas em breve.";
@@ -124,32 +215,53 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.title = `${evento.titulo || "Evento"} | Associação Gaia`;
         aviso.textContent = "";
 
+        // VERIFICAÇÃO DE CANCELAMENTO
         if (evento.cancelado) {
-            if (avisoAgendamento) {
-                avisoAgendamento.textContent = "Este evento foi cancelado.";
-                avisoAgendamento.className = "adm-erro"; 
-                avisoAgendamento.style.fontWeight = "bold";
-            }
-            if (botaoAgendar) {
-                botaoAgendar.disabled = true;
-                botaoAgendar.textContent = "Cancelado";
-                botaoAgendar.className = "btn-base__principal adm-status--inativo";
-            }
-        } else {
-            if (botaoAgendar) {
-                botaoAgendar.disabled = false;
-            }
+        // Cancelamento tem prioridade sobre o encerramento.
+        if (avisoAgendamento) {
+            avisoAgendamento.textContent = "Este evento foi cancelado.";
+            avisoAgendamento.className = "adm-erro";
+            avisoAgendamento.style.fontWeight = "bold";
         }
+
+        if (botaoAgendar) {
+            botaoAgendar.hidden = true;
+            botaoAgendar.disabled = true;
+        }
+
+    } else if (eventoJaPassou(evento.data, evento.hora)) {
+        if (avisoAgendamento) {
+            avisoAgendamento.textContent = "Este evento já foi encerrado.";
+            avisoAgendamento.className = "ga-evento-status--encerrado";
+        }
+
+        if (botaoAgendar) {
+            botaoAgendar.hidden = true;
+            botaoAgendar.disabled = true;
+        }
+
+    } else {
+        if (avisoAgendamento) {
+            avisoAgendamento.textContent = "";
+            avisoAgendamento.className = "";
+        }
+
+        if (botaoAgendar) {
+            botaoAgendar.hidden = false;
+            botaoAgendar.disabled = false;
+        }
+    }
 
     } catch (erro) {
         console.error("Erro ao carregar detalhes do evento:", erro);
+
         aviso.textContent =
             erro.message || "Não foi possível carregar este evento agora.";
 
         return;
     }
 
-    // Realiza o agendamento do visitante.
+    // REALIZA O AGENDAMENTO DO VISITANTE
     if (botaoAgendar) {
         botaoAgendar.addEventListener("click", async () => {
             if (avisoAgendamento) {
@@ -168,7 +280,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 usuarioLogado = null;
             }
 
-            // Exige uma sessão válida no frontend.
             if (!token || !usuarioLogado) {
                 if (avisoAgendamento) {
                     avisoAgendamento.textContent =
@@ -177,7 +288,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
-            // Somente visitantes podem realizar agendamentos.
             if (usuarioLogado.tipoUsuario !== "VISITANTE") {
                 if (avisoAgendamento) {
                     avisoAgendamento.textContent =

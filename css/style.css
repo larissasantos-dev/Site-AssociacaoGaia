@@ -3770,173 +3770,391 @@ body.high-contrast span {
     }
 }
 
+
 /* ============================
    13. EVENTO - DETALHE
-   ============================ */
+============================ */
 
-/* ----- PÁGINA ----- */
 .ga-pagina-evento {
-    min-height: 100vh;
+    min-height: 0;
 }
 
-/* ----- HERO ----- */
+/* HERO */
+
 .ga-evento-hero {
-    padding: 2rem 0 3rem;
+    padding: 1.5rem 0 0;
 }
 
 .ga-evento-hero__inner {
-    display: grid;
-    gap: 0;
+    width: 82%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* ----- IMAGEM ----- */
-.ga-evento-hero__visual {
-    width: 100%;
-}
+/* VOLTAR */
 
-.ga-evento-hero__visual img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-    border-radius: 1.25rem 1.25rem 0 0;
-}
-
-/* ----- QUADRO DE INFORMAÇÕES ----- */
-.ga-evento-hero__card {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    background: var(--cor-info-artesao);
-    border-radius: 0 0 1.25rem 1.25rem;
-    box-shadow: 0 12px 30px rgba(60, 33, 20, 0.12);
-}
-
-/* ----- VOLTAR ----- */
 .ga-evento-hero__voltar {
-    display: inline-flex;
-    align-items: center;
-    width: fit-content;
+    display: inline-block;
+    margin-bottom: 1rem;
     color: var(--cor-botao-principal);
-    font-size: 0.9rem;
-    font-weight: 700;
-    transition: color 0.2s ease;
-    padding: 10px 10px 10px 10px
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .ga-evento-hero__voltar:hover {
     color: var(--cor-botao-hover);
+    text-decoration: underline;
 }
 
-/* ----- LABEL ----- */
-.ga-evento-hero__label {
+/* CONTEÚDO PRINCIPAL */
+
+.ga-evento-hero__conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+/* IMAGEM */
+
+.ga-evento-hero__visual {
+    min-width: 0;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.ga-evento-hero__visual img {
     display: block;
-    margin-bottom: 0.6rem;
-    color: var(--cor-botao-principal);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-/* ----- TÍTULO ----- */
-.ga-evento-hero__card .hero-base__titulo {
-    margin-bottom: 1.25rem;
+/* CARD DE INFORMAÇÕES */
+
+.ga-evento-hero__card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.85rem;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 280px;
+    padding: 1.5rem;
+
+    background: var(--cor-fonte);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
 
-/* ----- INFORMAÇÕES ----- */
+.ga-evento-hero__card h1,
+.ga-evento-hero__card h2,
+.ga-evento-hero__title {
+  font-size: 2rem; 
+  line-height: 1.2;
+}
+
+/* LOCAL E DATA */
+
 .ga-evento-hero__informacoes {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.75rem;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .ga-evento-hero__informacoes p {
+    margin: 0;
+}
+
+.ga-evento-info__linha {
     display: flex;
     align-items: center;
+    gap: 0.75rem;
+}
+
+.ga-evento-hero__informacoes .ga-evento-info__icone {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    color: var(--cor-botao-principal);
+    background: var(--cor-fundo-bege-claro);
+    border-radius: 0.5rem;
+}
+
+.ga-evento-meta__conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.ga-evento-meta__rotulo {
+    color: var(--cor-botao-principal);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+}
+
+.ga-evento-meta__valor,
+.ga-evento-meta__horario {
+    color: var(--cor-fonte-claro);
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.ga-evento-meta__horario {
+    font-size: 0.82rem;
+}
+
+/* BOTÃO */
+
+.ga-evento-acoes {
+    width: 100%;
     margin: 0;
-    color: var(--cor-fonte-medio);
-    font-size: 0.95rem;
-    line-height: 1.5;
 }
 
-/* ----- BOTÃO ----- */
 .ga-evento-hero__card .btn-base__principal {
-    align-self: flex-start;
+    box-sizing: border-box;
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.7rem 1.2rem;
+
+    background-color: var(--cor-botao-principal);
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
 }
 
-/* ----- DESCRIÇÃO ----- */
+.ga-evento-hero__card .btn-base__principal:hover:not(:disabled) {
+    background-color: var(--cor-hover-btn-artesao);
+    border: none;
+    box-shadow: none;
+}
+
+.ga-evento-hero__card .btn-base__principal:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.ga-evento-hero__card .btn-base__principal:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.ga-evento-hero .btn-base__principal.adm-status--inativo {
+    background-color: #888;
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    opacity: 1;
+}
+
+/* CARD DE EVENTO CANCELADO */
+
+.ga-evento-hero__card:has(.adm-status--inativo) {
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.85rem;
+}
+
+.ga-evento-hero__card:has(.adm-status--inativo) .hero-base__titulo {
+    text-align: flex-start;
+    margin: 0;
+}
+
+/* AVISO DE EVENTO CANCELADO */
+
+.ga-evento-hero__card:has(.adm-status--inativo) #ga-aviso-agendamento {
+    padding: 0.65rem 0.8rem;
+    color: #b42318;
+    background-color: #fff1f0;
+    border-left: 3px solid #b42318;
+    border-radius: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* AVISOS */
+
+#ga-aviso-agendamento {
+    margin: 0.75rem 0 0;
+    color: var(--cor-fonte-preta);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+#ga-aviso-agendamento:empty {
+    display: none;
+}
+
+/* DESCRIÇÃO */
+
 .ga-evento-descricao {
-    padding: 0 0 4rem;
+    width: 82%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 0 2rem;
 }
 
-/* ----- CABEÇALHO DA DESCRIÇÃO ----- */
 .ga-evento-descricao__cabecalho {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.8rem;
 }
 
 .ga-evento-descricao__label {
     display: block;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
+
     color: var(--cor-botao-principal);
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.7rem;
+    font-weight: bold;
     letter-spacing: 0.08em;
 }
 
-/* ----- TÍTULO DA DESCRIÇÃO ----- */
 .ga-evento-descricao__cabecalho h2 {
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin: 0;
+
     color: var(--cor-fonte-preta);
+    font-size: 1.5rem;
+    line-height: 1.3;
 }
 
-/* ----- TEXTO ----- */
-.ga-evento-descricao__card{
-    padding: 1.5rem;
-    background: var(--cor-info-artesao);
-    border-radius: 1.25rem 1.25rem;
-    box-shadow: 0 12px 30px rgba(60, 33, 20, 0.12);
+.ga-evento-descricao__card {
+    padding: 1.25rem 1.5rem;
+
+    background: var(--cor-fonte);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
+
 .ga-evento-descricao__texto {
-    max-width: 60rem;
-    color: var(--cor-fonte-medio);
-    font-size: 1rem;
+    margin: 0;
+    color: var(--cor-fonte-preta);
+    font-size: 0.9rem;
     line-height: 1.7;
+    overflow-wrap: break-word;
 }
 
-/* ----- RESPONSIVO ----- */
-@media (min-width: 1024px) {
-    .ga-evento-hero {
-        padding: 3rem 0 4rem;
+/* TABLET */
+
+@media (max-width: 900px) {
+    .ga-evento-hero__inner,
+    .ga-evento-descricao {
+        width: 90%;
     }
 
-    .ga-evento-hero__inner {
-        grid-template-columns: 1.15fr 0.85fr;
-        align-items: stretch;
+    .ga-evento-hero__conteudo {
+        gap: 1rem;
     }
 
-    /* IMAGEM */
-    .ga-evento-hero__visual {
-        height: 100%;
-    }
-
-    .ga-evento-hero__visual img {
-        width: 100%;
-        height: 100%;
-        min-height: 30rem;
-        aspect-ratio: auto;
-        border-radius: 1.25rem 0 0 1.25rem;
-    }
-
-    /* CARD */
+    .ga-evento-hero__visual,
     .ga-evento-hero__card {
-        justify-content: center;
-        padding: 3rem;
-        border-radius: 0 1.25rem 1.25rem 0;
-        box-shadow: 0 16px 40px rgba(60, 33, 20, 0.14);
+        height: 260px;
+        min-height: 260px;
     }
 
+    .ga-evento-hero__card {
+        padding: 1.1rem;
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 650px) {
+    .ga-evento-hero {
+        padding-top: 1rem;
+    }
+
+    .ga-evento-hero__inner,
+    .ga-evento-descricao {
+        width: 90%;
+    }
+
+    .ga-evento-hero__conteudo {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+    }
+
+    .ga-evento-hero__visual {
+        height: 220px;
+        min-height: 0;
+    }
+
+    .ga-evento-hero__card {
+        height: auto;
+        min-height: 0;
+        padding: 1.25rem;
+    }
+
+    .ga-evento-hero__card .hero-base__titulo {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .ga-evento-hero__informacoes {
+        gap: 0.8rem;
+    }
+
+    .ga-evento-hero__card .btn-base__principal {
+        width: 100%;
+    }
+
+    .ga-evento-descricao {
+        padding: 1.5rem 0;
+    }
+
+    .ga-evento-descricao__cabecalho h2 {
+        font-size: 1.35rem;
+    }
+
+    .ga-evento-descricao__card {
+        padding: 1rem;
+    }
+}
+
+
+/* EVENTO CANCELADO - REMOVER BOTÃO */
+
+.ga-evento-hero__card:has(.adm-status--inativo) .ga-evento-acoes {
+    display: none;
+}
+
+/* AVISO DE EVENTO CANCELADO */
+
+.ga-evento-hero__card:has(.adm-status--inativo) #ga-aviso-agendamento {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0.75rem 1rem;
+
+    color: #b42318;
+    background-color: #fff1f0;
+    border-left: 3px solid #b42318;
+    border-radius: 0.35rem;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.ga-evento-status--encerrado {
+    color: var(--cor-botao-hover);
+    font-weight: bold;
 }
 
 /* ============================
@@ -4058,20 +4276,80 @@ body.high-contrast span {
 }
 
 /* LOCAL E DATA */
-.ga-local,
-.ga-data{
+
+/* LOCAL E DATA */
+
+.ga-evento-hero__informacoes {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+    margin: 0;
 }
 
-.ga-local img,
-.ga-data img {
-    width: 18px;
-    height: 18px;
-    flex: none;
+.ga-evento-hero__informacoes p {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
 }
+
+.ga-evento-info__linha {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.ga-evento-hero__informacoes .ga-evento-info__icone {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+    box-sizing: border-box;
+
+    color: var(--cor-botao-principal);
+    background: var(--cor-fundo-bege-claro);
+    border-radius: 0.5rem;
+}
+
+.ga-evento-meta__conteudo {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-items: baseline;
+    column-gap: 0.5rem;
+    row-gap: 0.1rem;
+    min-width: 0;
+}
+
+.ga-evento-meta__rotulo {
+    grid-column: 1 / -1;
+    color: var(--cor-botao-principal);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+}
+
+.ga-evento-meta__valor {
+    color: var(--cor-fonte-claro);
+    font-size: 0.82rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.ga-evento-meta__horario {
+    color: var(--cor-fonte-claro);
+    font-size: 0.78rem;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.ga-evento-meta__horario::before {
+    content: "•";
+    margin-right: 0.35rem;
+}
+
 
 /* BOTÃO DO PRÓXIMO EVENTO */
 .ga-btn-agenda{

@@ -66,44 +66,70 @@
       <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
     </header>
 
+    
     <main class="ga-pagina-evento pagina-base__gradiante">
-        <section class="ga-evento-hero hero-base__gradiante">
-            <div class="wrap-base__central ga-evento-hero__inner">
-                <div class="ga-evento-hero__visual">
-                    <img id="ga-img-evento" src="" alt="">
-                </div>
-                <div class="ga-evento-hero__card">
-                    <a href="eventos.html" class="ga-evento-hero__voltar">← Voltar para Eventos</a>
-                    <h1 id="ga-titulo-evento" class="hero-base__titulo"></h1>
-                    <div class="ga-evento-hero__informacoes">
-                        <p id="ga-local-evento"></p>
-                        <p id="ga-data-evento"></p>
-                    </div>
-                    <div class="ga-evento-acoes">
-                        <button type="button" id="ga-btn-agendar" class="btn-base__principal" disabled>
-                            Agendar participação
-                        </button>
-                    </div>
-                    <p id="ga-aviso-agendamento" role="status" aria-live="polite"></p>
 
+        <section class="ga-evento-hero">
+            <div class="wrap-base__central ga-evento-hero__inner">
+
+                <a href="eventos.html" class="ga-evento-hero__voltar">
+                    ← Voltar para Eventos
+                </a>
+
+                <div class="ga-evento-hero__conteudo">
+
+                    <div class="ga-evento-hero__visual">
+                        <img id="ga-img-evento" src="" alt="">
+                    </div>
+
+                    <div class="ga-evento-hero__card">
+
+                        <h1 id="ga-titulo-evento" class="hero-base__titulo"></h1>
+
+                        <div class="ga-evento-hero__informacoes">
+                            <p id="ga-local-evento"></p>
+                            <p id="ga-data-evento"></p>
+                        </div>
+
+                        <div class="ga-evento-acoes">
+                            <button
+                                type="button"
+                                id="ga-btn-agendar"
+                                class="btn-base__principal"
+                                disabled>
+                                Agendar participação
+                            </button>
+                        </div>
+
+                        <p id="ga-aviso-agendamento"
+                        role="status"
+                        aria-live="polite"></p>
+
+                    </div>
                 </div>
             </div>
         </section>
+
         <section class="ga-evento-descricao">
             <div class="wrap-base__central">
+
                 <div class="ga-evento-descricao__cabecalho">
                     <span class="ga-evento-descricao__label">
                         SOBRE O EVENTO
                     </span>
+
                     <h2>Conheça este evento</h2>
                 </div>
+
                 <div class="ga-evento-descricao__card">
-                    <p id="ga-descricao-evento" class="ga-evento-descricao__texto"></p>
+                    <p id="ga-descricao-evento"
+                    class="ga-evento-descricao__texto"></p>
                 </div>
+
             </div>
         </section>
-    </main>
 
+    </main>
 
         <!-- GLOBAL - FOOTER PARA MOBILE E DESKTOP -->
     <footer class="footer-container-grid-pai">
