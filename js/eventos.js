@@ -19,6 +19,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     return ano && mes && dia ? new Date(ano, mes - 1, dia) : null;
   };
 
+    const eventoJaPassou = evento => {
+      const data = dataEvento(evento);
+
+      if (!data) return false;
+
+      const agora = new Date();
+
+      // Se a data é anterior a hoje, o evento já passou.
+      const hoje = new Date(
+          agora.getFullYear(),
+          agora.getMonth(),
+          agora.getDate()
+      );
+
+      if (data < hoje) return true;
+      if (data > hoje) return false;
+
+      // Se é hoje, precisamos considerar o horário.
+      if (!evento.hora) return false;
+
+      const [hora, minuto, segundo = 0] =
+          String(evento.hora).split(":").map(Number);
+
+      const dataHoraEvento = new Date(
+          data.getFullYear(),
+          data.getMonth(),
+          data.getDate(),
+          hora,
+          minuto,
+          segundo
+      );
+
+      if (Number.isNaN(dataHoraEvento.getTime())) return false;
+
+      return dataHoraEvento < agora;
+  };
   const formatarData = evento => {
     const data = dataEvento(evento);
     const dataTexto = data ? data.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" }) : "Data a confirmar";
@@ -61,14 +97,25 @@ document.addEventListener("DOMContentLoaded", async () => {
         visual.appendChild(img);
         
         // REUSANDO BADGE E MODIFICADOR: Se estiver cancelado, sobrepõe o selo utilizando a classe de inatividade
-        if (evento.cancelado) {
-            const badgeCancelado = el("span", "ga-badge-proximo adm-status--inativo", "Cancelado");
-            badgeCancelado.style.position = "absolute";
-            badgeCancelado.style.top = "10px";
-            badgeCancelado.style.left = "10px";
-            visual.style.position = "relative";
-            visual.appendChild(badgeCancelado);
-        }
+        // IDENTIFICA O STATUS DO EVENTO
+          if (evento.cancelado || eventoJaPassou(evento)) {
+              const cancelado = evento.cancelado;
+
+              const badge = el(
+                  "span",
+                  cancelado
+                      ? "ga-badge-proximo adm-status--inativo"
+                      : "ga-badge-proximo ga-badge--encerrado",
+                  cancelado ? "Cancelado" : "Encerrado"
+              );
+
+              badge.style.position = "absolute";
+              badge.style.top = "10px";
+              badge.style.left = "10px";
+
+              visual.style.position = "relative";
+              visual.appendChild(badge);
+          }
 
         const interno = el("div", "ga-interno-eventos");
         interno.appendChild(el("h3", "ga-titulo-card-eventos", evento.titulo || "Evento sem título"));
@@ -113,8 +160,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     const dataHoje = hoje();
-    const proximos = filtrados.filter(e => !dataEvento(e) || dataEvento(e) >= dataHoje);
-    const anteriores = filtrados.filter(e => dataEvento(e) && dataEvento(e) < dataHoje);
+
+    const proximos = filtrados.filter(e =>
+      !e.cancelado && !eventoJaPassou(e)
+    );
+
+    const anteriores = filtrados.filter(e =>
+      e.cancelado || eventoJaPassou(e)
+    );
 
     proximos.forEach(e => listaProximos.appendChild(criarCard(e)));
     anteriores.forEach(e => listaAnteriores.appendChild(criarCard(e)));
