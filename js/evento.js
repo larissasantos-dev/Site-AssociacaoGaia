@@ -217,7 +217,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // VERIFICAÇÃO DE CANCELAMENTO
         if (evento.cancelado) {
-        // Cancelamento tem prioridade sobre o encerramento.
         if (avisoAgendamento) {
             avisoAgendamento.textContent = "Este evento foi cancelado.";
             avisoAgendamento.className = "adm-erro";
@@ -225,19 +224,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         if (botaoAgendar) {
-            botaoAgendar.hidden = true;
             botaoAgendar.disabled = true;
+            botaoAgendar.textContent = "Cancelado";
+            botaoAgendar.className =
+                "btn-base__principal adm-status--inativo";
         }
 
     } else if (eventoJaPassou(evento.data, evento.hora)) {
         if (avisoAgendamento) {
             avisoAgendamento.textContent = "Este evento já foi encerrado.";
-            avisoAgendamento.className = "ga-evento-status--encerrado";
+            avisoAgendamento.className = "adm-erro";
+            avisoAgendamento.style.fontWeight = "bold";
         }
 
         if (botaoAgendar) {
-            botaoAgendar.hidden = true;
             botaoAgendar.disabled = true;
+            botaoAgendar.textContent = "Encerrado";
+            botaoAgendar.className =
+                "btn-base__principal adm-status--inativo";
         }
 
     } else {
@@ -247,8 +251,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         if (botaoAgendar) {
-            botaoAgendar.hidden = false;
             botaoAgendar.disabled = false;
+            botaoAgendar.textContent = "Agendar";
+            botaoAgendar.className = "btn-base__principal";
         }
     }
 

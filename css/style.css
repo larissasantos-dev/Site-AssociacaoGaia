@@ -4157,6 +4157,11 @@ body.high-contrast span {
     font-weight: bold;
 }
 
+.ga-badge--encerrado {
+    background-color: #b44f29;
+    color: #ffffff;
+}
+
 /* ============================
    14. AGENDA
    ============================ */
