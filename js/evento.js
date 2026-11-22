@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         container.appendChild(aviso);
     }
 
+    // Controla o texto e a classe visual dos avisos de agendamento.
+    const mostrarAvisoAgendamento = (mensagem, classe = "") => {
+        if (!avisoAgendamento) return;
+
+        avisoAgendamento.textContent = mensagem;
+        avisoAgendamento.className = classe;
+    };
+
     if (!id || !/^\d+$/.test(id)) {
         aviso.textContent = "O endereço não identifica um evento válido.";
         return;
@@ -108,26 +116,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     const eventoJaPassou = (dataEvento, horaEvento) => {
-    if (!dataEvento || !horaEvento) {
-        return false;
-    }
+        if (!dataEvento || !horaEvento) {
+            return false;
+        }
 
-    const [ano, mes, dia] = dataEvento.split("-").map(Number);
-    const [hora, minuto, segundo = 0] = horaEvento.split(":").map(Number);
+        const [ano, mes, dia] = dataEvento.split("-").map(Number);
+        const [hora, minuto, segundo = 0] = horaEvento.split(":").map(Number);
 
-    const dataHoraEvento = new Date(
-        ano,
-        mes - 1,
-        dia,
-        hora,
-        minuto,
-        segundo
-    );
+        const dataHoraEvento = new Date(
+            ano,
+            mes - 1,
+            dia,
+            hora,
+            minuto,
+            segundo
+        );
 
-    // Evita considerar dados inválidos como eventos encerrados.
-    if (Number.isNaN(dataHoraEvento.getTime())) {
-        return false;
-    }
+        // Evita considerar dados inválidos como eventos encerrados.
+        if (Number.isNaN(dataHoraEvento.getTime())) {
+            return false;
+        }
 
         return dataHoraEvento.getTime() < Date.now();
     };
@@ -217,45 +225,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // VERIFICAÇÃO DE CANCELAMENTO
         if (evento.cancelado) {
-        if (avisoAgendamento) {
-            avisoAgendamento.textContent = "Este evento foi cancelado.";
-            avisoAgendamento.className = "adm-erro";
-            avisoAgendamento.style.fontWeight = "bold";
-        }
+            mostrarAvisoAgendamento("Este evento foi cancelado.");
+            avisoAgendamento?.classList.add("adm-erro");
 
-        if (botaoAgendar) {
-            botaoAgendar.disabled = true;
-            botaoAgendar.textContent = "Cancelado";
-            botaoAgendar.className =
-                "btn-base__principal adm-status--inativo";
-        }
+            if (botaoAgendar) {
+                botaoAgendar.disabled = true;
+                botaoAgendar.textContent = "Cancelado";
+                botaoAgendar.className =
+                    "btn-base__principal adm-status--inativo";
+            }
 
-    } else if (eventoJaPassou(evento.data, evento.hora)) {
-        if (avisoAgendamento) {
-            avisoAgendamento.textContent = "Este evento já foi encerrado.";
-            avisoAgendamento.className = "adm-erro";
-            avisoAgendamento.style.fontWeight = "bold";
-        }
+        } else if (eventoJaPassou(evento.data, evento.hora)) {
+            mostrarAvisoAgendamento("Este evento já foi encerrado.");
+            avisoAgendamento?.classList.add("adm-erro");
 
-        if (botaoAgendar) {
-            botaoAgendar.disabled = true;
-            botaoAgendar.textContent = "Encerrado";
-            botaoAgendar.className =
-                "btn-base__principal adm-status--inativo";
-        }
+            if (botaoAgendar) {
+                botaoAgendar.disabled = true;
+                botaoAgendar.textContent = "Encerrado";
+                botaoAgendar.className =
+                    "btn-base__principal adm-status--inativo";
+            }
 
-    } else {
-        if (avisoAgendamento) {
-            avisoAgendamento.textContent = "";
-            avisoAgendamento.className = "";
-        }
+        } else {
+            mostrarAvisoAgendamento("");
 
-        if (botaoAgendar) {
-            botaoAgendar.disabled = false;
-            botaoAgendar.textContent = "Agendar";
-            botaoAgendar.className = "btn-base__principal";
+            if (botaoAgendar) {
+                botaoAgendar.disabled = false;
+                botaoAgendar.textContent = "Agendar";
+                botaoAgendar.className = "btn-base__principal";
+            }
         }
-    }
 
     } catch (erro) {
         console.error("Erro ao carregar detalhes do evento:", erro);
@@ -266,12 +265,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // REALIZA O AGENDAMENTO DO VISITANTE
+    // REALIZA O AGENDAMENTO
     if (botaoAgendar) {
         botaoAgendar.addEventListener("click", async () => {
-            if (avisoAgendamento) {
-                avisoAgendamento.textContent = "";
-            }
+            mostrarAvisoAgendamento("");
 
             const token = localStorage.getItem("gaia_token");
 
@@ -286,18 +283,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             if (!token || !usuarioLogado) {
-                if (avisoAgendamento) {
-                    avisoAgendamento.textContent =
-                        "Entre na sua conta para agendar sua participação.";
-                }
-                return;
-            }
-
-            if (usuarioLogado.tipoUsuario !== "VISITANTE") {
-                if (avisoAgendamento) {
-                    avisoAgendamento.textContent =
-                        "Somente usuários visitantes podem agendar participação.";
-                }
+                mostrarAvisoAgendamento(
+                    "Entre na sua conta para agendar sua participação."
+                );
                 return;
             }
 
@@ -320,10 +308,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
 
                 if (resposta.ok) {
-                    if (avisoAgendamento) {
-                        avisoAgendamento.textContent =
-                            "Sua participação foi agendada com sucesso!";
-                    }
+                    mostrarAvisoAgendamento(
+                        "Sua participação foi agendada com sucesso!",
+                        "ga-aviso--sucesso"
+                    );
 
                     botaoAgendar.textContent = "Participação agendada";
                     return;
@@ -344,27 +332,27 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
 
                 if (resposta.status === 401) {
-                    if (avisoAgendamento) {
-                        avisoAgendamento.textContent =
-                            "Sua sessão expirou ou é inválida. Entre novamente na sua conta.";
-                    }
+                    mostrarAvisoAgendamento(
+                        "Sua sessão expirou ou é inválida. Entre novamente na sua conta."
+                    );
+
                 } else if (resposta.status === 403) {
-                    if (avisoAgendamento) {
-                        avisoAgendamento.textContent =
-                            "Você não tem permissão para realizar este agendamento.";
-                    }
+                    mostrarAvisoAgendamento(
+                        "Você não tem permissão para realizar este agendamento."
+                    );
+
                 } else if (resposta.status === 409) {
-                    if (avisoAgendamento) {
-                        avisoAgendamento.textContent =
-                            mensagemServidor ||
-                            "Você já possui um agendamento ativo para este evento.";
-                    }
+                    mostrarAvisoAgendamento(
+                        mensagemServidor ||
+                        "Você já possui um agendamento ativo para este evento.",
+                        "ga-aviso--existente"
+                    );
+
                 } else {
-                    if (avisoAgendamento) {
-                        avisoAgendamento.textContent =
-                            mensagemServidor ||
-                            "Não foi possível realizar o agendamento. Verifique se o evento ainda pode ser agendado.";
-                    }
+                    mostrarAvisoAgendamento(
+                        mensagemServidor ||
+                        "Não foi possível realizar o agendamento. Verifique se o evento ainda pode ser agendado."
+                    );
                 }
 
                 botaoAgendar.disabled = false;
@@ -373,10 +361,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             } catch (erro) {
                 console.error("Erro ao realizar agendamento:", erro);
 
-                if (avisoAgendamento) {
-                    avisoAgendamento.textContent =
-                        "Não foi possível conectar ao servidor. Tente novamente.";
-                }
+                mostrarAvisoAgendamento(
+                    "Não foi possível conectar ao servidor. Tente novamente."
+                );
 
                 botaoAgendar.disabled = false;
                 botaoAgendar.textContent = textoOriginal;

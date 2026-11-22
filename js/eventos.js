@@ -71,12 +71,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const categoria = evento => {
-    const texto = `${evento.titulo || ""} ${evento.descricao || ""}`.toLowerCase();
-    if (/exposi|vitrine|mostra/.test(texto)) return "exposicao";
-    if (/palestra|debate|conversa/.test(texto)) return "palestras";
-    if (/curso|formação/.test(texto)) return "cursos";
-    if (/oficina|aula|workshop/.test(texto)) return "oficina";
-    return "feira";
+    const valor = String(evento.categoria || "").trim().toLowerCase();
+
+    const categoriasValidas = [
+        "feira",
+        "oficina",
+        "exposicao",
+        "palestras",
+        "cursos"
+    ];
+
+    return categoriasValidas.includes(valor) ? valor : "";
   };
 
   const el = (tag, className, text) => {
@@ -133,7 +138,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         data.append(iconData, el("p", "", formatarData(evento)));
 
         const tags = el("div", "ga-tags-eventos");
-        tags.appendChild(el("span", "", categoria(evento).replace(/^./, c => c.toUpperCase())));
+        const nomeCategoria = categoria(evento);
+
+          tags.appendChild(
+              el(
+                  "span",
+                  "",
+                  nomeCategoria
+                      ? nomeCategoria.replace(/^./, c => c.toUpperCase())
+                      : "Sem categoria"
+              )
+          );
 
         const botoes = el("div", "ga-btn-eventos");
         const agendar = el("a", "ga-btn-detalhes", "Ver agenda");
