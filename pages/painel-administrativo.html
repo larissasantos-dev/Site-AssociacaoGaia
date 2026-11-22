@@ -450,82 +450,148 @@
                             </p>
                         </div>
 
-                        <form id="adm-form-evento" class="adm-evento-form">
-                            <div class="adm-evento-form-header">
-                                <div>
-                                    <span class="adm-eyebrow">Novo conteúdo</span>
-                                    <h3 id="adm-evento-form-titulo">Cadastrar evento</h3>
-                                </div>
-                            </div>
+                        
+                <form id="adm-form-evento" class="adm-evento-form">
+                    <div class="adm-evento-form-header">
+                        <div>
+                            <span class="adm-eyebrow">Novo conteúdo</span>
+                            <h3 id="adm-evento-form-titulo">Cadastrar evento</h3>
+                        </div>
+                    </div>
 
-                            <div class="adm-evento-campo">
-                                <label for="adm-evento-imagem-url">URL da imagem <span aria-hidden="true">*</span></label>
-                                <input type="url" id="adm-evento-imagem-url" name="imagemUrl" maxlength="255"
-                                    placeholder="https://exemplo.com/imagem.jpg" required>
-                                <small>Informe uma URL pública da imagem. A seleção de arquivo abaixo serve apenas para pré-visualização; o envio de arquivos exige armazenamento no back-end.</small>
-                            </div>
+                    <div class="adm-evento-imagem-campo">
+                        <label for="adm-evento-imagem">
+                            Imagem <span aria-hidden="true">*</span>
+                        </label>
 
-                            <div class="adm-evento-imagem-campo">
-                                <label for="adm-evento-imagem">Pré-visualizar arquivo local (opcional)</label>
-                                <div class="adm-evento-upload">
-                                    <input
-                                        type="file"
-                                        id="adm-evento-imagem"
-                                        name="imagem"
-                                        accept="image/jpeg,image/png,image/webp"
-                                        aria-describedby="adm-evento-imagem-ajuda"
-                                    >
-                                    <div class="adm-evento-preview" id="adm-evento-preview">
-                                        <i class="bi bi-image" aria-hidden="true"></i>
-                                        <span>A prévia da imagem aparecerá aqui</span>
-                                    </div>
-                                </div>
-                                <small id="adm-evento-imagem-ajuda">
-                                    Selecione JPG, PNG ou WEBP para visualizar temporariamente. Para publicar, informe a URL no campo acima.
-                                </small>
-                            </div>
+                        <div class="adm-evento-upload">
+                            <input
+                                type="file"
+                                id="adm-evento-imagem"
+                                name="imagem"
+                                accept="image/jpeg,image/png,image/webp"
+                                aria-describedby="adm-evento-imagem-ajuda"
+                                required
+                            >
 
-                            <div class="adm-evento-campo">
-                                <label for="adm-evento-titulo">Título <span aria-hidden="true">*</span></label>
-                                <input type="text" id="adm-evento-titulo" name="titulo" maxlength="150"
-                                    placeholder="Ex.: Feira de Artesanato" required>
+                            <div class="adm-evento-preview" id="adm-evento-preview">
+                                <i class="bi bi-image" aria-hidden="true"></i>
+                                <span>A prévia da imagem aparecerá aqui</span>
                             </div>
+                        </div>
 
-                            <div class="adm-evento-campo">
-                                <label for="adm-evento-descricao">Descrição</label>
-                                <textarea id="adm-evento-descricao" name="descricao" rows="4"
-                                    placeholder="Conte um pouco sobre o evento..."></textarea>
-                            </div>
+                        <small id="adm-evento-imagem-ajuda">
+                            Selecione uma imagem JPG, PNG ou WEBP. Uma nova imagem é obrigatória
+                            no cadastro e opcional durante a edição.
+                        </small>
+                    </div>
 
-                            <div class="adm-evento-campo">
-                                <label for="adm-evento-local">Local <span aria-hidden="true">*</span></label>
-                                <input type="text" id="adm-evento-local" name="local" maxlength="255"
-                                    placeholder="Endereço ou local do evento" required>
-                            </div>
+                    <div class="adm-evento-campo">
+                        <label for="adm-evento-titulo">
+                            Título <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="adm-evento-titulo"
+                            name="titulo"
+                            maxlength="150"
+                            placeholder="Ex.: Feira de Artesanato"
+                            required
+                        >
+                    </div>
 
-                            <div class="adm-evento-campos-duplos">
-                                <div class="adm-evento-campo">
-                                    <label for="adm-evento-data">Data <span aria-hidden="true">*</span></label>
-                                    <input type="date" id="adm-evento-data" name="data" required>
-                                </div>
-                                <div class="adm-evento-campo">
-                                    <label for="adm-evento-hora">Horário <span aria-hidden="true">*</span></label>
-                                    <input type="time" id="adm-evento-hora" name="hora" lang="pt-BR" step="60" required>
-                                </div>
-                            </div>
+                    <div class="adm-evento-campo">
+                        <label for="adm-evento-descricao">Descrição</label>
+                        <textarea
+                            id="adm-evento-descricao"
+                            name="descricao"
+                            rows="4"
+                            placeholder="Conte um pouco sobre o evento..."
+                        ></textarea>
+                    </div>
 
-                            <div class="adm-evento-acoes">
-                                <button type="reset" class="adm-evento-btn adm-evento-btn--secundario">
-                                    Limpar formulário
-                                </button>
-                                <button type="submit" class="adm-evento-btn adm-evento-btn--principal">
-                                    <i class="bi bi-plus-lg" aria-hidden="true"></i>
-                                    <span id="adm-evento-submit-texto">Cadastrar evento</span>
-                                </button>
-                            </div>
+                    <div class="adm-evento-campo">
+                        <label for="adm-evento-local">
+                            Local <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="adm-evento-local"
+                            name="local"
+                            maxlength="255"
+                            placeholder="Endereço ou local do evento"
+                            required
+                        >
+                    </div>
 
-                            <p id="adm-evento-mensagem" class="adm-evento-mensagem" role="status" hidden></p>
-                        </form>
+                    <div class="adm-evento-campo">
+                        <label for="adm-evento-categoria">
+                            Categoria <span aria-hidden="true">*</span>
+                        </label>
+                        <select
+                            id="adm-evento-categoria"
+                            name="categoria"
+                            required
+                        >
+                            <option value="">Selecione uma categoria</option>
+                            <option value="feira">Feira</option>
+                            <option value="oficina">Oficina</option>
+                            <option value="exposicao">Exposição</option>
+                            <option value="palestras">Palestras</option>
+                            <option value="cursos">Cursos</option>
+                        </select>
+                    </div>
+
+                    <div class="adm-evento-campos-duplos">
+                        <div class="adm-evento-campo">
+                            <label for="adm-evento-data">
+                                Data <span aria-hidden="true">*</span>
+                            </label>
+                            <input
+                                type="date"
+                                id="adm-evento-data"
+                                name="data"
+                                required
+                            >
+                        </div>
+
+                        <div class="adm-evento-campo">
+                            <label for="adm-evento-hora">
+                                Horário <span aria-hidden="true">*</span>
+                            </label>
+                            <input
+                                type="time"
+                                id="adm-evento-hora"
+                                name="hora"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="adm-evento-acoes">
+                        <button
+                            type="reset"
+                            class="adm-evento-btn adm-evento-btn--secundario"
+                        >
+                            Limpar formulário
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="adm-evento-btn adm-evento-btn--principal"
+                        >
+                            <i class="bi bi-plus-lg" aria-hidden="true"></i>
+                            <span id="adm-evento-submit-texto">Cadastrar evento</span>
+                        </button>
+                    </div>
+
+                    <p
+                        id="adm-evento-mensagem"
+                        class="adm-evento-mensagem"
+                        role="status"
+                        hidden
+                    ></p>
+                </form>
 
                         <div class="adm-eventos-lista">
                             <div class="adm-eventos-lista-header">

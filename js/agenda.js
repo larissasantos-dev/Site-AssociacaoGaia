@@ -1,41 +1,35 @@
+
 document.addEventListener("DOMContentLoaded", async () => {
     const destaque = document.getElementById("ga-agenda-proximo");
     const listaProximos = document.getElementById("ga-agenda-lista-proximos");
     const listaAnteriores = document.getElementById("ga-agenda-lista-anteriores");
     const tituloProximos = document.getElementById("ga-agenda-titulo-proximos");
-    const mensagem = document.getElementById("ga-agenda-mensagem");
     const tituloAnteriores = document.getElementById("ga-agenda-titulo-anteriores");
+    const mensagem = document.getElementById("ga-agenda-mensagem");
 
     const token = localStorage.getItem("gaia_token");
 
     if (!token) {
         mensagem.textContent = "Entre na sua conta para consultar seus agendamentos.";
+        destaque.replaceChildren();
         return;
     }
 
     const agora = new Date();
 
-    // Converte a data e a hora do evento em um objeto Date.
-    
     function dataHoraEvento(evento) {
         const valorData = evento.data ?? evento.dataEvento;
 
-        if (!valorData) {
-            return null;
-        }
+        if (!valorData) return null;
 
-        const [ano, mes, dia] = String(valorData)
-            .split("-")
-            .map(Number);
+        const [ano, mes, dia] = String(valorData).split("-").map(Number);
 
         const valorHora = evento.hora ?? evento.horaEvento ?? "00:00:00";
         const [hora, minuto, segundo = 0] = String(valorHora)
             .split(":")
             .map(Number);
 
-        if (!ano || !mes || !dia) {
-            return null;
-        }
+        if (!ano || !mes || !dia) return null;
 
         return new Date(
             ano,
@@ -50,9 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     function formatarData(evento) {
         const data = dataHoraEvento(evento);
 
-        if (!data) {
-            return "Data a confirmar";
-        }
+        if (!data) return "Data a confirmar";
 
         let texto = data.toLocaleDateString("pt-BR", {
             day: "2-digit",
@@ -70,9 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     function imagemUrl(valor) {
-        if (!valor) {
-            return "../assets/evento-principal.jpg";
-        }
+        if (!valor) return "../assets/evento-principal.jpg";
 
         const url = String(valor).trim();
 
@@ -90,35 +80,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     function elemento(tag, classe, texto) {
         const node = document.createElement(tag);
 
-        if (classe) {
-            node.className = classe;
-        }
-
-        if (texto !== undefined) {
-            node.textContent = texto;
-        }
+        if (classe) node.className = classe;
+        if (texto !== undefined) node.textContent = texto;
 
         return node;
     }
 
-    function criarIconeTexto(classe, src, texto) {
-        const wrapper = elemento("div", classe);
-        const img = elemento("img");
-
-        img.src = src;
-        img.alt = "";
-
-        wrapper.append(
-            img,
-            elemento("p", "", texto)
-        );
-
-        return wrapper;
-    }
-
     function configurarImagem(img, evento) {
         img.src = imagemUrl(evento.imagemUrl);
-        img.alt = `Evento ${evento.tituloEvento || ""}`;
+        img.alt = `Imagem do evento ${evento.titulo || "sem título"}`;
         img.loading = "lazy";
 
         img.onerror = () => {
@@ -127,52 +97,75 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
     }
 
-    // Adapta os nomes do DTO aos nomes esperados pelos cards.
-    function adaptarEvento(agendamento) {
-        return {
-            idEvento: agendamento.idEvento,
-            titulo: agendamento.tituloEvento,
-            data: agendamento.dataEvento,
-            hora: agendamento.horaEvento,
-            local: agendamento.local,
-            imagemUrl: agendamento.imagemUrl
-        };
+    function criarInformacao(classe, src, texto) {
+        const wrapper = elemento("p", `ga-agenda-info ${classe}`);
+        const img = elemento("img");
+
+        img.src = src;
+        img.alt = "";
+        img.setAttribute("aria-hidden", "true");
+
+        const conteudo = elemento("span", "", texto);
+
+        wrapper.append(img, conteudo);
+
+        return wrapper;
+    }
+
+    function criarLinkDetalhes(evento) {
+        const link = elemento("a", "ga-btn-agenda", "Ver detalhes");
+
+        link.href = `evento.html?id=${encodeURIComponent(evento.idEvento)}`;
+        link.setAttribute(
+            "aria-label",
+            `Ver detalhes do evento ${evento.titulo || ""}`
+        );
+
+        return link;
+    }
+
+    function criarAvisoCancelado() {
+        return elemento(
+            "p",
+            "ga-agenda-cancelado",
+            "Este evento foi cancelado pelo administrador."
+        );
     }
 
     function criarCard(evento) {
         const article = elemento("article", "ga-card-agenda");
 
-        const img = elemento("img");
-        configurarImagem(img, evento);
+        const imagem = elemento("img", "ga-card-agenda__imagem");
+        configurarImagem(imagem, evento);
 
         const info = elemento("div", "ga-card-info");
 
+        const titulo = elemento(
+            "h3",
+            "ga-card-agenda__titulo",
+            evento.titulo || "Evento sem título"
+        );
+
         info.append(
-            elemento("h3", "", evento.titulo || "Evento sem título"),
-            criarIconeTexto(
+            titulo,
+            criarInformacao(
                 "ga-local",
                 "../assets/ponteiro-mapa.png",
                 evento.local || "Local a confirmar"
             ),
-            criarIconeTexto(
+            criarInformacao(
                 "ga-data",
                 "../assets/calendario-eventos.png",
                 formatarData(evento)
             )
         );
 
-        if(evento.cancelado){
-            const avisoCancelado = elemento("p", "", "Evento cancelado");
-            avisoCancelado.style.fontWeight = "bold";
-            avisoCancelado.style.margin = "0.5rem 0";
-            info.appendChild(avisoCancelado);
+        if (evento.cancelado) {
+            info.appendChild(criarAvisoCancelado());
         }
 
-        const link = elemento("a", "ga-btn-agenda", "Ver detalhes");
-        link.href = `evento.html?id=${encodeURIComponent(evento.idEvento)}`;
-
-        info.appendChild(link);
-        article.append(img, info);
+        info.appendChild(criarLinkDetalhes(evento));
+        article.append(imagem, info);
 
         return article;
     }
@@ -182,51 +175,62 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const visual = elemento("div", "ga-img-proximo");
 
-        const textoBadge = evento.cancelado ? "Evento Cancelado" : "Próximo Evento";
-        const classeBagde = evento.cancelado ? "ga-badge-proximo adm-status--inativo" : "ga-badge-proximo";
-        const badge = elemento("span", classeBagde, textoBadge);
+        const badge = elemento(
+            "span",
+            evento.cancelado
+                ? "ga-badge-proximo ga-badge-proximo--cancelado"
+                : "ga-badge-proximo",
+            evento.cancelado ? "Evento cancelado" : "Próximo evento"
+        );
 
-        const img = elemento("img");
+        const imagem = elemento("img");
+        configurarImagem(imagem, evento);
 
-        configurarImagem(img, evento);
-        visual.append(badge, img);
+        visual.append(badge, imagem);
 
         const info = elemento("div", "ga-info-proximo");
 
+        const titulo = elemento(
+            "h2",
+            "ga-info-proximo__titulo",
+            evento.titulo || "Evento sem título"
+        );
+
         info.append(
-            elemento("h2", "", evento.titulo || "Evento sem título"),
-            criarIconeTexto(
+            titulo,
+            criarInformacao(
                 "ga-local",
                 "../assets/ponteiro-mapa.png",
                 evento.local || "Local a confirmar"
             ),
-            criarIconeTexto(
+            criarInformacao(
                 "ga-data",
                 "../assets/calendario-eventos.png",
                 formatarData(evento)
             )
         );
 
-        if(evento.cancelado){
-            const avisoCanceladoDestaque = elemento("p", "adm-erro", "Este evento foi cancelado pelo adminsitrador.");
-            avisoCanceladoDestaque.style.fontWeight = "bold";
-            avisoCanceladoDestaque.style.margin = "0.5rem 0";
-            info.appendChild(avisoCanceladoDestaque);
+        if (evento.cancelado) {
+            info.appendChild(criarAvisoCancelado());
         }
 
-        const link = elemento("a", "ga-btn-agenda", "Ver detalhes");
-        link.href = `evento.html?id=${encodeURIComponent(evento.idEvento)}`;
+        info.appendChild(criarLinkDetalhes(evento));
 
-        info.appendChild(link);
         destaque.append(visual, info);
+    }
+
+    function mostrarMensagemDestaque(texto) {
+        destaque.replaceChildren(
+            elemento("div", "ga-info-proximo ga-info-proximo--vazio", texto)
+        );
     }
 
     try {
         const resposta = await fetch(`${API_BASE}/agendamentos/ativos`, {
             method: "GET",
             headers: {
-                "Authorization": `Bearer ${token}`,
-                "Accept": "application/json"
+                Authorization: `Bearer ${token}`,
+                Accept: "application/json"
             }
         });
 
@@ -237,13 +241,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             mensagem.textContent =
                 "Sua sessão expirou. Entre novamente na sua conta.";
 
+            mostrarMensagemDestaque("Faça login para visualizar sua agenda.");
             return;
         }
 
         if (resposta.status === 403) {
             mensagem.textContent =
-                "Somente visitantes podem consultar esta agenda.";
+                "Você não tem permissão para consultar esta agenda.";
 
+            mostrarMensagemDestaque("Não foi possível acessar seus agendamentos.");
             return;
         }
 
@@ -257,9 +263,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             throw new Error("A API não retornou uma lista de agendamentos.");
         }
 
-        // Adapta e ordena os eventos do visitante.
         const eventos = agendamentos
-            .map(adaptarEvento)
+            .map(agendamento => ({
+                idEvento: agendamento.idEvento,
+                titulo: agendamento.tituloEvento,
+                data: agendamento.dataEvento,
+                hora: agendamento.horaEvento,
+                local: agendamento.local,
+                imagemUrl: agendamento.imagemUrl,
+                cancelado: agendamento.cancelado
+            }))
             .sort((a, b) => {
                 const dataA = dataHoraEvento(a);
                 const dataB = dataHoraEvento(b);
@@ -271,7 +284,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return dataA.getTime() - dataB.getTime();
             });
 
-        // Separa eventos futuros e anteriores usando data e hora.
         const proximos = eventos.filter(evento => {
             const data = dataHoraEvento(evento);
             return data && data >= agora;
@@ -286,20 +298,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         listaAnteriores.replaceChildren();
 
         if (proximos.length > 0) {
-            // O evento futuro mais próximo sempre ganha o destaque.
             mostrarDestaque(proximos[0]);
 
-            // Os demais ficam na lista com scroll.
             proximos.slice(1).forEach(evento => {
                 listaProximos.appendChild(criarCard(evento));
             });
         } else {
-            destaque.replaceChildren(
-                elemento(
-                    "div",
-                    "ga-info-proximo",
-                    "Você não possui próximos eventos agendados."
-                )
+            mostrarMensagemDestaque(
+                "Você não possui próximos eventos agendados."
             );
         }
 
@@ -307,13 +313,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             listaAnteriores.appendChild(criarCard(evento));
         });
 
-        if (tituloAnteriores) {
-            tituloAnteriores.hidden = anteriores.length === 0;
-        }
-
-        if (tituloProximos) {
-            tituloProximos.hidden = proximos.length <= 1;
-        }
+        tituloProximos.hidden = proximos.length <= 1;
+        tituloAnteriores.hidden = anteriores.length === 0;
 
         mensagem.textContent = eventos.length
             ? ""
@@ -322,12 +323,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (erro) {
         console.error("Não foi possível carregar a agenda:", erro);
 
-        destaque.replaceChildren(
-            elemento(
-                "div",
-                "ga-info-proximo",
-                "Não foi possível carregar sua agenda. Tente novamente mais tarde."
-            )
+        mostrarMensagemDestaque(
+            "Não foi possível carregar sua agenda. Tente novamente mais tarde."
         );
 
         mensagem.textContent = "";

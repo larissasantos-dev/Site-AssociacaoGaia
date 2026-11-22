@@ -3856,8 +3856,9 @@ body.high-contrast span {
 .ga-evento-hero__card h1,
 .ga-evento-hero__card h2,
 .ga-evento-hero__title {
-  font-size: 2rem; 
-  line-height: 1.2;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0;
 }
 
 /* LOCAL E DATA */
@@ -3866,7 +3867,7 @@ body.high-contrast span {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
 }
 
 .ga-evento-hero__informacoes p {
@@ -4139,7 +4140,7 @@ body.high-contrast span {
 
     .ga-evento-hero__card .hero-base__titulo {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
     }
 
     .ga-evento-hero__informacoes {
@@ -4200,405 +4201,472 @@ body.high-contrast span {
     color: #ffffff;
 }
 
+
 /* ============================
    14. AGENDA
    ============================ */
 
-/* ----- PÁGINA ----- */
-.ga-page-agenda{
-    background: linear-gradient(180deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-bege2-claro-gradiante) 100%);
+/* PÁGINA */
+
+.ga-page-agenda {
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        var(--cor-bege-claro-gradiante) 0%,
+        var(--cor-bege2-claro-gradiante) 100%
+    );
 }
 
-.ga-agenda{
-    padding: 20px;
-    background: #f5f1ec;
+.ga-agenda {
+    padding: 32px 5% 48px;
+    background: var(--cor-bege-claro-gradiante);
 }
 
 /* HERO */
-.ga-bck-agenda{
-    background: linear-gradient(160deg, var(--cor-bege-claro-gradiante) 0%, var(--cor-hero-medio) 100%);
-    padding: 20px;
-}
 
-.ga-bck-agenda img{
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 22px;
-    display: block;
-    margin-bottom: 22px;
-}
-
-.ga-titulo-agenda{
+.ga-bck-agenda {
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    padding: 28px 5%;
+    background: linear-gradient(
+        160deg,
+        var(--cor-bege-claro-gradiante) 0%,
+        var(--cor-hero-medio) 100%
+    );
 }
 
-.ga-titulo-agenda h1{
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: #111;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.ga-texto-titulo-agenda{
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--cor-flecha);
-}
-
-.ga-hero-agenda{
-    margin-bottom: 32px;
-}
-
-.ga-hero-agenda img{
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 20px;
-}
-
-.ga-hero-agenda h1{
-    margin-top: 20px;
-    text-align: center;
-    font-size: 2.2rem;
-}
-
-/* PRÓXIMO EVENTO */
-.ga-proximo-evento{
-    background: var(--cor-info-artesao);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,.08);
-    margin-bottom: 32px;
-    transition: 0.3s ease;
-}
-
-.ga-proximo-evento:hover{
-    transform: translateY(-6px);
-}
-
-.ga-proximo-evento:hover img {
-    transform: scale(1.03);
-}
-
-.ga-img-proximo{
-    position: relative;
-}
-
-/* BADGE SOBRE A IMAGEM */
-.ga-badge-proximo{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #8a4d20;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    z-index: 2;
-}
-
-/* IMAGEM DO PRÓXIMO EVENTO */
-.ga-proximo-evento img {
+.ga-bck-agenda img {
+    display: block;
     width: 100%;
     height: 220px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    border-radius: 22px;
 }
 
-/* INFORMAÇÕES */
-.ga-info-proximo{
-    padding: 20px;
-}
-
-.ga-info-proximo h2{
-    margin-bottom: 12px;
-}
-
-/* LOCAL E DATA */
-
-/* LOCAL E DATA */
-
-.ga-evento-hero__informacoes {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    width: 100%;
-    margin: 0;
-}
-
-.ga-evento-hero__informacoes p {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-}
-
-.ga-evento-info__linha {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    width: 100%;
-    min-width: 0;
-}
-
-.ga-evento-hero__informacoes .ga-evento-info__icone {
-    flex: 0 0 28px;
-    width: 28px;
-    height: 28px;
-    padding: 6px;
-    box-sizing: border-box;
-
-    color: var(--cor-botao-principal);
-    background: var(--cor-fundo-bege-claro);
-    border-radius: 0.5rem;
-}
-
-.ga-evento-meta__conteudo {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: start;
-    align-items: baseline;
-    column-gap: 0.5rem;
-    row-gap: 0.1rem;
-    min-width: 0;
-}
-
-.ga-evento-meta__rotulo {
-    grid-column: 1 / -1;
-    color: var(--cor-botao-principal);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-}
-
-.ga-evento-meta__valor {
-    color: var(--cor-fonte-claro);
-    font-size: 0.82rem;
-    line-height: 1.35;
-    overflow-wrap: anywhere;
-}
-
-.ga-evento-meta__horario {
-    color: var(--cor-fonte-claro);
-    font-size: 0.78rem;
-    line-height: 1.3;
-    white-space: nowrap;
-}
-
-.ga-evento-meta__horario::before {
-    content: "•";
-    margin-right: 0.35rem;
-}
-
-
-/* BOTÃO DO PRÓXIMO EVENTO */
-.ga-btn-agenda{
-    display: inline-block;
-    margin-top: 20px;
-    width: fit-content;
-    background: var(--cor-botao-principal);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.ga-btn-agenda:hover{
-    background: var(--cor-botao-hover);
-}
-
-/* LISTA */
-.ga-lista-agenda{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border-radius: 20px;
-}
-
-.ga-card-agenda{
-    display: flex;
-    gap: 15px;
-    background: var(--cor-info-artesao);
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.05);
-    transition: 0.3s ease;
-}
-
-.ga-card-agenda:hover{
-    transform: translateY(-6px);
-}
-
-.ga-card-agenda:hover img {
-    transform: scale(1.05);
-}
-
-/* IMAGEM DO CARD */
-.ga-card-agenda > img {
-    transition: transform 0.3s ease;
-    max-height: 11rem;
-    max-width: 9.5rem;
-    object-fit: cover;
-    border-radius: 16px;
-}
-
-/* INFORMAÇÕES DO CARD */
-.ga-card-info .ga-local img,
-.ga-card-info .ga-data img {
-    width: 18px;
-    height: 18px;
-    flex: none;
-}
-
-.ga-card-info{
+.ga-titulo-agenda {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.ga-card-info h3{
-    margin-bottom: 10px;
-    font-size: 1.5rem;
+.ga-titulo-agenda h1 {
+    margin-bottom: 12px;
+    color: var(--cor-fonte-preta);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    text-transform: uppercase;
 }
 
-.ga-card-info p{
-    margin-bottom: 8px;
-    font-size: 1rem;
+.ga-texto-titulo-agenda {
+    max-width: 540px;
+    margin: 0;
+    color: var(--cor-flecha);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-/* BOTÃO DO CARD */
-.ga-btn-card-agenda{
-    width: 140px;
+/* MENSAGEM DA AGENDA */
+
+.ga-eventos-mensagem {
+    margin: 0 0 20px;
+    color: var(--cor-fonte-escuro);
+    font-size: 0.95rem;
     text-align: center;
-    display: inline-block;
-    background: var(--cor-botao-principal);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    font-weight: 600;
 }
 
-.ga-btn-card-agenda:hover{
+/* LAYOUT PRINCIPAL */
+
+.ga-layout-agenda {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.ga-proximo-evento {
+    min-width: 0;
+}
+
+.ga-agenda-destaque {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--cor-info-artesao);
+    border-radius: 22px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ga-agenda-destaque:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.13);
+}
+
+/* IMAGEM DO DESTAQUE */
+
+.ga-img-proximo {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.ga-img-proximo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.ga-agenda-destaque:hover .ga-img-proximo img {
+    transform: scale(1.025);
+}
+
+/* BADGE */
+
+.ga-badge-proximo {
+    position: absolute;
+    z-index: 2;
+    top: 16px;
+    left: 16px;
+    padding: 8px 14px;
+    color: var(--cor-fonte);
+    background: var(--cor-marrom-claro);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.ga-badge-proximo--cancelado {
     background: var(--cor-botao-hover);
 }
 
-/* ELEMENTOS ESPECÍFICOS */
-#ga-local-evento,
-#ga-data-evento {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+/* INFORMAÇÕES DO DESTAQUE */
 
-/* RESPONSIVO */
-@media(min-width: 900px){
-    .ga-layout-agenda{
-        display: grid;
-        grid-template-columns: 1.2fr 1.2fr;
-        gap: 24px;
-        align-items: start;
-    }
-
-    .ga-bck-agenda{
-        display: flex;
-        align-items: center;
-        gap: 60px;
-        padding: 40px 5%;
-    }
-
-    .ga-bck-agenda img{
-        width: 50%;
-        height: 420px;
-        margin-bottom: 0;
-        flex-shrink: 0;
-    }
-
-    .ga-titulo-agenda{
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .ga-titulo-agenda h1{
-        font-size: 1.4rem;
-    }
-
-    .ga-texto-titulo-agenda{
-        font-size: 3rem;
-        max-width: 520px;
-    }
-
-    /* CARD PRINCIPAL */
-
-    .ga-proximo-evento{
-        display: block;
-        height: 470px;
-
-    }
-
-    .ga-img-proximo{
-        width: 100%;
-    }
-
-    .ga-img-proximo img{
-        width: 100%;
-        height: 170px;
-        object-fit: cover;
-    }
-
-    .ga-info-proximo{
-        width: 100%;
-        padding: 24px;
-    }
-
-    /* LISTA LATERAL */
-
-    .ga-lista-agenda{
+.ga-info-proximo {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    background-color: #d8c3ad;
-    padding: 15px;
-    max-height: 470px;
-    overflow-y: auto;
-    padding-right: 8px;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    color: var(--cor-fonte-preta);
+}
+
+.ga-info-proximo h2 {
+    display: block;
+    width: 100%;
+    margin: 0 0 4px;
+    color: var(--cor-fonte-preta);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+/* LOCAL E DATA */
+
+.ga-agenda-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    color: var(--cor-fonte-escuro);
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.ga-agenda-info img {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.ga-agenda-info span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* AVISO DE EVENTO CANCELADO */
+
+.ga-agenda-cancelado {
+    margin: 0;
+    color: var(--cor-fonte-escuro);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* BOTÃO VER DETALHES */
+
+.ga-btn-agenda {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    flex: 0 0 auto;
+    width: fit-content;
+    min-height: 42px;
+    margin: 6px 0 0;
+    padding: 11px 20px;
+    color: var(--cor-fonte);
+    background: var(--cor-botao-principal);
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ga-btn-agenda:hover {
+    color: var(--cor-fonte);
+    background: var(--cor-botao-hover);
+    transform: translateY(-2px);
+}
+
+.ga-btn-agenda:focus-visible {
+    outline: 2px solid var(--cor-fonte-escuro);
+    outline-offset: 3px;
+}
+
+/* DESTAQUE VAZIO */
+
+.ga-info-proximo--vazio {
+    justify-content: center;
+    min-height: 230px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* LISTA LATERAL */
+
+.ga-lista-agenda {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    padding: 18px;
+    background: var(--cor-hero-medio);
+    border-radius: 20px;
+}
+
+.ga-lista-agenda h2 {
+    margin: 0 0 2px;
+    color: var(--cor-verde-titulo);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.ga-agenda-lista-proximos,
+.ga-agenda-lista-anteriores {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+/* CARDS DOS DEMAIS EVENTOS */
+
+.ga-card-agenda {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    overflow: hidden;
+    background: var(--cor-info-artesao);
+    border-radius: 18px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ga-card-agenda:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* IMAGEM DOS CARDS */
+
+.ga-card-agenda__imagem {
+    display: block;
+    flex: 0 0 112px;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 13px;
+}
+
+/* INFORMAÇÕES DOS CARDS */
+
+.ga-card-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    color: var(--cor-fonte-preta);
+}
+
+.ga-card-agenda__titulo {
+    display: block;
+    width: 100%;
+    margin: 0;
+    color: var(--cor-fonte-preta);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.ga-card-info .ga-agenda-info {
+    gap: 8px;
+    color: var(--cor-fonte-escuro);
+    font-size: 0.84rem;
+}
+
+.ga-card-info .ga-agenda-info img {
+    flex-basis: 17px;
+    width: 17px;
+    height: 17px;
+}
+
+.ga-card-info .ga-btn-agenda {
+    min-height: 36px;
+    margin: 4px 0 0;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+}
+
+/* EVENTOS ANTERIORES */
+
+#ga-agenda-titulo-anteriores:not([hidden]) {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--cor-fonte-claro);
+}
+
+/* RESPONSIVIDADE */
+
+@media (min-width: 700px) {
+    .ga-bck-agenda {
+        flex-direction: row;
+        align-items: center;
+        gap: 36px;
+        padding: 36px 5%;
     }
 
-    .ga-lista-agenda::-webkit-scrollbar{
-    width: 8px;
+    .ga-bck-agenda img {
+        flex: 0 1 52%;
+        width: 52%;
+        height: 260px;
+        margin: 0;
     }
 
-    .ga-lista-agenda::-webkit-scrollbar-track{
-        background: #f5f1ec;
+    .ga-titulo-agenda {
+        flex: 1;
     }
 
-    .ga-lista-agenda::-webkit-scrollbar-thumb{
-        background: #c45e2a;
-        border-radius: 999px;
+    .ga-layout-agenda {
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        gap: 24px;
     }
 
-    .ga-lista-agenda::-webkit-scrollbar-thumb:hover{
-        background: #943f20;
-    }
-    .ga-card-agenda{
-        padding: 12px;
-        gap: 12px;
-    }
-
-    .ga-card-info h3{
-        font-size: 1.2rem;
-    }
-
-    .ga-card-info p,
-    .ga-card-info span{
-        font-size: 1rem;
+    .ga-img-proximo {
+        height: 260px;
     }
 }
+
+@media (min-width: 1100px) {
+    .ga-agenda {
+        padding: 36px 5% 56px;
+    }
+
+    .ga-layout-agenda {
+        grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .ga-img-proximo {
+        height: 290px;
+    }
+
+    .ga-info-proximo {
+        padding: 28px;
+        gap: 16px;
+    }
+
+    .ga-card-agenda__imagem {
+        flex-basis: 120px;
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 420px) {
+    .ga-agenda {
+        padding: 24px 14px 36px;
+    }
+
+    .ga-bck-agenda {
+        padding: 20px 14px;
+    }
+
+    .ga-card-agenda {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .ga-card-agenda__imagem {
+        flex-basis: 88px;
+        width: 88px;
+        height: 100px;
+    }
+
+    .ga-card-agenda__titulo {
+        font-size: 0.95rem;
+    }
+
+    .ga-card-info .ga-agenda-info {
+        font-size: 0.78rem;
+    }
+
+    .ga-info-proximo {
+        padding: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ga-agenda-destaque,
+    .ga-card-agenda,
+    .ga-btn-agenda,
+    .ga-img-proximo img {
+        transition: none;
+    }
+
+    .ga-agenda-destaque:hover,
+    .ga-card-agenda:hover,
+    .ga-btn-agenda:hover {
+        transform: none;
+    }
+}
+
 
 /* ==========================
    LANA — CADASTRO
