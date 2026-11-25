@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-icons/bootstrap-icons.css">
+    <title>Meus trabalhos | Associação Gaia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/config.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/newsletter.js" defer></script>
+    <script src="../js/meus-trabalhos.js" defer></script>
+</head>
+<body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- GLOBAL - HEADER PARA MOBILE E DESKTOP -->
+    <header class="geral-header">
+      <nav class="mobile-header">
+        <div class="mobile-header-container-flexbox-pai">
+            <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+            <img src="../assets/icone-tres-linhas-header.svg" alt="tres-linhas" class="header-tamanho-imagens" id="mobile-header-btn-menu">
+        </div>
+      </nav>
+      <nav class="desktop-header">
+        <img src="../assets/logo-associacao-gaia.svg" alt="logo-gaia" class="header-logo-img">
+        <ul class="desktop-header-container-flexbox-pai">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+
+            <li id="link-painel-admin" hidden><a href="painel-administrativo.html">Painel Administrativo</a></li>
+        </ul>
+        <div>
+            <a href="login.html" aria-label="Entrar na minha conta">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario" class="icone-usuario">
+            </a>
+        </div>
+      </nav>
+      <aside id="mobile-header-sidebar">
+        <div class="mobile-sidebar-cima">
+             <button id="mobile-btnFechar-sidebar">X</button>
+        </div>
+        <div class="mobile-usuario-sidebar">
+            <a href="login.html" aria-label="Entrar na minha conta" class="mobile-usuario-sidebar-link">
+                <img src="../assets/icone-user-header.svg" alt="icone-usuario-sidebar" class="mobile-icone-usuario">
+                <span>Minha conta</span>
+            </a>
+        </div>
+        <nav>
+           <ul class="mobile-sidebar">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="artesaos.html">Artesãos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="sobre-nos.html">Sobre nós</a></li>
+
+            <li id="link-painel-admin-mobile" hidden><a href="painel-administrativo.html">Painel Administrativo</a></li>
+           </ul>
+        </nav>
+      </aside>
+      <div id="mobile-header-overlay" class="mobile-header-overlay-class"></div>
+    </header>
+
+    <!-- ----- LANA ----- -->
+    <!-- MEUS TRABALHOS: área exclusiva do artesão (cards com foto, preço e histórico) -->
+    <main class="ln-trab-page pagina-base__gradiante" id="conteudo-principal" tabindex="-1">
+      <div class="ln-trab-wrap wrap-base__central" id="ln-trab-pagina">
+
+        <header class="ln-trab-topo">
+          <p class="ln-trab-label">Área do artesão</p>
+          <h1>Meus trabalhos</h1>
+          <p class="ln-trab-sub">Publique fotos das suas peças, atualize os preços quando quiser e veja o histórico de cada mudança. Tudo aparece no seu perfil público.</p>
+          <p class="ln-trab-contador" id="ln-trab-contador" aria-live="polite"></p>
+        </header>
+
+        <!-- Aviso quando não está logado / não é artesão -->
+        <p class="ln-trab-aviso" id="ln-trab-aviso" role="alert" hidden></p>
+
+        <div id="ln-trab-conteudo" hidden>
+
+          <!-- FORMULÁRIO (criar e editar) -->
+          <form id="ln-trab-form" class="ln-trab-form" novalidate>
+            <h2 id="ln-trab-form-titulo">Adicionar trabalho</h2>
+
+            <div class="ln-trab-campo">
+              <label for="ln-trab-imagem" id="ln-trab-label-imagem">Foto da peça *</label>
+              <input type="file" id="ln-trab-imagem" accept="image/jpeg,image/png,image/webp" aria-describedby="ln-trab-dica-imagem ln-trab-erro-imagem">
+              <small class="ln-trab-dica" id="ln-trab-dica-imagem">JPG, PNG ou WEBP, de até 5 MB.</small>
+              <small class="ln-trab-erro" id="ln-trab-erro-imagem" role="alert"></small>
+              <img id="ln-trab-preview" class="ln-trab-preview" alt="Pré-visualização da foto escolhida" hidden>
+            </div>
+
+            <div class="ln-trab-campo">
+              <label for="ln-trab-legenda">Nome da peça (legenda) *</label>
+              <input type="text" id="ln-trab-legenda" maxlength="150" placeholder="Ex.: Vaso de cerâmica esmaltada" required>
+              <small class="ln-trab-erro" id="ln-trab-erro-legenda" role="alert"></small>
+            </div>
+
+            <div class="ln-trab-linha">
+              <div class="ln-trab-campo">
+                <label for="ln-trab-categoria">Categoria</label>
+                <input type="text" id="ln-trab-categoria" maxlength="100" placeholder="Ex.: Cerâmica">
+                <small class="ln-trab-erro" id="ln-trab-erro-categoria" role="alert"></small>
+              </div>
+
+              <div class="ln-trab-campo">
+                <label for="ln-trab-preco">Preço (R$)</label>
+                <input type="text" id="ln-trab-preco" inputmode="decimal" placeholder="Ex.: 120,00" aria-describedby="ln-trab-dica-preco ln-trab-erro-preco">
+                <small class="ln-trab-dica" id="ln-trab-dica-preco">Deixe em branco para exibir &ldquo;Sob consulta&rdquo;.</small>
+                <small class="ln-trab-erro" id="ln-trab-erro-preco" role="alert"></small>
+              </div>
+            </div>
+
+            <div class="ln-trab-campo">
+              <label for="ln-trab-descricao">Descrição</label>
+              <textarea id="ln-trab-descricao" rows="4" placeholder="Conte um pouco sobre a peça: material, tamanho, tempo de produção..."></textarea>
+            </div>
+
+            <p class="ln-trab-msg" id="ln-trab-msg" role="status" aria-live="polite" hidden></p>
+
+            <div class="ln-trab-acoes">
+              <button type="submit" class="ln-trab-btn ln-trab-btn--principal" id="ln-trab-btn-salvar">Adicionar trabalho</button>
+              <button type="button" class="ln-trab-btn ln-trab-btn--secundario" id="ln-trab-btn-cancelar" hidden>Cancelar edição</button>
+            </div>
+          </form>
+
+          <!-- LISTA -->
+          <section aria-labelledby="ln-trab-lista-titulo">
+            <h2 id="ln-trab-lista-titulo">Meus trabalhos publicados</h2>
+            <p class="ln-trab-vazio" id="ln-trab-vazio" hidden>Você ainda não publicou nenhum trabalho.</p>
+            <div class="ln-trab-grid" id="ln-trab-lista"></div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Atualizar preço -->
+      <dialog class="ln-trab-dialog" id="ln-trab-dlg-preco" aria-labelledby="ln-trab-dlg-preco-titulo">
+        <form method="dialog" id="ln-trab-form-preco" novalidate>
+          <h2 id="ln-trab-dlg-preco-titulo">Atualizar preço</h2>
+          <p id="ln-trab-dlg-preco-peca" class="ln-trab-dica"></p>
+          <div class="ln-trab-campo">
+            <label for="ln-trab-novo-preco">Novo preço (R$)</label>
+            <input type="text" id="ln-trab-novo-preco" inputmode="decimal" placeholder="Ex.: 135,00" aria-describedby="ln-trab-erro-novo-preco">
+            <small class="ln-trab-dica">Em branco = &ldquo;Sob consulta&rdquo;.</small>
+            <small class="ln-trab-erro" id="ln-trab-erro-novo-preco" role="alert"></small>
+          </div>
+          <div class="ln-trab-acoes">
+            <button type="submit" class="ln-trab-btn ln-trab-btn--principal" id="ln-trab-btn-salvar-preco">Salvar preço</button>
+            <button type="button" class="ln-trab-btn ln-trab-btn--secundario" data-fechar>Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+
+      <!-- Histórico de preços -->
+      <dialog class="ln-trab-dialog" id="ln-trab-dlg-historico" aria-labelledby="ln-trab-dlg-hist-titulo">
+        <h2 id="ln-trab-dlg-hist-titulo">Histórico de preços</h2>
+        <p id="ln-trab-dlg-hist-peca" class="ln-trab-dica"></p>
+        <p id="ln-trab-hist-vazio" class="ln-trab-vazio" hidden>Nenhuma mudança de preço registrada.</p>
+        <ul class="ln-trab-hist-lista" id="ln-trab-hist-lista"></ul>
+        <div class="ln-trab-acoes">
+          <button type="button" class="ln-trab-btn ln-trab-btn--secundario" data-fechar>Fechar</button>
+        </div>
+      </dialog>
+
+      <!-- Confirmar exclusão -->
+      <dialog class="ln-trab-dialog" id="ln-trab-dlg-excluir" aria-labelledby="ln-trab-dlg-excluir-titulo">
+        <h2 id="ln-trab-dlg-excluir-titulo">Excluir trabalho?</h2>
+        <p id="ln-trab-dlg-excluir-texto"></p>
+        <div class="ln-trab-acoes">
+          <button type="button" class="ln-trab-btn ln-trab-btn--perigo" id="ln-trab-btn-confirmar-excluir">Excluir</button>
+          <button type="button" class="ln-trab-btn ln-trab-btn--secundario" data-fechar>Cancelar</button>
+        </div>
+      </dialog>
+    </main>
+
+    <footer class="footer-container-grid-pai">
+        <div class="footer-grid-bloco1">
+          <h3>Associação Gaia</h3>
+          <p>Criatividade que conecta, artesanato que transforma</p>
+        </div>
+        <div class="footer-grid-bloco2">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="artesaos.html">Artesãos</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="sobre-nos.html">Sobre nós</a></li>
+
+                <li id="footer-painel-admin" hidden><a href="painel-administrativo.html">Painel Administrativo</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco3">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Cerâmica">Cerâmica</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Bordado">Bordado</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patchwork">Patchwork</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos que trabalham com Patch Aplique">Patch Aplique</a></li>
+                <li><a href="artesaos.html" aria-label="Ver artesãos de Artesanato Exclusivo">Artesanato Exclusivo</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid-bloco4">
+            <h4>Contato</h4>
+            <p>(11) 9999-9999</p>
+            <p>Diretoriagaia1@gmail.com</p>
+            <h4>Redes Sociais</h4>
+            <div>
+                <a href="https://www.facebook.com/AssociacaoGAIA1" target="_blank">
+                    <img src="../assets/icone-facebook-footer.svg" alt="icone-facebook-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+                <a href="https://www.instagram.com/associacaogaia/" target="_blank">
+                    <img src="../assets/icone-instagram-footer.svg" alt="icone-instagram-rodape"
+                        class="header-tamanho-imagens footer-rede-social" loading="lazy" width="400" height="300">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+</body>
+</html>

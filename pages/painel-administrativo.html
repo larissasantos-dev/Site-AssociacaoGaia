@@ -15,6 +15,8 @@
     <script src="../js/admin.js" defer></script>
     <script src="../js/eventos-admin.js" defer></script>
     <script src="../js/admin-solicitacoes.js" defer></script>
+    <script src="../js/admin-artesaos.js" defer></script>
+    <script src="../js/admin-newsletter.js" defer></script>
     <title>Painel Administrativo | Associação Gaia</title>
 </head>
 
@@ -221,6 +223,15 @@
                             >
                                 <i class="bi bi-calendar-event"></i>
                                 <span>Eventos</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="adm-nav-item"
+                                data-secao="artesaos"
+                            >
+                                <i class="bi bi-palette"></i>
+                                <span>Artesãos</span>
                             </button>
 
                             <button
@@ -613,7 +624,89 @@
                     </section>
 
 
-                    <!-- NEWSLETTER -->
+                    <!-- ARTESÃOS (Lana) -->
+
+                    <section
+                        id="adm-secao-artesaos"
+                        class="adm-secao"
+                        hidden
+                    >
+
+                        <div class="adm-section-header">
+                            <div>
+                                <span class="adm-eyebrow">Gerenciamento</span>
+
+                                <h2>Artesãos</h2>
+
+                                <p>
+                                    Acompanhe os artesãos cadastrados, quantos trabalhos cada
+                                    um publicou e ative ou inative a conta quando necessário.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="adm-filtros">
+                            <div class="adm-filtro">
+                                <label for="ln-adm-art-busca">Buscar artesão</label>
+                                <input type="search" id="ln-adm-art-busca" placeholder="Nome, cidade ou e-mail">
+                            </div>
+
+                            <span id="ln-adm-art-contador" class="adm-contador">0 artesãos</span>
+                        </div>
+
+                        <div class="adm-tabela-card">
+                            <div class="adm-tabela-wrap">
+                                <table class="adm-tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>Artesão</th>
+                                            <th>Cidade</th>
+                                            <th>E-mail</th>
+                                            <th>Trabalhos</th>
+                                            <th>Status</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ln-adm-art-corpo">
+                                        <!-- Inserido pelo JavaScript (admin-artesaos.js) -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="ln-adm-art-vazio" class="adm-tabela-vazia" hidden>
+                                <i class="bi bi-palette"></i>
+                                <h3>Nenhum artesão encontrado</h3>
+                                <p>Não há artesãos para a busca informada.</p>
+                            </div>
+                        </div>
+
+                        <div id="ln-adm-art-erro" class="adm-alert adm-alert--erro" role="alert" hidden></div>
+
+                        <!-- Trabalhos de um artesão (moderação) -->
+                        <dialog class="ln-adm-dialog" id="ln-adm-art-dialog" aria-labelledby="ln-adm-art-dialog-titulo">
+                            <h3 id="ln-adm-art-dialog-titulo">Trabalhos</h3>
+                            <p id="ln-adm-art-dialog-vazio" class="ln-adm-dica" hidden>Este artesão ainda não publicou trabalhos.</p>
+                            <ul class="ln-adm-trabalhos" id="ln-adm-art-trabalhos"></ul>
+                            <p class="adm-alert adm-alert--erro" id="ln-adm-art-dialog-erro" role="alert" hidden></p>
+                            <div class="ln-adm-dialog-acoes">
+                                <button type="button" class="ln-adm-btn" id="ln-adm-art-dialog-fechar">Fechar</button>
+                            </div>
+                        </dialog>
+
+                        <!-- Confirmação de ativar/inativar e de excluir trabalho -->
+                        <dialog class="ln-adm-dialog" id="ln-adm-art-confirmar" aria-labelledby="ln-adm-art-confirmar-titulo">
+                            <h3 id="ln-adm-art-confirmar-titulo">Confirmar</h3>
+                            <p id="ln-adm-art-confirmar-texto"></p>
+                            <div class="ln-adm-dialog-acoes">
+                                <button type="button" class="ln-adm-btn ln-adm-btn--perigo" id="ln-adm-art-confirmar-ok">Confirmar</button>
+                                <button type="button" class="ln-adm-btn" id="ln-adm-art-confirmar-cancelar">Cancelar</button>
+                            </div>
+                        </dialog>
+
+                    </section>
+
+
+                    <!-- NEWSLETTER (Lana) -->
 
                     <section
                         id="adm-secao-newsletter"
@@ -622,27 +715,63 @@
                     >
 
                         <div class="adm-section-header">
-                            <span class="adm-eyebrow">
-                                Comunicação
-                            </span>
+                            <div>
+                                <span class="adm-eyebrow">Comunicação</span>
 
-                            <h2>Newsletter</h2>
+                                <h2>Newsletter</h2>
+
+                                <p>
+                                    E-mails de quem se inscreveu pelo rodapé do site. Copie ou
+                                    exporte a lista de inscritos ativos para enviar as novidades.
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="adm-em-breve">
+                        <div class="adm-filtros">
+                            <span id="ln-adm-news-contador" class="adm-contador">0 inscritos ativos</span>
 
-                            <i class="bi bi-envelope"></i>
-
-                            <h3>
-                                Em breve
-                            </h3>
-
-                            <p>
-                                O gerenciamento da newsletter será
-                                implementado posteriormente.
-                            </p>
-
+                            <div class="ln-adm-acoes-lista">
+                                <button type="button" class="ln-adm-btn" id="ln-adm-news-copiar">Copiar e-mails</button>
+                                <button type="button" class="ln-adm-btn" id="ln-adm-news-exportar">Exportar CSV</button>
+                            </div>
                         </div>
+
+                        <p id="ln-adm-news-aviso" class="ln-adm-dica" role="status" aria-live="polite" hidden></p>
+
+                        <div class="adm-tabela-card">
+                            <div class="adm-tabela-wrap">
+                                <table class="adm-tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>E-mail</th>
+                                            <th>Situação</th>
+                                            <th>Inscrito em</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ln-adm-news-corpo">
+                                        <!-- Inserido pelo JavaScript (admin-newsletter.js) -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="ln-adm-news-vazio" class="adm-tabela-vazia" hidden>
+                                <i class="bi bi-envelope"></i>
+                                <h3>Nenhuma inscrição ainda</h3>
+                                <p>Quando alguém se inscrever pelo rodapé do site, aparecerá aqui.</p>
+                            </div>
+                        </div>
+
+                        <div id="ln-adm-news-erro" class="adm-alert adm-alert--erro" role="alert" hidden></div>
+
+                        <dialog class="ln-adm-dialog" id="ln-adm-news-confirmar" aria-labelledby="ln-adm-news-confirmar-titulo">
+                            <h3 id="ln-adm-news-confirmar-titulo">Remover inscrição?</h3>
+                            <p id="ln-adm-news-confirmar-texto"></p>
+                            <div class="ln-adm-dialog-acoes">
+                                <button type="button" class="ln-adm-btn ln-adm-btn--perigo" id="ln-adm-news-confirmar-ok">Remover</button>
+                                <button type="button" class="ln-adm-btn" id="ln-adm-news-confirmar-cancelar">Cancelar</button>
+                            </div>
+                        </dialog>
 
                     </section>
 
