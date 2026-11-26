@@ -584,6 +584,10 @@ criarCarrossel({
   // ── Pega o ?id= da URL
   const params = new URLSearchParams(window.location.search);
   const idParam = params.get('id');
+
+  // Artesão cadastrado pela API (id numérico): quem desenha a página é js/artesaos-api.js
+  if (/^\d+$/.test(idParam || '')) return;
+
   const artesao = artesaos.find(a => a.id === idParam) ?? artesaos[0]; // fallback pro primeiro
 
   // ── Helpers
